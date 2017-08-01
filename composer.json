@@ -1,0 +1,35 @@
+{
+	"name": "studio/laravel-totem",
+	"description": "A Laravel package to manage your cron jobs through a beautiful dashboard",
+	"keywords": [
+		"scheduler",
+		"manager",
+		"laravel",
+		"Code Studio"
+	],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Roshan Gautam",
+			"email": "roshan.gautam@hotmail.com"
+		}
+	],
+	"require": {
+        "php": ">=5.6.4"
+	},
+	"require-dev": {
+		"mockery/mockery": "~0.9",
+		"phpunit/phpunit": "~5.7"
+	},
+	"autoload": {
+		"psr-4": {
+			"Studio\\Totem\\": "src/"
+		}
+	},
+	"extra": {
+		"component": "package",
+		"branch-alias": {
+			"dev-master": "1.0.x-dev"
+		}
+	}
+}
