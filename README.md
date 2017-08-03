@@ -1,10 +1,12 @@
 # Laravel Totem
 
+This is a ***Work In Progress***
+
 A Laravel package to manage your cron jobs through a beautiful dashboard
 
 ## Documentation
 
-Work In Progress
+This is a ***Work In Progress***
 
 ## Changelog
 
