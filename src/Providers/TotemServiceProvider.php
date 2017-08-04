@@ -13,7 +13,7 @@ class TotemServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->registerResources();
     }
 
     /**
@@ -23,6 +23,38 @@ class TotemServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        if (! defined('TOTEM_PATH')) {
+            define('TOTEM_PATH', realpath(__DIR__.'/../../'));
+        }
+    }
+
+    /**
+     * Register the Totem resources.
+     *
+     * @return void
+     */
+    protected function registerResources()
+    {
+        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'totem');
+    }
+
+    /**
+     * Define the asset publishing configuration.
+     *
+     * @return void
+     */
+    public function defineAssetPublishing()
+    {
+        $this->publishes([
+            HORIZON_PATH.'/public/js' => public_path('vendor/horizon/js'),
+        ], 'horizon-assets');
+
+        $this->publishes([
+            HORIZON_PATH.'/public/css' => public_path('vendor/horizon/css'),
+        ], 'horizon-assets');
+
+        $this->publishes([
+            HORIZON_PATH.'/public/img' => public_path('vendor/horizon/img'),
+        ], 'horizon-assets');
     }
 }

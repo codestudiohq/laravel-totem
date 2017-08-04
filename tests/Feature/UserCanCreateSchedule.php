@@ -2,18 +2,23 @@
 
 namespace Studio\Totem\Tests\Feature;
 
-use Orchestra\Testbench\TestCase;
+use App\User;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function test_basic_test()
+    use DatabaseMigrations;
+
+    /** @test */
+    public function user_can_view_create_schedule_form()
     {
-        $response = $this->get('/');
+        $this->disableExceptionHandling();
+
+        $user = factory(User::class)->create();
+
+        $response = $this->actingAs($user)->get(route('totem.schedule.create'));
+
         $response->assertStatus(200);
     }
 }
