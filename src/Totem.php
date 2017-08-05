@@ -2,6 +2,8 @@
 
 namespace Studio\Totem;
 
+use Closure;
+
 class Totem
 {
     /**
@@ -20,7 +22,7 @@ class Totem
     public static function check($request)
     {
         return (static::$authUsing ?: function () {
-            return app()->environment('local');
+            return false;
         })($request);
     }
 

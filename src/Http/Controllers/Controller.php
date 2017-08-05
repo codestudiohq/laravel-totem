@@ -2,7 +2,7 @@
 
 namespace Studio\Totem\Http\Controllers;
 
-use Laravel\Horizon\Http\Middleware\Authenticate;
+use Studio\Totem\Http\Middleware\Authenticate;
 use Illuminate\Routing\Controller as BaseController;
 
 class Controller extends BaseController

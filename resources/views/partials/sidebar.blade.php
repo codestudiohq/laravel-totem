@@ -15,7 +15,7 @@
                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#zondicon-dashboard"></use>
                     </svg>
                 </i>
-                Dashboard
+                KPI
             </a>
         </li>
         <li class="nav-item {{ url()->current() == route('totem.tasks.all') ? 'nav-item-active' : '' }}">

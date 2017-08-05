@@ -1,11 +1,11 @@
 @extends('totem::layout')
 @section('page-title')
     @parent
-    - Dashboard
+    - KPI
 @stop
 @section('title')
     <div class="vab">
-        <span class="mr2">Dashboard</span>
+        <span class="mr2">Key Performance Indicators</span>
     </div>
 @stop
 @section('body')
