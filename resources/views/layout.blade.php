@@ -14,8 +14,16 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('/vendor/totem/css/app.css') }}">
     </head>
     <body>
-        @yield('body')
-        <div id="root"></div>
+        @include('totem::partials.header')
+        <main>
+            <div class="wrapper df">
+                @include('totem::partials.sidebar')
+                @section('body')
+                    <div id="root"></div>
+                @show
+            </div>
+        </main>
+        @include('totem::partials.footer')
         <div style="height: 0; width: 0; position: absolute; visibility: hidden;">
             {!! file_get_contents(public_path('/vendor/totem/img/sprite.svg')) !!}
         </div>

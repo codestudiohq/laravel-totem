@@ -8,9 +8,10 @@
 */
 
 Route::get('/', 'HomeController@index')->name('totem.dashboard');
-Route::get('{view}', 'HomeController@index')->where('view', '(.*)');
 
-Route::group(['prefix' => 'schedule'], function () {
-    Route::get('create', 'ScheduleController@create')->name('totem.schedule.create');
-    Route::post('create', 'ScheduleController@store')->name('totem.schedule.create');
+Route::group(['prefix' => 'tasks'], function () {
+    Route::get('/', 'TasksController@index')->name('totem.tasks.all');
+
+    Route::get('create', 'TasksController@create')->name('totem.task.create');
+    Route::post('create', 'TasksController@store')->name('totem.task.create');
 });

@@ -1,7 +1,5 @@
 import Vue from 'vue';
 import moment from 'moment';
-import router from './router/';
-import App from './components/App.vue';
 
 window.Bus = new Vue({name: 'Bus'});
 
@@ -26,18 +24,11 @@ Vue.mixin({
 new Vue({
     el: '#root',
 
-
-    router,
-
-
     /**
      * The component's data.
      */
     data(){
         return {
-            showModal: false
         }
-    },
-
-    render: h => h(App),
+    }
 });

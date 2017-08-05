@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/codestudiollc/laravel-totem/blob/master/resources/assets/img/totem.svg?raw=true" alt="Laravel Totem"/>
+</p>
+
 # Laravel Totem
 
 This is a ***Work In Progress***
