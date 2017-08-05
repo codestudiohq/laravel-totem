@@ -2,10 +2,10 @@
 
 namespace Studio\Totem\Http\Controllers;
 
-class HomeController extends Controller
+class DashboardController extends Controller
 {
     public function index()
     {
-        return view('totem::layout');
+        return view('totem::dashboard');
     }
 }

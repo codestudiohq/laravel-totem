@@ -1,4 +1,8 @@
 @extends("totem::layout")
+@section('page-title')
+    @parent
+    - Tasks
+@stop
 @section('title')
     <div class="vab">
         <span class="mr2">Tasks</span>

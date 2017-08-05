@@ -233,7 +233,7 @@ body {
   color: #BBB;
 }
 .wrapper {
-  width: 1170px;
+  width: 1224px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -245,6 +245,7 @@ body {
   -webkit-box-flex: 1;
   flex: 1;
   overflow: auto;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
 }
 .frame {
   margin-left: -2rem;
@@ -308,11 +309,11 @@ body {
 .btn-default {
   background-color: #FFF;
   border-color: #FFF;
-  color: #7746EC;
+  color: #ef3934;
 }
 .btn-primary {
-  background-color: #7746EC;
-  border-color: #7746EC;
+  background-color: #ef3934;
+  border-color: #ef3934;
   color: #FFF;
 }
 .btn-link {
@@ -332,10 +333,10 @@ body {
   margin-bottom: 2rem;
 }
 .nav-item-active a.nav-link {
-  color: #7746EC;
+  color: #ef3934;
 }
 .nav-item-active a.nav-link > i > svg {
-  fill: #7746EC;
+  fill: #ef3934;
 }
 .nav-link {
   display: block;
@@ -361,10 +362,10 @@ body {
   position: absolute;
 }
 .nav-link:hover {
-  color: #7746EC;
+  color: #ef3934;
 }
 .nav-link:hover > i > svg {
-  fill: #7746EC;
+  fill: #ef3934;
 }
 .modal {
   position: fixed;
@@ -403,9 +404,6 @@ body {
   align-items: flex-end;
   padding: 2rem;
 }
-.panel {
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);
-}
 .panel-heading {
   font-size: 2.2rem;
   align-content: center;
@@ -422,7 +420,7 @@ body {
 }
 .panel-default {
   background-color: #FFF;
-  border-radius: 4px;
+  border-radius: 2px;
   overflow: hidden;
 }
 .panel-content {
@@ -480,7 +478,7 @@ body {
   margin-left: -1px;
 }
 .pagination > li.active > a {
-  background-color: #7746EC;
+  background-color: #ef3934;
   color: #FFF;
 }
 .pagination > li > a {
@@ -534,7 +532,7 @@ body {
   padding: 5px;
 }
 .table > tbody > tr > td > a {
-  color: #7746EC;
+  color: #ef3934;
 }
 .table > tbody > tr > td > i {
   display: -webkit-inline-box;
@@ -629,8 +627,8 @@ body {
   border-bottom: 3px solid transparent;
 }
 .tab-link-active {
-  color: #7746EC;
-  border-bottom: 3px solid #7746EC;
+  color: #ef3934;
+  border-bottom: 3px solid #ef3934;
 }
 .xbrdr {
   border: none;
@@ -687,7 +685,7 @@ body {
   border-bottom-style: solid;
 }
 .border-color-primary {
-  border-color: #7746EC;
+  border-color: #ef3934;
 }
 .border-color-gray-1 {
   border-color: #D8D8D8;
@@ -714,7 +712,7 @@ body {
   background-color: #FFF;
 }
 .bg1 {
-  background-color: #7746EC;
+  background-color: #ef3934;
 }
 .bgsuccess {
   background-color: #779356;
@@ -756,7 +754,7 @@ body {
   background-color: #F8F8F8;
 }
 .tc1 {
-  color: #7746EC;
+  color: #ef3934;
 }
 .tcw {
   color: #FFF;
@@ -804,7 +802,7 @@ body {
   color: #424C55;
 }
 .bc1 {
-  border-color: #7746EC;
+  border-color: #ef3934;
 }
 .bctrans {
   border-color: transparent;
@@ -819,7 +817,7 @@ body {
   fill: currentColor;
 }
 .f1 {
-  fill: #7746EC;
+  fill: #ef3934;
 }
 .fsuccess {
   fill: #779356;

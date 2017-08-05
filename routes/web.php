@@ -7,7 +7,7 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name('totem.dashboard');
+Route::get('/', 'DashboardController@index')->name('totem.dashboard');
 
 Route::group(['prefix' => 'tasks'], function () {
     Route::get('/', 'TasksController@index')->name('totem.tasks.all');

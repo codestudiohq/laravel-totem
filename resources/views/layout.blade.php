@@ -8,18 +8,20 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Laravel Totem</title>
+        <title>
+            Totem
+            @yield('page-title')
+        </title>
 
         <!-- Horizon UI CSS -->
         <link rel="stylesheet" type="text/css" href="{{ asset('/vendor/totem/css/app.css') }}">
     </head>
     <body>
-        @include('totem::partials.header')
         <main>
-            <div class="wrapper df">
+            <div class="wrapper df pv3">
                 @include('totem::partials.sidebar')
                 <section class="main-content">
-                    <div class="panel panel-default mb3">
+                    <div class="panel panel-default pb3">
                         <div class="panel-heading">
                             @yield('title')
 
