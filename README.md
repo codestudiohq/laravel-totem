@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/codestudiollc/laravel-totem/blob/master/resources/assets/img/totem.svg?raw=true" alt="Laravel Totem"/>
+  <img src="https://github.com/codestudiollc/laravel-totem/blob/master/resources/assets/img/totem.png?raw=true" alt="Laravel Totem"/>
 </p>
 
 # Laravel Totem
