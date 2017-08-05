@@ -3,10 +3,10 @@
 namespace Studio\Totem\Tests\Feature;
 
 use App\User;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class ExampleTest extends TestCase
+class UserCanCreateTask extends TestCase
 {
     use DatabaseMigrations;
 
@@ -17,7 +17,7 @@ class ExampleTest extends TestCase
 
         $user = factory(User::class)->create();
 
-        $response = $this->actingAs($user)->get(route('totem.schedule.create'));
+        $response = $this->actingAs($user)->get(route('totem.task.create'));
 
         $response->assertStatus(200);
     }

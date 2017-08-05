@@ -18,9 +18,18 @@
         <main>
             <div class="wrapper df">
                 @include('totem::partials.sidebar')
-                @section('body')
-                    <div id="root"></div>
-                @show
+                <section class="main-content">
+                    <div class="panel panel-default mb3">
+                        <div class="panel-heading">
+                            @yield('title')
+
+                        </div>
+                        <div class="panel-content">
+                            <div id="root"></div>
+                            @yield('body')
+                        </div>
+                    </div>
+                </section>
             </div>
         </main>
         @include('totem::partials.footer')
