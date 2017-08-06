@@ -5,6 +5,7 @@ namespace Studio\Totem\Http\Controllers;
 use Studio\Totem\Console\Kernel;
 use Studio\Totem\Contracts\TaskInterface;
 use Studio\Totem\Http\Requests\CreateTaskRequest;
+use Studio\Totem\Task;
 
 class TasksController extends Controller
 {
@@ -12,6 +13,7 @@ class TasksController extends Controller
      * @var TaskInterface
      */
     private $tasks;
+
     /**
      * @var Kernel
      */
@@ -24,6 +26,8 @@ class TasksController extends Controller
      */
     public function __construct(TaskInterface $tasks, Kernel $kernel)
     {
+        parent::__construct();
+
         $this->tasks = $tasks;
 
         $this->kernel = $kernel;
@@ -36,21 +40,15 @@ class TasksController extends Controller
 
     public function create()
     {
-        $commands = collect($this->kernel->getCommands());
-
-        $commands = $commands->flatMap(function($command) {
-           $resolved = app($command);
-           return [$command => $resolved->getPrettyName() . " (" . $resolved->getDescription() . ")"];
-        })->toArray();
-
-        return view('totem::tasks.create',[
-            'commands' => $commands
+        return view('totem::tasks.create', [
+            'task'  => new Task,
+            'commands' => $this->kernel->getCommands(),
         ]);
     }
 
     public function store(CreateTaskRequest $request)
     {
-        $task = $this->tasks->store($request->all());
+        $this->tasks->store($request->all());
 
         return redirect()->route('totem.tasks.all')->with('success', trans('totem::message.success'));
     }

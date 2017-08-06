@@ -3,6 +3,8 @@
 namespace Studio\Totem\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Studio\Totem\Console\Commands\BackupCommand;
+use Studio\Totem\Console\Commands\CleanupCommand;
 use Studio\Totem\Contracts\TaskInterface;
 use Studio\Totem\Console\Commands\ListSchedule;
 use Studio\Totem\Repositories\EloquentTaskRepository;
@@ -30,7 +32,11 @@ class TotemServiceProvider extends ServiceProvider
             define('TOTEM_PATH', realpath(__DIR__.'/../../'));
         }
 
-//        $this->commands(ListSchedule::class);
+        $this->commands([
+            ListSchedule::class,
+            BackupCommand::class,
+            CleanupCommand::class
+        ]);
 
         $this->app->singleton(
             'Illuminate\Contracts\Console\Kernel',

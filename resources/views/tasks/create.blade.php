@@ -17,7 +17,7 @@
             <label for="description">Description</label>
         </p>
         <div class="blk8">
-            {!! Form::text('description', 'Description', ['class' => 'form-control']) !!}
+            {!! Form::text('description', old('description', $task->description), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="frame mb2">

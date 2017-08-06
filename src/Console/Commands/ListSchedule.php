@@ -2,6 +2,7 @@
 
 namespace Studio\Totem\Console\Commands;
 
+use Illuminate\Console\Command;
 use Illuminate\Console\Scheduling\Schedule;
 
 class ListSchedule extends Command

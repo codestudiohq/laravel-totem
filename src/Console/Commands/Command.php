@@ -7,17 +7,25 @@ class Command extends \Illuminate\Console\Command
     /**
      * @return string
      */
-    public function getPrettyName(): string
+    public function getName(): string
     {
-        return ucwords(implode(" ", explode(":", $this->name)));
+        return $this->name;
     }
 
     /**
      * @return string
      */
-    public function getName(): string
+    public function getPrettyName(): string
     {
-        return $this->name;
+        return ucwords(implode(' ', explode(':', $this->name)));
+    }
+
+    /**
+     * @return string
+     */
+    public function getVerboseName(): string
+    {
+        return $this->getPrettyName().' ('.$this->getDescription().')';
     }
 
     /**

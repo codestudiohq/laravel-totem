@@ -2,10 +2,7 @@
 
 namespace Studio\Totem\Tests\Feature;
 
-use App\User;
-use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
-use Studio\Totem\Totem;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class CreateTaskTest extends TestCase
@@ -15,11 +12,9 @@ class CreateTaskTest extends TestCase
     /** @test */
     public function user_can_view_create_task_form()
     {
-        $this->disableExceptionHandling();
+        $this->disableExceptionHandling()->signIn();
 
-        $user = factory(User::class)->create();
-
-        $response = $this->actingAs($user)->get(route('totem.task.create'));
+        $response = $this->get(route('totem.task.create'));
 
         $response->assertStatus(200);
     }
@@ -35,18 +30,17 @@ class CreateTaskTest extends TestCase
     /** @test */
     public function user_can_create_task()
     {
-        $this->disableExceptionHandling();
+        $this->disableExceptionHandling()->signIn();
 
-        $user = factory(User::class)->create();
-
-        $response = $this->actingAs($user)->post(route('totem.task.create'),[
+        $response = $this->post(route('totem.task.create'), [
             'description'   => 'List All Scheduled Commands',
-            'command'   =>  'Studio\Totem\Console\Commands\ListSchedule',
-            'frequencies'   =>  [
+            'command'       => 'Studio\Totem\Console\Commands\ListSchedule',
+            'is_active'     => true,
+            'frequencies'   => [
                 'task_frequency' => [
-                    'frequency' => 'hourly'
-                ]
-            ]
+                    'frequency' => 'hourly',
+                ],
+            ],
         ]);
 
         $response->assertRedirect(route('totem.tasks.all'));
