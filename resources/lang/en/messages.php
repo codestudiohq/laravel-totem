@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'success'   => 'Task Created Successfully'
+    'success'   => 'Task Created Successfully',
 ];

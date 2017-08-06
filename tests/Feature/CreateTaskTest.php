@@ -6,7 +6,6 @@ use Studio\Totem\Tests\TestCase;
 
 class CreateTaskTest extends TestCase
 {
-
     /** @test */
     public function user_can_view_create_task_form()
     {

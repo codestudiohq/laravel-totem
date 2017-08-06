@@ -31,4 +31,3 @@ $factory->define(Studio\Totem\Task::class, function (Faker\Generator $faker) {
         'command'   => 'Studio\Totem\Console\Commands\ListSchedule',
     ];
 });
-
