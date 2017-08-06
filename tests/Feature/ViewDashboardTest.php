@@ -2,7 +2,7 @@
 
 namespace Studio\Totem\Tests\Feature;
 
-use Tests\TestCase;
+use Studio\Totem\Tests\TestCase;
 
 class ViewDashboardTest extends TestCase
 {

@@ -2,11 +2,10 @@
 
 namespace Studio\Totem\Console;
 
-use App\Console\Kernel as ConsoleKernel;
-use Illuminate\Console\Scheduling\Schedule;
 use Studio\Totem\Console\Commands\Command;
+use Illuminate\Console\Scheduling\Schedule;
 
-class Kernel extends ConsoleKernel
+class Kernel extends \Illuminate\Foundation\Console\Kernel
 {
     /**
      * Define the application's command schedule.
@@ -24,7 +23,7 @@ class Kernel extends ConsoleKernel
      */
     public function getCommands(): array
     {
-        return collect($this->all())->reject(function($command) {
+        return collect($this->all())->reject(function ($command) {
             return ! $command instanceof Command;
         })->flatMap(function ($command) {
             return [get_class($command) => $command->getVerboseName()];

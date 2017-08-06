@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="false"
 		 backupStaticAttributes="false"
-		 bootstrap="../../../bootstrap/autoload.php"
+		 bootstrap="vendor/autoload.php"
 		 colors="true"
 		 convertErrorsToExceptions="true"
 		 convertNoticesToExceptions="true"
@@ -12,7 +12,7 @@
 >
 	<testsuites>
 		<testsuite name="Laravel Totem Test Suite">
-			<directory suffix=".php">./tests/</directory>
+			<directory suffix="Test.php">./tests/</directory>
 		</testsuite>
 	</testsuites>
 	<filter>
@@ -30,5 +30,6 @@
 		<env name="QUEUE_DRIVER" value="sync"/>
 		<env name="DB_CONNECTION" value="sqlite"></env>
 		<env name="DB_DATABASE" value=":memory:"></env>
+		<env name="APP_KEY" value="AckfSECXIvnK5r28GVIWUAxmbBSjTsmF"/>
 	</php>
 </phpunit>

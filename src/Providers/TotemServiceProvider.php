@@ -3,6 +3,7 @@
 namespace Studio\Totem\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Studio\Totem\Console\Commands\AssetsCommand;
 use Studio\Totem\Console\Commands\BackupCommand;
 use Studio\Totem\Console\Commands\CleanupCommand;
 use Studio\Totem\Contracts\TaskInterface;
@@ -19,6 +20,7 @@ class TotemServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerResources();
+        $this->defineAssetPublishing();
     }
 
     /**
@@ -35,7 +37,8 @@ class TotemServiceProvider extends ServiceProvider
         $this->commands([
             ListSchedule::class,
             BackupCommand::class,
-            CleanupCommand::class
+            AssetsCommand::class,
+            CleanupCommand::class,
         ]);
 
         $this->app->singleton(

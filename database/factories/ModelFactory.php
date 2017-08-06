@@ -12,13 +12,23 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(Studio\Totem\User::class, function (Faker\Generator $faker) {
+    static $password;
+
+    return [
+        'name' => $faker->name,
+        'email' => $faker->unique()->safeEmail,
+        'password' => $password ?: $password = bcrypt('secret'),
+        'remember_token' => str_random(10),
+    ];
+});
+
 $factory->define(Studio\Totem\Task::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
         'description' => $faker->sentence,
         'command'   => 'Studio\Totem\Console\Commands\ListSchedule',
-        'password' => $password ?: $password = bcrypt('secret'),
-        'remember_token' => str_random(10),
     ];
 });
+
