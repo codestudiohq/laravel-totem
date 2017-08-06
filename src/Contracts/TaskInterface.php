@@ -5,7 +5,7 @@ namespace Studio\Totem\Contracts;
 interface TaskInterface
 {
     /**
-     * Returns Eloquent Builder
+     * Returns Eloquent Builder.
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
@@ -20,7 +20,7 @@ interface TaskInterface
     public function find($id);
 
     /**
-     * Checks if the given task is active or not
+     * Checks if the given task is active or not.
      *
      * @param  int|Task  $id
      * @return bool
