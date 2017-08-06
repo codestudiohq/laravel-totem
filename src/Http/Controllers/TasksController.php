@@ -2,10 +2,10 @@
 
 namespace Studio\Totem\Http\Controllers;
 
+use Studio\Totem\Task;
 use Studio\Totem\Console\Kernel;
 use Studio\Totem\Contracts\TaskInterface;
 use Studio\Totem\Http\Requests\CreateTaskRequest;
-use Studio\Totem\Task;
 
 class TasksController extends Controller
 {
