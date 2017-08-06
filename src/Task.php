@@ -14,7 +14,7 @@ class Task extends Model
         'is_active',
         'dont_overlap',
         'run_in_maintenance',
-        'notification_email_address'
+        'notification_email_address',
     ];
 
     public function frequencies()
