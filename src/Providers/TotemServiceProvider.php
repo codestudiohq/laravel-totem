@@ -3,6 +3,9 @@
 namespace Studio\Totem\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Studio\Totem\Contracts\TaskInterface;
+use Studio\Totem\Console\Commands\ListSchedule;
+use Studio\Totem\Repositories\EloquentTaskRepository;
 
 class TotemServiceProvider extends ServiceProvider
 {
@@ -26,6 +29,16 @@ class TotemServiceProvider extends ServiceProvider
         if (! defined('TOTEM_PATH')) {
             define('TOTEM_PATH', realpath(__DIR__.'/../../'));
         }
+
+//        $this->commands(ListSchedule::class);
+
+        $this->app->singleton(
+            'Illuminate\Contracts\Console\Kernel',
+            'Studio\Totem\Console\Kernel'
+        );
+
+        $this->app->bindIf('totem.tasks', EloquentTaskRepository::class, true);
+        $this->app->alias('totem.tasks', TaskInterface::class);
     }
 
     /**
@@ -36,6 +49,7 @@ class TotemServiceProvider extends ServiceProvider
     protected function registerResources()
     {
         $this->loadViewsFrom(__DIR__.'/../../resources/views', 'totem');
+        $this->loadMigrationsFrom(__DIR__.'/../../database/migrations', 'totem');
     }
 
     /**
@@ -46,15 +60,15 @@ class TotemServiceProvider extends ServiceProvider
     public function defineAssetPublishing()
     {
         $this->publishes([
-            HORIZON_PATH.'/public/js' => public_path('vendor/horizon/js'),
-        ], 'horizon-assets');
+            TOTEM_PATH.'/public/js' => public_path('vendor/totem/js'),
+        ], 'totem-assets');
 
         $this->publishes([
-            HORIZON_PATH.'/public/css' => public_path('vendor/horizon/css'),
-        ], 'horizon-assets');
+            TOTEM_PATH.'/public/css' => public_path('vendor/totem/css'),
+        ], 'totem-assets');
 
         $this->publishes([
-            HORIZON_PATH.'/public/img' => public_path('vendor/horizon/img'),
-        ], 'horizon-assets');
+            TOTEM_PATH.'/public/img' => public_path('vendor/totem/img'),
+        ], 'totem-assets');
     }
 }

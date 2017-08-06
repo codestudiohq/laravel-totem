@@ -11,7 +11,7 @@
         <div class="dib search">
             <input type="text" class="search-input" placeholder="Search Tasks">
         </div>
-        <button class="btn btn-primary btn-md">New Task</button>
+        <a class="btn btn-primary btn-md pv1 ft13" href="{{route('totem.task.create')}}">New Task</a>
     </div>
 @stop
 @section('body')
