@@ -40,7 +40,7 @@ class TasksController extends Controller
 
     public function create()
     {
-        return view('totem::tasks.create', [
+        return view('totem::tasks.form', [
             'task'  => new Task,
             'commands' => $this->kernel->getCommands(),
         ]);
@@ -49,6 +49,21 @@ class TasksController extends Controller
     public function store(CreateTaskRequest $request)
     {
         $this->tasks->store($request->all());
+
+        return redirect()->route('totem.tasks.all')->with('success', trans('totem::message.success'));
+    }
+
+    public function edit($task)
+    {
+        return view('totem::tasks.form', [
+            'task'  => $task,
+            'commands' => $this->kernel->getCommands(),
+        ]);
+    }
+
+    public function update(CreateTaskRequest $request)
+    {
+        $this->tasks->update($request->all());
 
         return redirect()->route('totem.tasks.all')->with('success', trans('totem::message.success'));
     }

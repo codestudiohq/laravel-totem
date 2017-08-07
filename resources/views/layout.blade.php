@@ -15,19 +15,18 @@
 
         <!-- Horizon UI CSS -->
         <link rel="stylesheet" type="text/css" href="{{ asset('/vendor/totem/css/app.css') }}">
+        @yield('style')
     </head>
     <body>
-        <main>
+        <main id="root">
             <div class="wrapper df pv3">
                 @include('totem::partials.sidebar')
                 <section class="main-content">
                     <div class="panel panel-default pb3">
                         <div class="panel-heading">
                             @yield('title')
-
                         </div>
                         <div class="panel-content">
-                            <div id="root"></div>
                             @yield('body')
                         </div>
                     </div>
@@ -39,5 +38,6 @@
             {!! file_get_contents(public_path('/vendor/totem/img/sprite.svg')) !!}
         </div>
         <script src="{{ asset('/vendor/totem/js/app.js') }}"></script>
+        @yield('scripts')
     </body>
 </html>

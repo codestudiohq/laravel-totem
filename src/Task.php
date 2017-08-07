@@ -17,6 +17,15 @@ class Task extends Model
         'notification_email_address',
     ];
 
+    protected $appends = [
+        'activated'
+    ];
+
+    public function getActivatedAttribute()
+    {
+        return $this->is_active;
+    }
+
     public function frequencies()
     {
         return $this->hasMany(Frequency::class, 'task_id', 'id');

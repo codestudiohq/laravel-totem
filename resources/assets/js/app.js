@@ -1,7 +1,22 @@
+import './bootstrap';
 import Vue from 'vue';
 import moment from 'moment';
 
-window.Bus = new Vue({name: 'Bus'});
+Promise.delay = function (time) {
+    return new Promise((resolve, reject) => {
+        setTimeout(resolve, time)
+    })
+}
+
+Promise.prototype.takeAtLeast = function (time) {
+    return new Promise((resolve, reject) => {
+        Promise.all([this, Promise.delay(time)]).then(([result]) => {
+            resolve(result)
+        }, reject)
+    })
+}
+
+Vue.component('status-button', require('./tasks/components/StatusButton.vue'));
 
 Vue.mixin({
     methods: {
@@ -22,13 +37,5 @@ Vue.mixin({
 });
 
 new Vue({
-    el: '#root',
-
-    /**
-     * The component's data.
-     */
-    data(){
-        return {
-        }
-    }
+    el: '#root'
 });

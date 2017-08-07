@@ -316,6 +316,16 @@ body {
   border-color: #ef3934;
   color: #FFF;
 }
+.btn-secondary {
+  background-color: #779356;
+  border-color: transparent;
+  color: #FFF;
+}
+.btn-danger {
+  background-color: red;
+  border-color: #ef3934;
+  color: #FFF;
+}
 .btn-link {
   background-color: transparent;
   border-color: transparent;
@@ -327,6 +337,72 @@ body {
   border-radius: 3px;
   padding-left: 2rem !important;
   padding-right: 2rem  !important;
+}
+.btn-loading {
+  position: relative;
+}
+.btn-loading,
+.btn-loading * {
+  color: transparent;
+}
+.btn-loading:after {
+  position: absolute!important;
+  display: block;
+  height: 2rem;
+  width: 2rem;
+  top: 50%;
+  left: 50%;
+  margin-left: -1rem;
+  margin-top: -1rem;
+  border-width: 2px;
+  border-style: solid;
+  border: 2px solid #394046;
+  border-radius: 1rem;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  -webkit-animation: spin-around 0.5s infinite linear;
+  animation: spin-around 0.5s infinite linear;
+  content: "";
+}
+.btn-primary.btn-loading:after {
+  border-left-color: rgba(255, 255, 255, 0.7);
+  border-bottom-color: rgba(255, 255, 255, 0.7);
+}
+.btn-primary.btn-loading:disabled {
+  color: #fff;
+  background-color: #9b68de;
+  border-color: #9b68de;
+  opacity: 0.5;
+}
+.btn-danger.btn-loading:after {
+  border-left-color: rgba(255, 255, 255, 0.7);
+  border-bottom-color: rgba(255, 255, 255, 0.7);
+}
+.btn-danger.btn-loading:disabled {
+  color: #fff;
+  background-color: #e23c36;
+  border-color: #e23c36;
+  opacity: 0.5;
+}
+@-webkit-keyframes spin-around {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@keyframes spin-around {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
 }
 .nav-item {
   font-size: 1.5rem;
@@ -764,6 +840,9 @@ body {
 }
 .tcdanger {
   color: red;
+}
+.tctrans {
+  color: transparent;
 }
 .tcg1 {
   color: #D8D8D8;

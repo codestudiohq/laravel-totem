@@ -14,4 +14,11 @@ Route::group(['prefix' => 'tasks'], function () {
 
     Route::get('create', 'TasksController@create')->name('totem.task.create');
     Route::post('create', 'TasksController@store');
+
+    Route::post('status', 'ActiveTasksController@store')->name('totem.task.activate');
+    Route::delete('status/{id}', 'ActiveTasksController@destroy')->name('totem.task.deactivate');
+
+    Route::get('{task}', 'TasksController@edit')->name('totem.task.update');
+    Route::post('{task}', 'TasksController@update');
+
 });

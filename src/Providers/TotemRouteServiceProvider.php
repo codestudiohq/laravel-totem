@@ -2,6 +2,7 @@
 
 namespace Studio\Totem\Providers;
 
+use Studio\Totem\Task;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
 
@@ -24,6 +25,7 @@ class TotemRouteServiceProvider extends RouteServiceProvider
     public function boot()
     {
         parent::boot();
+        Route::model('task', Task::class);
     }
 
     /**
@@ -65,8 +67,8 @@ class TotemRouteServiceProvider extends RouteServiceProvider
     protected function mapApiRoutes()
     {
         Route::prefix('api')
-             ->middleware('api')
-             ->namespace($this->namespace)
+            ->middleware('api')
+            ->namespace($this->namespace)
             ->group(__DIR__.'/../../routes/api.php');
     }
 }

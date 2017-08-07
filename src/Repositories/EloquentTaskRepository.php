@@ -5,6 +5,7 @@ namespace Studio\Totem\Repositories;
 use Studio\Totem\Task;
 use Studio\Totem\Events\Created;
 use Studio\Totem\Events\Creating;
+use Illuminate\Support\Facades\Cache;
 use Studio\Totem\Contracts\TaskInterface;
 
 class EloquentTaskRepository implements TaskInterface
@@ -89,5 +90,23 @@ class EloquentTaskRepository implements TaskInterface
         }
 
         return false;
+    }
+
+    public function activate($input)
+    {
+        $task = $this->find($input['task_id']);
+
+        $task->fill(['is_active' => true])->save();
+
+        return $task;
+    }
+
+    public function deactivate($id)
+    {
+        $task = $this->find($id);
+
+        $task->fill(['is_active' => false])->save();
+
+        return $task;
     }
 }
