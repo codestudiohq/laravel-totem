@@ -8,16 +8,16 @@
 
     </div>
     <ul class="nav">
-        <li class="nav-item {{ url()->current() == route('totem.dashboard') ? 'nav-item-active' : '' }}">
-            <a class="nav-link" href="{{route('totem.dashboard')}}">
-                <i>
-                    <svg>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#zondicon-dashboard"></use>
-                    </svg>
-                </i>
-                KPI
-            </a>
-        </li>
+        {{--<li class="nav-item {{ url()->current() == route('totem.dashboard') ? 'nav-item-active' : '' }}">--}}
+            {{--<a class="nav-link" href="{{route('totem.dashboard')}}">--}}
+                {{--<i>--}}
+                    {{--<svg>--}}
+                        {{--<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#zondicon-dashboard"></use>--}}
+                    {{--</svg>--}}
+                {{--</i>--}}
+                {{--KPI--}}
+            {{--</a>--}}
+        {{--</li>--}}
         <li class="nav-item {{ url()->current() == route('totem.tasks.all') ? 'nav-item-active' : '' }}">
             <a class="nav-link" href="{{route('totem.tasks.all')}}">
                 <i>

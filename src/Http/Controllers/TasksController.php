@@ -6,6 +6,7 @@ use Studio\Totem\Task;
 use Studio\Totem\Console\Kernel;
 use Studio\Totem\Contracts\TaskInterface;
 use Studio\Totem\Http\Requests\CreateTaskRequest;
+use Studio\Totem\Http\Requests\UpdateTaskRequest;
 
 class TasksController extends Controller
 {
@@ -35,13 +36,15 @@ class TasksController extends Controller
 
     public function index()
     {
-        return view('totem::tasks.index');
+        return view('totem::tasks.index', [
+            'tasks' => $this->tasks->builder()->paginate(10),
+        ]);
     }
 
     public function create()
     {
         return view('totem::tasks.form', [
-            'task'  => new Task,
+            'task'     => new Task,
             'commands' => $this->kernel->getCommands(),
         ]);
     }
@@ -50,21 +53,30 @@ class TasksController extends Controller
     {
         $this->tasks->store($request->all());
 
-        return redirect()->route('totem.tasks.all')->with('success', trans('totem::message.success'));
+        return redirect()->route('totem.tasks.all')->with('success', trans('totem::messages.success.create'));
+    }
+
+    public function show($task)
+    {
+        return view('totem::tasks.view', [
+            'task'  => $task,
+        ]);
     }
 
     public function edit($task)
     {
         return view('totem::tasks.form', [
-            'task'  => $task,
+            'task'     => $task,
             'commands' => $this->kernel->getCommands(),
         ]);
     }
 
-    public function update(CreateTaskRequest $request)
+    public function update(UpdateTaskRequest $request, $task)
     {
-        $this->tasks->update($request->all());
+        $task = $this->tasks->update($request->all(), $task);
 
-        return redirect()->route('totem.tasks.all')->with('success', trans('totem::message.success'));
+        return redirect()->route('totem.task.view', $task)
+            ->with('task', $task)
+            ->with('success', trans('totem::messages.success.update'));
     }
 }

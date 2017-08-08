@@ -4,7 +4,11 @@ namespace Studio\Totem\Repositories;
 
 use Studio\Totem\Task;
 use Studio\Totem\Events\Created;
+use Studio\Totem\Events\Updated;
 use Studio\Totem\Events\Creating;
+use Studio\Totem\Events\Updating;
+use Studio\Totem\Events\Activated;
+use Studio\Totem\Events\Deactivated;
 use Illuminate\Support\Facades\Cache;
 use Studio\Totem\Contracts\TaskInterface;
 
@@ -21,7 +25,7 @@ class EloquentTaskRepository implements TaskInterface
             return $id;
         }
 
-        return Cache::tags(['totem:task'])->rememberForever($id, function () use ($id) {
+        return Cache::rememberForever('totem.task.'.$id, function () use ($id) {
             return Task::find($id);
         });
     }
@@ -35,23 +39,20 @@ class EloquentTaskRepository implements TaskInterface
 
     public function findAll()
     {
-        return Cache::tags(['totem:tasks'])->rememberForever('all', function () {
+        return Cache::rememberForever('totem.tasks.all', function () {
             return Task::all();
         });
     }
 
     public function findAllActive()
     {
-        return Cache::tags(['totem:tasks'])->rememberForever('active', function () {
+        return Cache::rememberForever('totem.tasks.active', function () {
             return $this->findAll()->filter(function ($task) {
                 return $task->is_active;
             });
         });
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function store(array $input)
     {
         $task = new Task;
@@ -60,11 +61,7 @@ class EloquentTaskRepository implements TaskInterface
             return false;
         }
 
-        $task->fill(array_except($input, ['frquencies']))->save();
-
-        $frequencies = array_get($input, 'frequencies', []);
-
-        $task->frequencies()->createMany($frequencies);
+        $task->fill(array_only($input, $task->getFillable()))->save();
 
         Created::dispatch($task);
 
@@ -73,6 +70,17 @@ class EloquentTaskRepository implements TaskInterface
 
     public function update(array $input, $task)
     {
+        $task = $this->find($task);
+
+        if (Updating::dispatch($input, $task) === false) {
+            return false;
+        }
+
+        $task->fill(array_only($input, $task->getFillable()))->save();
+
+        Updated::dispatch($task);
+
+        return $task;
     }
 
     public function destroy($id)
@@ -98,6 +106,8 @@ class EloquentTaskRepository implements TaskInterface
 
         $task->fill(['is_active' => true])->save();
 
+        Activated::dispatch($task);
+
         return $task;
     }
 
@@ -106,6 +116,8 @@ class EloquentTaskRepository implements TaskInterface
         $task = $this->find($id);
 
         $task->fill(['is_active' => false])->save();
+
+        Deactivated::dispatch($task);
 
         return $task;
     }

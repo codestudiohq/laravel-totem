@@ -4,6 +4,7 @@ namespace Studio\Totem\Console;
 
 use Studio\Totem\Console\Commands\Command;
 use Illuminate\Console\Scheduling\Schedule;
+use Studio\Totem\Task;
 
 class Kernel extends \Illuminate\Foundation\Console\Kernel
 {
@@ -15,6 +16,7 @@ class Kernel extends \Illuminate\Foundation\Console\Kernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $this->prepareSchedule($schedule);
         parent::schedule($schedule);
     }
 
@@ -30,11 +32,13 @@ class Kernel extends \Illuminate\Foundation\Console\Kernel
         })->toArray();
     }
 
-    /**
-     * @param array $commands
-     */
-    public function setCommands(array $commands)
+    public function prepareSchedule($schedule)
     {
-        $this->commands = $commands;
+        $tasks = $this->app['totem.tasks']->findAllActive();
+
+        $tasks->each(function($task) use ($schedule) {
+            $command = app($task->command);
+            $schedule->command($command->getName())->cron($task->cron);
+        });
     }
 }

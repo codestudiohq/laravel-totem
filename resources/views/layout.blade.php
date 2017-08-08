@@ -22,14 +22,16 @@
             <div class="wrapper df pv3">
                 @include('totem::partials.sidebar')
                 <section class="main-content">
-                    <div class="panel panel-default pb3">
+                    <div class="panel panel-default mb3">
                         <div class="panel-heading">
                             @yield('title')
                         </div>
                         <div class="panel-content">
-                            @yield('body')
+                            @yield('main-panel-content')
+                            @include('totem::partials.alerts')
                         </div>
                     </div>
+                    @yield('additional-panels')
                 </section>
             </div>
         </main>

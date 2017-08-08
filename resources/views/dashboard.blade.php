@@ -8,7 +8,7 @@
         <span class="mr2">Key Performance Indicators</span>
     </div>
 @stop
-@section('body')
+@section('main-panel-content')
     <div class="stats">
         <div class="stat">
             <h2 class="stat-title">Number of Tasks</h2>

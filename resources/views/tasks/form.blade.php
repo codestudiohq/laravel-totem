@@ -7,9 +7,8 @@
     <div class="vab">
         <span class="mr2">{{ $task->exists ? 'Update' : 'Create'}} Task</span>
     </div>
-    <status-button :data-task="{{ $task }}" :data-exists="{{ $task->exists ? 1 : 0 }}" class="mr-2"></status-button>
 @stop
-@section('body')
+@section('main-panel-content')
 <form action="{{ request()->fullUrl() }}" method="POST" class="pa2">
     {{csrf_field()}}
     <div class="frame mb2">
@@ -25,22 +24,24 @@
             <label for="command">Command</label>
         </p>
         <div class="blk6">
-          {!! Form::select('command', $commands , null , ['class' => 'form-control', 'placeholder' => 'Click here to select one of the available commands']) !!}
+            {!! Form::select('command', $commands , old('command', $task->command) , ['class' => 'form-control', 'placeholder' => 'Click here to select one of the available commands']) !!}
+            @if($errors->has('command'))
+                <p class="tcdanger ft14">{{$errors->first('command')}}</p>
+            @endif
         </div>
+
     </div>
     <div class="frame mb2">
-        <p class="blk2 ft15 lh2 basic-text tar">
-
-        </p>
+        <p class="blk2 ft15 lh2 basic-text tar"></p>
         <div class="blk6">
             <label class="ft15">
-            	{!! Form::radio('type', 'cron', old('type', 'cron'),  ['id' => 'type']) !!}
+            	{!! Form::radio('type', 'cron', old('type', $task->cron ? true : false ),  ['id' => 'type']) !!}
             	Cron
             </label>
-            <label class="ft15">
-            	{!! Form::radio('type', 'frequency', old('type', 'cron'),  ['id' => 'type']) !!}
-            	Frequency
-            </label>
+            {{--<label class="ft15">--}}
+            	{{--{!! Form::radio('type', 'frequency', old('type', $task->cron ? false : true),  ['id' => 'type']) !!}--}}
+            	{{--Frequency--}}
+            {{--</label>--}}
         </div>
     </div>
     <div class="frame mb2">
@@ -49,19 +50,9 @@
         </p>
         <div class="blk6">
             {!! Form::text('cron', old('cron', $task->cron), ['class' => 'form-control', 'placeholder' => 'e.g * * * * * to run this task all the time']) !!}
-        </div>
-    </div>
-    <div class="frame mb2">
-        <p class="blk2 ft15 lh2 basic-text tar"></p>
-        <div class="blk6">
-            <label class="pl2 ft15">
-            	{!! Form::checkbox('dont_overlap', '1', old('dont_overlap', $task->dont_overlap),  ['id' => 'dont_overlap']) !!}
-            	Do not Overlap
-            </label>
-            <label class="pl2 ft15">
-            	{!! Form::checkbox('run_in_maintenance', '1', old('run_in_maintenance', $task->run_in_maintenance), ['id' => 'run_in_maintenance']) !!}
-            	Run in Maintenance Mode
-            </label>
+            @if($errors->has('cron'))
+                <p class="tcdanger ft14">{{$errors->first('cron')}}</p>
+            @endif
         </div>
     </div>
     <div class="frame mb2">
@@ -70,6 +61,12 @@
         </p>
         <div class="blk6">
             {!! Form::email('notification_email_address', old('notification_email_address', $task->notification_email_address), ['class' => 'form-control', 'placeholder' => 'Leave empty if you do not wish to receive email notifications']) !!}
+        </div>
+    </div>
+    <div class="frame mb2">
+        <div class="blk2"></div>
+        <div class="blk6">
+            <button class="btn btn-md btn-primary" type="submit">Save</button>
         </div>
     </div>
 </form>

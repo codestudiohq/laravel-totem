@@ -5,7 +5,7 @@ namespace Studio\Totem\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 
-class CreateTaskRequest extends FormRequest
+class UpdateTaskRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -39,15 +39,7 @@ class CreateTaskRequest extends FormRequest
     {
         return [
             'command.required'          => 'Please select a command',
-            'cron.required.if'          => 'Cron Expression is required if task type is cron',
+            'cron.required_if'          => 'Cron Expression is required if task type is Cron',
         ];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function formatErrors(Validator $validator)
-    {
-        return $validator->errors()->all();
     }
 }

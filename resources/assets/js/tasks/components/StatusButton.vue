@@ -59,8 +59,6 @@ export default {
         },
     },
     mounted() {
-        console.log(this.exists);
-        console.log(this.task.activated);
     }
 }
 </script>

@@ -1,6 +1,7 @@
 import './bootstrap';
 import Vue from 'vue';
 import moment from 'moment';
+import StatusButton from './tasks/components/StatusButton.vue';
 
 Promise.delay = function (time) {
     return new Promise((resolve, reject) => {
@@ -15,8 +16,6 @@ Promise.prototype.takeAtLeast = function (time) {
         }, reject)
     })
 }
-
-Vue.component('status-button', require('./tasks/components/StatusButton.vue'));
 
 Vue.mixin({
     methods: {
@@ -35,6 +34,8 @@ Vue.mixin({
         }
     }
 });
+
+Vue.component('status-button', StatusButton);
 
 new Vue({
     el: '#root'

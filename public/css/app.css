@@ -245,7 +245,6 @@ body {
   -webkit-box-flex: 1;
   flex: 1;
   overflow: auto;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
 }
 .frame {
   margin-left: -2rem;
@@ -338,6 +337,11 @@ body {
   padding-left: 2rem !important;
   padding-right: 2rem  !important;
 }
+a.btn {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 34px;
+}
 .btn-loading {
   position: relative;
 }
@@ -360,8 +364,8 @@ body {
   border-radius: 1rem;
   border-right-color: transparent;
   border-top-color: transparent;
-  -webkit-animation: spin-around 0.5s infinite linear;
-  animation: spin-around 0.5s infinite linear;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
   content: "";
 }
 .btn-primary.btn-loading:after {
@@ -480,6 +484,9 @@ body {
   align-items: flex-end;
   padding: 2rem;
 }
+.panel {
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
 .panel-heading {
   font-size: 2.2rem;
   align-content: center;
@@ -578,6 +585,9 @@ body {
 }
 .vab {
   vertical-align: baseline;
+}
+.vam {
+  vertical-align: middle;
 }
 .table {
   max-width: 100%;
@@ -1189,6 +1199,9 @@ body {
 }
 .pr3 {
   padding-right: 3rem;
+}
+.b0 {
+  bottom: 0;
 }
 .uppercase {
   text-transform: uppercase;

@@ -2,6 +2,7 @@
 
 namespace Studio\Totem\Providers;
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Studio\Totem\Contracts\TaskInterface;
 use Studio\Totem\Console\Commands\ListSchedule;
@@ -40,11 +41,14 @@ class TotemServiceProvider extends ServiceProvider
             AssetsCommand::class,
             CleanupCommand::class,
         ]);
-
-        $this->app->singleton(
-            'Illuminate\Contracts\Console\Kernel',
-            'Studio\Totem\Console\Kernel'
-        );
+        
+        if(Schema::hasTable('tasks'))
+        {
+            $this->app->singleton(
+                'Illuminate\Contracts\Console\Kernel',
+                'Studio\Totem\Console\Kernel'
+            );
+        }
 
         $this->app->bindIf('totem.tasks', EloquentTaskRepository::class, true);
         $this->app->alias('totem.tasks', TaskInterface::class);
@@ -59,6 +63,7 @@ class TotemServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__.'/../../resources/views', 'totem');
         $this->loadMigrationsFrom(__DIR__.'/../../database/migrations', 'totem');
+        $this->loadTranslationsFrom(__DIR__.'/../../resources/lang', 'totem');
     }
 
     /**
