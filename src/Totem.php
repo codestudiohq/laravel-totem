@@ -22,7 +22,7 @@ class Totem
     public static function check($request)
     {
         return (static::$authUsing ?: function () {
-            return false;
+            return app()->environment('local');
         })($request);
     }
 
