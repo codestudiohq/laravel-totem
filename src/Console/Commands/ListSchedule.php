@@ -49,7 +49,7 @@ class ListSchedule extends Command
         if (count($this->schedule->events()) > 0) {
             $events = collect($this->schedule->events())->map(function ($event) {
                 return [
-                    'command'   => ucfirst(ltrim(str_after($event->command, "'artisan'"))),
+                    'command'   => ltrim(str_after($event->command, "'artisan'")),
                     'schedule'  => $event->expression,
                 ];
             });

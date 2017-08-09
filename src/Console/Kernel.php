@@ -4,7 +4,6 @@ namespace Studio\Totem\Console;
 
 use Studio\Totem\Console\Commands\Command;
 use Illuminate\Console\Scheduling\Schedule;
-use Studio\Totem\Task;
 
 class Kernel extends \Illuminate\Foundation\Console\Kernel
 {
@@ -36,9 +35,11 @@ class Kernel extends \Illuminate\Foundation\Console\Kernel
     {
         $tasks = $this->app['totem.tasks']->findAllActive();
 
-        $tasks->each(function($task) use ($schedule) {
-            $command = app($task->command);
-            $schedule->command($command->getName())->cron($task->cron);
+        $tasks->each(function ($task) use ($schedule) {
+            $command = $this->app[$task->command];
+            if ($command) {
+                $schedule->command($command->getName())->cron($task->cron);
+            }
         });
     }
 }

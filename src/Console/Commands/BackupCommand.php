@@ -7,7 +7,7 @@ use Spatie\Backup\Events\BackupHasFailed;
 use Spatie\Backup\Exceptions\InvalidCommand;
 use Spatie\Backup\Tasks\Backup\BackupJobFactory;
 
-class BackupCommand extends BaseCommand
+class BackupCommand extends Command
 {
     /** @var string */
     protected $signature = 'backup:run {--filename=} {--only-db} {--only-files} {--only-to-disk=} {--disable-notifications}';

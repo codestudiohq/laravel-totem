@@ -7,7 +7,7 @@ use Spatie\Backup\Events\CleanupHasFailed;
 use Spatie\Backup\Tasks\Cleanup\CleanupJob;
 use Spatie\Backup\BackupDestination\BackupDestinationFactory;
 
-class CleanupCommand extends BaseCommand
+class CleanupCommand extends Command
 {
     /** @var string */
     protected $signature = 'backup:clean {--disable-notifications}';
