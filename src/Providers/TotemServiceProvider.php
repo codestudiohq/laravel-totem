@@ -2,8 +2,12 @@
 
 namespace Studio\Totem\Providers;
 
+use Collective\Html\FormFacade;
+use Collective\Html\HtmlFacade;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use Collective\Html\HtmlServiceProvider;
+use Spatie\Backup\BackupServiceProvider;
 use Studio\Totem\Contracts\TaskInterface;
 use Studio\Totem\Console\Commands\ListSchedule;
 use Studio\Totem\Console\Commands\AssetsCommand;
@@ -53,6 +57,12 @@ class TotemServiceProvider extends ServiceProvider
         $this->app->alias('totem.tasks', TaskInterface::class);
         $this->app->register(TotemRouteServiceProvider::class);
         $this->app->register(TotemEventServiceProvider::class);
+        $this->app->register(HtmlServiceProvider::class);
+        $this->app->register(BackupServiceProvider::class);
+
+        $loader = \Illuminate\Foundation\AliasLoader::getInstance();
+        $loader->alias('Form', FormFacade::class);
+        $loader->alias('Html', HtmlFacade::class);
     }
 
     /**
