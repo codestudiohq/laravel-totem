@@ -22,5 +22,4 @@ Route::group(['prefix' => 'tasks'], function () {
 
     Route::get('{task}/edit', 'TasksController@edit')->name('totem.task.edit');
     Route::post('{task}/edit', 'TasksController@update');
-
 });

@@ -18,7 +18,7 @@ class Task extends Model
     ];
 
     protected $appends = [
-        'activated'
+        'activated',
     ];
 
     public function getActivatedAttribute()

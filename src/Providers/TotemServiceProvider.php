@@ -41,9 +41,8 @@ class TotemServiceProvider extends ServiceProvider
             AssetsCommand::class,
             CleanupCommand::class,
         ]);
-        
-        if(Schema::hasTable('tasks'))
-        {
+
+        if (Schema::hasTable('tasks')) {
             $this->app->singleton(
                 'Illuminate\Contracts\Console\Kernel',
                 'Studio\Totem\Console\Kernel'
