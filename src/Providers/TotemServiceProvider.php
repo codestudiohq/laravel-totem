@@ -51,6 +51,8 @@ class TotemServiceProvider extends ServiceProvider
 
         $this->app->bindIf('totem.tasks', EloquentTaskRepository::class, true);
         $this->app->alias('totem.tasks', TaskInterface::class);
+        $this->app->register(TotemRouteServiceProvider::class);
+        $this->app->register(TotemEventServiceProvider::class);
     }
 
     /**
