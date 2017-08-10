@@ -39,7 +39,7 @@
     },
     "laravel": {
       "providers": [
-        "Studio\\Totem\\TotemServiceProvider"
+        "Studio\\Totem\\Providers\\TotemServiceProvider"
       ]
     }
   },
