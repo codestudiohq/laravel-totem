@@ -17,7 +17,7 @@
   ],
   "require": {
     "php": ">=5.6.4",
-    "spatie/laravel-backup": "dev-laravel55",
+    "spatie/laravel-backup": "dev-laravel-55",
     "laravelcollective/html": "^5.4"
   },
   "require-dev": {
