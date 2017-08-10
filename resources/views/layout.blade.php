@@ -13,7 +13,7 @@
             @yield('page-title')
         </title>
 
-        <!-- Horizon UI CSS -->
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{{ asset('/vendor/totem/css/app.css') }}">
         @yield('style')
     </head>
