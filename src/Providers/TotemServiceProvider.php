@@ -2,11 +2,8 @@
 
 namespace Studio\Totem\Providers;
 
-use Collective\Html\FormFacade;
-use Collective\Html\HtmlFacade;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
-use Collective\Html\HtmlServiceProvider;
 use Spatie\Backup\BackupServiceProvider;
 use Studio\Totem\Contracts\TaskInterface;
 use Studio\Totem\Console\Commands\ListSchedule;
