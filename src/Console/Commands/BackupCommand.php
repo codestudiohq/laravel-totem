@@ -24,7 +24,7 @@ class BackupCommand extends Command
         try {
             $this->guardAgainstInvalidOptions();
 
-            $backupJob = BackupJobFactory::createFromArray(config('laravel-backup'));
+            $backupJob = BackupJobFactory::createFromArray(config('backup'));
 
             if ($this->option('only-db')) {
                 $backupJob->dontBackupFilesystem();

@@ -17,17 +17,13 @@ Manage your `Laravel Schedule` from a pretty dashboard. Schedule your `Laravel C
 
 #### Installation
 
-`Totem` requires Laravel v5.4 and above. It has not been tested below Laravel v5.4. Use composer to install totem to your Laravel project
+`Totem` requires Laravel v5.5.Use composer to install totem to your Laravel project
  
     composer require studio/laravel-totem
 
-For Laravel v5.4 add the following service provider to providers array in your config/app.php file :
-    
-    Studio\Totem\Providers\TotemServiceprovider::class 
+Laravel Totem supports auto package discovery for Laravel v5.5.
 
-Laravel Totem supports auto package discovery for Laravel v5.5. That means you are not required to add this service provider in your 5.5 project.
-
-Once `Laravel Totem` is installed and it's service provider is registered, publish `Totem` assets to your public folder using the following command
+Once `Laravel Totem` is installed , publish `Totem` assets to your public folder using the following command
     
     php artisan totem:assets
 
