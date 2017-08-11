@@ -40,7 +40,7 @@
         <p class="blk2 ft15 lh2 basic-text tar"></p>
         <div class="blk6">
             <label class="ft15">
-                <input type="radio" name="type" id="type" value="cron" {{old('type') == 'cron' ? 'checked' : ''}}>
+                <input type="radio" name="type" id="type" value="cron" {{old('type', 'cron') == 'cron' ? 'checked' : ''}}>
             	Cron
             </label>
             {{--<label class="ft15">--}}

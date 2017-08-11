@@ -30,6 +30,7 @@
                             @yield('main-panel-content')
                             @include('totem::partials.alerts')
                         </div>
+                        @yield('main-panel-footer')
                     </div>
                     @yield('additional-panels')
                 </section>

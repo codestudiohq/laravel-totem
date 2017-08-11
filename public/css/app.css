@@ -308,11 +308,11 @@ body {
 .btn-default {
   background-color: #FFF;
   border-color: #FFF;
-  color: #ef3934;
+  color: #2E4172;
 }
 .btn-primary {
-  background-color: #ef3934;
-  border-color: #ef3934;
+  background-color: #2E4172;
+  border-color: #2E4172;
   color: #FFF;
 }
 .btn-secondary {
@@ -322,7 +322,7 @@ body {
 }
 .btn-danger {
   background-color: red;
-  border-color: #ef3934;
+  border-color: transparent;
   color: #FFF;
 }
 .btn-link {
@@ -413,10 +413,10 @@ a.btn {
   margin-bottom: 2rem;
 }
 .nav-item-active a.nav-link {
-  color: #ef3934;
+  color: #2E4172;
 }
 .nav-item-active a.nav-link > i > svg {
-  fill: #ef3934;
+  fill: #2E4172;
 }
 .nav-link {
   display: block;
@@ -442,10 +442,10 @@ a.btn {
   position: absolute;
 }
 .nav-link:hover {
-  color: #ef3934;
+  color: #2E4172;
 }
 .nav-link:hover > i > svg {
-  fill: #ef3934;
+  fill: #2E4172;
 }
 .modal {
   position: fixed;
@@ -561,7 +561,7 @@ a.btn {
   margin-left: -1px;
 }
 .pagination > li.active > a {
-  background-color: #ef3934;
+  background-color: #2E4172;
   color: #FFF;
 }
 .pagination > li > a {
@@ -618,7 +618,7 @@ a.btn {
   padding: 5px;
 }
 .table > tbody > tr > td > a {
-  color: #ef3934;
+  color: #2E4172;
 }
 .table > tbody > tr > td > i {
   display: -webkit-inline-box;
@@ -713,8 +713,8 @@ a.btn {
   border-bottom: 3px solid transparent;
 }
 .tab-link-active {
-  color: #ef3934;
-  border-bottom: 3px solid #ef3934;
+  color: #2E4172;
+  border-bottom: 3px solid #2E4172;
 }
 .xbrdr {
   border: none;
@@ -771,7 +771,7 @@ a.btn {
   border-bottom-style: solid;
 }
 .border-color-primary {
-  border-color: #ef3934;
+  border-color: #2E4172;
 }
 .border-color-gray-1 {
   border-color: #D8D8D8;
@@ -798,7 +798,7 @@ a.btn {
   background-color: #FFF;
 }
 .bg1 {
-  background-color: #ef3934;
+  background-color: #2E4172;
 }
 .bgsuccess {
   background-color: #779356;
@@ -840,7 +840,7 @@ a.btn {
   background-color: #F8F8F8;
 }
 .tc1 {
-  color: #ef3934;
+  color: #2E4172;
 }
 .tcw {
   color: #FFF;
@@ -891,7 +891,7 @@ a.btn {
   color: #424C55;
 }
 .bc1 {
-  border-color: #ef3934;
+  border-color: #2E4172;
 }
 .bctrans {
   border-color: transparent;
@@ -906,7 +906,7 @@ a.btn {
   fill: currentColor;
 }
 .f1 {
-  fill: #ef3934;
+  fill: #2E4172;
 }
 .fsuccess {
   fill: #779356;

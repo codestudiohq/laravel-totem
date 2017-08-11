@@ -1,0 +1,42 @@
+<svg width="131px" height="306px" viewBox="0 0 131 306" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.1 (44463) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M1.0243566,5.84271525 L44.8586585,72.3563383 C47.0592518,75.6954912 48.9902501,81.6344304 49.1725581,85.640982 L50.3297171,111.071669 C50.5116248,115.069422 53.9011003,118.310241 57.90452,118.310241 L60.9778404,118.310241 C64.9793809,118.310241 68.2232704,115.060101 68.2232704,111.060025 L68.2232704,85.0066021 C68.2232704,81.002418 70.0509203,75.0711647 72.299958,71.7668324 L120.874079,0.40073818 L0.419054973,0.40073818 L1.0243566,5.84271525 Z" id="path-1"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Illustrations" transform="translate(-158.000000, -73.000000)">
+            <g id="Filtering" transform="translate(48.000000, 46.000000)">
+                <g id="Funnel" transform="translate(110.000000, 128.000000)">
+                    <g id="Rectangle-46-Copy" transform="translate(6.607800, 36.079456)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="Mask" fill="#64B5F6" xlink:href="#path-1"></use>
+                        <rect id="Rectangle-46" fill-opacity="0.481516078" fill="#508FC2" mask="url(#mask-2)" x="58.3433701" y="-17.8417411" width="79.3828198" height="146.420009"></rect>
+                    </g>
+                    <path d="M1.21310203,25.079456 L0.6078004,34.1494178 C0.6078004,34.1494178 1.21310203,37.7774025 7.87141993,42.0100513 C14.5297378,46.2427002 99.2719657,65.5919519 129.537047,34.7540819 L129.537047,25.079456 L1.21310203,25.079456 Z" id="Path-45-Copy" fill="#64B5F6"></path>
+                    <ellipse id="Oval-14-Copy" fill="#1E88E5" cx="65.6777253" cy="22.4520284" rx="65.0699249" ry="22.3725724"></ellipse>
+                </g>
+                <g id="Items" transform="translate(122.000000, 26.000000)">
+                    <rect id="Rectangle-41-Copy-16" fill="#7EDFEA" x="23.6078004" y="30.079456" width="13.9219374" height="14.5119388" rx="4.82993265"></rect>
+                    <rect id="Rectangle-41-Copy-17" fill="#FF7FAA" transform="translate(88.386048, 51.053564) rotate(-17.000000) translate(-88.386048, -51.053564) " x="81.4250793" y="43.7975949" width="13.9219374" height="14.5119388" rx="4.82993265"></rect>
+                    <rect id="Rectangle-41-Copy-18" fill="#FFAC00" transform="translate(89.657834, 86.107655) rotate(-48.000000) translate(-89.657834, -86.107655) " x="82.696865" y="78.8516857" width="13.9219374" height="14.5119388" rx="4.82993265"></rect>
+                    <rect id="Rectangle-41-Copy-19" fill="#64B5F6" transform="translate(61.356115, 9.921618) rotate(32.000000) translate(-61.356115, -9.921618) " x="54.3951459" y="2.66564906" width="13.9219374" height="14.5119388" rx="4.82993265"></rect>
+                    <rect id="Rectangle-41-Copy-20" fill="#FFAC00" transform="translate(53.356115, 272.921618) rotate(32.000000) translate(-53.356115, -272.921618) " x="46.3951459" y="265.665649" width="13.9219374" height="14.5119388" rx="4.82993265"></rect>
+                    <rect id="Rectangle-41-Copy-21" fill="#69F0AE" transform="translate(58.635999, 50.129489) rotate(42.000000) translate(-58.635999, -50.129489) " x="51.6750308" y="42.8735199" width="13.9219374" height="14.5119388" rx="4.82993265"></rect>
+                    <rect id="Rectangle-41-Copy-22" fill="#DDE775" transform="translate(10.635999, 77.129489) rotate(42.000000) translate(-10.635999, -77.129489) " x="3.67503078" y="69.8735199" width="13.9219374" height="14.5119388" rx="4.82993265"></rect>
+                    <rect id="Rectangle-41-Copy-23" fill="#EB80FC" transform="translate(40.470293, 77.131351) rotate(18.000000) translate(-40.470293, -77.131351) " x="33.5093242" y="69.8753812" width="13.9219374" height="14.5119388" rx="4.82993265"></rect>
+                    <rect id="Rectangle-41-Copy-24" fill="#EA80FC" transform="translate(20.397644, 105.956039) rotate(-33.000000) translate(-20.397644, -105.956039) " x="13.4366755" y="98.7000699" width="13.9219374" height="14.5119388" rx="4.82993265"></rect>
+                    <rect id="Rectangle-41-Copy-25" fill="#65FEDA" transform="translate(62.209563, 100.889816) rotate(-15.000000) translate(-62.209563, -100.889816) " x="55.2485942" y="93.6338461" width="13.9219374" height="14.5119388" rx="4.82993265"></rect>
+                    <rect id="Rectangle-41-Copy-26" fill="#65FEDA" transform="translate(46.896776, 286.472441) rotate(-15.000000) translate(-46.896776, -286.472441) " x="43.4259262" y="282.8545" width="6.94169883" height="7.23588289" rx="3.47084941"></rect>
+                    <rect id="Rectangle-41-Copy-27" fill="#EB80FC" transform="translate(59.896776, 302.472441) rotate(-15.000000) translate(-59.896776, -302.472441) " x="56.4259262" y="298.8545" width="6.94169883" height="7.23588289" rx="3.47084941"></rect>
+                    <path d="M31.6579981,143.543865 C31.6579981,140.875079 33.8333009,138.7116 36.5076723,138.7116 L40.7302614,138.7116 C43.4086625,138.7116 45.5799356,140.878809 45.5799356,143.549697 L44.9114543,148.659762" id="Rectangle-41-Copy-28" fill="#FDD834" transform="translate(38.618967, 143.685681) rotate(-15.000000) translate(-38.618967, -143.685681) "></path>
+                    <rect id="Rectangle-41-Copy-29" fill="#EA80FC" transform="translate(69.209563, 124.889816) rotate(-15.000000) translate(-69.209563, -124.889816) " x="62.2485942" y="117.633846" width="13.9219374" height="14.5119388" rx="4.82993265"></rect>
+                    <rect id="Rectangle-41-Copy-30" fill="#69F0AE" transform="translate(91.209563, 123.889816) rotate(-15.000000) translate(-91.209563, -123.889816) " x="84.2485942" y="116.633846" width="13.9219374" height="14.5119388" rx="4.82993265"></rect>
+                    <rect id="Rectangle-41-Copy-31" fill="#FF80AB" transform="translate(35.209563, 123.889816) rotate(-15.000000) translate(-35.209563, -123.889816) " x="28.2485942" y="116.633846" width="13.9219374" height="14.5119388" rx="4.82993265"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

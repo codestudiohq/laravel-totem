@@ -1,10 +1,10 @@
 <template>
     <transition mode="out-in">
-        <button v-if="task.activated" type="button" class="btn btn-md" :class="{'btn-secondary': !hovering && !working, 'btn-primary': hovering && !working, 'btn-loading btn-primary': working}" key="enabled" @mouseenter="hovering = true" @mouseleave="hovering = false" @click="deactivate" :disabled="working">
-            {{ inActiveStatusText }}
-        </button>
-        <button v-if="existsAndIsInActive" type="button" class="btn btn-md" :class="{'btn-primary': !hovering && !working, 'btn-secondary': hovering && !working, 'btn-loading btn-primary': working}" key="disabled" @mouseenter="hovering = true" @mouseleave="hovering = false" @click="activate" :disabled="working">
+        <button v-if="task.activated" type="button" class="btn btn-md btn-primary" :class="{ 'btn-danger': hovering && !working, 'btn-loading btn-primary': working}" key="enabled" @mouseenter="hovering = true" @mouseleave="hovering = false" @click="deactivate" :disabled="working">
             {{ activeStatusText }}
+        </button>
+        <button v-if="existsAndIsInActive" type="button" class="btn btn-md" :class="{'btn-danger': !hovering && !working, 'btn-primary': hovering && !working, 'btn-loading btn-primary': working}" key="disabled" @mouseenter="hovering = true" @mouseleave="hovering = false" @click="activate" :disabled="working">
+            {{ inActiveStatusText }}
         </button>
     </transition>
 </template>
@@ -18,17 +18,17 @@ export default {
     data() {
         return {
             hovering: false,
-            task: this.dataTask,
             working: false,
+            task: this.dataTask,
             exists: this.dataExists,
         }
     },
     computed: {
         inActiveStatusText() {
-            return this.hovering ? 'Disable' : 'Enabled'
+            return this.hovering ? 'Enable' : 'Disabled'
         },
         activeStatusText(){
-            return this.hovering ? 'Enable' : 'Disabled'
+            return this.hovering ? 'Disable' : 'Enabled'
         },
         existsAndIsInActive() {
             return !this.task.activated && this.exists;

@@ -8,9 +8,7 @@
         Task
     </div>
     <div>
-        <button class="btn btn-md btn-primary">Run</button>
         <status-button :data-task="{{ $task }}" :data-exists="{{ $task->exists ? 1 : 0 }}" class="mr-2"></status-button>
-        <a href="{{route('totem.task.edit', $task)}}" class="btn btn-md btn-primary">Edit</a>
     </div>
 @stop
 @section('main-panel-content')
@@ -33,6 +31,12 @@
                 {{$task->notification_email_address}}
             </div>
         </div>
+    </div>
+@stop
+@section('main-panel-footer')
+    <div class="pv1 pl2 df">
+        <a href="{{ route('totem.task.run', $task) }}" class="btn btn-md btn-primary mr1">Run</a>
+        <a href="{{ route('totem.task.edit', $task) }}" class="btn btn-md btn-primary">Edit</a>
     </div>
 @stop
 @section('additional-panels')

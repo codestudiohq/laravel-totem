@@ -20,6 +20,8 @@ Route::group(['prefix' => 'tasks'], function () {
 
     Route::get('{task}', 'TasksController@show')->name('totem.task.view');
 
+    Route::get('{task}/run', 'ExecuteTasksController@index')->name('totem.task.run');
+
     Route::get('{task}/edit', 'TasksController@edit')->name('totem.task.edit');
     Route::post('{task}/edit', 'TasksController@update');
 });

@@ -11,11 +11,10 @@
         <div class="dib search">
             <input type="text" class="search-input" placeholder="Search Tasks">
         </div>
-        <a class="btn btn-md btn-primary" href="{{route('totem.task.create')}}">New Task</a>
     </div>
 @stop
 @section('main-panel-content')
-    <table class="table" cellpadding="0" cellspacing="0">
+    <table class="table" cellpadding="0" cellspacing="0" class="mb1">
         <thead>
             <tr>
                 <th class="pl2">Task</th>
@@ -37,12 +36,25 @@
                     <td class="ph2">N/A</td>
                     <td class="ph2">N/A</td>
                     <td class="ph2">
-                        <button class="btn btn-sm btn-secondary">Run</button>
+                        <a href="{{ route('totem.task.run', $task) }}">
+                            <i class="ico ico20 ico-baseline">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#zondicon-cog"></use>
+                                </svg>
+                            </i>
+                        </a>
                     </td>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="5">No Tasks Found</td>
+                    <td class="tac" colspan="5">
+                        <p class="pa2">No Tasks Found.</p>
+                        <div>
+                            <a class="btn btn-md btn-primary" href="{{route('totem.task.create')}}">New Task</a>
+                        </div>
+
+                        <img class="pa2" src="/vendor/totem/img/funnel.svg">
+                    </td>
                 </tr>
             @endforelse
         </tbody>
