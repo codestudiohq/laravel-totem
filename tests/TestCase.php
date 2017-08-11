@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 use Orchestra\Testbench\Exceptions\Handler;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Studio\Totem\Providers\TotemServiceProvider;
-use Studio\Totem\Providers\TotemRouteServiceProvider;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
@@ -44,7 +43,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
     protected function getPackageProviders($app)
     {
         return [
-            TotemServiceProvider::class
+            TotemServiceProvider::class,
         ];
     }
 
