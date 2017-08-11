@@ -10,7 +10,7 @@ class ExecuteTasksController extends Controller
     {
         $command = app($task->command);
         Artisan::call($command->getName());
-        
+
         return redirect()->back();
     }
 }
