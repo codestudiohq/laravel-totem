@@ -48,15 +48,19 @@
             @empty
                 <tr>
                     <td class="tac" colspan="5">
-                        <p class="pa2">No Tasks Found.</p>
-                        <div>
-                            <a class="btn btn-md btn-primary" href="{{route('totem.task.create')}}">New Task</a>
-                        </div>
 
                         <img class="pa2" src="/vendor/totem/img/funnel.svg">
+                        <p class="pa2">No Tasks Found.</p>
                     </td>
                 </tr>
             @endforelse
         </tbody>
     </table>
+@stop
+@section('main-panel-footer')
+
+    <div class="pv1 pl2 df">
+        <a class="btn btn-md btn-primary" href="{{route('totem.task.create')}}">New Task</a>
+    </div>
+
 @stop

@@ -2,6 +2,7 @@
 
 namespace Studio\Totem\Repositories;
 
+use Studio\Totem\Events\Deleted;
 use Studio\Totem\Task;
 use Studio\Totem\Events\Created;
 use Studio\Totem\Events\Updated;

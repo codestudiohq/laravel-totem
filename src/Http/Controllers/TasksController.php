@@ -28,12 +28,14 @@ class TasksController extends Controller
     public function __construct(TaskInterface $tasks, Kernel $kernel)
     {
         parent::__construct();
-
         $this->tasks = $tasks;
 
         $this->kernel = $kernel;
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         return view('totem::tasks.index', [
@@ -41,6 +43,9 @@ class TasksController extends Controller
         ]);
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function create()
     {
         return view('totem::tasks.form', [
@@ -49,13 +54,23 @@ class TasksController extends Controller
         ]);
     }
 
+    /**
+     * @param CreateTaskRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(CreateTaskRequest $request)
     {
         $this->tasks->store($request->all());
 
-        return redirect()->route('totem.tasks.all')->with('success', trans('totem::messages.success.create'));
+        return redirect()
+            ->route('totem.tasks.all')
+            ->with('success', trans('totem::messages.success.create'));
     }
 
+    /**
+     * @param $task
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function show($task)
     {
         return view('totem::tasks.view', [
@@ -63,6 +78,10 @@ class TasksController extends Controller
         ]);
     }
 
+    /**
+     * @param $task
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function edit($task)
     {
         return view('totem::tasks.form', [
@@ -71,6 +90,11 @@ class TasksController extends Controller
         ]);
     }
 
+    /**
+     * @param UpdateTaskRequest $request
+     * @param $task
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(UpdateTaskRequest $request, $task)
     {
         $task = $this->tasks->update($request->all(), $task);
@@ -78,5 +102,18 @@ class TasksController extends Controller
         return redirect()->route('totem.task.view', $task)
             ->with('task', $task)
             ->with('success', trans('totem::messages.success.update'));
+    }
+
+    /**
+     * @param $task
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy($task)
+    {
+        $this->tasks->destroy($task);
+
+        return redirect()
+            ->route('totem.tasks.all')
+            ->with('success', trans('totem::messages.success.delete'));
     }
 }

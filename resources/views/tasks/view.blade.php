@@ -36,7 +36,13 @@
 @section('main-panel-footer')
     <div class="pv1 pl2 df">
         <a href="{{ route('totem.task.run', $task) }}" class="btn btn-md btn-primary mr1">Run</a>
-        <a href="{{ route('totem.task.edit', $task) }}" class="btn btn-md btn-primary">Edit</a>
+        <a href="{{ route('totem.task.edit', $task) }}" class="btn btn-md btn-primary mr1">Edit</a>
+        <form class="dib" action="{{route('totem.task.delete', $task)}}" method="post">
+            {{ csrf_field() }}
+            {{ method_field('delete') }}
+            <button type="submit" class="btn btn-md btn-primary">Delete</button>
+        </form>
+
     </div>
 @stop
 @section('additional-panels')
