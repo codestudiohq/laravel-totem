@@ -14,13 +14,13 @@
 @section('main-panel-content')
     <div class="pa2">
         <div class="frame ">
-            <div class="blk2 ft15 lh2 basic-text tar">
+            <div class="blk2 ft15 lh2 tcg9 tar">
                 Description<br>
                 Command<br>
                 Type<br>
-                Created At<br>
-                Updated At<br>
-                Notification Email
+                Created @<br>
+                Updated @<br>
+                Notify @
             </div>
             <div class="blk9 ft15 lh2 basic-text">
                 {{$task->description}}<br>

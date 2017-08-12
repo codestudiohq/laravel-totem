@@ -308,11 +308,11 @@ body {
 .btn-default {
   background-color: #FFF;
   border-color: #FFF;
-  color: #2E4172;
+  color: #3B6993;
 }
 .btn-primary {
-  background-color: #2E4172;
-  border-color: #2E4172;
+  background-color: #3B6993;
+  border-color: #3B6993;
   color: #FFF;
 }
 .btn-secondary {
@@ -374,8 +374,8 @@ a.btn {
 }
 .btn-primary.btn-loading:disabled {
   color: #fff;
-  background-color: #9b68de;
-  border-color: #9b68de;
+  background-color: #92B3D1;
+  border-color: #92B3D1;
   opacity: 0.5;
 }
 .btn-danger.btn-loading:after {
@@ -413,10 +413,10 @@ a.btn {
   margin-bottom: 2rem;
 }
 .nav-item-active a.nav-link {
-  color: #2E4172;
+  color: #3B6993;
 }
 .nav-item-active a.nav-link > i > svg {
-  fill: #2E4172;
+  fill: #3B6993;
 }
 .nav-link {
   display: block;
@@ -442,10 +442,10 @@ a.btn {
   position: absolute;
 }
 .nav-link:hover {
-  color: #2E4172;
+  color: #3B6993;
 }
 .nav-link:hover > i > svg {
-  fill: #2E4172;
+  fill: #3B6993;
 }
 .modal {
   position: fixed;
@@ -561,7 +561,7 @@ a.btn {
   margin-left: -1px;
 }
 .pagination > li.active > a {
-  background-color: #2E4172;
+  background-color: #3B6993;
   color: #FFF;
 }
 .pagination > li > a {
@@ -618,7 +618,7 @@ a.btn {
   padding: 5px;
 }
 .table > tbody > tr > td > a {
-  color: #2E4172;
+  color: #3B6993;
 }
 .table > tbody > tr > td > i {
   display: -webkit-inline-box;
@@ -713,8 +713,8 @@ a.btn {
   border-bottom: 3px solid transparent;
 }
 .tab-link-active {
-  color: #2E4172;
-  border-bottom: 3px solid #2E4172;
+  color: #3B6993;
+  border-bottom: 3px solid #3B6993;
 }
 .xbrdr {
   border: none;
@@ -771,7 +771,7 @@ a.btn {
   border-bottom-style: solid;
 }
 .border-color-primary {
-  border-color: #2E4172;
+  border-color: #3B6993;
 }
 .border-color-gray-1 {
   border-color: #D8D8D8;
@@ -798,7 +798,7 @@ a.btn {
   background-color: #FFF;
 }
 .bg1 {
-  background-color: #2E4172;
+  background-color: #3B6993;
 }
 .bgsuccess {
   background-color: #779356;
@@ -840,7 +840,7 @@ a.btn {
   background-color: #F8F8F8;
 }
 .tc1 {
-  color: #2E4172;
+  color: #3B6993;
 }
 .tcw {
   color: #FFF;
@@ -891,7 +891,7 @@ a.btn {
   color: #424C55;
 }
 .bc1 {
-  border-color: #2E4172;
+  border-color: #3B6993;
 }
 .bctrans {
   border-color: transparent;
@@ -906,7 +906,7 @@ a.btn {
   fill: currentColor;
 }
 .f1 {
-  fill: #2E4172;
+  fill: #3B6993;
 }
 .fsuccess {
   fill: #779356;
@@ -1289,25 +1289,6 @@ a.btn {
 }
 .lh2 {
   line-height: 2;
-}
-.jobDetailsText {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  -ms-word-break: break-all;
-  word-break: break-all;
-  word-break: break-word;
-  -ms-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
-  overflow-y: scroll;
-  max-height: 400px;
-}
-.jobDetailsText span,
-.jobDetailsText pre {
-  margin-bottom: 5px;
-  display: block;
-  background: #efefef;
-  padding: 1px 3px;
 }
 
 /*# sourceMappingURL=app.css.map */
