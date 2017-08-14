@@ -27,6 +27,7 @@ class Kernel extends AppKernel
 
         parent::__construct($app, $events);
     }
+
     /**
      * Define the application's command schedule.
      *
