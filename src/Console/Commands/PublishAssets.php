@@ -4,7 +4,7 @@ namespace Studio\Totem\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class AssetsCommand extends Command
+class PublishAssets extends Command
 {
     /**
      * The name and signature of the console command.
@@ -18,7 +18,7 @@ class AssetsCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Re-publish the Totem assets';
+    protected $description = 'Re-publish Totem assets';
 
     /**
      * Execute the console command.

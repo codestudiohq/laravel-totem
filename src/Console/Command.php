@@ -1,6 +1,6 @@
 <?php
 
-namespace Studio\Totem\Console\Commands;
+namespace Studio\Totem\Console;
 
 use Spatie\Backup\Helpers\ConsoleOutput;
 use Symfony\Component\Console\Input\InputInterface;
@@ -29,7 +29,7 @@ class Command extends \Illuminate\Console\Command
      */
     public function getVerboseName(): string
     {
-        return $this->getPrettyName().' ('.$this->getDescription().')';
+        return $this->getDescription().' ('.$this->name.')';
     }
 
     /**

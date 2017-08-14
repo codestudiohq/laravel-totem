@@ -2,13 +2,16 @@
 
 namespace Studio\Totem\Providers;
 
+use Cron\CronExpression;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Spatie\Backup\BackupServiceProvider;
+use Illuminate\Support\Facades\Validator;
 use Studio\Totem\Contracts\TaskInterface;
+use Studio\Totem\Console\Commands\RunSchedule;
 use Studio\Totem\Console\Commands\ListSchedule;
-use Studio\Totem\Console\Commands\AssetsCommand;
 use Studio\Totem\Console\Commands\BackupCommand;
+use Studio\Totem\Console\Commands\PublishAssets;
 use Studio\Totem\Console\Commands\CleanupCommand;
 use Studio\Totem\Repositories\EloquentTaskRepository;
 
@@ -23,6 +26,10 @@ class TotemServiceProvider extends ServiceProvider
     {
         $this->registerResources();
         $this->defineAssetPublishing();
+
+        Validator::extend('cron_expression', function ($attribute, $value, $parameters, $validator) {
+            return CronExpression::isValidExpression($value);
+        });
     }
 
     /**
@@ -39,9 +46,16 @@ class TotemServiceProvider extends ServiceProvider
         $this->commands([
             ListSchedule::class,
             BackupCommand::class,
-            AssetsCommand::class,
+            PublishAssets::class,
             CleanupCommand::class,
+            RunSchedule::class,
         ]);
+
+        $this->app->bindIf('totem.tasks', EloquentTaskRepository::class, true);
+        $this->app->alias('totem.tasks', TaskInterface::class);
+        $this->app->register(TotemRouteServiceProvider::class);
+        $this->app->register(TotemEventServiceProvider::class);
+        $this->app->register(BackupServiceProvider::class);
 
         if (Schema::hasTable('tasks')) {
             $this->app->singleton(
@@ -49,13 +63,6 @@ class TotemServiceProvider extends ServiceProvider
                 'Studio\Totem\Console\Kernel'
             );
         }
-
-        $this->app->bindIf('totem.tasks', EloquentTaskRepository::class, true);
-        $this->app->alias('totem.tasks', TaskInterface::class);
-
-        $this->app->register(TotemRouteServiceProvider::class);
-        $this->app->register(TotemEventServiceProvider::class);
-        $this->app->register(BackupServiceProvider::class);
     }
 
     /**

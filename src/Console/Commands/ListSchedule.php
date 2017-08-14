@@ -19,7 +19,7 @@ class ListSchedule extends Command
      *
      * @var string
      */
-    protected $description = 'List all scheduled commands';
+    protected $description = 'List all scheduled tasks';
 
     /**
      * @var Schedule

@@ -3,6 +3,7 @@
 namespace Studio\Totem\Console\Commands;
 
 use Exception;
+use Studio\Totem\Console\Command;
 use Spatie\Backup\Events\CleanupHasFailed;
 use Spatie\Backup\Tasks\Cleanup\CleanupJob;
 use Spatie\Backup\BackupDestination\BackupDestinationFactory;
@@ -13,7 +14,7 @@ class CleanupCommand extends Command
     protected $signature = 'backup:clean {--disable-notifications}';
 
     /** @var string */
-    protected $description = 'Remove all backups older than specified number of days in config.';
+    protected $description = 'Remove all backups older than specified number of days in config';
 
     public function handle()
     {

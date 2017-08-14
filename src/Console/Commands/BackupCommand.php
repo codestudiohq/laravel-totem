@@ -3,6 +3,7 @@
 namespace Studio\Totem\Console\Commands;
 
 use Exception;
+use Studio\Totem\Console\Command;
 use Spatie\Backup\Events\BackupHasFailed;
 use Spatie\Backup\Exceptions\InvalidCommand;
 use Spatie\Backup\Tasks\Backup\BackupJobFactory;
@@ -13,7 +14,7 @@ class BackupCommand extends Command
     protected $signature = 'backup:run {--filename=} {--only-db} {--only-files} {--only-to-disk=} {--disable-notifications}';
 
     /** @var string */
-    protected $description = 'Run the backup.';
+    protected $description = 'Backup Database';
 
     public function handle()
     {

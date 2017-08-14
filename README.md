@@ -33,7 +33,7 @@ Once `Laravel Totem` is installed , publish `Totem` assets to your public folder
 
 This package assumes that you have a good understanding of [Laravel's Task Scheduling](https://laravel.com/docs/5.4/scheduling) and [Laravel Console Commands](https://laravel.com/docs/5.4/artisan#writing-commands). Before any of this works please make sure you have a cron running as follows:
 
-    * * * * * php /path-to-your-project/artisan schedule:run >> /dev/null 2>&1
+    * * * * * php /path-to-your-project/artisan totem:run >> /dev/null 2>&1
 
 ##### Web Dashboard 
 
@@ -76,7 +76,6 @@ Important versions listed below. Refer to the [Changelog](CHANGELOG.md) for a fu
 ## Credits
 
 - [Roshan Gautam](https://twitter.com/@roshangautam) for Laravel Totem
-- [Laravel Horizon Authors](https://github.com/laravel/horizon) for `CSS` utilities included in Laravel Horizon
 
 Bug reports, feature requests, and pull requests can be submitted by following our [Contribution Guide](CONTRIBUTING.md).
 
