@@ -2,11 +2,11 @@
 
 namespace Studio\Totem\Console;
 
-use App\Console\Kernel as AppKernel;
 use Studio\Totem\Contracts\TaskInterface;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Foundation\Console\Kernel as AppKernel;
 
 class Kernel extends AppKernel
 {
