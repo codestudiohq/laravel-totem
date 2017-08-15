@@ -51,6 +51,7 @@ class RunSchedule extends Command
         $eventsRan = false;
 
         foreach ($this->schedule->dueEvents($this->laravel) as $event) {
+
             if (! $event->filtersPass($this->laravel)) {
                 continue;
             }

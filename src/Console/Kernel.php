@@ -2,6 +2,8 @@
 
 namespace Studio\Totem\Console;
 
+use Studio\Totem\Events\Tasks\Executing;
+use Studio\Totem\Events\Tasks\Executed;
 use Studio\Totem\Contracts\TaskInterface;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Events\Dispatcher;
@@ -60,10 +62,18 @@ class Kernel extends AppKernel
         $tasks->each(function ($task) use ($schedule) {
             $command = $this->app[$task->command];
             if ($command) {
-                $schedule->command($command->getName())
+                $event = $schedule->command($command->getName())
                     ->cron($task->cron)
                     ->appendOutputTo(storage_path('app/tasks/task-'.$task->id.'.log'))
-                    ->emailOutputTo($task->notification_email_address);
+                    ->before(function () use ($task) {
+                        Executing::dispatch($task);
+                    })
+                    ->after(function () use ($task) {
+                        Executed::dispatch($task);
+                    });
+                if ($task->notification_email_address) {
+                    $event->emailOutputTo($task->notification_email_address);
+                }
             }
         });
     }
