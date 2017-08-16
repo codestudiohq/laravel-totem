@@ -2,8 +2,8 @@
 
 namespace Studio\Totem\Console;
 
-use Studio\Totem\Events\Tasks\Executing;
 use Studio\Totem\Events\Tasks\Executed;
+use Studio\Totem\Events\Tasks\Executing;
 use Studio\Totem\Contracts\TaskInterface;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Events\Dispatcher;

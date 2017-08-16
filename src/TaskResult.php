@@ -14,7 +14,7 @@ class TaskResult extends Model
     ];
 
     protected $dates = [
-        'ran_at'
+        'ran_at',
     ];
 
     public function task()

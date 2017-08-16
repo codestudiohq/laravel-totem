@@ -2,8 +2,8 @@
 
 namespace Studio\Totem\Events\Tasks;
 
-use Studio\Totem\Events\Event;
 use Studio\Totem\Task;
+use Studio\Totem\Events\Event;
 
 class Executed extends Event
 {
@@ -15,8 +15,7 @@ class Executed extends Event
 
         $task->results()->create([
             'duration' => $time_elapsed_secs * 1000,
-            'result'    => file_get_contents(storage_path('logs/schedule-'.sha1($event->mutexName()).'.log'))
+            'result'    => file_get_contents(storage_path('logs/schedule-'.sha1($event->mutexName()).'.log')),
         ]);
-
     }
 }
