@@ -8,11 +8,8 @@ use Illuminate\Support\ServiceProvider;
 use Spatie\Backup\BackupServiceProvider;
 use Illuminate\Support\Facades\Validator;
 use Studio\Totem\Contracts\TaskInterface;
-use Studio\Totem\Console\Commands\RunSchedule;
 use Studio\Totem\Console\Commands\ListSchedule;
-use Studio\Totem\Console\Commands\BackupCommand;
 use Studio\Totem\Console\Commands\PublishAssets;
-use Studio\Totem\Console\Commands\CleanupCommand;
 use Studio\Totem\Repositories\EloquentTaskRepository;
 
 class TotemServiceProvider extends ServiceProvider
@@ -45,10 +42,7 @@ class TotemServiceProvider extends ServiceProvider
 
         $this->commands([
             ListSchedule::class,
-            BackupCommand::class,
             PublishAssets::class,
-            CleanupCommand::class,
-            RunSchedule::class,
         ]);
 
         $this->app->bindIf('totem.tasks', EloquentTaskRepository::class, true);

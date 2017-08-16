@@ -48,10 +48,8 @@ class Kernel extends AppKernel
      */
     public function getCommands(): array
     {
-        return collect($this->all())->reject(function ($command) {
-            return ! $command instanceof Command;
-        })->flatMap(function ($command) {
-            return [get_class($command) => $command->getVerboseName()];
+        return collect($this->all())->flatMap(function ($command) {
+            return [get_class($command) => $command->getDescription().' ('.$command->getName().')'];
         })->toArray();
     }
 
@@ -61,16 +59,18 @@ class Kernel extends AppKernel
 
         $tasks->each(function ($task) use ($schedule) {
             $command = $this->app[$task->command];
+
             if ($command) {
-                $event = $schedule->command($command->getName())
-                    ->cron($task->cron)
-                    ->appendOutputTo(storage_path('app/tasks/task-'.$task->id.'.log'))
-                    ->before(function () use ($task) {
+                $event = $schedule->command($command->getName());
+                $event->cron($task->cron)
+                    ->before(function () use ($task, $event) {
+                        $event->start = microtime(true);
                         Executing::dispatch($task);
                     })
-                    ->after(function () use ($task) {
-                        Executed::dispatch($task);
-                    });
+                    ->after(function () use ($event, $task) {
+                        Executed::dispatch($task, $event);
+                    })
+                    ->sendOutputTo(storage_path('logs/schedule-'.sha1($event->mutexName()).'.log'));
                 if ($task->notification_email_address) {
                     $event->emailOutputTo($task->notification_email_address);
                 }

@@ -30,4 +30,9 @@ class Task extends Model
     {
         return $this->hasMany(Frequency::class, 'task_id', 'id');
     }
+
+    public function results()
+    {
+        return $this->hasMany(TaskResult::class, 'task_id', 'id');
+    }
 }

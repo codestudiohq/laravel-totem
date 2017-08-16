@@ -33,7 +33,7 @@ Once `Laravel Totem` is installed , publish `Totem` assets to your public folder
 
 This package assumes that you have a good understanding of [Laravel's Task Scheduling](https://laravel.com/docs/5.4/scheduling) and [Laravel Console Commands](https://laravel.com/docs/5.4/artisan#writing-commands). Before any of this works please make sure you have a cron running as follows:
 
-    * * * * * php /path-to-your-project/artisan totem:run >> /dev/null 2>&1
+    * * * * * php /path-to-your-project/artisan schedule:run >> /dev/null 2>&1
 
 ##### Web Dashboard 
 
@@ -50,18 +50,11 @@ By default Totem's dashboard only works in local environment. To view the dashbo
 
 #### Making Commands available in `Laravel Totem`
 
-To be able to view and schedule your console commands in Totem's dashboard you are required to extend your command from `Studio\Totem\Console\Commands\Command` . For e.g.
+All available commands can be scheduled. If you want to hide a command from Totem make sure you have the `hidden` attribute set to true in your command. For e.g.
 
 ```
-use Studio\Totem\Console\Commands\Command
-
-class BackupCommand extends Command
-{
-    // your regular Laravel command stuff
-}
+protected $hidden = true;
 ```
-
-I have converted [Spatie's](https://docs.spatie.be/laravel-backup/v4/introduction) backup and cleanup command and included them in the package. To be able to use these commands make sure you follow their documentation and publish and configure laravel-backup.php file to your config directory properly.
 
 #### Current limitations
 

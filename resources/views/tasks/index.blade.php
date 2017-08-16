@@ -33,8 +33,12 @@
                         </a>
                     </td>
                     <td class="ph2">{{$task->cron ? 'Cron' : 'Frequency'}}</td>
-                    <td class="ph2">N/A</td>
-                    <td class="ph2">N/A</td>
+                    <td class="ph2">{{  $task->results->count() > 0 ? number_format(  $task->results->sum('duration') / (1000 * $task->results->count()) , 2) : '0' }} seconds</td>
+                    @if($last = $task->results->last())
+                        <td class="ph2">{{$last->ran_at->toDateTimeString()}}</td>
+                    @else
+                        <td class="ph2">N/A</td>
+                    @endif
                     <td class="ph2">
                         <a href="{{ route('totem.task.run', $task) }}">
                             <i class="ico ico20 ico-baseline">

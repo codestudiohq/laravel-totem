@@ -26,7 +26,7 @@
         <div class="blk6">
             <select id="command" name="command" class="form-control" placeholder="Click here to select one of the available commands">
             @foreach ($commands as $key => $command)
-                <option value="{{$key}}" {{old('command', $task->command) == $command ? 'selected' : ''}}>{{$command}}</option>
+                <option value="{{$key}}" {{old('command', $task->command) == $key ? 'selected' : ''}}>{{$command}}</option>
             @endforeach
             </select>
 

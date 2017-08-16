@@ -17,18 +17,20 @@
             <div class="blk2 ft15 lh2 tcg9 tar">
                 Description<br>
                 Command<br>
-                Type<br>
+                Cron Expression<br>
                 Created @<br>
                 Updated @<br>
-                Notify @
+                Notify @<br>
+                Average Run Time
             </div>
             <div class="blk9 ft15 lh2 basic-text">
                 {{$task->description}}<br>
                 {{$task->command}}<br>
-                {{$task->cron ? 'Cron ( ' . $task->cron . ' )': 'Frequency'}}<br>
+                {{$task->cron ? $task->cron : 'Frequency'}}<br>
                 {{$task->created_at->toDateTimeString()}}<br>
                 {{$task->updated_at->toDateTimeString()}}<br>
-                {{$task->notification_email_address}}
+                {{$task->notification_email_address}}<br>
+                {{$task->results->count() > 0 ? number_format(  $task->results->sum('duration') / (1000 * $task->results->count()) , 2) : '0'}} seconds
             </div>
         </div>
     </div>
@@ -48,11 +50,31 @@
 @section('additional-panels')
     <div class="panel panel-default">
         <div class="panel-heading">
-            Task Stats
+            Execution Results
         </div>
         <div class="panel-content">
-
-
+            <table class="table" cellpadding="0" cellspacing="0" class="mb1">
+                <thead>
+                <tr>
+                    <th class="pl2">Duration</th>
+                    <th class="pl2">Executed At</th>
+                </tr>
+                </thead>
+                <tbody>
+                @forelse($task->results as $result)
+                    <tr>
+                        <td class="ph2">{{ number_format($result->duration / 1000 , 2)}} seconds</td>
+                        <td class="ph2">{{$result->ran_at->toDateTimeString()}}</td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td class="tac" colspan="5">
+                            <p class="pa2">No Results Found.</p>
+                        </td>
+                    </tr>
+                @endforelse
+                </tbody>
+            </table>
         </div>
     </div>
 @stop
