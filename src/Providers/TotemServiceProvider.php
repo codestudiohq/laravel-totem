@@ -5,7 +5,6 @@ namespace Studio\Totem\Providers;
 use Cron\CronExpression;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
-use Spatie\Backup\BackupServiceProvider;
 use Illuminate\Support\Facades\Validator;
 use Studio\Totem\Contracts\TaskInterface;
 use Studio\Totem\Console\Commands\ListSchedule;
@@ -49,7 +48,6 @@ class TotemServiceProvider extends ServiceProvider
         $this->app->alias('totem.tasks', TaskInterface::class);
         $this->app->register(TotemRouteServiceProvider::class);
         $this->app->register(TotemEventServiceProvider::class);
-        $this->app->register(BackupServiceProvider::class);
 
         if (Schema::hasTable('tasks')) {
             $this->app->singleton(

@@ -47,14 +47,6 @@ class TestCase extends \Orchestra\Testbench\TestCase
         ];
     }
 
-    protected function getPackageAliases($app)
-    {
-        return [
-            'Form' => 'Collective\Html\FormFacade',
-            'Html' => 'Collective\Html\HtmlFacade',
-        ];
-    }
-
     /**
      * Disable Exception Handling.
      */
