@@ -16,13 +16,12 @@
     }
   ],
   "require": {
-    "php": ">=5.6.4",
-    "spatie/laravel-backup": "dev-laravel-55"
+    "php": ">=5.6.4"
   },
   "require-dev": {
     "mockery/mockery": "~0.9",
-    "orchestra/database": "3.5.x-dev",
-    "orchestra/testbench" : "3.5.x-dev",
+    "orchestra/database": "~3.0",
+    "orchestra/testbench" : "~3.0",
     "phpunit/phpunit": "~6.0"
   },
   "autoload": {
