@@ -61,7 +61,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @forelse($task->results as $result)
+                @forelse($results = $task->results()->paginate(10) as $result)
                     <tr>
                         <td class="ph2">{{ number_format($result->duration / 1000 , 2)}} seconds</td>
                         <td class="ph2">{{$result->ran_at->toDateTimeString()}}</td>
@@ -69,12 +69,16 @@
                 @empty
                     <tr>
                         <td class="tac" colspan="5">
-                            <p class="pa2">No Results Found.</p>
+                            <p class="pa2">Not executed yet.</p>
                         </td>
                     </tr>
                 @endforelse
                 </tbody>
             </table>
         </div>
+        <div class="panel-footer">
+            {{$results->links()}}
+        </div>
+
     </div>
 @stop
