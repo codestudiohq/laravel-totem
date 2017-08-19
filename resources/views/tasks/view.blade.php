@@ -18,6 +18,7 @@
                 Description<br>
                 Command<br>
                 Cron Expression<br>
+                Timezone<br>
                 Created @<br>
                 Updated @<br>
                 Notify @<br>
@@ -27,6 +28,7 @@
                 {{$task->description}}<br>
                 {{$task->command}}<br>
                 {{$task->cron ? $task->cron : 'Frequency'}}<br>
+                {{$task->timezone}}<br>
                 {{$task->created_at->toDateTimeString()}}<br>
                 {{$task->updated_at->toDateTimeString()}}<br>
                 {{$task->notification_email_address}}<br>

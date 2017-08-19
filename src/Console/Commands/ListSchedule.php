@@ -2,6 +2,8 @@
 
 namespace Studio\Totem\Console\Commands;
 
+use Carbon\Carbon;
+use Cron\CronExpression;
 use Illuminate\Console\Command;
 use Illuminate\Console\Scheduling\Schedule;
 
@@ -49,17 +51,36 @@ class ListSchedule extends Command
         if (count($this->schedule->events()) > 0) {
             $events = collect($this->schedule->events())->map(function ($event) {
                 return [
-                    'command'   => ltrim(str_after($event->command, "'artisan'")),
-                    'schedule'  => $event->expression,
+                    'command'   =>  ltrim(str_after($event->command, "'artisan'")),
+                    'schedule'  =>  $event->expression,
+                    'upcoming'  =>  $this->upcoming($event),
+                    'description'   => $event->description,
+                    'timezone'  => $event->timezone
                 ];
             });
 
             $this->table(
-                ['Command', 'Schedule'],
+                ['Command', 'Schedule', 'Upcoming', 'Description', 'Timezone'],
                 $events
             );
         } else {
             $this->info('No Scheduled Commands Found');
         }
+    }
+
+    /**
+     * Get Upcoming schedule.
+     *
+     * @return bool
+     */
+    protected function upcoming($event)
+    {
+        $date = Carbon::now();
+
+        if ($event->timezone) {
+            $date->setTimezone($event->timezone);
+        }
+
+        return (CronExpression::factory($event->expression)->getNextRunDate($date->toDateTimeString()))->format('Y-m-d H:i:s');
     }
 }

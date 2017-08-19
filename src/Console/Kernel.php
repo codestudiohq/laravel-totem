@@ -39,6 +39,9 @@ class Kernel extends AppKernel
     protected function schedule(Schedule $schedule)
     {
         $this->prepareSchedule($schedule);
+        //        $schedule->command('inspire')
+        //            ->hourly()
+        //            ->timezone('America/Chicago');
 
         parent::schedule($schedule);
     }
@@ -63,6 +66,8 @@ class Kernel extends AppKernel
             if ($command) {
                 $event = $schedule->command($command->getName());
                 $event->cron($task->cron)
+                    ->name($command->getDescription())
+                    ->timezone($task->timezone)
                     ->before(function () use ($task, $event) {
                         $event->start = microtime(true);
                         Executing::dispatch($task);
@@ -71,6 +76,7 @@ class Kernel extends AppKernel
                         Executed::dispatch($task, $event);
                     })
                     ->sendOutputTo(storage_path('logs/schedule-'.sha1($event->mutexName()).'.log'));
+
                 if ($task->notification_email_address) {
                     $event->emailOutputTo($task->notification_email_address);
                 }

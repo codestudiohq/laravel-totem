@@ -34,7 +34,22 @@
                 <p class="tcdanger ft14">{{$errors->first('command')}}</p>
             @endif
         </div>
+    </div>
+    <div class="frame mb2">
+        <p class="blk2 ft15 lh2 basic-text tar">
+            <label for="command">Timezone</label>
+        </p>
+        <div class="blk6">
+            <select id="timezone" name="timezone" class="form-control" placeholder="Click here to select one of the available commands">
+                @foreach ($timezones as $key => $timezone)
+                    <option value="{{$timezone}}" {{old('timezone', $task->timezone) == $timezone ? 'selected' : ''}}>{{$timezone}}</option>
+                @endforeach
+            </select>
 
+            @if($errors->has('command'))
+                <p class="tcdanger ft14">{{$errors->first('command')}}</p>
+            @endif
+        </div>
     </div>
     <div class="frame mb2">
         <p class="blk2 ft15 lh2 basic-text tar"></p>

@@ -51,6 +51,7 @@ class TasksController extends Controller
         return view('totem::tasks.form', [
             'task'     => new Task,
             'commands' => $this->kernel->getCommands(),
+            'timezones' => timezone_identifiers_list(),
         ]);
     }
 
@@ -85,8 +86,9 @@ class TasksController extends Controller
     public function edit($task)
     {
         return view('totem::tasks.form', [
-            'task'     => $task,
-            'commands' => $this->kernel->getCommands(),
+            'task'      => $task,
+            'commands'  => $this->kernel->getCommands(),
+            'timezones' => timezone_identifiers_list(),
         ]);
     }
 
