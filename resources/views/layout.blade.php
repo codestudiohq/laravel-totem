@@ -20,9 +20,10 @@
     <body>
         <main id="root">
             <div class="uk-container uk-section">
-                <div class="uk-grid uk-grid-collapse">
+                <div class="uk-grid">
                     @include('totem::partials.sidebar')
                     <section class="uk-width-5-6@l">
+                        @include('totem::partials.alerts')
                         @yield('main-panel-before')
                         <div class="uk-card uk-card-default">
                             <div class="uk-card-header">
@@ -30,9 +31,10 @@
                             </div>
                             <div class="uk-card-body">
                                 @yield('main-panel-content')
-                                @include('totem::partials.alerts')
                             </div>
-                            @yield('main-panel-footer')
+                            <div class="uk-card-footer">
+                                @yield('main-panel-footer')
+                            </div>
                         </div>
                         @yield('main-panel-after')
                         @yield('additional-panels')

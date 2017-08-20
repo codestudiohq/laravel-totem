@@ -17,13 +17,17 @@ Manage your `Laravel Schedule` from a pretty dashboard. Schedule your `Laravel C
 
 #### Installation
 
-`Totem` requires Laravel v5.5.Use composer to install totem to your Laravel project
+`Totem` requires Laravel v5.4 and above. Use composer to install totem to your Laravel project
  
     composer require studio/laravel-totem
 
-Laravel Totem supports auto package discovery for Laravel v5.5.
+> Laravel Totem supports auto package discovery for Laravel v5.5, therefore service provider registration is not required in Laravel v5.5
 
-Once `Laravel Totem` is installed , publish `Totem` assets to your public folder using the following command
+Add `TotemServiceProvider` to the `providers` array of your Laravel v5.4 application's config/app.php
+
+    Studio\Totem\Providers\TotemServiceProvider::class,
+
+Once `Laravel Totem` is installed & registered, you can publish `Totem` assets to your public folder using the following command
     
     php artisan totem:assets
 
@@ -59,6 +63,14 @@ protected $hidden = true;
 #### Current limitations
 
 Currently tasks can only be scheduled with a cron expression. Stay tuned for more Laravel Schedule like fluent configurations.
+
+### Screenshots
+
+##### Task List
+<img src="https://github.com/codestudiollc/laravel-totem/blob/master/public/img/screenshots/tasks.png?raw=true" alt="Task List"/>
+
+##### Task Details
+<img src="https://github.com/codestudiollc/laravel-totem/blob/master/public/img/screenshots/task-details.png?raw=true" alt="Task List"/>
  
 ## Changelog
 

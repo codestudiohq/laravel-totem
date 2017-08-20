@@ -1,9 +1,10 @@
-<aside class="uk-width-1-6@l">
-    <div class="">
+<aside class="uk-width-1-6@l uk-margin-bottom">
+    <div class="uk-text-center">
         <img src="/vendor/totem/img/mask.svg" class="uk-svg">
         <div class="uk-text-large">Totem</div>
     </div>
-    <ul class="uk-nav uk-nav-secondary">
+    <hr>
+    <ul class="uk-nav uk-nav-default">
         {{--<li class="nav-item {{ url()->current() == route('totem.dashboard') ? 'nav-item-active' : '' }}">--}}
             {{--<a class="nav-link" href="{{route('totem.dashboard')}}">--}}
                 {{--<i>--}}
@@ -14,12 +15,12 @@
                 {{--KPI--}}
             {{--</a>--}}
         {{--</li>--}}
-        <li class="{{ url()->current() == route('totem.tasks.all') ? 'uk-active' : '' }}">
+        <li class="{{ str_contains(url()->current(), 'tasks') ? 'uk-active' : '' }}">
             <a href="{{route('totem.tasks.all')}}" class="uk-flex uk-flex-middle">
-                <vk-icon icon="clock" class="uk-margin-small-right uk-icon"></vk-icon>
-                {{--<img src="/vendor/totem/img/icons/clock.svg" width="15" heigh="15" class="uk-svg">--}}
+                <vk-icon icon="clock" class="uk-visible@m uk-margin-small-right uk-icon"></vk-icon>
                 <span class="uk-vertical-align-middle">Tasks</span>
             </a>
         </li>
     </ul>
+    <hr>
 </aside>

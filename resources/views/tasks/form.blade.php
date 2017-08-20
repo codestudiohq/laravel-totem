@@ -9,8 +9,7 @@
 @stop
 @section('title')
     <div class="uk-flex uk-flex-between uk-flex-middle">
-        <h5 class="uk-margin-remove">{{ $task->exists ? 'Update' : 'Create'}} Task</h5>
-        <button class="uk-button uk-button-primary uk-button-small" type="submit">Save</button>
+        <h5 class="uk-card-title uk-margin-remove">{{ $task->exists ? 'Update' : 'Create'}} Task</h5>
     </div>
 @stop
 @section('main-panel-content')
@@ -88,6 +87,9 @@
             </label>
         </div>
     </div>
+@stop
+@section('main-panel-footer')
+    <button class="uk-button uk-button-primary uk-button-small" type="submit">Save</button>
 @stop
 @section('main-panel-after')
     </form>

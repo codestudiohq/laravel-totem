@@ -24,6 +24,11 @@ class Task extends Model
         'upcoming',
     ];
 
+    public function setTimezoneAttribute($value)
+    {
+        return $this->attributes['timezone'] = $value?: config('app.timezone');
+    }
+
     public function getActivatedAttribute()
     {
         return $this->is_active;

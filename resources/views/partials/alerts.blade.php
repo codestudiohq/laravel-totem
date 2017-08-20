@@ -1,16 +1,10 @@
 @if(session()->has('success'))
-    @component('totem::partials.message')
-        @slot('class')
-            bgsuccess tcw
-        @endslot
+    <vk-alert type="success">
         {{session()->get('success')}}
-    @endcomponent
+    </vk-alert>
 @endif
 @if($errors->any())
-    @component('totem::partials.message')
-        @slot('class')
-            bg1 tcw
-        @endslot
+    <vk-alert type="danger">
         Please Correct the errors and try resubmitting.
-    @endcomponent
+    </vk-alert>
 @endif
