@@ -1,0 +1,93 @@
+//
+// Component: Tab
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@tab-item-font-size:                            @global-font-size;
+@tab-item-line-height:                          @global-line-height;
+@tab-item-font-family:                          @global-secondary-font-family;
+@tab-item-font-weight:                          @global-secondary-font-weight;
+@tab-item-text-transform:                       @global-secondary-text-transform;
+@tab-item-letter-spacing:                       @global-secondary-letter-spacing;
+@tab-item-font-style:                           @global-secondary-font-style;
+
+
+// Component
+// ========================================================================
+
+.hook-tab() {}
+
+// Items
+// ========================================================================
+
+.hook-tab-item() {
+    font-size: @tab-item-font-size;
+    line-height: @tab-item-line-height;
+}
+
+.hook-tab-item() when not (@tab-item-font-family = inherit) {
+    font-family: @tab-item-font-family;
+}
+
+.hook-tab-item() when not (@tab-item-font-weight = inherit) {
+    font-weight: @tab-item-font-weight;
+}
+
+.hook-tab-item() when not (@tab-item-text-transform = inherit) {
+    text-transform: @tab-item-text-transform;
+}
+
+.hook-tab-item() when not (@tab-item-letter-spacing = inherit) {
+    letter-spacing: @tab-item-letter-spacing;
+}
+
+.hook-tab-item() when not (@tab-item-font-style = inherit) {
+    font-style: @tab-item-font-style;
+}
+
+.hook-tab-item-hover() {}
+
+.hook-tab-item-active() {}
+
+.hook-tab-item-disabled() {}
+
+
+// Position modifiers
+// ========================================================================
+
+.hook-tab-bottom() {}
+
+.hook-tab-bottom-item() {}
+
+.hook-tab-left() {}
+
+.hook-tab-left-item() {}
+
+.hook-tab-right() {}
+
+.hook-tab-right-item() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-tab-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-tab() {}
+
+.hook-inverse-tab-item() {}
+.hook-inverse-tab-item-hover() {}
+.hook-inverse-tab-item-active() {}
+.hook-inverse-tab-item-disabled() {}

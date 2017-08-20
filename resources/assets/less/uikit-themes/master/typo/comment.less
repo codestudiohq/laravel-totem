@@ -1,0 +1,92 @@
+//
+// Component: Comment
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@comment-meta-font-family:                      @global-secondary-font-family;
+@comment-meta-font-weight:                      @global-secondary-font-weight;
+@comment-meta-text-transform:                   @global-secondary-text-transform;
+@comment-meta-letter-spacing:                   @global-secondary-letter-spacing;
+@comment-meta-font-style:                       @global-secondary-font-style;
+
+
+// Component
+// ========================================================================
+
+.hook-comment() {}
+
+
+// Sections
+// ========================================================================
+
+.hook-comment-body() {}
+
+.hook-comment-header() {}
+
+
+// Title
+// ========================================================================
+
+.hook-comment-title() {}
+
+
+// Meta
+// ========================================================================
+
+.hook-comment-meta() {}
+
+.hook-comment-meta() when not (@comment-meta-font-family = inherit) {
+    font-family: @comment-meta-font-family;
+}
+
+.hook-comment-meta() when not (@comment-meta-font-weight = inherit) {
+    font-weight: @comment-meta-font-weight;
+}
+
+.hook-comment-meta() when not (@comment-meta-text-transform = inherit) {
+    text-transform: @comment-meta-text-transform;
+}
+
+.hook-comment-meta() when not (@comment-meta-letter-spacing = inherit) {
+    letter-spacing: @comment-meta-letter-spacing;
+}
+
+.hook-comment-meta() when not (@comment-meta-font-style = inherit) {
+    font-style: @comment-meta-font-style;
+}
+
+
+// Avatar
+// ========================================================================
+
+.hook-comment-avatar() {}
+
+
+// List
+// ========================================================================
+
+.hook-comment-list-adjacent() {}
+
+.hook-comment-list-sub() {}
+
+.hook-comment-list-sub-adjacent() {}
+
+
+// Style modifier
+// ========================================================================
+
+.hook-comment-primary() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-comment-misc() {}

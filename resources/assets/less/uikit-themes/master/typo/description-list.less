@@ -1,0 +1,94 @@
+//
+// Component: Description list
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@description-list-term-font-size:                      @global-font-size;
+@description-list-term-font-family:                    @global-secondary-font-family;
+@description-list-term-font-weight:                    @global-secondary-font-weight;
+@description-list-term-text-transform:                 @global-secondary-text-transform;
+@description-list-term-letter-spacing:                 @global-secondary-letter-spacing;
+@description-list-term-font-style:                     @global-secondary-font-style;
+
+@description-list-description-font-size:               @global-font-size;
+@description-list-description-font-family:             inherit;
+@description-list-description-font-weight:             inherit;
+@description-list-description-text-transform:          inherit;
+@description-list-description-letter-spacing:          inherit;
+@description-list-description-font-style:              inherit;
+
+
+// Component
+// ========================================================================
+
+//
+// Term
+//
+
+.hook-description-list-term() { font-size: @description-list-term-font-size; }
+
+.hook-description-list-term() when not (@description-list-term-font-family = inherit) {
+    font-family: @description-list-term-font-family;
+}
+
+.hook-description-list-term() when not (@description-list-term-font-weight = inherit) {
+    font-weight: @description-list-term-font-weight;
+}
+
+.hook-description-list-term() when not (@description-list-term-text-transform = inherit) {
+    text-transform: @description-list-term-text-transform;
+}
+
+.hook-description-list-term() when not (@description-list-term-letter-spacing = inherit) {
+    letter-spacing: @description-list-term-letter-spacing;
+}
+
+.hook-description-list-term() when not (@description-list-term-font-style = inherit) {
+    font-style: @description-list-term-font-style;
+}
+
+//
+// Description
+//
+
+.hook-description-list-description() { font-size: @description-list-description-font-size; }
+
+.hook-description-list-description() when not (@description-list-description-font-family = inherit) {
+    font-family: @description-list-description-font-family;
+}
+
+.hook-description-list-description() when not (@description-list-description-font-weight = inherit) {
+    font-weight: @description-list-description-font-weight;
+}
+
+.hook-description-list-description() when not (@description-list-description-text-transform = inherit) {
+    text-transform: @description-list-description-text-transform;
+}
+
+.hook-description-list-description() when not (@description-list-description-letter-spacing = inherit) {
+    letter-spacing: @description-list-description-letter-spacing;
+}
+
+.hook-description-list-description() when not (@description-list-description-font-style = inherit) {
+    font-style: @description-list-description-font-style;
+}
+
+
+// Style modifier
+// ========================================================================
+
+.hook-description-list-divider-term() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-description-list-misc() {}

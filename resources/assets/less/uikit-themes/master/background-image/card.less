@@ -1,0 +1,121 @@
+//
+// Component: Card
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@internal-card-default-gradient:               ;
+@internal-card-default-hover-gradient:         ;
+
+@internal-card-primary-gradient:               ;
+@internal-card-primary-hover-gradient:         ;
+
+@internal-card-secondary-gradient:             ;
+@internal-card-secondary-hover-gradient:       ;
+
+
+// Component
+// ========================================================================
+
+.hook-card() {}
+
+
+// Sections
+// ========================================================================
+
+.hook-card-body() {}
+
+.hook-card-header() {}
+
+.hook-card-footer() {}
+
+
+// Media
+// ========================================================================
+
+.hook-card-media() {}
+
+.hook-card-media-top() {}
+
+.hook-card-media-bottom() {}
+
+.hook-card-media-left() {}
+
+.hook-card-media-right() {}
+
+
+// Title
+// ========================================================================
+
+.hook-card-title() {}
+
+
+// Badge
+// ========================================================================
+
+.hook-card-badge() {}
+
+
+// Hover modifier
+// ========================================================================
+
+.hook-card-hover() {}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-card-default() when not (@internal-card-default-gradient = ~'') {
+    background-image: @internal-card-default-gradient;
+}
+
+.hook-card-default-title() {}
+
+.hook-card-default-hover() when not (@internal-card-default-hover-gradient = ~'') {
+    background-image: @internal-card-default-hover-gradient;
+}
+
+.hook-card-default-header() {}
+
+.hook-card-default-footer() {}
+
+//
+// Primary
+//
+
+.hook-card-primary() when not (@internal-card-primary-gradient = ~'') {
+    background-image: @internal-card-primary-gradient;
+}
+
+.hook-card-primary-title() {}
+
+.hook-card-primary-hover() when not (@internal-card-primary-hover-gradient = ~'') {
+    background-image: @internal-card-primary-hover-gradient;
+}
+
+//
+// Secondary
+//
+
+.hook-card-secondary() when not (@internal-card-secondary-gradient = ~'') {
+    background-image: @internal-card-secondary-gradient;
+}
+
+.hook-card-secondary-title() {}
+
+.hook-card-secondary-hover() when not (@internal-card-secondary-hover-gradient = ~'') {
+    background-image: @internal-card-secondary-hover-gradient;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-card-misc() {}

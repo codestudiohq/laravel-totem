@@ -1,0 +1,114 @@
+//
+// Component: Countdown
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@countdown-item-color:                          @global-emphasis-color;
+@countdown-item-font-family:                    inherit;
+@countdown-item-font-weight:                    inherit;
+@countdown-item-text-transform:                 inherit;
+@countdown-item-letter-spacing:                 inherit;
+@countdown-item-font-style:                     inherit;
+
+@countdown-label-font-size:                     @global-font-size;
+@countdown-label-color:                         @global-muted-color;
+@countdown-label-font-family:                   inherit;
+@countdown-label-font-weight:                   inherit;
+@countdown-label-text-transform:                inherit;
+@countdown-label-letter-spacing:                inherit;
+@countdown-label-font-style:                    inherit;
+
+
+// Component
+// ========================================================================
+
+.hook-countdown() {}
+
+
+// Item
+// ========================================================================
+
+.hook-countdown-item() { color: @countdown-item-color; }
+
+.hook-countdown-item() when not (@countdown-item-font-family = inherit) {
+    font-family: @countdown-item-font-family;
+}
+
+.hook-countdown-item() when not (@countdown-item-font-weight = inherit) {
+    font-weight: @countdown-item-font-weight;
+}
+
+.hook-countdown-item() when not (@countdown-item-text-transform = inherit) {
+    text-transform: @countdown-item-text-transform;
+}
+
+.hook-countdown-item() when not (@countdown-item-letter-spacing = inherit) {
+    letter-spacing: @countdown-item-letter-spacing;
+}
+
+.hook-countdown-item() when not (@countdown-item-font-style = inherit) {
+    font-style: @countdown-item-font-style;
+}
+
+
+// Number
+// ========================================================================
+
+.hook-countdown-number() {}
+
+
+// Separator
+// ========================================================================
+
+.hook-countdown-separator() {}
+
+
+// Label
+// ========================================================================
+
+.hook-countdown-label() {
+    color: @countdown-label-color;
+    font-size: @countdown-label-font-size;
+}
+
+.hook-countdown-label() when not (@countdown-label-font-family = inherit) {
+    font-family: @countdown-label-font-family;
+}
+
+.hook-countdown-label() when not (@countdown-label-font-weight = inherit) {
+    font-weight: @countdown-label-font-weight;
+}
+
+.hook-countdown-label() when not (@countdown-label-text-transform = inherit) {
+    text-transform: @countdown-label-text-transform;
+}
+
+.hook-countdown-label() when not (@countdown-label-letter-spacing = inherit) {
+    letter-spacing: @countdown-label-letter-spacing;
+}
+
+.hook-countdown-label() when not (@countdown-label-font-style = inherit) {
+    font-style: @countdown-label-font-style;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-countdown-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-countdown-item-color:                 @inverse-global-emphasis-color;
+@inverse-countdown-label-color:                @inverse-global-muted-color;
+
+.hook-inverse-countdown-item() { color: @inverse-countdown-item-color; }
+.hook-inverse-countdown-number() {}
+.hook-inverse-countdown-separator() {}
+.hook-inverse-countdown-label() { color: @inverse-countdown-item-color; }

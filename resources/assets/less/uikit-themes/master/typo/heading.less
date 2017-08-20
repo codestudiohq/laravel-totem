@@ -1,0 +1,132 @@
+//
+// Component: Heading
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@heading-primary-color:                         @global-emphasis-color;
+@heading-primary-font-family:                   @global-primary-font-family;
+@heading-primary-font-weight:                   @global-primary-font-weight;
+@heading-primary-text-transform:                @global-primary-text-transform;
+@heading-primary-letter-spacing:                @global-primary-letter-spacing;
+@heading-primary-font-style:                    @global-primary-font-style;
+
+@heading-primary-text-shadow:                   none;
+
+@heading-hero-color:                            @global-emphasis-color;
+@heading-hero-font-family:                      @global-primary-font-family;
+@heading-hero-font-weight:                      @global-primary-font-weight;
+@heading-hero-text-transform:                   @global-primary-text-transform;
+@heading-hero-letter-spacing:                   @global-primary-letter-spacing;
+@heading-hero-font-style:                       @global-primary-font-style;
+
+@heading-hero-text-shadow:                      none;
+
+
+// Primary
+// ========================================================================
+
+.hook-heading-primary() { color: @heading-primary-color; }
+
+.hook-heading-primary() when not (@heading-primary-font-family = inherit) {
+    font-family: @heading-primary-font-family;
+}
+
+.hook-heading-primary() when not (@heading-primary-font-weight = inherit) {
+    font-weight: @heading-primary-font-weight;
+}
+
+.hook-heading-primary() when not (@heading-primary-text-transform = inherit) {
+    text-transform: @heading-primary-text-transform;
+}
+
+.hook-heading-primary() when not (@heading-primary-letter-spacing = inherit) {
+    letter-spacing: @heading-primary-letter-spacing;
+}
+
+.hook-heading-primary() when not (@heading-primary-font-style = inherit) {
+    font-style: @heading-primary-font-style;
+}
+
+.hook-heading-primary() when not (@heading-primary-text-shadow = none) {
+    text-shadow: @heading-primary-text-shadow;
+}
+
+
+// Hero
+// ========================================================================
+
+.hook-heading-hero() { color: @heading-hero-color; }
+
+.hook-heading-hero() when not (@heading-hero-font-family = inherit) {
+    font-family: @heading-hero-font-family;
+}
+
+.hook-heading-hero() when not (@heading-hero-font-weight = inherit) {
+    font-weight: @heading-hero-font-weight;
+}
+
+.hook-heading-hero() when not (@heading-hero-text-transform = inherit) {
+    text-transform: @heading-hero-text-transform;
+}
+
+.hook-heading-hero() when not (@heading-hero-letter-spacing = inherit) {
+    letter-spacing: @heading-hero-letter-spacing;
+}
+
+.hook-heading-hero() when not (@heading-hero-font-style = inherit) {
+    font-style: @heading-hero-font-style;
+}
+
+.hook-heading-hero() when not (@heading-hero-text-shadow = none) {
+    text-shadow: @heading-hero-text-shadow;
+}
+
+
+// Divider
+// ========================================================================
+
+.hook-heading-divider() {}
+
+
+// Bullet
+// ========================================================================
+
+.hook-heading-bullet() {}
+
+
+// Line
+// ========================================================================
+
+.hook-heading-bullet() {}
+
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-heading-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-heading-primary-color:                @inverse-global-emphasis-color;
+@inverse-heading-hero-color:                   @inverse-global-emphasis-color;
+
+.hook-inverse-heading-primary() { color: @inverse-heading-primary-color; }
+
+.hook-inverse-heading-hero() { color: @inverse-heading-hero-color; }
+
+.hook-inverse-heading-divider() {}
+
+.hook-inverse-heading-bullet() {}
+
+.hook-inverse-heading-line() {}

@@ -1,0 +1,105 @@
+//
+// Component: Article
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@article-title-color:                           @global-emphasis-color;
+@article-title-font-family:                     @global-primary-font-family;
+@article-title-font-weight:                     @global-primary-font-weight;
+@article-title-text-transform:                  @global-primary-text-transform;
+@article-title-letter-spacing:                  @global-primary-letter-spacing;
+@article-title-font-style:                      @global-primary-font-style;
+
+@article-meta-font-family:                      @global-secondary-font-family;
+@article-meta-font-weight:                      @global-secondary-font-weight;
+@article-meta-text-transform:                   @global-secondary-text-transform;
+@article-meta-letter-spacing:                   @global-secondary-letter-spacing;
+@article-meta-font-style:                       @global-secondary-font-style;
+
+
+// Component
+// ========================================================================
+
+.hook-article() {}
+
+
+// Adjacent sibling
+// ========================================================================
+
+.hook-article-adjacent() {}
+
+
+// Title
+// ========================================================================
+
+.hook-article-title() { color: @article-title-color; }
+
+.hook-article-title() when not (@article-title-font-family = inherit) {
+    font-family: @article-title-font-family;
+}
+
+.hook-article-title() when not (@article-title-font-weight = inherit) {
+    font-weight: @article-title-font-weight;
+}
+
+.hook-article-title() when not (@article-title-text-transform = inherit) {
+    text-transform: @article-title-text-transform;
+}
+
+.hook-article-title() when not (@article-title-letter-spacing = inherit) {
+    letter-spacing: @article-title-letter-spacing;
+}
+
+.hook-article-title() when not (@article-title-font-style = inherit) {
+    font-style: @article-title-font-style;
+}
+
+
+// Meta
+// ========================================================================
+
+.hook-article-meta() {}
+
+.hook-article-meta() when not (@article-meta-font-family = inherit) {
+    font-family: @article-meta-font-family;
+}
+
+.hook-article-meta() when not (@article-meta-font-weight = inherit) {
+    font-weight: @article-meta-font-weight;
+}
+
+.hook-article-meta() when not (@article-meta-text-transform = inherit) {
+    text-transform: @article-meta-text-transform;
+}
+
+.hook-article-meta() when not (@article-meta-letter-spacing = inherit) {
+    letter-spacing: @article-meta-letter-spacing;
+}
+
+.hook-article-meta() when not (@article-meta-font-style = inherit) {
+    font-style: @article-meta-font-style;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-article-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-article-title-color:                  @inverse-global-emphasis-color;
+
+.hook-inverse-article-title() { color: @inverse-article-title-color; }
+
+.hook-inverse-article-meta() {}

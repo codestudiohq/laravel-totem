@@ -1,0 +1,152 @@
+//
+// Component: Nav
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@nav-header-font-weight:                        inherit;
+@nav-header-letter-spacing:                     @global-secondary-letter-spacing;
+
+@nav-default-font-size:                         @global-font-size;
+@nav-default-font-family:                       @global-secondary-font-family;
+@nav-default-font-weight:                       @global-secondary-font-weight;
+@nav-default-text-transform:                    @global-secondary-text-transform;
+@nav-default-letter-spacing:                    @global-secondary-letter-spacing;
+@nav-default-font-style:                        @global-secondary-font-style;
+
+@nav-primary-font-family:                       @global-primary-font-family;
+@nav-primary-font-weight:                       @global-primary-font-weight;
+@nav-primary-text-transform:                    @global-primary-text-transform;
+@nav-primary-letter-spacing:                    @global-primary-letter-spacing;
+@nav-primary-font-style:                        @global-primary-font-style;
+
+
+// Sublists
+// ========================================================================
+
+.hook-nav-sub() {}
+
+
+// Parent icon modifier
+// ========================================================================
+
+.hook-nav-parent-icon() {}
+
+
+// Header
+// ========================================================================
+
+.hook-nav-header() when not (@nav-header-font-weight = inherit) {
+    font-weight: @nav-header-font-weight;
+}
+
+.hook-nav-header() when not (@nav-header-letter-spacing = inherit) {
+    letter-spacing: @nav-header-letter-spacing;
+}
+
+
+// Divider
+// ========================================================================
+
+.hook-nav-divider() {}
+
+
+// Default style modifier
+// ========================================================================
+
+.hook-nav-default() { font-size: @nav-default-font-size; }
+
+.hook-nav-default() when not (@nav-default-font-family = inherit) {
+    font-family: @nav-default-font-family;
+}
+
+.hook-nav-default() when not (@nav-default-font-weight = inherit) {
+    font-weight: @nav-default-font-weight;
+}
+
+.hook-nav-default() when not (@nav-default-text-transform = inherit) {
+    text-transform: @nav-default-text-transform;
+}
+
+.hook-nav-default() when not (@nav-default-letter-spacing = inherit) {
+    letter-spacing: @nav-default-letter-spacing;
+}
+
+.hook-nav-default() when not (@nav-default-font-style = inherit) {
+    font-style: @nav-default-font-style;
+}
+
+.hook-nav-default-item() {}
+
+.hook-nav-default-item-hover() {}
+
+.hook-nav-default-item-active() {}
+
+.hook-nav-default-header() {}
+
+.hook-nav-default-divider() {}
+
+
+// Primary style modifier
+// ========================================================================
+
+.hook-nav-primary() when not (@nav-primary-font-family = inherit) {
+    font-family: @nav-primary-font-family;
+}
+
+.hook-nav-primary() when not (@nav-primary-font-weight = inherit) {
+    font-weight: @nav-primary-font-weight;
+}
+
+.hook-nav-primary() when not (@nav-primary-text-transform = inherit) {
+    text-transform: @nav-primary-text-transform;
+}
+
+.hook-nav-primary() when not (@nav-primary-letter-spacing = inherit) {
+    letter-spacing: @nav-primary-letter-spacing;
+}
+
+.hook-nav-primary() when not (@nav-primary-font-style = inherit) {
+    font-style: @nav-primary-font-style;
+}
+
+.hook-nav-primary-item() {}
+
+.hook-nav-primary-item-hover() {}
+
+.hook-nav-primary-item-active() {}
+
+.hook-nav-primary-header() {}
+
+.hook-nav-primary-divider() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-nav-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-nav-parent-icon() {}
+
+.hook-inverse-nav-default-item() {}
+.hook-inverse-nav-default-item-hover() {}
+.hook-inverse-nav-default-item-active() {}
+.hook-inverse-nav-default-header() {}
+.hook-inverse-nav-default-divider() {}
+
+.hook-inverse-nav-primary-item() {}
+.hook-inverse-nav-primary-item-hover() {}
+.hook-inverse-nav-primary-item-active() {}
+.hook-inverse-nav-primary-header() {}
+.hook-inverse-nav-primary-divider() {}

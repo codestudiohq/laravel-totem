@@ -1,0 +1,43 @@
+//
+// Component: Form Range
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@form-range-thumb-border-width:                 0;
+@form-range-thumb-border:                       transparent;
+
+
+// Component
+// ========================================================================
+
+.hook-form-range() {}
+
+
+// Thumb
+// ========================================================================
+
+.hook-form-range-thumb() when not (@form-range-thumb-border-width = 0) {
+    border: @form-range-thumb-border-width solid @form-range-thumb-border;
+}
+
+
+// Track
+// ========================================================================
+
+.hook-form-range-track() {}
+
+.hook-form-range-track-focus() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-form-range-misc() {}

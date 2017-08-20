@@ -1,0 +1,167 @@
+//
+// Global
+//
+
+@global-color: rgba(255, 255, 255, 0.77);
+@global-inverse-color: #16161a;
+@global-link-color: #f3fc3a;
+@global-muted-color: rgba(183, 183, 195, 0.5);
+@global-link-hover-color: #dee740;
+@global-background: #151517;
+@global-muted-background: #252629;
+@global-primary-background: #efff3f;
+@global-secondary-background: #bcc428;
+@global-border: rgba(237, 240, 245, 0.06);
+@global-large-box-shadow: 0 12px 50px 0 rgba(26, 26, 28, 0.21);
+@global-medium-box-shadow: 0 8px 45px 0 rgba(26, 26, 28, 0.21);
+@global-small-box-shadow: 0 5px 25px 0 rgba(26, 26, 28, 0.21);
+@global-xlarge-box-shadow: 0 18px 70px 0 rgba(26, 26, 28, 0.21);
+
+//
+// Base
+//
+
+@base-body-background: #17171b;
+@base-em-color: #d9e36c;
+@base-ins-background: @global-link-color;
+@base-h6-color: @global-link-color;
+@base-selection-color: @global-inverse-color;
+
+//
+// Button
+//
+
+@button-default-border: @global-primary-background;
+@button-default-color: #faf84f;
+@button-default-hover-border: #bcbf13;
+@button-default-hover-color: #e7e54d;
+@button-default-active-color: #b4bd4f;
+@button-primary-color: @global-inverse-color;
+@button-primary-hover-background: #d4e049;
+@button-primary-active-background: #bcbf13;
+@button-secondary-border: #f6f7e9;
+@button-secondary-color: #ffffff;
+@button-secondary-hover-border: @global-primary-background;
+@button-secondary-hover-color: #faf84f;
+@button-secondary-active-color: #bcbf13;
+@internal-button-default-border-gradient: linear-gradient(135deg, @global-primary-background, #dde21b);
+@internal-button-primary-gradient: linear-gradient(135deg, @global-primary-background, #dde21b);
+@internal-button-secondary-border-gradient: linear-gradient(135deg, #fff, #f6f7e9);
+@internal-button-default-hover-border-gradient: linear-gradient(185deg, #bcc929, #bcbf13);
+@internal-button-primary-hover-gradient: linear-gradient(185deg, #d4e049, #c8cb1d);
+@internal-button-secondary-hover-border-gradient: linear-gradient(135deg, @global-primary-background, #dde21b);
+@internal-button-default-active-border-gradient: linear-gradient(90deg, #bcc929, #bcbf13);
+@internal-button-primary-active-gradient: linear-gradient(90deg, #bcc929, #bcbf13);
+@internal-button-secondary-active-border-gradient: linear-gradient(185deg, #d4e049, #c8cb1d);
+
+//
+// Card
+//
+
+@card-default-background: #232426;
+@card-default-box-shadow: inset 1px 1px 0 0 rgba(255, 255, 255, 0.03);
+@card-default-hover-background: #2e2f32;
+@card-primary-background: @global-primary-background;
+@card-primary-hover-background: #d4e049;
+@card-secondary-background: #080809;
+@card-secondary-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+@card-secondary-color: @global-link-color;
+@card-secondary-color-mode: none;
+@card-secondary-hover-background: @global-background;
+@card-secondary-hover-box-shadow: 1px 1px 15px 0 rgba(0, 0, 0, 0.6);
+@internal-card-default-gradient: linear-gradient(135deg, #2f3133, #232426);
+@internal-card-primary-gradient: linear-gradient(135deg, @global-primary-background, #dde21b);
+@internal-card-secondary-gradient: linear-gradient(135deg, #080809, #000);
+@internal-card-default-hover-gradient: linear-gradient(135deg, #3a3c3e, #2e2f32);
+@internal-card-primary-hover-gradient: linear-gradient(185deg, #d4e049, #c8cb1d);
+@internal-card-secondary-hover-gradient: linear-gradient(155deg, @global-background, #101012);
+
+//
+// Heading
+//
+
+@internal-heading-hero-glitch-color-1: fade(@global-primary-background, 30%);
+@internal-heading-hero-glitch-color-2: fade(@global-secondary-background, 30%);
+@heading-primary-text-shadow: -2px -2px 0 fade(@global-secondary-background, 30%), 2px 2px 0 fade(@global-primary-background, 30%);
+
+//
+// Icon
+//
+
+@icon-button-color: @global-inverse-color;
+@icon-button-hover-background: #d4e049;
+@icon-button-active-background: #bcc929;
+@internal-icon-button-gradient: linear-gradient(135deg, @global-primary-background, #dde21b);
+@internal-icon-button-hover-gradient: linear-gradient(185deg, #d4e049, #c8cb1d);
+@internal-icon-button-active-gradient: linear-gradient(90deg, #bcc929, #bcbf13);
+
+@inverse-icon-button-color: @global-inverse-color;
+@inverse-icon-button-hover-color: fade(@inverse-icon-button-color, 70%);
+@inverse-icon-button-active-color: @inverse-icon-button-color;
+
+//
+// Label
+//
+
+@label-border: @global-primary-background;
+@label-color: @global-primary-background;
+
+//
+// Navbar
+//
+
+@navbar-background: rgba(42, 42, 45, 0.95);
+@internal-navbar-gradient: linear-gradient(180deg, rgba(27, 27, 29, 0.95) 10%, rgba(42, 42, 47, 0.15) 100%);
+
+//
+// Overlay
+//
+
+@overlay-primary-color-mode: dark;
+
+//
+// Section
+//
+
+@section-default-background: #111518;
+@section-muted-background: #1b1e26;
+@section-primary-background: #9db13c;
+@section-primary-color-mode: light;
+@section-secondary-background: #18181b;
+@internal-section-default-gradient: linear-gradient(#111518, #0a0c11);
+@internal-section-muted-gradient: linear-gradient(#1b1e26, #15171a);
+@internal-section-primary-gradient: linear-gradient(135deg, #ccd251, #9db13c);
+
+//
+// Subnav
+//
+
+@subnav-pill-item-active-color: @global-inverse-color;
+@internal-subnav-pill-item-active-gradient: linear-gradient(135deg, @global-primary-background, #dde21b);
+
+//
+// Tab
+//
+
+@internal-tab-item-active-border-gradient: linear-gradient(135deg, @global-primary-background, #dde21b);
+
+//
+// Tile
+//
+
+@tile-primary-color-mode: dark;
+@internal-tile-primary-gradient: linear-gradient(135deg, @global-primary-background, #dde21b);
+@internal-tile-secondary-gradient: linear-gradient(135deg, #080809, #000);
+
+//
+// Tooltip
+//
+
+@tooltip-color: @global-inverse-color;
+
+//
+// Utility
+//
+
+@box-shadow-bottom-blur: 45px;
+@box-shadow-bottom-background: linear-gradient(270deg, fade(@global-secondary-background, 30%), fade(@global-primary-background, 10%));

@@ -1,0 +1,219 @@
+//
+// Component: Card
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@card-badge-padding-vertical:                  0;
+@card-badge-padding-horizontal:                0;
+@card-badge-background:                        transparent;
+
+@card-default-header-border-width:             @global-border-width;
+@card-default-header-border:                   @global-border;
+
+@card-default-footer-border-width:             @global-border-width;
+@card-default-footer-border:                   @global-border;
+
+@card-default-hover-top:                       0;
+@card-primary-hover-top:                       0;
+@card-secondary-hover-top:                     0;
+
+
+// Component
+// ========================================================================
+
+.hook-card() {
+    -webkit-transition: 0.1s ease-in-out;
+    transition: 0.1s ease-in-out;
+    -webkit-transition-property: color, background-color, border-color, box-shadow, top;
+    transition-property: color, background-color, border-color, box-shadow, top;
+}
+
+.hook-card() when not (@card-default-hover-top = 0), not (@card-primary-hover-top = 0), not (@card-secondary-hover-top = 0) {
+    top: 0;
+}
+
+
+// Sections
+// ========================================================================
+
+.hook-card-body() {}
+
+.hook-card-header() {}
+
+.hook-card-footer() {}
+
+
+// Media
+// ========================================================================
+
+.hook-card-media() {}
+
+.hook-card-media-top() {}
+
+.hook-card-media-bottom() {}
+
+.hook-card-media-left() {}
+
+.hook-card-media-right() {}
+
+
+// Title
+// ========================================================================
+
+.hook-card-title() {}
+
+
+// Badge
+// ========================================================================
+
+.hook-card-badge() when not (@card-badge-padding-vertical = 0), not (@card-badge-padding-horizontal = 0) {
+    padding: @card-badge-padding-vertical @card-badge-padding-horizontal;
+}
+
+.hook-card-badge() when not (@card-badge-background = transparent) {
+    background: @card-badge-background;
+}
+
+
+// Hover modifier
+// ========================================================================
+
+.hook-card-hover() {}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-card-default() {}
+
+.hook-card-default-title() {}
+
+.hook-card-default-hover() when not (@card-default-hover-top = 0) {
+    top: @card-default-hover-top;
+}
+
+.hook-card-default-header() { border-bottom: @card-default-header-border-width solid @card-default-header-border; }
+
+.hook-card-default-footer() { border-top: @card-default-footer-border-width  solid @card-default-footer-border; }
+
+//
+// Primary
+//
+
+.hook-card-primary() {}
+
+.hook-card-primary-title() {}
+
+.hook-card-primary-hover() when not (@card-primary-hover-top = 0) {
+    top: @card-primary-hover-top;
+}
+
+//
+// Secondary
+//
+
+.hook-card-secondary() {}
+
+.hook-card-secondary-title() {}
+
+.hook-card-secondary-hover() when not (@card-secondary-hover-top = 0) {
+    top: @card-secondary-hover-top;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-card-misc() {
+
+    /*
+     * Default
+     */
+
+    .uk-card-body .uk-nav-default { margin: (-@card-body-padding-vertical + 15px) -@card-body-padding-horizontal; }
+    .uk-card-title + .uk-nav-default { margin-top: 0; }
+
+    .uk-card-body .uk-nav-default > li > a,
+    .uk-card-body .uk-nav-default .uk-nav-header,
+    .uk-card-body .uk-nav-default .uk-nav-divider {
+        padding-left: @card-body-padding-horizontal;
+        padding-right: @card-body-padding-horizontal;
+    }
+
+    .uk-card-body .uk-nav-default .uk-nav-sub { padding-left: @nav-sublist-deeper-padding-left + @card-body-padding-horizontal; }
+
+
+    /* Desktop and bigger */
+    @media (min-width: @breakpoint-large) {
+
+        .uk-card-body .uk-nav-default { margin: (-@card-body-padding-vertical-l + 15px) -@card-body-padding-horizontal-l; }
+        .uk-card-title + .uk-nav-default { margin-top: 0; }
+
+        .uk-card-body .uk-nav-default > li > a,
+        .uk-card-body .uk-nav-default .uk-nav-header,
+        .uk-card-body .uk-nav-default .uk-nav-divider {
+            padding-left: @card-body-padding-horizontal-l;
+            padding-right: @card-body-padding-horizontal-l;
+        }
+
+        .uk-card-body .uk-nav-default .uk-nav-sub { padding-left: @nav-sublist-deeper-padding-left + @card-body-padding-horizontal-l; }
+
+    }
+
+    /*
+     * Small
+     */
+
+    .uk-card-small .uk-nav-default { margin: (-@card-small-body-padding-vertical + 15px) -@card-small-body-padding-horizontal; }
+    .uk-card-small .uk-card-title + .uk-nav-default { margin-top: 0; }
+
+    .uk-card-small .uk-nav-default > li > a,
+    .uk-card-small .uk-nav-default .uk-nav-header,
+    .uk-card-small .uk-nav-default .uk-nav-divider {
+        padding-left: @card-small-body-padding-horizontal;
+        padding-right: @card-small-body-padding-horizontal;
+    }
+
+    .uk-card-small .uk-nav-default .uk-nav-sub { padding-left: @nav-sublist-deeper-padding-left + @card-small-body-padding-horizontal; }
+
+    /*
+     * Large
+     */
+
+    /* Desktop and bigger */
+    @media (min-width: @breakpoint-large) {
+
+        .uk-card-large .uk-nav-default { margin: (-@card-large-body-padding-vertical-l + 15px) -@card-large-body-padding-horizontal-l; }
+        .uk-card-large .uk-card-title + .uk-nav-default { margin-top: 0; }
+
+    }
+
+}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-card-badge-background:                 transparent;
+
+.hook-inverse() {
+
+    .uk-card-badge {
+        .hook-inverse-card-badge;
+    }
+
+}
+
+.hook-inverse-card-badge() {}
+
+.hook-inverse-card-badge() when not ((@card-badge-background = transparent) and (@inverse-card-badge-background = transparent)) {
+    background: @inverse-card-badge-background;
+}

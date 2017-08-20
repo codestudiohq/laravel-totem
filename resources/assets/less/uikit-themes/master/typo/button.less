@@ -1,0 +1,148 @@
+//
+// Component: Button
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@button-font-family:                            @global-secondary-font-family;
+@button-font-weight:                            @global-secondary-font-weight;
+@button-text-transform:                         @global-secondary-text-transform;
+@button-letter-spacing:                         @global-secondary-letter-spacing;
+@button-font-style:                             @global-secondary-font-style;
+
+
+// Component
+// ========================================================================
+
+.hook-button() {}
+
+.hook-button() when not (@button-font-family = inherit) {
+    font-family: @button-font-family;
+}
+
+.hook-button() when not (@button-font-weight = inherit) {
+    font-weight: @button-font-weight;
+}
+
+.hook-button() when not (@button-text-transform = inherit) {
+    text-transform: @button-text-transform;
+}
+
+.hook-button() when not (@button-letter-spacing = inherit) {
+    letter-spacing: @button-letter-spacing;
+}
+
+.hook-button() when not (@button-font-style = inherit) {
+    font-style: @button-font-style;
+}
+
+.hook-button-hover() {}
+
+.hook-button-focus() {}
+
+.hook-button-active() {}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-button-default() {}
+
+.hook-button-default-hover() {}
+
+.hook-button-default-active() {}
+
+//
+// Primary
+//
+
+.hook-button-primary() {}
+
+.hook-button-primary-hover() {}
+
+.hook-button-primary-active() {}
+
+//
+// Secondary
+//
+
+.hook-button-secondary() {}
+
+.hook-button-secondary-hover() {}
+
+.hook-button-secondary-active() {}
+
+//
+// Danger
+//
+
+.hook-button-danger() {}
+
+.hook-button-danger-hover() {}
+
+.hook-button-danger-active() {}
+
+
+// Disabled
+// ========================================================================
+
+.hook-button-disabled() {}
+
+
+// Size modifiers
+// ========================================================================
+
+.hook-button-small() {}
+
+.hook-button-large() {}
+
+
+// Text modifier
+// ========================================================================
+
+.hook-button-text() {}
+
+.hook-button-text-hover() {}
+
+.hook-button-text-disabled() {}
+
+
+// Link modifier
+// ========================================================================
+
+.hook-button-link() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-button-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-button-default() {}
+.hook-inverse-button-default-hover() {}
+.hook-inverse-button-default-active() {}
+
+.hook-inverse-button-primary() {}
+.hook-inverse-button-primary-hover() {}
+.hook-inverse-button-primary-active() {}
+
+.hook-inverse-button-secondary() {}
+.hook-inverse-button-secondary-hover() {}
+.hook-inverse-button-secondary-active() {}
+
+.hook-inverse-button-text() {}
+.hook-inverse-button-text-hover() {}
+.hook-inverse-button-text-disabled() {}
+
+.hook-inverse-button-link() {}

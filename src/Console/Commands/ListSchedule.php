@@ -14,7 +14,7 @@ class ListSchedule extends Command
      *
      * @var string
      */
-    protected $signature = 'totem:list';
+    protected $signature = 'schedule:list';
 
     /**
      * The console command description.
@@ -51,16 +51,18 @@ class ListSchedule extends Command
         if (count($this->schedule->events()) > 0) {
             $events = collect($this->schedule->events())->map(function ($event) {
                 return [
-                    'command'   =>  ltrim(str_after($event->command, "'artisan'")),
-                    'schedule'  =>  $event->expression,
-                    'upcoming'  =>  $this->upcoming($event),
                     'description'   => $event->description,
-                    'timezone'  => $event->timezone
+                    'command'       => ltrim(strtok(str_after($event->command, "'artisan'"), ' ')),
+                    'schedule'      => $event->expression,
+                    'upcoming'      => $this->upcoming($event),
+                    'timezone'      => $event->timezone,
+                    'overlaps'      => $event->withoutOverlapping ? 'No' : 'Yes',
+                    'maintenance'   => $event->evenInMaintenanceMode ? 'Yes' : 'No',
                 ];
             });
 
             $this->table(
-                ['Command', 'Schedule', 'Upcoming', 'Description', 'Timezone'],
+                ['Description', 'Command', 'Schedule', 'Upcoming', 'Timezone', 'Overlaps?', 'In Maintenance?'],
                 $events
             );
         } else {

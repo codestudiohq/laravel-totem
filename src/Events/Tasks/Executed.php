@@ -14,7 +14,7 @@ class Executed extends Event
         $time_elapsed_secs = microtime(true) - $event->start;
 
         $task->results()->create([
-            'duration' => $time_elapsed_secs * 1000,
+            'duration'  => $time_elapsed_secs * 1000,
             'result'    => file_get_contents(storage_path('logs/schedule-'.sha1($event->mutexName()).'.log')),
         ]);
     }

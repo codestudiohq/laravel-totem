@@ -1,0 +1,79 @@
+//
+// Component: Icon
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@internal-icon-button-gradient:                 ;
+@internal-icon-button-hover-gradient:           ;
+@internal-icon-button-active-gradient:          ;
+
+
+// Style modifiers
+// ========================================================================
+
+//
+// Link
+//
+
+.hook-icon-link() {}
+
+.hook-icon-link-hover() {}
+
+.hook-icon-link-active() {}
+
+//
+// Button
+//
+
+.hook-icon-button() when not (@internal-icon-button-gradient = ~'') {
+    background-image: @internal-icon-button-gradient;
+}
+
+// Hover
+.hook-icon-button-hover() when not (@internal-icon-button-hover-gradient = ~'') {
+    background-image: @internal-icon-button-hover-gradient;
+}
+
+.hook-icon-button-hover() when (@internal-icon-button-hover-gradient = ~'') and not (@internal-icon-button-gradient = ~'') {
+    background-image: none;
+}
+
+// Active
+.hook-icon-button-active() when not (@internal-icon-button-active-gradient = ~'') {
+    background-image: @internal-icon-button-active-gradient;
+}
+
+.hook-icon-button-active() when (@internal-icon-button-active-gradient = ~'') and not (@internal-icon-button-gradient = ~''),
+                                   (@internal-icon-button-active-gradient = ~'') and not (@internal-icon-button-hover-gradient = ~'') {
+    background-image: none;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-icon-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-icon-link() {}
+.hook-inverse-icon-link-hover() {}
+.hook-inverse-icon-link-active() {}
+
+.hook-inverse-icon-button() when not (@internal-button-default-gradient = ~''),
+                                 not (@internal-button-default-hover-gradient = ~''),
+                                 not (@internal-button-default-active-gradient = ~'') {
+    background-image: none;
+}
+.hook-inverse-icon-button-hover() {}
+.hook-inverse-icon-button-active() {}

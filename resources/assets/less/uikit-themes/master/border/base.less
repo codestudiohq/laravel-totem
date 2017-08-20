@@ -1,0 +1,149 @@
+//
+// Component: Base
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@base-body-border-mode:                         ;
+@base-body-border-width:                        0;
+@base-body-border:                              transparent;
+
+@base-code-border-width:                        0;
+@base-code-border:                              transparent;
+
+@base-blockquote-border-mode:                   ;
+@base-blockquote-border-width:                  0;
+@base-blockquote-border:                        transparent;
+
+@base-pre-border-mode:                          ;
+@base-pre-border-width:                         0;
+@base-pre-border:                               transparent;
+
+@internal-base-body-border-gradient:            ;
+
+
+// Body
+// ========================================================================
+
+// Need to remove default `border-width` of 4px if `border-image` is used in Safari and Edge
+// Note: A `transparent` border color overrides the border image in Safari
+.hook-base-body() when not (@base-body-border-width = 0) and not (@internal-base-body-border-gradient = ~'') {
+    border-width: 0;
+}
+
+.hook-base-body() when not (@base-body-border-width = 0) {
+    border@{base-body-border-mode}: @base-body-border-width solid @base-body-border;
+
+    // Needed for `tm-header-transparent`
+    body { position: relative; }
+
+}
+
+// Gradient
+.hook-base-body() when not (@base-body-border-width = 0) and not (@internal-base-body-border-gradient = ~'') {
+    border-image: @internal-base-body-border-gradient 1;
+}
+
+
+// Links
+// ========================================================================
+
+.hook-base-link() {}
+
+.hook-base-link-hover() {}
+
+
+// Text-level semantics
+// ========================================================================
+
+.hook-base-code() when not (@base-code-border-width = 0) {
+    border: @base-code-border-width solid @base-code-border;
+}
+
+
+// Headings
+// ========================================================================
+
+.hook-base-heading() {}
+
+.hook-base-h1() {}
+
+.hook-base-h2() {}
+
+.hook-base-h3() {}
+
+.hook-base-h4() {}
+
+.hook-base-h5() {}
+
+.hook-base-h6() {}
+
+
+// Horizontal rules
+// ========================================================================
+
+.hook-base-hr() {}
+
+
+// Blockquotes
+// ========================================================================
+
+.hook-base-blockquote() {}
+
+.hook-base-blockquote() when not (@base-blockquote-border-width = 0) {
+    border@{base-blockquote-border-mode}: @base-blockquote-border-width solid @base-blockquote-border;
+}
+
+
+.hook-base-blockquote-footer() {}
+
+
+// Preformatted text
+// ========================================================================
+
+.hook-base-pre() when not (@base-pre-border-width = 0) {
+    border@{base-pre-border-mode}: @base-pre-border-width solid @base-pre-border;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-base-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-base-code-border:                              transparent;
+@inverse-base-blockquote-border:                        transparent;
+
+.hook-inverse-base-link() {}
+.hook-inverse-base-link-hover() {}
+
+.hook-inverse-base-code() when not (@base-code-border-width = 0) {
+    border-color: @inverse-base-code-border;
+}
+
+.hook-inverse-base-heading() {}
+
+.hook-inverse-base-h1() {}
+.hook-inverse-base-h2() {}
+.hook-inverse-base-h3() {}
+.hook-inverse-base-h4() {}
+.hook-inverse-base-h5() {}
+.hook-inverse-base-h6() {}
+
+.hook-inverse-base-blockquote() when not (@base-blockquote-border-width = 0) {
+    border@{base-blockquote-border-mode}-color: @inverse-base-blockquote-border;
+}
+.hook-inverse-base-blockquote-footer() {}
+
+.hook-inverse-base-hr() {}

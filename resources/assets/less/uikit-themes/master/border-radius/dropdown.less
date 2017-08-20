@@ -1,0 +1,42 @@
+//
+// Component: Dropdown
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@dropdown-border-radius:                        0;
+
+
+// Component
+// ========================================================================
+
+.hook-dropdown() when not (@dropdown-border-radius = 0) {
+    border-radius: @dropdown-border-radius;
+}
+
+
+// Nav
+// ========================================================================
+
+.hook-dropdown-nav() {}
+
+.hook-dropdown-nav-item() {}
+
+.hook-dropdown-nav-item-hover() {}
+
+.hook-dropdown-nav-header() {}
+
+.hook-dropdown-nav-divider() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-dropdown-misc() {}

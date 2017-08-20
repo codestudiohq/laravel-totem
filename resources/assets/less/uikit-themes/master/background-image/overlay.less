@@ -1,0 +1,44 @@
+//
+// Component: Overlay
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@internal-overlay-default-gradient:            ;
+@internal-overlay-primary-gradient:            ;
+
+
+// Component
+// ========================================================================
+
+.hook-overlay() {}
+
+// Icon
+// ========================================================================
+
+.hook-overlay-icon() {}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-overlay-default() when not (@internal-overlay-default-gradient = ~'') {
+    background-image: @internal-overlay-default-gradient;
+}
+
+.hook-overlay-primary() when not (@internal-overlay-primary-gradient = ~'') {
+    background-image: @internal-overlay-primary-gradient;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-overlay-misc() {}

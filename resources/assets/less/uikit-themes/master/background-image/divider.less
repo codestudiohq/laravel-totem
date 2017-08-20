@@ -1,0 +1,54 @@
+//
+// Component: Divider
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@internal-divider-small-border-gradient:       ;
+
+
+// Icon
+// ========================================================================
+
+.hook-divider-icon() {}
+
+.hook-divider-icon-line() {}
+
+.hook-divider-icon-line-left() {}
+
+.hook-divider-icon-line-right() {}
+
+
+// Small
+// ========================================================================
+
+.hook-divider-small() {}
+
+.hook-divider-small() when not (@internal-divider-small-border-gradient = ~'') {
+    border-image: @internal-divider-small-border-gradient;
+    border-image-slice: 1;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-divider-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-divider-icon() {}
+.hook-inverse-divider-icon-line() {}
+
+.hook-inverse-divider-small() when not (@internal-divider-small-border-gradient = ~'') {
+    border-image: none;
+}

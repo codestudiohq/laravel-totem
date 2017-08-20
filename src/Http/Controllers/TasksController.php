@@ -49,8 +49,8 @@ class TasksController extends Controller
     public function create()
     {
         return view('totem::tasks.form', [
-            'task'     => new Task,
-            'commands' => $this->kernel->getCommands(),
+            'task'      => new Task,
+            'commands'  => $this->kernel->getCommands(),
             'timezones' => timezone_identifiers_list(),
         ]);
     }
@@ -72,7 +72,7 @@ class TasksController extends Controller
      * @param $task
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show($task)
+    public function view($task)
     {
         return view('totem::tasks.view', [
             'task'  => $task,

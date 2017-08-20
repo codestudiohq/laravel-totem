@@ -1,0 +1,49 @@
+//
+// Component: Marker
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@marker-border-width:                           0;
+
+@marker-border:                                 transparent;
+@marker-hover-border:                           transparent;
+
+
+// Component
+// ========================================================================
+
+.hook-marker() when not (@marker-border-width = 0) {
+    border: @marker-border-width solid @marker-border;
+}
+
+.hook-marker-hover() when not (@marker-border-width = 0) {
+    border-color: @marker-hover-border;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-marker-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-marker-border:                                 transparent;
+@inverse-marker-hover-border:                           transparent;
+
+.hook-inverse-marker() when not (@marker-border-width = 0) {
+    border-color: @inverse-marker-border;
+}
+.hook-inverse-marker-hover() when not (@marker-border-width = 0) {
+    border-color: @inverse-marker-hover-border;
+}

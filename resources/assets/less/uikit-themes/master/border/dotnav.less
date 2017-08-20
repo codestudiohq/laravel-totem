@@ -1,0 +1,71 @@
+//
+// Component: Dotnav
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@dotnav-item-border-width:                           0;
+
+@dotnav-item-border:                                 transparent;
+@dotnav-item-hover-border:                           transparent;
+@dotnav-item-onclick-border:                         transparent;
+@dotnav-item-active-border:                          transparent;
+
+
+// Component
+// ========================================================================
+
+.hook-dotnav() {}
+
+.hook-dotnav-item() when not (@dotnav-item-border-width = 0) {
+    border: @dotnav-item-border-width solid @dotnav-item-border;
+}
+
+.hook-dotnav-item-hover() when not (@dotnav-item-border-width = 0) {
+    border-color: @dotnav-item-hover-border;
+}
+
+.hook-dotnav-item-onclick() when not (@dotnav-item-border-width = 0) {
+    border-color: @dotnav-item-hover-border;
+}
+
+.hook-dotnav-item-active() when not (@dotnav-item-border-width = 0) {
+    border-color: @dotnav-item-hover-border;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-dotnav-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-dotnav-item-border:                                 transparent;
+@inverse-dotnav-item-hover-border:                           transparent;
+@inverse-dotnav-item-onclick-border:                         transparent;
+@inverse-dotnav-item-active-border:                          transparent;
+
+.hook-inverse-dotnav() {}
+
+.hook-inverse-dotnav-item() when not (@dotnav-item-border-width = 0) {
+    border-color: @inverse-dotnav-item-border;
+}
+.hook-inverse-dotnav-item-hover() when not (@dotnav-item-border-width = 0) {
+    border-color: @inverse-dotnav-item-hover-border;
+}
+.hook-inverse-dotnav-item-onclick() when not (@dotnav-item-border-width = 0) {
+    border-color: @inverse-dotnav-item-onclick-border;
+}
+.hook-inverse-dotnav-item-active() when not (@dotnav-item-border-width = 0) {
+    border-color: @inverse-dotnav-item-active-border;
+}

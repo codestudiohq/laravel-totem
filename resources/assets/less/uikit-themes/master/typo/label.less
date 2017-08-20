@@ -1,0 +1,66 @@
+//
+// Component: Label
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@label-font-family:                             @global-secondary-font-family;
+@label-font-weight:                             @global-secondary-font-weight;
+@label-text-transform:                          @global-secondary-text-transform;
+@label-letter-spacing:                          @global-secondary-letter-spacing;
+@label-font-style:                              @global-secondary-font-style;
+
+
+// Component
+// ========================================================================
+
+.hook-label() {}
+
+.hook-label() when not (@label-font-family = inherit) {
+    font-family: @label-font-family;
+}
+
+.hook-label() when not (@label-font-weight = inherit) {
+    font-weight: @label-font-weight;
+}
+
+.hook-label() when not (@label-text-transform = inherit) {
+    text-transform: @label-text-transform;
+}
+
+.hook-label() when not (@label-letter-spacing = inherit) {
+    letter-spacing: @label-letter-spacing;
+}
+
+.hook-label() when not (@label-font-style = inherit) {
+    font-style: @label-font-style;
+}
+
+
+// Color modifiers
+// ========================================================================
+
+.hook-label-success() {}
+
+.hook-label-warning() {}
+
+.hook-label-danger() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-label-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-label() {}

@@ -1,0 +1,94 @@
+//
+// Component: Utility
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@leader-font-size:                              inherit;
+@leader-font-family:                            inherit;
+@leader-font-weight:                            inherit;
+@leader-letter-spacing:                         inherit;
+
+@logo-font-weight:                              inherit;
+@logo-text-transform:                           inherit;
+@logo-letter-spacing:                           inherit;
+
+
+// Panel
+// ========================================================================
+
+.hook-panel-scrollable() {}
+
+
+// Box-shadow bottom
+// ========================================================================
+
+.hook-box-shadow-bottom() {}
+
+
+// Drop cap
+// ========================================================================
+
+.hook-dropcap() {}
+
+
+// Leader
+// ========================================================================
+
+.hook-leader() when not (@leader-font-size = inherit) {
+    font-size: @leader-font-size;
+}
+
+.hook-leader() when not (@leader-font-family = inherit) {
+    font-family: @leader-font-family;
+}
+
+.hook-leader() when not (@leader-font-weight = inherit) {
+    font-weight: @leader-font-weight;
+}
+
+.hook-leader() when not (@leader-letter-spacing = inherit) {
+    letter-spacing: @leader-letter-spacing;
+}
+
+
+// Logo
+// ========================================================================
+
+.hook-logo() when not (@logo-font-weight = inherit) {
+    font-weight: @logo-font-weight;
+}
+
+.hook-logo() when not (@logo-text-transform = inherit) {
+    text-transform: @logo-text-transform;
+}
+
+.hook-logo() when not (@logo-letter-spacing = inherit) {
+    letter-spacing: @logo-letter-spacing;
+}
+
+.hook-logo-hover() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-utility-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-dropcap() {}
+
+.hook-inverse-leader() {}
+
+.hook-inverse-logo() {}
+.hook-inverse-logo-hover() {}

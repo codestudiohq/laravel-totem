@@ -1,0 +1,40 @@
+//
+// Component: Totop
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@totop-border-radius:                           0;
+
+
+// Component
+// ========================================================================
+
+.hook-totop() when not (@totop-border-radius = 0) {
+    border-radius: @totop-border-radius;
+}
+
+.hook-totop-hover() {}
+
+.hook-totop-active() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-icon-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-totop() {}
+.hook-inverse-totop-hover() {}
+.hook-inverse-totop-active() {}

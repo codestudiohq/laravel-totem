@@ -2,6 +2,7 @@
 
 namespace Studio\Totem;
 
+use Cron\CronExpression;
 use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
@@ -9,6 +10,7 @@ class Task extends Model
     protected $fillable = [
         'description',
         'command',
+        'parameters',
         'cron',
         'timezone',
         'is_active',
@@ -19,11 +21,17 @@ class Task extends Model
 
     protected $appends = [
         'activated',
+        'upcoming',
     ];
 
     public function getActivatedAttribute()
     {
         return $this->is_active;
+    }
+
+    public function getUpcomingAttribute()
+    {
+        return CronExpression::factory($this->cron)->getNextRunDate()->format('Y-m-d H:i:s');
     }
 
     public function frequencies()

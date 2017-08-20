@@ -1,0 +1,168 @@
+//
+// Component: Tab
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@tab-border-width:                              @global-border-width;
+@tab-border:                                    @global-border;
+
+@tab-item-border-width:                         @global-border-width;
+
+@tab-item-hover-border:                         transparent;
+@tab-item-active-border:                        @global-primary-background;
+
+@internal-tab-item-hover-border-gradient:       ;
+@internal-tab-item-active-border-gradient:      ;
+
+
+// Component
+// ========================================================================
+
+.hook-tab() when not (@tab-border-width = 0) {
+
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: @tab-margin-horizontal;
+        right: 0;
+        border-bottom: @tab-border-width solid @tab-border;
+    }
+
+}
+
+// Items
+// ========================================================================
+
+// Need to remove default `border-width` of 4px if `border-image` is used in Safari and Edge
+// Note: A `transparent` border color overrides the border image in Safari
+.hook-tab-item() when not (@tab-item-border-width = 0) and not (@internal-tab-item-hover-border-gradient = ~''),
+                      not (@tab-item-border-width = 0) and not (@internal-tab-item-active-border-gradient = ~'') {
+    border-width: 0;
+}
+
+.hook-tab-item() when not (@tab-item-border-width = 0) {
+    border-bottom: @tab-item-border-width solid transparent;
+}
+
+.hook-tab-item-hover() when not (@tab-item-border-width = 0) {
+    border-color: @tab-item-hover-border;
+}
+
+.hook-tab-item-active() when not (@tab-item-border-width = 0) {
+    border-color: @tab-item-active-border;
+}
+
+// Gradient
+.hook-tab-item() {}
+
+.hook-tab-item-hover() when not (@tab-item-border-width = 0) and not (@internal-tab-item-hover-border-gradient = ~'') {
+    border-image: @internal-tab-item-hover-border-gradient 1;
+}
+
+.hook-tab-item-active() when not (@tab-item-border-width = 0) and not (@internal-tab-item-active-border-gradient = ~'') {
+    border-image: @internal-tab-item-active-border-gradient 1;
+}
+
+.hook-tab-item-disabled() {}
+
+
+// Position modifiers
+// ========================================================================
+
+.hook-tab-bottom() when not (@tab-border-width = 0) {
+
+    &::before {
+        top: 0;
+        bottom: auto;
+    }
+
+}
+
+// `0` needed for to reset `border-width` if `border-image` is used in Safari and Edge
+.hook-tab-bottom-item() when not (@tab-item-border-width = 0) {
+    border-top: @tab-item-border-width solid transparent;
+    border-bottom: 0 none;
+}
+
+.hook-tab-left() when not (@tab-border-width = 0) {
+
+    &::before {
+        top: 0;
+        bottom: 0;
+        left: auto;
+        right: 0;
+        border-left: @tab-border-width solid @tab-border;
+        border-bottom: none;
+    }
+
+}
+
+// `0` needed for to reset `border-width` if `border-image` is used in Safari and Edge
+.hook-tab-left-item() when not (@tab-item-border-width = 0) {
+    border-right: @tab-item-border-width solid transparent;
+    border-bottom: 0 none;
+}
+
+.hook-tab-right() when not (@tab-border-width = 0) {
+
+    &::before {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: auto;
+        border-left: @tab-border-width solid @tab-border;
+        border-bottom: none;
+    }
+
+}
+
+// `0` needed for to reset `border-width` if `border-image` is used in Safari and Edge
+.hook-tab-right-item() when not (@tab-item-border-width = 0) {
+    border-left: @tab-item-border-width solid transparent;
+    border-bottom: 0 none;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-tab-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-tab-border:                        @inverse-global-border;
+
+@inverse-tab-item-hover-border:             transparent;
+@inverse-tab-item-active-border:            @inverse-global-primary-background;
+
+.hook-inverse-tab() when not (@tab-border-width = 0) {
+
+    &::before { border-color: @inverse-tab-border; }
+
+}
+
+.hook-inverse-tab-item() when not (@tab-item-border-width = 0) and not (@internal-tab-item-hover-border-gradient = ~''),
+                              not (@tab-item-border-width = 0) and not (@internal-tab-item-active-border-gradient = ~'') {
+    border-image: none;
+}
+
+.hook-inverse-tab-item-hover() when not (@tab-item-border-width = 0) {
+    border-color: @inverse-tab-item-hover-border;
+}
+.hook-inverse-tab-item-active() when not (@tab-item-border-width = 0) {
+    border-color: @inverse-tab-item-active-border;
+}
+.hook-inverse-tab-item-disabled() {}

@@ -1,0 +1,77 @@
+//
+// Component: Icon
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@icon-link-color:                               @global-link-color;
+@icon-link-hover-color:                         @global-link-hover-color;
+@icon-link-active-color:                        @global-emphasis-color;
+
+@icon-button-background:                        @global-primary-background;
+@icon-button-color:                             @global-emphasis-color;
+@icon-button-hover-background:                  @icon-button-background;
+@icon-button-hover-color:                       @global-inverse-color;
+@icon-button-active-background:                 @global-primary-background;
+@icon-button-active-color:                      @global-inverse-color;
+
+//
+// Master
+//
+
+@internal-icon-button-gradient:                 linear-gradient(135deg, @global-primary-background, desaturate(darken(spin(@global-primary-background, -45%), 15%), 25%));
+@internal-icon-button-hover-gradient:           linear-gradient(25deg, @global-primary-background, desaturate(darken(spin(@global-primary-background, -45%), 15%), 25%));
+@internal-icon-button-active-gradient:          linear-gradient(-25deg, @global-primary-background, desaturate(darken(spin(@global-primary-background, -45%), 15%), 25%));
+
+@icon-button-box-shadow:                        @global-medium-box-shadow;
+@icon-button-hover-box-shadow:                  @global-small-box-shadow;
+
+
+// Style modifiers
+// ========================================================================
+
+//
+// Link
+//
+
+.hook-icon-link() {}
+
+.hook-icon-link-hover() {}
+
+.hook-icon-link-active() {}
+
+//
+// Button
+//
+
+.hook-icon-button() {}
+
+.hook-icon-button-hover() {}
+
+.hook-icon-button-active() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-icon-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-icon-button-background:               @inverse-global-primary-background;
+@inverse-icon-button-color:                    @inverse-global-inverse-color;
+@inverse-icon-button-hover-color:              fade(@inverse-global-inverse-color, 90%);
+@inverse-icon-button-active-color:             @inverse-global-inverse-color;
+
+.hook-inverse-icon-link() {}
+.hook-inverse-icon-link-hover() {}
+.hook-inverse-icon-link-active() {}
+
+.hook-inverse-icon-button() {}
+.hook-inverse-icon-button-hover() {}
+.hook-inverse-icon-button-active() {}

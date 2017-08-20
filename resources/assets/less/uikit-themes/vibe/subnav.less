@@ -1,0 +1,93 @@
+//
+// Component: Subnav
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@subnav-item-color:                             @global-color;
+@subnav-item-hover-color:                       @global-emphasis-color;
+@subnav-item-active-color:                      @global-primary-background;
+
+@subnav-divider-border-height:                  0.9em;
+
+@subnav-pill-item-padding-vertical:             6px;
+@subnav-pill-item-padding-horizontal:           18px;
+@subnav-pill-item-hover-background:             @global-muted-background;
+@subnav-pill-item-hover-color:                  @global-primary-background;
+@subnav-pill-item-onclick-color:                @global-emphasis-color;
+@subnav-pill-item-active-color:                 @global-emphasis-color;
+
+//
+// Master
+//
+
+@subnav-item-font-size:                         @global-small-font-size;
+
+@subnav-pill-item-border-radius:                500px;
+
+@internal-subnav-pill-item-active-gradient:     linear-gradient(135deg, @global-primary-background, desaturate(darken(spin(@global-primary-background, -45%), 15%), 25%));
+
+@subnav-pill-item-onclick-box-shadow:           @global-small-box-shadow;
+@subnav-pill-item-active-box-shadow:            inset 1px 1px 0 rgba(255,255,255,0.1), @global-small-box-shadow;
+
+
+// Component
+// ========================================================================
+
+.hook-subnav() {}
+
+.hook-subnav-item() {}
+
+.hook-subnav-item-hover() {}
+
+.hook-subnav-item-active() {}
+
+
+// Divider modifier
+// ========================================================================
+
+.hook-subnav-divider() {}
+
+
+// Pill modifier
+// ========================================================================
+
+.hook-subnav-pill-item() {}
+
+.hook-subnav-pill-item-hover() {}
+
+.hook-subnav-pill-item-onclick() {}
+
+.hook-subnav-pill-item-active() {}
+
+
+// Disabled
+// ========================================================================
+
+.hook-subnav-item-disabled() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-subnav-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-subnav-item() {}
+.hook-inverse-subnav-item-hover() {}
+.hook-inverse-subnav-item-active() {}
+
+.hook-inverse-subnav-divider() {}
+
+.hook-inverse-subnav-pill-item() {}
+.hook-inverse-subnav-pill-item-hover() {}
+.hook-inverse-subnav-pill-item-onclick() {}
+.hook-inverse-subnav-pill-item-active() {}
+
+.hook-inverse-subnav-item-disabled() {}

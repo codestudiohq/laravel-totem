@@ -1,0 +1,218 @@
+//
+// Component: Button
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@internal-button-default-gradient:              ;
+@internal-button-default-hover-gradient:        ;
+@internal-button-default-active-gradient:       ;
+
+@internal-button-primary-gradient:              ;
+@internal-button-primary-hover-gradient:        ;
+@internal-button-primary-active-gradient:       ;
+
+@internal-button-secondary-gradient:            ;
+@internal-button-secondary-hover-gradient:      ;
+@internal-button-secondary-active-gradient:     ;
+
+@internal-button-danger-gradient:               ;
+@internal-button-danger-hover-gradient:         ;
+@internal-button-danger-active-gradient:        ;
+
+
+// Component
+// ========================================================================
+
+.hook-button() { background-origin: border-box; }
+
+.hook-button-hover() {}
+
+.hook-button-focus() {}
+
+.hook-button-active() {}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-button-default() when not (@internal-button-default-gradient = ~'') {
+    background-image: @internal-button-default-gradient;
+}
+
+// Hover
+.hook-button-default-hover() when not (@internal-button-default-hover-gradient = ~'') {
+    background-image: @internal-button-default-hover-gradient;
+}
+
+.hook-button-default-hover() when (@internal-button-default-hover-gradient = ~'') and not (@internal-button-default-gradient = ~'') {
+    background-image: none;
+}
+
+// Active
+.hook-button-default-active() when not (@internal-button-default-active-gradient = ~'') {
+    background-image: @internal-button-default-active-gradient;
+}
+
+.hook-button-default-active() when (@internal-button-default-active-gradient = ~'') and not (@internal-button-default-gradient = ~''),
+                                   (@internal-button-default-active-gradient = ~'') and not (@internal-button-default-hover-gradient = ~'') {
+    background-image: none;
+}
+
+//
+// Primary
+//
+
+.hook-button-primary() when not (@internal-button-primary-gradient = ~'') {
+    background-image: @internal-button-primary-gradient;
+}
+
+// Hover
+.hook-button-primary-hover() when not (@internal-button-primary-hover-gradient = ~'') {
+    background-image: @internal-button-primary-hover-gradient;
+}
+
+.hook-button-primary-hover() when (@internal-button-primary-hover-gradient = ~'') and not (@internal-button-primary-gradient = ~'') {
+    background-image: none;
+}
+
+// Active
+.hook-button-primary-active() when not (@internal-button-primary-active-gradient = ~'') {
+    background-image: @internal-button-primary-active-gradient;
+}
+
+.hook-button-primary-active() when (@internal-button-primary-active-gradient = ~'') and not (@internal-button-primary-gradient = ~''),
+                                   (@internal-button-primary-active-gradient = ~'') and not (@internal-button-primary-hover-gradient = ~'') {
+    background-image: none;
+}
+
+//
+// Secondary
+//
+
+.hook-button-secondary() when not (@internal-button-secondary-gradient = ~'') {
+    background-image: @internal-button-secondary-gradient;
+}
+
+// Hover
+.hook-button-secondary-hover() when not (@internal-button-secondary-hover-gradient = ~'') {
+    background-image: @internal-button-secondary-hover-gradient;
+}
+
+.hook-button-secondary-hover() when (@internal-button-secondary-hover-gradient = ~'') and not (@internal-button-secondary-gradient = ~'') {
+    background-image: none;
+}
+
+// Active
+.hook-button-secondary-active() when not (@internal-button-secondary-active-gradient = ~'') {
+    background-image: @internal-button-secondary-active-gradient;
+}
+
+.hook-button-secondary-active() when (@internal-button-secondary-active-gradient = ~'') and not (@internal-button-secondary-gradient = ~''),
+                                   (@internal-button-secondary-active-gradient = ~'') and not (@internal-button-secondary-hover-gradient = ~'') {
+    background-image: none;
+}
+
+//
+// Danger
+//
+
+.hook-button-danger() when not (@internal-button-danger-gradient = ~'') {
+    background-image: @internal-button-danger-gradient;
+}
+
+// Hover
+.hook-button-danger-hover() when not (@internal-button-danger-hover-gradient = ~'') {
+    background-image: @internal-button-danger-hover-gradient;
+}
+
+.hook-button-danger-hover() when (@internal-button-danger-hover-gradient = ~'') and not (@internal-button-danger-gradient = ~'') {
+    background-image: none;
+}
+
+// Active
+.hook-button-danger-active() when not (@internal-button-danger-active-gradient = ~'') {
+    background-image: @internal-button-danger-active-gradient;
+}
+
+.hook-button-danger-active() when (@internal-button-danger-active-gradient = ~'') and not (@internal-button-danger-gradient = ~''),
+                                   (@internal-button-danger-active-gradient = ~'') and not (@internal-button-danger-hover-gradient = ~'') {
+    background-image: none;
+}
+
+
+// Disabled
+// ========================================================================
+
+.hook-button-disabled() { background-image: none; }
+
+
+// Size modifiers
+// ========================================================================
+
+.hook-button-small() {}
+
+.hook-button-large() {}
+
+
+// Text modifier
+// ========================================================================
+
+.hook-button-text() {}
+
+.hook-button-text-hover() {}
+
+.hook-button-text-disabled() {}
+
+
+// Link modifier
+// ========================================================================
+
+.hook-button-link() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-button-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-button-default() when not (@internal-button-default-gradient = ~''),
+                                    not (@internal-button-default-hover-gradient = ~''),
+                                    not (@internal-button-default-active-gradient = ~'') {
+    background-image: none;
+}
+.hook-inverse-button-default-hover() {}
+.hook-inverse-button-default-active() {}
+
+.hook-inverse-button-primary() when not (@internal-button-primary-gradient = ~''),
+                                    not (@internal-button-primary-hover-gradient = ~''),
+                                    not (@internal-button-primary-active-gradient = ~'') {
+    background-image: none;
+}
+.hook-inverse-button-primary-hover() {}
+.hook-inverse-button-primary-active() {}
+
+.hook-inverse-button-secondary() when not (@internal-button-secondary-gradient = ~''),
+                                      not (@internal-button-secondary-hover-gradient = ~''),
+                                      not (@internal-button-secondary-active-gradient = ~'') {
+    background-image: none;
+}
+.hook-inverse-button-secondary-hover() {}
+.hook-inverse-button-secondary-active() {}
+
+.hook-inverse-button-text() {}
+.hook-inverse-button-text-hover() {}
+.hook-inverse-button-text-disabled() {}
+
+.hook-inverse-button-link() {}

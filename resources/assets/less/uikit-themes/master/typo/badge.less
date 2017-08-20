@@ -1,0 +1,42 @@
+//
+// Component: Badge
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@badge-font-family:                             @global-secondary-font-family;
+@badge-font-style:                              @global-secondary-font-style;
+
+
+// Component
+// ========================================================================
+
+.hook-badge() when not (@badge-font-family = inherit) {
+    font-family: @badge-font-family;
+}
+
+.hook-badge() when not (@badge-font-style = inherit) {
+    font-style: @badge-font-style;
+}
+
+.hook-badge-hover() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-badge-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-badge() {}
+.hook-inverse-badge-hover() {}

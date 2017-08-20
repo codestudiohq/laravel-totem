@@ -1,0 +1,122 @@
+//
+// Component: Form
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@form-label-color:                              @global-emphasis-color;
+@form-label-font-family:                        @global-secondary-font-family;
+@form-label-font-weight:                        @global-secondary-font-weight;
+@form-label-text-transform:                     @global-secondary-text-transform;
+@form-label-letter-spacing:                     @global-secondary-letter-spacing;
+@form-label-font-style:                         @global-secondary-font-style;
+
+
+// Component
+// ========================================================================
+
+.hook-form() {}
+
+.hook-form-single-line() {}
+
+.hook-form-multi-line() {}
+
+.hook-form-focus() {}
+
+.hook-form-disabled() {}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-form-danger() {}
+
+.hook-form-success() {}
+
+.hook-form-blank() {}
+
+.hook-form-blank-focus() {}
+
+
+// Radio and checkbox
+// ========================================================================
+
+.hook-form-radio() {}
+
+.hook-form-radio-focus() {}
+
+.hook-form-radio-checked() {}
+
+.hook-form-radio-checked-focus() { }
+
+.hook-form-radio-disabled() {}
+
+
+// Legend
+// ========================================================================
+
+.hook-form-legend() {}
+
+
+// Label
+// ========================================================================
+
+.hook-form-label() { color: @form-label-color; }
+
+.hook-form-label() when not (@form-label-font-family = inherit) {
+    font-family: @form-label-font-family;
+}
+
+.hook-form-label() when not (@form-label-font-weight = inherit) {
+    font-weight: @form-label-font-weight;
+}
+
+.hook-form-label() when not (@form-label-text-transform = inherit) {
+    text-transform: @form-label-text-transform;
+}
+
+.hook-form-label() when not (@form-label-letter-spacing = inherit) {
+    letter-spacing: @form-label-letter-spacing;
+}
+
+.hook-form-label() when not (@form-label-font-style = inherit) {
+    font-style: @form-label-font-style;
+}
+
+
+// Layout
+// ========================================================================
+
+.hook-form-stacked-label() {}
+
+.hook-form-horizontal-label() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-form-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-form-label-color:                      @inverse-global-emphasis-color;
+
+.hook-inverse-form() {}
+.hook-inverse-form-focus() {}
+
+.hook-inverse-form-radio() {}
+.hook-inverse-form-radio-focus() {}
+
+.hook-inverse-form-radio-checked() {}
+.hook-inverse-form-radio-checked-focus() {}
+
+.hook-inverse-form-label() { color: @inverse-form-label-color; }

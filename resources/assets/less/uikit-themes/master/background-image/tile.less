@@ -1,0 +1,116 @@
+//
+// Component: Tile
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+// Gradient
+@internal-tile-default-gradient:               ;
+@internal-tile-muted-gradient:                 ;
+@internal-tile-primary-gradient:               ;
+@internal-tile-secondary-gradient:             ;
+
+// Image
+@internal-tile-default-image:                  ;
+@internal-tile-muted-image:                    ;
+@internal-tile-primary-image:                  ;
+@internal-tile-secondary-image:                ;
+
+
+// Component
+// ========================================================================
+
+.hook-tile() {}
+
+
+// Style modifiers
+// ========================================================================
+
+//
+// Default
+//
+
+// Gradient only
+.hook-tile-default() when not (@internal-tile-default-gradient = ~'') and (@internal-tile-default-image = ~'') {
+    background-image: @internal-tile-default-gradient;
+}
+
+// Image only
+.hook-tile-default() when not (@internal-tile-default-image = ~'') and (@internal-tile-default-gradient = ~'') {
+    background-image: url("@{internal-tile-default-image}");
+}
+
+// Both
+.hook-tile-default() when not (@internal-tile-default-gradient = ~'') and not (@internal-tile-default-image = ~'') {
+    background-image: url("@{internal-tile-default-image}"), @internal-tile-default-gradient;
+}
+
+//
+// Muted
+//
+
+// Gradient only
+.hook-tile-muted() when not (@internal-tile-muted-gradient = ~'') and (@internal-tile-muted-image = ~'') {
+    background-image: @internal-tile-muted-gradient;
+}
+
+// Image only
+.hook-tile-muted() when not (@internal-tile-muted-image = ~'') and (@internal-tile-muted-gradient = ~'') {
+    background-image: url("@{internal-tile-muted-image}");
+}
+
+// Both
+.hook-tile-muted() when not (@internal-tile-muted-gradient = ~'') and not (@internal-tile-muted-image = ~'') {
+    background-image: url("@{internal-tile-muted-image}"), @internal-tile-muted-gradient;
+}
+
+//
+// Primary
+//
+
+// Gradient only
+.hook-tile-primary() when not (@internal-tile-primary-gradient = ~'') and (@internal-tile-primary-image = ~'') {
+    background-image: @internal-tile-primary-gradient;
+}
+
+// Image only
+.hook-tile-primary() when not (@internal-tile-primary-image = ~'') and (@internal-tile-primary-gradient = ~'') {
+    background-image: url("@{internal-tile-primary-image}");
+}
+
+// Both
+.hook-tile-primary() when not (@internal-tile-primary-gradient = ~'') and not (@internal-tile-primary-image = ~'') {
+    background-image: url("@{internal-tile-primary-image}"), @internal-tile-primary-gradient;
+}
+
+//
+// Secondary
+//
+
+// Gradient only
+.hook-tile-secondary() when not (@internal-tile-secondary-gradient = ~'') and (@internal-tile-secondary-image = ~'') {
+    background-image: @internal-tile-secondary-gradient;
+}
+
+// Image only
+.hook-tile-secondary() when not (@internal-tile-secondary-image = ~'') and (@internal-tile-secondary-gradient = ~'') {
+    background-image: url("@{internal-tile-secondary-image}");
+}
+
+// Both
+.hook-tile-secondary() when not (@internal-tile-secondary-gradient = ~'') and not (@internal-tile-secondary-image = ~'') {
+    background-image: url("@{internal-tile-secondary-image}"), @internal-tile-secondary-gradient;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-tile-misc() {}

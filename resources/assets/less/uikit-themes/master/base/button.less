@@ -1,0 +1,314 @@
+//
+// Component: Button
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@button-text-color:                             @global-emphasis-color;
+@button-text-hover-color:                       @global-emphasis-color;
+
+//
+// New
+//
+
+@button-transition-duration:                    0.1s;
+
+@internal-button-mode:                          ; // slide-horizontal, strikethrough
+
+@button-text-mode:                              line; // none, line, arrow, em-dash
+@button-text-border-width:                      @global-border-width;
+
+@internal-button-text-arrow-image:               "../../../../uikit-themes/master/images/button-text-arrow.svg";
+@internal-button-text-arrow-padding:            5px;
+@internal-button-text-arrow-width:              22px;
+@internal-button-text-arrow-width-animation:    5px;
+
+@internal-button-text-em-dash-padding:          8px;
+@internal-button-text-em-dash-size:             20px;
+
+
+// Component
+// ========================================================================
+
+.hook-button() {
+    -webkit-transition: @button-transition-duration ease-in-out;
+    transition: @button-transition-duration ease-in-out;
+    -webkit-transition-property: color, background-color, background-position, border-color, box-shadow;
+    transition-property: color, background-color, background-position, border-color, box-shadow;
+}
+
+.hook-button-hover() {}
+.hook-button-focus() {}
+.hook-button-active() {}
+
+//
+// Slide Horizontal
+//
+
+.hook-button() when (@internal-button-mode = slide-horizontal) {
+    background-size: 200%;
+    background-position-x: 100%;
+}
+
+.hook-button-hover() when (@internal-button-mode = slide-horizontal) {
+    background-position-x: 0;
+}
+
+.hook-button-focus() when (@internal-button-mode = slide-horizontal) {
+    background-position-x: 0;
+}
+
+//
+// Strikethrough
+//
+
+.hook-button() when (@internal-button-mode = strikethrough) {
+
+    position: relative;
+
+    &:not(.uk-button-text):not(.uk-button-link)::before {
+        content: "";
+        position: absolute;
+        top: ~'calc(50% - 1px)';
+        left: ~'calc(@{button-padding-horizontal} - 5px)';
+        right: ~'calc(100% + 3px - (@{button-padding-horizontal} - 5px))';
+        height: 1px;
+        background-color: currentColor;
+        -webkit-transition: right 0.2s ease;
+        transition: right 0.2s ease;
+    }
+
+}
+
+.hook-button-hover() when (@internal-button-mode = strikethrough) {
+
+    &:not(.uk-button-text):not(.uk-button-link)::before { right: ~'calc(@{button-padding-horizontal} - 5px)'; }
+
+}
+
+.hook-button-focus() when (@internal-button-mode = strikethrough) {
+
+    &:not(.uk-button-text):not(.uk-button-link)::before { right: ~'calc(@{button-padding-horizontal} - 5px)'; }
+
+}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-button-default() {}
+
+.hook-button-default-hover() {}
+
+.hook-button-default-active() {}
+
+//
+// Primary
+//
+
+.hook-button-primary() {}
+
+.hook-button-primary-hover() {}
+
+.hook-button-primary-active() {}
+
+//
+// Secondary
+//
+
+.hook-button-secondary() {}
+
+.hook-button-secondary-hover() {}
+
+.hook-button-secondary-active() {}
+
+//
+// Danger
+//
+
+.hook-button-danger() {}
+
+.hook-button-danger-hover() {}
+
+.hook-button-danger-active() {}
+
+
+// Disabled
+// ========================================================================
+
+.hook-button-disabled() when (@internal-button-mode = strikethrough) {
+
+    &::before { display: none; }
+
+}
+
+
+// Size modifiers
+// ========================================================================
+
+.hook-button-small() when (@internal-button-mode = strikethrough) {
+
+    &::before {
+        left: ~'calc(@{button-small-padding-horizontal} - 3px)';
+        right: ~'calc(100% + 3px - (@{button-small-padding-horizontal} - 3px))';
+    }
+
+}
+
+.hook-button-large() when (@internal-button-mode = strikethrough) {
+
+    &::before {
+        left: ~'calc(@{button-large-padding-horizontal} - 5px)';
+        right: ~'calc(100% + 3px - (@{button-large-padding-horizontal} - 5px))';
+    }
+
+}
+
+
+// Text modifier
+// ========================================================================
+
+//
+// Line effect
+//
+
+.hook-button-text() when (@button-text-mode = line) {
+
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 100%;
+        border-bottom: @button-text-border-width solid currentColor;
+        -webkit-transition: right 0.3s ease-out;
+        transition: right 0.3s ease-out;
+    }
+
+}
+
+.hook-button-text-hover() when (@button-text-mode = line) {
+
+    &::before { right: 0; }
+
+}
+
+.hook-button-text-disabled() when (@button-text-mode = line) {
+
+    &::before { display: none; }
+
+}
+
+//
+// Icon
+//
+
+.hook-button-text() when (@button-text-mode = arrow) {
+
+    position: relative;
+    padding-right: (@internal-button-text-arrow-width + @internal-button-text-arrow-padding);
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: @internal-button-text-arrow-width;
+        .svg-fill(@internal-button-text-arrow-image, "#000", @button-text-color);
+        background-repeat: no-repeat;
+        background-position: ~'calc(100% - @{internal-button-text-arrow-width-animation}) 50%';
+        -webkit-transition: background-position 0.2s ease-out;
+        transition: background-position 0.2s ease-out;
+    }
+
+}
+
+.hook-button-text-hover() when (@button-text-mode = arrow) {
+
+    &::before {
+        .svg-fill(@internal-button-text-arrow-image, "#000", @button-text-hover-color);
+        background-position: 100% 50%;
+    }
+
+}
+
+//
+// Em dash
+//
+
+.hook-button-text() when (@button-text-mode = em-dash) {
+
+    position: relative;
+    padding-left: (@internal-button-text-em-dash-size + @internal-button-text-em-dash-padding);
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: ~'calc(50% - 1px)';
+        left: 0;
+        width: @internal-button-text-em-dash-size;
+        border-bottom: @button-text-border-width solid currentColor;
+    }
+
+}
+
+
+// Link modifier
+// ========================================================================
+
+.hook-button-link() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-button-misc() when (@internal-button-mode = strikethrough) {
+
+    .uk-button-small:hover,
+    .uk-button-small:focus {
+
+        &::before { right: ~'calc(@{button-small-padding-horizontal} - 3px)'; }
+
+    }
+
+    .uk-button-large:hover,
+    .uk-button-large:focus {
+
+        &::before { right: ~'calc(@{button-large-padding-horizontal} - 5px)'; }
+
+    }
+
+}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-button-default() {}
+.hook-inverse-button-default-hover() {}
+.hook-inverse-button-default-active() {}
+
+.hook-inverse-button-primary() {}
+.hook-inverse-button-primary-hover() {}
+.hook-inverse-button-primary-active() {}
+
+.hook-inverse-button-secondary() {}
+.hook-inverse-button-secondary-hover() {}
+.hook-inverse-button-secondary-active() {}
+
+.hook-inverse-button-text() when (@button-text-mode = arrow) {
+    &::before { .svg-fill(@internal-button-text-arrow-image, "#000", @inverse-button-text-color); }
+}
+.hook-inverse-button-text-hover() when (@button-text-mode = arrow) {
+    &::before { .svg-fill(@internal-button-text-arrow-image, "#000", @inverse-button-text-hover-color); }
+}
+
+.hook-inverse-button-text-disabled() {}
+
+.hook-inverse-button-link() {}

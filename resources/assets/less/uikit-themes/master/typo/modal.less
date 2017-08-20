@@ -1,0 +1,98 @@
+//
+// Component: Modal
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@modal-title-font-family:                       @global-primary-font-family;
+@modal-title-font-weight:                       @global-primary-font-weight;
+@modal-title-text-transform:                    @global-primary-text-transform;
+@modal-title-letter-spacing:                    @global-primary-letter-spacing;
+@modal-title-font-style:                        @global-primary-font-style;
+
+
+// Component
+// ========================================================================
+
+.hook-modal() {}
+
+
+// Dialog
+// ========================================================================
+
+.hook-modal-dialog() {}
+
+
+// Full
+// ========================================================================
+
+.hook-modal-full() {}
+
+
+// Sections
+// ========================================================================
+
+.hook-modal-header() {}
+
+.hook-modal-body() {}
+
+.hook-modal-footer() {}
+
+
+// Title
+// ========================================================================
+
+.hook-modal-title() {}
+
+.hook-modal-title() when not (@modal-title-font-family = inherit) {
+    font-family: @modal-title-font-family;
+}
+
+.hook-modal-title() when not (@modal-title-font-weight = inherit) {
+    font-weight: @modal-title-font-weight;
+}
+
+.hook-modal-title() when not (@modal-title-text-transform = inherit) {
+    text-transform: @modal-title-text-transform;
+}
+
+.hook-modal-title() when not (@modal-title-letter-spacing = inherit) {
+    letter-spacing: @modal-title-letter-spacing;
+}
+
+.hook-modal-title() when not (@modal-title-font-style = inherit) {
+    font-style: @modal-title-font-style;
+}
+
+
+// Close
+// ========================================================================
+
+.hook-modal-close() {}
+
+.hook-modal-close-hover() {}
+
+.hook-modal-close-default() {}
+
+.hook-modal-close-default-hover() {}
+
+.hook-modal-close-outside() {}
+
+.hook-modal-close-outside-hover() {}
+
+.hook-modal-close-full() {}
+
+.hook-modal-close-full-hover() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-modal-misc() {}

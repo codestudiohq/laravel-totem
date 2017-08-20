@@ -1,0 +1,70 @@
+//
+// Component: Heading
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@internal-heading-hero-mode:                       none; // none, glitch
+@internal-heading-hero-glitch-color-1:             @global-primary-background;
+@internal-heading-hero-glitch-color-2:             @global-secondary-background;
+@internal-heading-hero-glitch-duration:            0.65s;
+
+
+// Primary
+// ========================================================================
+
+.hook-heading-primary() {}
+
+
+// Hero
+// ========================================================================
+
+.hook-heading-hero() when (@internal-heading-hero-mode = glitch) {
+    -webkit-animation: uk-text-shadow-glitch @internal-heading-hero-glitch-duration cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+    animation: uk-text-shadow-glitch @internal-heading-hero-glitch-duration cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+}
+
+
+// Divider
+// ========================================================================
+
+.hook-heading-divider() {}
+
+
+// Bullet
+// ========================================================================
+
+.hook-heading-bullet() {}
+
+
+// Line
+// ========================================================================
+
+.hook-heading-bullet() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-heading-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-heading-primary() {}
+
+.hook-inverse-heading-hero() {}
+
+.hook-inverse-heading-divider() {}
+
+.hook-inverse-heading-bullet() {}
+
+.hook-inverse-heading-line() {}

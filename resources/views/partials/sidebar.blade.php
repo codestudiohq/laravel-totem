@@ -1,13 +1,9 @@
-<aside class="main-sidebar">
-    <div class="pb3">
-        <div class="aic jcsb ft22 fw9">
-            <img src="/vendor/totem/img/mask.svg">
-            <div class="tcg5">Totem</div>
-        </div>
-
-
+<aside class="uk-width-1-6@l">
+    <div class="">
+        <img src="/vendor/totem/img/mask.svg" class="uk-svg">
+        <div class="uk-text-large">Totem</div>
     </div>
-    <ul class="nav">
+    <ul class="uk-nav uk-nav-secondary">
         {{--<li class="nav-item {{ url()->current() == route('totem.dashboard') ? 'nav-item-active' : '' }}">--}}
             {{--<a class="nav-link" href="{{route('totem.dashboard')}}">--}}
                 {{--<i>--}}
@@ -18,14 +14,10 @@
                 {{--KPI--}}
             {{--</a>--}}
         {{--</li>--}}
-        <li class="nav-item {{ url()->current() == route('totem.tasks.all') ? 'nav-item-active' : '' }}">
-            <a class="nav-link" href="{{route('totem.tasks.all')}}">
-                <i>
-                    <svg>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#zondicon-time"></use>
-                    </svg>
-                </i>
-                Tasks
+        <li class="{{ url()->current() == route('totem.tasks.all') ? 'uk-active' : '' }}">
+            <a href="{{route('totem.tasks.all')}}" class="uk-flex uk-flex-middle">
+                <img src="/vendor/totem/img/icons/clock.svg" width="15" heigh="15" class="uk-svg">
+                <span class="uk-vertical-align-middle">Tasks</span>
             </a>
         </li>
     </ul>

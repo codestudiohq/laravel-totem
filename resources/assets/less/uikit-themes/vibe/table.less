@@ -1,0 +1,75 @@
+//
+// Component: Table
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@table-row-active-background:                           rgba(22,15,46,0.35);
+
+@table-striped-row-background:                          @table-row-active-background;
+
+@table-header-cell-font-weight:                         @global-secondary-font-weight;
+@table-header-cell-color:                               @global-primary-background;
+
+@table-divider-border:                                  rgba(225,219,255,0.05);
+
+//
+// Master
+//
+
+@table-header-cell-color:                               @global-primary-background;
+
+@table-header-cell-font-family:                         @global-secondary-font-family;
+@table-header-cell-text-transform:                      @global-secondary-text-transform;
+@table-header-cell-letter-spacing:                      @global-secondary-letter-spacing;
+@table-header-cell-font-style:                          @global-secondary-font-style;
+
+
+// Component
+// ========================================================================
+
+.hook-table-header-cell() {}
+
+.hook-table-cell() {}
+
+.hook-table-footer() {}
+
+.hook-table-caption() {}
+
+.hook-table-row-active() {}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-table-divider() {}
+
+.hook-table-striped() {}
+
+.hook-table-hover() {}
+
+
+// Size modifier
+// ========================================================================
+
+.hook-table-small() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-table-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-table-header-cell() {}
+.hook-inverse-table-caption() {}
+.hook-inverse-table-row-active() {}
+.hook-inverse-table-divider() {}
+.hook-inverse-table-striped() {}
+.hook-inverse-table-hover() {}

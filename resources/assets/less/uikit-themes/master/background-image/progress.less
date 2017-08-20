@@ -1,0 +1,30 @@
+//
+// Component: Progress
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@internal-progress-bar-gradient:               ;
+
+
+// Component
+// ========================================================================
+
+.hook-progress() {}
+
+.hook-progress-bar() when not (@internal-progress-bar-gradient = ~'') {
+    background-image: @internal-progress-bar-gradient;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-progress-misc() {}

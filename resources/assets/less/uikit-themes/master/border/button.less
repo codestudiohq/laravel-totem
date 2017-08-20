@@ -1,0 +1,351 @@
+//
+// Component: Button
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@button-line-height:                            @global-control-height - (@button-border-width * 2);
+@button-small-line-height:                      @global-control-small-height - (@button-border-width * 2);
+@button-large-line-height:                      @global-control-large-height - (@button-border-width * 2);
+
+//
+// New
+//
+
+@button-border-mode:                            ;
+
+@button-border-width:                           0;
+
+@button-default-border:                         transparent;
+@button-default-hover-border:                   transparent;
+@button-default-active-border:                  transparent;
+
+@button-primary-border:                         transparent;
+@button-primary-hover-border:                   transparent;
+@button-primary-active-border:                  transparent;
+
+@button-secondary-border:                       transparent;
+@button-secondary-hover-border:                 transparent;
+@button-secondary-active-border:                transparent;
+
+@button-danger-border:                          transparent;
+@button-danger-hover-border:                    transparent;
+@button-danger-active-border:                   transparent;
+
+@button-disabled-border:                        transparent;
+
+@internal-button-default-border-gradient:              ;
+@internal-button-default-hover-border-gradient:        ;
+@internal-button-default-active-border-gradient:       ;
+
+@internal-button-primary-border-gradient:              ;
+@internal-button-primary-hover-border-gradient:        ;
+@internal-button-primary-active-border-gradient:       ;
+
+@internal-button-secondary-border-gradient:            ;
+@internal-button-secondary-hover-border-gradient:      ;
+@internal-button-secondary-active-border-gradient:     ;
+
+@internal-button-danger-border-gradient:               ;
+@internal-button-danger-hover-border-gradient:         ;
+@internal-button-danger-active-border-gradient:        ;
+
+
+// Component
+// ========================================================================
+
+.hook-button() {}
+
+.hook-button-hover() {}
+
+.hook-button-focus() {}
+
+.hook-button-active() {}
+
+
+// Style modifiers
+// ========================================================================
+
+//
+// Default
+//
+
+// Need to remove default `border-width` of 4px if `border-image` is used in Safari and Edge
+// Note: A `transparent` border color overrides the border image in Safari
+.hook-button-default() when not (@button-border-width = 0) and not (@internal-button-default-border-gradient = ~''),
+                            not (@button-border-width = 0) and not (@internal-button-default-hover-border-gradient = ~''),
+                            not (@button-border-width = 0) and not (@internal-button-default-active-border-gradient = ~'') {
+    border-width: 0;
+}
+
+// Color
+.hook-button-default() when not (@button-border-width = 0) {
+    border@{button-border-mode}: @button-border-width solid @button-default-border;
+}
+
+.hook-button-default-hover() when not (@button-border-width = 0) {
+    border@{button-border-mode}-color: @button-default-hover-border;
+}
+
+.hook-button-default-active() when not (@button-border-width = 0) {
+    border@{button-border-mode}-color: @button-default-active-border;
+}
+
+// Gradient
+.hook-button-default() when not (@button-border-width = 0) and not (@internal-button-default-border-gradient = ~'') {
+    border-image: @internal-button-default-border-gradient 1;
+}
+
+.hook-button-default-hover() when not (@button-border-width = 0) and not (@internal-button-default-hover-border-gradient = ~'') {
+    border-image: @internal-button-default-hover-border-gradient 1;
+}
+
+.hook-button-default-active() when not (@button-border-width = 0) and not (@internal-button-default-active-border-gradient = ~'') {
+    border-image: @internal-button-default-active-border-gradient 1;
+}
+
+//
+// Primary
+//
+
+// Need to remove default `border-width` of 4px if `border-image` is used in Safari and Edge
+// Note: A `transparent` border color overrides the border image in Safari
+.hook-button-primary() when not (@button-border-width = 0) and not (@internal-button-primary-border-gradient = ~''),
+                            not (@button-border-width = 0) and not (@internal-button-primary-hover-border-gradient = ~''),
+                            not (@button-border-width = 0) and not (@internal-button-primary-active-border-gradient = ~'') {
+    border-width: 0;
+}
+
+.hook-button-primary() when not (@button-border-width = 0) {
+    border@{button-border-mode}: @button-border-width solid @button-primary-border;
+}
+
+.hook-button-primary-hover() when not (@button-border-width = 0) {
+    border@{button-border-mode}-color: @button-primary-hover-border;
+}
+
+.hook-button-primary-active() when not (@button-border-width = 0) {
+    border@{button-border-mode}-color: @button-primary-active-border;
+}
+
+// Gradient
+.hook-button-primary() when not (@button-border-width = 0) and not (@internal-button-primary-border-gradient = ~'') {
+    border-image: @internal-button-primary-border-gradient 1;
+}
+
+.hook-button-primary-hover() when not (@button-border-width = 0) and not (@internal-button-primary-hover-border-gradient = ~'') {
+    border-image: @internal-button-primary-hover-border-gradient 1;
+}
+
+.hook-button-primary-active() when not (@button-border-width = 0) and not (@internal-button-primary-active-border-gradient = ~'') {
+    border-image: @internal-button-primary-active-border-gradient 1;
+}
+
+//
+// Secondary
+//
+
+// Need to remove default `border-width` of 4px if `border-image` is used in Safari and Edge
+// Note: A `transparent` border color overrides the border image in Safari
+.hook-button-secondary() when not (@button-border-width = 0) and not (@internal-button-secondary-border-gradient = ~''),
+                            not (@button-border-width = 0) and not (@internal-button-secondary-hover-border-gradient = ~''),
+                            not (@button-border-width = 0) and not (@internal-button-secondary-active-border-gradient = ~'') {
+    border-width: 0;
+}
+
+.hook-button-secondary() when not (@button-border-width = 0) {
+    border@{button-border-mode}: @button-border-width solid @button-secondary-border;
+}
+
+.hook-button-secondary-hover() when not (@button-border-width = 0) {
+    border@{button-border-mode}-color: @button-secondary-hover-border;
+}
+
+.hook-button-secondary-active() when not (@button-border-width = 0) {
+    border@{button-border-mode}-color: @button-secondary-active-border;
+}
+
+// Gradient
+.hook-button-secondary() when not (@button-border-width = 0) and not (@internal-button-secondary-border-gradient = ~'') {
+    border-image: @internal-button-secondary-border-gradient 1;
+}
+
+.hook-button-secondary-hover() when not (@button-border-width = 0) and not (@internal-button-secondary-hover-border-gradient = ~'') {
+    border-image: @internal-button-secondary-hover-border-gradient 1;
+}
+
+.hook-button-secondary-active() when not (@button-border-width = 0) and not (@internal-button-secondary-active-border-gradient = ~'') {
+    border-image: @internal-button-secondary-active-border-gradient 1;
+}
+
+//
+// Danger
+//
+
+// Need to remove default `border-width` of 4px if `border-image` is used in Safari and Edge
+// Note: A `transparent` border color overrides the border image in Safari
+.hook-button-danger() when not (@button-border-width = 0) and not (@internal-button-danger-border-gradient = ~''),
+                            not (@button-border-width = 0) and not (@internal-button-danger-hover-border-gradient = ~''),
+                            not (@button-border-width = 0) and not (@internal-button-danger-active-border-gradient = ~'') {
+    border-width: 0;
+}
+
+.hook-button-danger() when not (@button-border-width = 0) {
+    border@{button-border-mode}: @button-border-width solid @button-danger-border;
+}
+
+.hook-button-danger-hover() when not (@button-border-width = 0) {
+    border@{button-border-mode}-color: @button-danger-hover-border;
+}
+
+.hook-button-danger-active() when not (@button-border-width = 0) {
+    border@{button-border-mode}-color: @button-danger-active-border;
+}
+
+// Gradient
+.hook-button-danger() when not (@button-border-width = 0) and not (@internal-button-danger-border-gradient = ~'') {
+    border-image: @internal-button-danger-border-gradient 1;
+}
+
+.hook-button-danger-hover() when not (@button-border-width = 0) and not (@internal-button-danger-hover-border-gradient = ~'') {
+    border-image: @internal-button-danger-hover-border-gradient 1;
+}
+
+.hook-button-danger-active() when not (@button-border-width = 0) and not (@internal-button-danger-active-border-gradient = ~'') {
+    border-image: @internal-button-danger-active-border-gradient 1;
+}
+
+
+// Disabled
+// ========================================================================
+
+.hook-button-disabled() when not (@button-border-width = 0) {
+    border@{button-border-mode}: @button-border-width solid @button-disabled-border;
+}
+
+
+// Size modifiers
+// ========================================================================
+
+.hook-button-small() {}
+
+.hook-button-large() {}
+
+
+// Text modifier
+// ========================================================================
+
+.hook-button-text() {}
+
+.hook-button-text-hover() {}
+
+.hook-button-text-disabled() {}
+
+
+// Link modifier
+// ========================================================================
+
+.hook-button-link() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-button-misc() when not (@button-border-width = 0) {
+
+    /* Group
+     ========================================================================== */
+
+    /*
+     * Collapse border
+     */
+
+    .uk-button-group > .uk-button:nth-child(n+2),
+    .uk-button-group > div:nth-child(n+2) .uk-button { margin-left: -@button-border-width; }
+
+    /*
+     * Create position context to superimpose the successor elements border
+     * Known issue: If you use an `a` element as button and an icon inside,
+     * the active state will not work if you click the icon inside the button
+     * Workaround: Just use a `button` or `input` element as button
+     */
+
+    .uk-button-group .uk-button:hover,
+    .uk-button-group .uk-button:focus,
+    .uk-button-group .uk-button:active,
+    .uk-button-group .uk-button.uk-active {
+        position: relative;
+        z-index: 1;
+    }
+
+}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-button-default-border:                         transparent;
+@inverse-button-default-hover-border:                   transparent;
+@inverse-button-default-active-border:                  transparent;
+
+@inverse-button-primary-border:                         transparent;
+@inverse-button-primary-hover-border:                   transparent;
+@inverse-button-primary-active-border:                  transparent;
+
+@inverse-button-secondary-border:                       transparent;
+@inverse-button-secondary-hover-border:                 transparent;
+@inverse-button-secondary-active-border:                transparent;
+
+.hook-inverse-button-default() when not (@button-border-width = 0) {
+    border@{button-border-mode}-color: @inverse-button-default-border;
+}
+.hook-inverse-button-default-hover() when not (@button-border-width = 0) {
+    border@{button-border-mode}-color: @inverse-button-default-hover-border;
+}
+.hook-inverse-button-default-active() when not (@button-border-width = 0) {
+    border@{button-border-mode}-color: @inverse-button-default-active-border;
+}
+.hook-inverse-button-default() when not (@button-border-width = 0) and not (@internal-button-default-border-gradient = ~''),
+                                    not (@button-border-width = 0) and not (@internal-button-default-hover-border-gradient = ~''),
+                                    not (@button-border-width = 0) and not (@internal-button-default-active-border-gradient = ~'') {
+    border-image: none;
+}
+
+.hook-inverse-button-primary() when not (@button-border-width = 0) {
+    border@{button-border-mode}-color: @inverse-button-primary-border;
+}
+.hook-inverse-button-primary-hover() when not (@button-border-width = 0) {
+    border@{button-border-mode}-color: @inverse-button-primary-hover-border;
+}
+.hook-inverse-button-primary-active() when not (@button-border-width = 0) {
+    border@{button-border-mode}-color: @inverse-button-primary-active-border;
+}
+.hook-inverse-button-primary() when not (@button-border-width = 0) and not (@internal-button-primary-border-gradient = ~''),
+                                    not (@button-border-width = 0) and not (@internal-button-primary-hover-border-gradient = ~''),
+                                    not (@button-border-width = 0) and not (@internal-button-primary-active-border-gradient = ~'') {
+    border-image: none;
+}
+
+.hook-inverse-button-secondary() when not (@button-border-width = 0) {
+    border@{button-border-mode}-color: @inverse-button-secondary-border;
+}
+.hook-inverse-button-secondary-hover() when not (@button-border-width = 0) {
+    border@{button-border-mode}-color: @inverse-button-secondary-hover-border;
+}
+.hook-inverse-button-secondary-active() when not (@button-border-width = 0) {
+    border@{button-border-mode}-color: @inverse-button-secondary-active-border;
+}
+.hook-inverse-button-secondary() when not (@button-border-width = 0) and not (@internal-button-secondary-border-gradient = ~''),
+                                      not (@button-border-width = 0) and not (@internal-button-secondary-hover-border-gradient = ~''),
+                                      not (@button-border-width = 0) and not (@internal-button-secondary-active-border-gradient = ~'') {
+    border-image: none;
+}
+
+.hook-inverse-button-text() {}
+.hook-inverse-button-text-hover() {}
+.hook-inverse-button-text-disabled() {}
+
+.hook-inverse-button-link() {}

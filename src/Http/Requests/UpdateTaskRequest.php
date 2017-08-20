@@ -25,6 +25,7 @@ class UpdateTaskRequest extends FormRequest
     public function rules()
     {
         return [
+            'description'   => 'required',
             'command'       => 'required',
             'cron'          => 'required_if:type,cron|cron_expression',
         ];
@@ -38,6 +39,7 @@ class UpdateTaskRequest extends FormRequest
     public function messages()
     {
         return [
+            'description.required'      => 'Task description is required',
             'command.required'          => 'Please select a command',
             'cron.required_if'          => 'Cron Expression is required if task type is Cron',
             'cron_expression'           => 'This is not a valid cron expression.',

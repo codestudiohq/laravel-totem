@@ -1,0 +1,72 @@
+//
+// Component: Pagination
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@pagination-item-font-size:                     @global-font-size;
+@pagination-item-font-family:                   @global-secondary-font-family;
+@pagination-item-font-weight:                   @global-secondary-font-weight;
+@pagination-item-text-transform:                @global-secondary-text-transform;
+@pagination-item-letter-spacing:                @global-secondary-letter-spacing;
+@pagination-item-font-style:                    @global-secondary-font-style;
+
+
+// Component
+// ========================================================================
+
+.hook-pagination() {}
+
+
+// Items
+// ========================================================================
+
+.hook-pagination-item() { font-size: @pagination-item-font-size; }
+
+.hook-pagination-item() when not (@pagination-item-font-family = inherit) {
+    font-family: @pagination-item-font-family;
+}
+
+.hook-pagination-item() when not (@pagination-item-font-weight = inherit) {
+    font-weight: @pagination-item-font-weight;
+}
+
+.hook-pagination-item() when not (@pagination-item-text-transform = inherit) {
+    text-transform: @pagination-item-text-transform;
+}
+
+.hook-pagination-item() when not (@pagination-item-letter-spacing = inherit) {
+    letter-spacing: @pagination-item-letter-spacing;
+}
+
+.hook-pagination-item() when not (@pagination-item-font-style = inherit) {
+    font-style: @pagination-item-font-style;
+}
+
+.hook-pagination-item-hover() {}
+
+.hook-pagination-item-active() {}
+
+.hook-pagination-item-disabled() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-pagination-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-pagination-item() {}
+.hook-inverse-pagination-item-hover() {}
+.hook-inverse-pagination-item-active() {}
+.hook-inverse-pagination-item-disabled() {}

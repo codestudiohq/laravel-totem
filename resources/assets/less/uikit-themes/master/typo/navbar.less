@@ -1,0 +1,189 @@
+//
+// Component: Navbar
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@navbar-nav-item-font-family:                   @global-secondary-font-family;
+
+//
+// New
+//
+
+@navbar-nav-item-font-weight:                   @global-secondary-font-weight;
+@navbar-nav-item-text-transform:                @global-secondary-text-transform;
+@navbar-nav-item-letter-spacing:                @global-secondary-letter-spacing;
+@navbar-nav-item-font-style:                    @global-secondary-font-style;
+
+@navbar-item-font-size:                         @navbar-nav-item-font-size;
+@navbar-item-font-family:                       @navbar-nav-item-font-family;
+
+@navbar-dropdown-nav-font-size:                 @global-font-size;
+@navbar-dropdown-nav-font-family:               @global-secondary-font-family;
+@navbar-dropdown-nav-font-weight:               @global-secondary-font-weight;
+@navbar-dropdown-nav-text-transform:            @global-secondary-text-transform;
+@navbar-dropdown-nav-letter-spacing:            @global-secondary-letter-spacing;
+@navbar-dropdown-nav-font-style:                @global-secondary-font-style;
+
+
+// Component
+// ========================================================================
+
+.hook-navbar() {}
+
+
+// Container
+// ========================================================================
+
+.hook-navbar-container() {}
+
+
+// Nav
+// ========================================================================
+
+.hook-navbar-nav-item() {}
+
+.hook-navbar-nav-item() when not (@navbar-nav-item-font-weight = inherit) {
+    font-weight: @navbar-nav-item-font-weight;
+}
+
+.hook-navbar-nav-item() when not (@navbar-nav-item-text-transform = inherit) {
+    text-transform: @navbar-nav-item-text-transform;
+}
+
+.hook-navbar-nav-item() when not (@navbar-nav-item-letter-spacing = inherit) {
+    letter-spacing: @navbar-nav-item-letter-spacing;
+}
+
+.hook-navbar-nav-item() when not (@navbar-nav-item-font-style = inherit) {
+    font-style: @navbar-nav-item-font-style;
+}
+
+.hook-navbar-nav-item-hover() {}
+
+.hook-navbar-nav-item-onclick() {}
+
+.hook-navbar-nav-item-active() {}
+
+
+// Item
+// ========================================================================
+
+.hook-navbar-item() when not (@navbar-nav-item-font-size = @navbar-item-font-size) {
+    font-size: @navbar-item-font-size;
+}
+
+.hook-navbar-item() when not (@navbar-nav-item-font-family = @navbar-item-font-family) {
+    font-family: @navbar-item-font-family;
+}
+
+
+// Toggle
+// ========================================================================
+
+.hook-navbar-toggle() {}
+
+.hook-navbar-toggle() when not (@navbar-nav-item-font-weight = inherit) {
+    font-weight: @navbar-nav-item-font-weight;
+}
+
+.hook-navbar-toggle() when not (@navbar-nav-item-text-transform = inherit) {
+    text-transform: @navbar-nav-item-text-transform;
+}
+
+.hook-navbar-toggle() when not (@navbar-nav-item-letter-spacing = inherit) {
+    letter-spacing: @navbar-nav-item-letter-spacing;
+}
+
+.hook-navbar-toggle-hover() {}
+
+.hook-navbar-toggle-icon() {}
+
+.hook-navbar-toggle-icon-hover() {}
+
+
+// Subtitle
+// ========================================================================
+
+.hook-navbar-subtitle() {}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-navbar-transparent() {}
+
+.hook-navbar-sticky() {}
+
+
+// Dropdown
+// ========================================================================
+
+.hook-navbar-dropdown() {}
+
+.hook-navbar-dropdown-dropbar() {}
+
+
+// Dropdown nav
+// ========================================================================
+
+.hook-navbar-dropdown-nav() { font-size: @navbar-dropdown-nav-font-size; }
+
+.hook-navbar-dropdown-nav() when not (@navbar-dropdown-nav-font-family = inherit) {
+    font-family: @navbar-dropdown-nav-font-family;
+}
+
+.hook-navbar-dropdown-nav() when not (@navbar-dropdown-nav-font-weight = inherit) {
+    font-weight: @navbar-dropdown-nav-font-weight;
+}
+
+.hook-navbar-dropdown-nav() when not (@navbar-dropdown-nav-text-transform = inherit) {
+    text-transform: @navbar-dropdown-nav-text-transform;
+}
+
+.hook-navbar-dropdown-nav() when not (@navbar-dropdown-nav-letter-spacing = inherit) {
+    letter-spacing: @navbar-dropdown-nav-letter-spacing;
+}
+
+.hook-navbar-dropdown-nav() when not (@navbar-dropdown-nav-font-style = inherit) {
+    font-style: @navbar-dropdown-nav-font-style;
+}
+
+.hook-navbar-dropdown-nav-item() {}
+
+.hook-navbar-dropdown-nav-item-hover() {}
+
+.hook-navbar-dropdown-nav-header() {}
+
+.hook-navbar-dropdown-nav-divider() {}
+
+
+// Dropbar
+// ========================================================================
+
+.hook-navbar-dropbar() {}
+
+.hook-navbar-dropbar-slide() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-navbar-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-navbar-nav-item() {}
+.hook-inverse-navbar-nav-item-hover() {}
+.hook-inverse-navbar-nav-item-onclick() {}
+.hook-inverse-navbar-nav-item-active() {}
+
+.hook-inverse-navbar-item() {}
+
+.hook-inverse-navbar-toggle() {}
+.hook-inverse-navbar-toggle-hover() {}

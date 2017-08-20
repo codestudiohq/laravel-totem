@@ -1,0 +1,70 @@
+//
+// Component: Table
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@table-striped-border-width:                    0;
+@table-striped-border:                          transparent;
+
+
+// Component
+// ========================================================================
+
+.hook-table-header-cell() {}
+
+.hook-table-cell() {}
+
+.hook-table-footer() {}
+
+.hook-table-caption() {}
+
+.hook-table-row-active() {}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-table-divider() {}
+
+.hook-table-striped() when not (@table-striped-border-width = 0) {
+    border-top: @table-striped-border-width solid @table-striped-border;
+    border-bottom: @table-striped-border-width solid @table-striped-border;
+}
+
+.hook-table-hover() {}
+
+
+// Size modifier
+// ========================================================================
+
+.hook-table-small() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-table-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-table-striped-border:                 @inverse-global-border;
+
+.hook-inverse-table-header-cell() {}
+.hook-inverse-table-caption() {}
+.hook-inverse-table-row-active() {}
+.hook-inverse-table-divider() {}
+.hook-inverse-table-striped() when not (@table-striped-border-width = 0) {
+    border-top-color: @inverse-table-striped-border;
+    border-bottom-color: @inverse-table-striped-border;
+}
+.hook-inverse-table-hover() {}

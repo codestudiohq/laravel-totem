@@ -1,0 +1,28 @@
+//
+// Component: Placeholder
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@placeholder-border-radius:                     0;
+
+
+// Component
+// ========================================================================
+
+.hook-placeholder() when not (@placeholder-border-radius = 0) {
+    border-radius: @placeholder-border-radius;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-placeholder-misc() {}

@@ -1,0 +1,47 @@
+//
+// Component: Marker
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@marker-hover-background:                       @marker-background;
+
+
+// Component
+// ========================================================================
+
+.hook-marker() {
+    -webkit-transition: 0.1s ease-in-out;
+    transition: 0.1s ease-in-out;
+    -webkit-transition-property: color, background-color;
+    transition-property: color, background-color;
+}
+
+.hook-marker-hover() when not (@marker-hover-background = @marker-background) {
+    background: @marker-hover-background;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-marker-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-marker-hover-background:                       @inverse-marker-background;
+
+.hook-inverse-marker() {}
+
+.hook-inverse-marker-hover() when not (@inverse-marker-hover-background = @inverse-marker-background) {
+    background: @inverse-marker-hover-background;
+}

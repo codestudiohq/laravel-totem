@@ -51,8 +51,10 @@ class Kernel extends AppKernel
      */
     public function getCommands(): array
     {
-        return collect($this->all())->flatMap(function ($command) {
-            return [get_class($command) => $command->getDescription().' ('.$command->getName().')'];
+        return collect($this->all())->sortBy(function ($command) {
+            return $command->getDescription();
+        })->flatMap(function ($command) {
+            return [$command->getName() => $command->getDescription().' ('.$command->getName().')'];
         })->toArray();
     }
 
@@ -61,25 +63,27 @@ class Kernel extends AppKernel
         $tasks = $this->tasks->findAllActive();
 
         $tasks->each(function ($task) use ($schedule) {
-            $command = $this->app[$task->command];
+            $event = $schedule->command($task->command.' '.$task->parameters);
+            $event->cron($task->cron)
+                ->name($task->description)
+                ->timezone($task->timezone)
+                ->before(function () use ($task, $event) {
+                    $event->start = microtime(true);
+                    Executing::dispatch($task);
+                })
+                ->after(function () use ($event, $task) {
+                    Executed::dispatch($task, $event);
+                })
+                ->sendOutputTo(storage_path('logs/schedule-'.sha1($event->mutexName()).'.log'));
+            if ($task->dont_overlap) {
+                $event->withoutOverlapping();
+            }
+            if ($task->run_in_maintenance) {
+                $event->evenInMaintenanceMode();
+            }
 
-            if ($command) {
-                $event = $schedule->command($command->getName());
-                $event->cron($task->cron)
-                    ->name($command->getDescription())
-                    ->timezone($task->timezone)
-                    ->before(function () use ($task, $event) {
-                        $event->start = microtime(true);
-                        Executing::dispatch($task);
-                    })
-                    ->after(function () use ($event, $task) {
-                        Executed::dispatch($task, $event);
-                    })
-                    ->sendOutputTo(storage_path('logs/schedule-'.sha1($event->mutexName()).'.log'));
-
-                if ($task->notification_email_address) {
-                    $event->emailOutputTo($task->notification_email_address);
-                }
+            if ($task->notification_email_address) {
+                $event->emailOutputTo($task->notification_email_address);
             }
         });
     }

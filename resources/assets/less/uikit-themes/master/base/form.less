@@ -1,0 +1,119 @@
+//
+// Component: Form
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@form-label-font-size:                          @global-font-size;
+
+
+// Component
+// ========================================================================
+
+.hook-form() {
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+    -webkit-transition-property: color, background-color, border-color, box-shadow;
+    transition-property: color, background-color, border-color, box-shadow;
+}
+
+.hook-form-single-line() {}
+
+.hook-form-multi-line() {}
+
+.hook-form-focus() {}
+
+.hook-form-disabled() {}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-form-danger() {}
+
+.hook-form-success() {}
+
+.hook-form-blank() {}
+
+.hook-form-blank-focus() {}
+
+
+// Radio and checkbox
+// ========================================================================
+
+.hook-form-radio() {
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+    -webkit-transition-property: background-color, border-color, box-shadow;
+    transition-property: background-color, border-color, box-shadow;
+}
+
+.hook-form-radio-focus() {}
+
+.hook-form-radio-checked() {}
+
+.hook-form-radio-checked-focus() { }
+
+.hook-form-radio-disabled() {}
+
+
+// Legend
+// ========================================================================
+
+.hook-form-legend() {}
+
+
+// Label
+// ========================================================================
+
+.hook-form-label() { font-size: @form-label-font-size; }
+
+
+// Layout
+// ========================================================================
+
+.hook-form-stacked-label() {}
+
+.hook-form-horizontal-label() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+// Transparent `background-color` doesn't work in IE11 and Edge and the background will apear white.
+// This is why the text color is set to black.
+.hook-form-misc() when (@form-background = transparent),
+                       (@form-background = rgba(0, 0, 0, 0)) {
+    // IE10+
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        .uk-select:not([multiple]):not([size]) option { color: #444; }
+    }
+
+    // Edge
+    @supports (-ms-accelerator:true) {
+        .uk-select:not([multiple]):not([size]) option { color: #444; }
+    }
+
+}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-form() {}
+.hook-inverse-form-focus() {}
+
+.hook-inverse-form-radio() {}
+.hook-inverse-form-radio-focus() {}
+
+.hook-inverse-form-radio-checked() {}
+.hook-inverse-form-radio-checked-focus() {}
+
+.hook-inverse-form-label() {}

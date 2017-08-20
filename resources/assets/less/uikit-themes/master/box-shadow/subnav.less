@@ -1,0 +1,96 @@
+//
+// Component: Subnav
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@subnav-pill-item-box-shadow:                   none;
+@subnav-pill-item-hover-box-shadow:             none;
+@subnav-pill-item-onclick-box-shadow:           none;
+@subnav-pill-item-active-box-shadow:            none;
+
+
+// Component
+// ========================================================================
+
+.hook-subnav() {}
+
+.hook-subnav-item() {}
+
+.hook-subnav-item-hover() {}
+
+.hook-subnav-item-active() {}
+
+
+// Divider modifier
+// ========================================================================
+
+.hook-subnav-divider() {}
+
+
+// Pill modifier
+// ========================================================================
+
+.hook-subnav-pill-item() when not (@subnav-pill-item-box-shadow = none) {
+    box-shadow: @subnav-pill-item-box-shadow;
+}
+
+.hook-subnav-pill-item-hover() when not (@subnav-pill-item-hover-box-shadow = none) {
+    box-shadow: @subnav-pill-item-hover-box-shadow;
+}
+
+.hook-subnav-pill-item-onclick() when not (@subnav-pill-item-onclick-box-shadow = none) {
+    box-shadow: @subnav-pill-item-onclick-box-shadow;
+}
+
+.hook-subnav-pill-item-active() when not (@subnav-pill-item-active-box-shadow = none) {
+    box-shadow: @subnav-pill-item-active-box-shadow;
+}
+
+
+// Disabled
+// ========================================================================
+
+.hook-subnav-item-disabled() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-subnav-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+//
+// New
+//
+
+.hook-inverse-subnav-item() {}
+.hook-inverse-subnav-item-hover() {}
+.hook-inverse-subnav-item-active() {}
+
+.hook-inverse-subnav-divider() {}
+
+.hook-inverse-subnav-pill-item() when not (@subnav-pill-item-box-shadow = none) {
+    box-shadow: none;
+}
+.hook-inverse-subnav-pill-item-hover() when not (@subnav-pill-item-hover-box-shadow = none) {
+    box-shadow: none;
+}
+.hook-inverse-subnav-pill-item-onclick() when not (@subnav-pill-item-onclick-box-shadow = none) {
+    box-shadow: none;
+}
+.hook-inverse-subnav-pill-item-active() when not (@subnav-pill-item-active-box-shadow = none) {
+    box-shadow: none;
+}
+
+.hook-inverse-subnav-item-disabled() {}

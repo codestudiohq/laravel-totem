@@ -19,21 +19,23 @@
     </head>
     <body>
         <main id="root">
-            <div class="wrapper df pv3">
-                @include('totem::partials.sidebar')
-                <section class="main-content">
-                    <div class="panel panel-default mb3">
-                        <div class="panel-heading">
-                            @yield('title')
+            <div class="uk-container uk-section">
+                <div class="uk-grid uk-grid-collapse">
+                    @include('totem::partials.sidebar')
+                    <section class="uk-width-5-6@l">
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-header">
+                                @yield('title')
+                            </div>
+                            <div class="uk-card-body">
+                                @yield('main-panel-content')
+                                @include('totem::partials.alerts')
+                            </div>
+                            @yield('main-panel-footer')
                         </div>
-                        <div class="panel-content">
-                            @yield('main-panel-content')
-                            @include('totem::partials.alerts')
-                        </div>
-                        @yield('main-panel-footer')
-                    </div>
-                    @yield('additional-panels')
-                </section>
+                        @yield('additional-panels')
+                    </section>
+                </div>
             </div>
         </main>
         @include('totem::partials.footer')

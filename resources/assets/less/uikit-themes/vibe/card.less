@@ -1,0 +1,141 @@
+//
+// Component: Card
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@card-title-font-size:                         18px;
+
+@card-hover-background:                        fade(lighten(@global-background, 4%), 95%);
+
+@card-default-background:                      @global-background;
+@card-default-hover-background:                @card-default-background;
+
+@card-primary-hover-background:                darken(spin(@button-primary-background, -7%), 6%);
+@card-primary-color-mode:                      dark;
+
+@card-secondary-hover-background:              lighten(@card-secondary-background, 3%);
+@card-secondary-color-mode:                    dark;
+
+//
+// Master
+//
+
+@card-badge-padding-horizontal:                7px;
+@card-badge-border-width:                      @global-border-width;
+@card-badge-border:                            @global-border;
+@card-badge-font-size:                         @global-small-font-size;
+
+@card-hover-box-shadow:                        @global-large-box-shadow;
+
+@internal-card-default-gradient:               linear-gradient(135deg, #494C8A, #362C61);
+@internal-card-default-hover-gradient:         linear-gradient(155deg, #494C8A, #362C61);
+@card-default-box-shadow:                      inset 1px 1px 0 rgba(255,255,255,0.05), @global-medium-box-shadow;
+@card-default-hover-box-shadow:                inset 1px 1px 0 rgba(255,255,255,0.05), @global-large-box-shadow;
+
+@internal-card-primary-gradient:               linear-gradient(135deg, @global-primary-background, desaturate(darken(spin(@global-primary-background, -45%), 15%), 25%));
+@internal-card-primary-hover-gradient:         linear-gradient(155deg, @global-primary-background, desaturate(darken(spin(@global-primary-background, -45%), 15%), 25%));
+@card-primary-box-shadow:                      inset 1px 1px 0 rgba(255,255,255,0.1), @global-medium-box-shadow;
+@card-primary-hover-box-shadow:                inset 1px 1px 0 rgba(255,255,255,0.1), @global-large-box-shadow;
+
+@internal-card-secondary-gradient:             linear-gradient(135deg, #8333C1, #503ED7);
+@internal-card-secondary-hover-gradient:       linear-gradient(155deg, #8333C1, #503ED7);
+@card-secondary-box-shadow:                    inset 1px 1px 0 rgba(255,255,255,0.07), @global-medium-box-shadow;
+@card-secondary-hover-box-shadow:              inset 1px 1px 0 rgba(255,255,255,0.07), @global-large-box-shadow;
+
+
+// Component
+// ========================================================================
+
+.hook-card() {}
+
+
+// Sections
+// ========================================================================
+
+.hook-card-body() {}
+
+.hook-card-header() {}
+
+.hook-card-footer() {}
+
+
+// Media
+// ========================================================================
+
+.hook-card-media() {}
+
+.hook-card-media-top() {}
+
+.hook-card-media-bottom() {}
+
+.hook-card-media-left() {}
+
+.hook-card-media-right() {}
+
+
+// Title
+// ========================================================================
+
+.hook-card-title() {}
+
+
+// Badge
+// ========================================================================
+
+.hook-card-badge() {}
+
+
+// Hover modifier
+// ========================================================================
+
+.hook-card-hover() {}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-card-default() {}
+
+.hook-card-default-title() {}
+
+.hook-card-default-hover() {}
+
+.hook-card-default-header() {}
+
+.hook-card-default-footer() {}
+
+//
+// Primary
+//
+
+.hook-card-primary() {}
+
+.hook-card-primary-title() {}
+
+.hook-card-primary-hover() {}
+
+//
+// Secondary
+//
+
+.hook-card-secondary() {}
+
+.hook-card-secondary-title() {}
+
+.hook-card-secondary-hover() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-card-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-card-badge-border:                 @inverse-global-color;

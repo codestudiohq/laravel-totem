@@ -1,0 +1,79 @@
+//
+// Component: Breadcrumb
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@breadcrumb-item-font-family:                          @global-secondary-font-family;
+@breadcrumb-item-font-weight:                          @global-secondary-font-weight;
+@breadcrumb-item-text-transform:                       @global-secondary-text-transform;
+@breadcrumb-item-letter-spacing:                       @global-secondary-letter-spacing;
+@breadcrumb-item-font-style:                           @global-secondary-font-style;
+
+@breadcrumb-item-disabled-color:                       @breadcrumb-item-color;
+
+
+// Component
+// ========================================================================
+
+.hook-breadcrumb() {}
+
+
+// Items
+// ========================================================================
+
+.hook-breadcrumb-item() {}
+
+.hook-breadcrumb-item() when not (@breadcrumb-item-font-family = inherit) {
+    font-family: @breadcrumb-item-font-family;
+}
+
+.hook-breadcrumb-item() when not (@breadcrumb-item-font-weight = inherit) {
+    font-weight: @breadcrumb-item-font-weight;
+}
+
+.hook-breadcrumb-item() when not (@breadcrumb-item-text-transform = inherit) {
+    text-transform: @breadcrumb-item-text-transform;
+}
+
+.hook-breadcrumb-item() when not (@breadcrumb-item-letter-spacing = inherit) {
+    letter-spacing: @breadcrumb-item-letter-spacing;
+}
+
+.hook-breadcrumb-item() when not (@breadcrumb-item-font-style = inherit) {
+    font-style: @breadcrumb-item-font-style;
+}
+
+.hook-breadcrumb-item-hover() {}
+
+.hook-breadcrumb-item-disabled() { color: @breadcrumb-item-disabled-color; }
+
+.hook-breadcrumb-item-active() {}
+
+.hook-breadcrumb-divider() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-breadcrumb-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-breadcrumb-item-disabled-color:       @inverse-breadcrumb-item-color;
+
+.hook-inverse-breadcrumb-item() {}
+.hook-inverse-breadcrumb-item-hover() {}
+.hook-inverse-breadcrumb-item-disabled() { color: @inverse-breadcrumb-item-disabled-color; }
+.hook-inverse-breadcrumb-item-active() {}
+
+.hook-inverse-breadcrumb-divider() {}

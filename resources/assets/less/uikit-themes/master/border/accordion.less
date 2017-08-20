@@ -1,0 +1,61 @@
+//
+// Component: Accordion
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@accordion-item-padding-top:                   0;
+@accordion-item-border-width:                  0;
+@accordion-item-border:                        transparent;
+
+
+// Component
+// ========================================================================
+
+.hook-accordion() {}
+
+
+// Item
+// ========================================================================
+
+.hook-accordion-item() when not (@accordion-item-border-width = 0) {
+     padding-top: @accordion-item-padding-top;
+     border-top: @accordion-item-border-width solid @accordion-item-border;
+ }
+
+
+// Title
+// ========================================================================
+
+.hook-accordion-title() {}
+
+
+// Content
+// ========================================================================
+
+.hook-accordion-content() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-accordion-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-accordion-item-border:                @inverse-global-border;
+
+.hook-inverse-accordion-item() when not (@accordion-item-border-width = 0) {
+    border-top-color: @inverse-accordion-item-border;
+}
+
+.hook-inverse-accordion-title() {}

@@ -4,73 +4,61 @@
     - Task
 @stop
 @section('title')
-    <div class="vab">
-        Task
-    </div>
-    <div>
-        <status-button :data-task="{{ $task }}" :data-exists="{{ $task->exists ? 1 : 0 }}" class="mr-2"></status-button>
+    <div class="uk-flex uk-flex-between uk-flex-middle">
+        <h5 class="uk-margin-remove">View Task</h5>
+        <status-button :data-task="{{ $task }}" :data-exists="{{ $task->exists ? 1 : 0 }}"></status-button>
     </div>
 @stop
 @section('main-panel-content')
-    <div class="pa2">
-        <div class="frame ">
-            <div class="blk2 ft15 lh2 tcg9 tar">
-                Description<br>
-                Command<br>
-                Cron Expression<br>
-                Timezone<br>
-                Created @<br>
-                Updated @<br>
-                Notify @<br>
-                Average Run Time
-            </div>
-            <div class="blk9 ft15 lh2 basic-text">
-                {{$task->description}}<br>
-                {{$task->command}}<br>
-                {{$task->cron ? $task->cron : 'Frequency'}}<br>
-                {{$task->timezone}}<br>
-                {{$task->created_at->toDateTimeString()}}<br>
-                {{$task->updated_at->toDateTimeString()}}<br>
-                {{$task->notification_email_address}}<br>
-                {{$task->results->count() > 0 ? number_format(  $task->results->sum('duration') / (1000 * $task->results->count()) , 2) : '0'}} seconds
-            </div>
-        </div>
-    </div>
+    <ul class="uk-list">
+        <li>Description         : {{$task->description}}</li>
+        <li>Command             : {{$task->command }}</li>
+        <li>Parameters          : {{$task->parameteres or 'N/A' }}</li>
+        <li>Expression          : {{$task->cron }}</li>
+        <li>Timezone            : {{$task->timezone }}</li>
+        <li>Avoids Overlapping  : {{$task->dont_overlap ? 'Yes' : 'No' }}</li>
+        <li>Runs in maintenance mode  : {{$task->run_in_maintenance ? 'Yes' : 'No' }}</li>
+        <li>Created@            : {{$task->created_at->toDateTimeString() }}</li>
+        <li>Updated@            : {{$task->updated_at->toDateTimeString() }}</li>
+        <li>Notification Email  : {{$task->notification_email_address }}</li>
+        <li>Average Run Time    : {{$task->results->count() > 0 ? number_format(  $task->results->sum('duration') / (1000 * $task->results->count()) , 2) : '0'}} seconds<br></li>
+        <li>Next Run            : {{$task->upcoming }}</li>
+    </ul>
 @stop
 @section('main-panel-footer')
-    <div class="pv1 pl2 df">
-        <a href="{{ route('totem.task.run', $task) }}" class="btn btn-md btn-primary mr1">Run</a>
-        <a href="{{ route('totem.task.edit', $task) }}" class="btn btn-md btn-primary mr1">Edit</a>
-        <form class="dib" action="{{route('totem.task.delete', $task)}}" method="post">
+    <div class="uk-card-footer">
+        <a href="{{ route('totem.task.run', $task) }}" class="uk-button uk-button-primary uk-button-small">Run</a>
+        <a href="{{ route('totem.task.edit', $task) }}" class="uk-button uk-button-primary uk-button-small">Edit</a>
+        <form class="uk-display-inline" action="{{route('totem.task.delete', $task)}}" method="post">
             {{ csrf_field() }}
             {{ method_field('delete') }}
-            <button type="submit" class="btn btn-md btn-primary">Delete</button>
+            <button type="submit" class="uk-button uk-button-danger uk-button-small">Delete</button>
         </form>
 
     </div>
 @stop
 @section('additional-panels')
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            Execution Results
+    <div class="uk-card uk-card-default uk-margin-top">
+        <div class="uk-card-header">
+            <h5>Execution Results</h5>
         </div>
-        <div class="panel-content">
-            <table class="table" cellpadding="0" cellspacing="0" class="mb1">
+        <div class="uk-card-body">
+            <table class="uk-table" cellpadding="0" cellspacing="0" class="mb1">
                 <thead>
                 <tr>
-                    <th class="pl2">Duration</th>
                     <th class="pl2">Executed At</th>
+                    <th class="pl2">Duration</th>
                 </tr>
                 </thead>
                 <tbody>
                 @forelse($results = $task->results()->paginate(10) as $result)
                     <tr>
-                        <td class="ph2">{{ number_format($result->duration / 1000 , 2)}} seconds</td>
                         <td class="ph2">{{$result->ran_at->toDateTimeString()}}</td>
+                        <td class="ph2">{{ number_format($result->duration / 1000 , 2)}} seconds</td>
                     </tr>
                 @empty
                     <tr>
-                        <td class="tac" colspan="5">
+                        <td class="uk-text-center" colspan="5">
                             <p class="pa2">Not executed yet.</p>
                         </td>
                     </tr>

@@ -1,0 +1,52 @@
+//
+// Component: Notification
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@notification-message-border-radius:                  0;
+
+
+// Component
+// ========================================================================
+
+.hook-notification() {}
+
+
+// Message
+// ========================================================================
+
+.hook-notification-message() when not (@notification-message-border-radius = 0) {
+    border-radius: @notification-message-border-radius;
+}
+
+
+// Close
+// ========================================================================
+
+.hook-notification-close() {}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-notification-primary() {}
+
+.hook-notification-success() {}
+
+.hook-notification-warning() {}
+
+.hook-notification-danger() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-notification-misc() {}

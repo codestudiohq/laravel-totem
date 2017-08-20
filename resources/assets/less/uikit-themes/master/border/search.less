@@ -1,0 +1,84 @@
+//
+// Component: Search
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@search-default-border-mode:                        ;
+
+@search-default-border-width:                       0;
+@search-default-border:                             transparent;
+
+@search-default-focus-border:                       transparent;
+
+
+// Component
+// ========================================================================
+
+.hook-search-input() {}
+
+
+// Default modifiers
+// ========================================================================
+
+.hook-search-default-input() when not (@search-default-border-width = 0) {
+    border@{search-default-border-mode}: @search-default-border-width solid @search-default-border;
+}
+
+.hook-search-default-input-focus() when not (@search-default-border-width = 0) {
+    border@{search-default-border-mode}-color: @search-default-focus-border;
+}
+
+
+// Navbar modifiers
+// ========================================================================
+
+.hook-search-navbar-input() {}
+
+
+// Large modifiers
+// ========================================================================
+
+.hook-search-large-input() {}
+
+
+// Toggle
+// ========================================================================
+
+.hook-search-toggle() {}
+
+.hook-search-toggle-hover() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-search-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-search-default-border:                             transparent;
+@inverse-search-default-focus-border:                       transparent;
+
+.hook-inverse-search-default-input() when not (@search-default-border-width = 0) {
+    border@{search-default-border-mode}-color: @inverse-search-default-border;
+}
+.hook-inverse-search-default-input-focus() when not (@search-default-border-width = 0) {
+    border@{search-default-border-mode}-color: @inverse-search-default-focus-border;
+}
+
+.hook-inverse-search-navbar-input() {}
+
+.hook-inverse-search-large-input() {}
+
+.hook-inverse-search-toggle() {}
+.hook-inverse-search-toggle-hover() {}

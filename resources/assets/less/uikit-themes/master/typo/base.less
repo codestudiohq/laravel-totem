@@ -1,0 +1,387 @@
+//
+// Component: Base
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@base-heading-font-family:                      @global-primary-font-family;
+@base-heading-font-weight:                      @global-primary-font-weight;
+@base-heading-text-transform:                   @global-primary-text-transform;
+
+//
+// New
+//
+
+@base-heading-letter-spacing:                   @global-primary-letter-spacing;
+@base-heading-font-style:                       @global-primary-font-style;
+
+@base-h1-color:                                 @base-heading-color;
+@base-h1-font-family:                           @base-heading-font-family;
+@base-h1-font-weight:                           @base-heading-font-weight;
+@base-h1-text-transform:                        @base-heading-text-transform;
+@base-h1-letter-spacing:                        @base-heading-letter-spacing;
+@base-h1-font-style:                            @base-heading-font-style;
+
+@base-h2-color:                                 @base-heading-color;
+@base-h2-font-family:                           @base-heading-font-family;
+@base-h2-font-weight:                           @base-heading-font-weight;
+@base-h2-text-transform:                        @base-heading-text-transform;
+@base-h2-letter-spacing:                        @base-heading-letter-spacing;
+@base-h2-font-style:                            @base-heading-font-style;
+
+@base-h3-color:                                 @base-heading-color;
+@base-h3-font-family:                           @base-heading-font-family;
+@base-h3-font-weight:                           @base-heading-font-weight;
+@base-h3-text-transform:                        @base-heading-text-transform;
+@base-h3-letter-spacing:                        @base-heading-letter-spacing;
+@base-h3-font-style:                            @base-heading-font-style;
+
+@base-h4-color:                                 @base-heading-color;
+@base-h4-font-family:                           @global-secondary-font-family;
+@base-h4-font-weight:                           @global-secondary-font-weight;
+@base-h4-text-transform:                        @global-secondary-text-transform;
+@base-h4-letter-spacing:                        @global-secondary-letter-spacing;
+@base-h4-font-style:                            @global-secondary-font-style;
+
+@base-h5-color:                                 @base-heading-color;
+@base-h5-font-family:                           @global-secondary-font-family;
+@base-h5-font-weight:                           @global-secondary-font-weight;
+@base-h5-text-transform:                        @global-secondary-text-transform;
+@base-h5-letter-spacing:                        @global-secondary-letter-spacing;
+@base-h5-font-style:                            @global-secondary-font-style;
+
+@base-h6-color:                                 @base-heading-color;
+@base-h6-font-family:                           @global-secondary-font-family;
+@base-h6-font-weight:                           @global-secondary-font-weight;
+@base-h6-text-transform:                        @global-secondary-text-transform;
+@base-h6-letter-spacing:                        @global-secondary-letter-spacing;
+@base-h6-font-style:                            @global-secondary-font-style;
+
+@base-blockquote-color:                         @global-emphasis-color;
+@base-blockquote-font-family:                   @global-primary-font-family;
+@base-blockquote-font-weight:                   @global-primary-font-weight;
+@base-blockquote-text-transform:                @global-primary-text-transform;
+@base-blockquote-letter-spacing:                @global-primary-letter-spacing;
+
+@base-blockquote-footer-color:                  @global-color;
+@base-blockquote-footer-font-family:            @global-secondary-font-family;
+@base-blockquote-footer-font-weight:            @global-secondary-font-weight;
+@base-blockquote-footer-text-transform:         @global-secondary-text-transform;
+@base-blockquote-footer-letter-spacing:         inherit;
+
+
+// Body
+// ========================================================================
+
+.hook-base-body() {}
+
+
+// Links
+// ========================================================================
+
+.hook-base-link() {}
+
+.hook-base-link-hover() {}
+
+
+// Text-level semantics
+// ========================================================================
+
+.hook-base-code() {}
+
+
+// Headings
+// ========================================================================
+
+.hook-base-heading() when not (@base-heading-letter-spacing = inherit) {
+    letter-spacing: @base-heading-letter-spacing;
+}
+
+.hook-base-heading() when not (@base-heading-font-style = inherit) {
+    font-style: @base-heading-font-style;
+}
+
+//
+// H1
+//
+
+.hook-base-h1() when not (@base-h1-color = @base-heading-color) {
+    color: @base-h1-color;
+}
+
+.hook-base-h1() when not (@base-h1-font-family = inherit) {
+    font-family: @base-h1-font-family;
+}
+
+.hook-base-h1() when not (@base-h1-font-weight = inherit) {
+    font-weight: @base-h1-font-weight;
+}
+
+.hook-base-h1() when not (@base-h1-text-transform = inherit) {
+    text-transform: @base-h1-text-transform;
+}
+
+.hook-base-h1() when not (@base-h1-letter-spacing = @base-heading-letter-spacing) {
+    letter-spacing: @base-h1-letter-spacing;
+}
+
+.hook-base-h1() when not (@base-h1-font-style = @base-heading-font-style) {
+    font-style: @base-h1-font-style;
+}
+
+//
+// H2
+//
+
+.hook-base-h2() when not (@base-h2-color = @base-heading-color) {
+    color: @base-h2-color;
+}
+
+.hook-base-h2() when not (@base-h2-font-family = inherit) {
+    font-family: @base-h2-font-family;
+}
+
+.hook-base-h2() when not (@base-h2-font-weight = inherit) {
+    font-weight: @base-h2-font-weight;
+}
+
+.hook-base-h2() when not (@base-h2-text-transform = inherit) {
+    text-transform: @base-h2-text-transform;
+}
+
+.hook-base-h2() when not (@base-h2-letter-spacing = @base-heading-letter-spacing) {
+    letter-spacing: @base-h2-letter-spacing;
+}
+
+.hook-base-h2() when not (@base-h2-font-style = @base-heading-font-style) {
+    font-style: @base-h2-font-style;
+}
+
+//
+// H3
+//
+
+.hook-base-h3() when not (@base-h3-color = @base-heading-color) {
+    color: @base-h3-color;
+}
+
+.hook-base-h3() when not (@base-h3-font-family = inherit) {
+    font-family: @base-h3-font-family;
+}
+
+.hook-base-h3() when not (@base-h3-font-weight = inherit) {
+    font-weight: @base-h3-font-weight;
+}
+
+.hook-base-h3() when not (@base-h3-text-transform = inherit) {
+    text-transform: @base-h3-text-transform;
+}
+
+.hook-base-h3() when not (@base-h3-letter-spacing = @base-heading-letter-spacing) {
+    letter-spacing: @base-h3-letter-spacing;
+}
+
+.hook-base-h3() when not (@base-h3-font-style = @base-heading-font-style) {
+    font-style: @base-h3-font-style;
+}
+
+//
+// H4
+//
+
+.hook-base-h4() when not (@base-h4-color = @base-heading-color) {
+    color: @base-h4-color;
+}
+
+.hook-base-h4() when not (@base-h4-font-family = inherit) {
+    font-family: @base-h4-font-family;
+}
+
+.hook-base-h4() when not (@base-h4-font-weight = inherit) {
+    font-weight: @base-h4-font-weight;
+}
+
+.hook-base-h4() when not (@base-h4-text-transform = inherit) {
+    text-transform: @base-h4-text-transform;
+}
+
+.hook-base-h4() when not (@base-h4-letter-spacing = @base-heading-letter-spacing) {
+    letter-spacing: @base-h4-letter-spacing;
+}
+
+.hook-base-h4() when not (@base-h4-font-style = @base-heading-font-style) {
+    font-style: @base-h4-font-style;
+}
+
+//
+// H5
+//
+
+.hook-base-h5() when not (@base-h5-color = @base-heading-color) {
+    color: @base-h5-color;
+}
+
+.hook-base-h5() when not (@base-h5-font-family = inherit) {
+    font-family: @base-h5-font-family;
+}
+
+.hook-base-h5() when not (@base-h5-font-weight = inherit) {
+    font-weight: @base-h5-font-weight;
+}
+
+.hook-base-h5() when not (@base-h5-text-transform = inherit) {
+    text-transform: @base-h5-text-transform;
+}
+
+.hook-base-h5() when not (@base-h5-letter-spacing = @base-heading-letter-spacing) {
+    letter-spacing: @base-h5-letter-spacing;
+}
+
+.hook-base-h5() when not (@base-h5-font-style = @base-heading-font-style) {
+    font-style: @base-h5-font-style;
+}
+
+//
+// H6
+//
+
+.hook-base-h6() when not (@base-h6-color = @base-heading-color) {
+    color: @base-h6-color;
+}
+
+.hook-base-h6() when not (@base-h6-font-family = inherit) {
+    font-family: @base-h6-font-family;
+}
+
+.hook-base-h6() when not (@base-h6-font-weight = inherit) {
+    font-weight: @base-h6-font-weight;
+}
+
+.hook-base-h6() when not (@base-h6-text-transform = inherit) {
+    text-transform: @base-h6-text-transform;
+}
+
+.hook-base-h6() when not (@base-h6-letter-spacing = @base-heading-letter-spacing) {
+    letter-spacing: @base-h6-letter-spacing;
+}
+
+.hook-base-h6() when not (@base-h6-font-style = @base-heading-font-style) {
+    font-style: @base-h6-font-style;
+}
+
+
+// Horizontal rules
+// ========================================================================
+
+.hook-base-hr() {}
+
+
+// Blockquotes
+// ========================================================================
+
+.hook-base-blockquote() when not (@base-blockquote-color = @global-color) {
+    color: @base-blockquote-color;
+}
+
+.hook-base-blockquote() when not (@base-blockquote-font-family = inherit) {
+    font-family: @base-blockquote-font-family;
+}
+
+.hook-base-blockquote() when not (@base-blockquote-font-weight = inherit) {
+    font-weight: @base-blockquote-font-weight;
+}
+
+.hook-base-blockquote() when not (@base-blockquote-text-transform = inherit) {
+    text-transform: @base-blockquote-text-transform;
+}
+
+.hook-base-blockquote() when not (@base-blockquote-letter-spacing = inherit) {
+    letter-spacing: @base-blockquote-letter-spacing;
+}
+
+//
+// Blockquote footer
+//
+
+.hook-base-blockquote-footer() when not (@base-blockquote-footer-color = @base-blockquote-color) and not (@base-blockquote-color = @global-color) {
+    color: @base-blockquote-footer-color;
+}
+
+.hook-base-blockquote-footer() when not (@base-blockquote-footer-font-family = inherit) {
+    font-family: @base-blockquote-footer-font-family;
+}
+
+.hook-base-blockquote-footer() when not (@base-blockquote-footer-font-weight = inherit) {
+    font-weight: @base-blockquote-footer-font-weight;
+}
+
+.hook-base-blockquote-footer() when not (@base-blockquote-footer-text-transform = inherit) {
+    text-transform: @base-blockquote-footer-text-transform;
+}
+
+.hook-base-blockquote-footer() when not (@base-blockquote-footer-letter-spacing = inherit) {
+    letter-spacing: @base-blockquote-footer-letter-spacing;
+}
+
+
+// Preformatted text
+// ========================================================================
+
+.hook-base-pre() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-base-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-base-h1-color:                        @inverse-global-emphasis-color;
+@inverse-base-h2-color:                        @inverse-global-emphasis-color;
+@inverse-base-h3-color:                        @inverse-global-emphasis-color;
+@inverse-base-h4-color:                        @inverse-global-emphasis-color;
+@inverse-base-h5-color:                        @inverse-global-emphasis-color;
+@inverse-base-h6-color:                        @inverse-global-emphasis-color;
+@inverse-base-blockquote-color:                @inverse-global-emphasis-color;
+@inverse-base-blockquote-footer-color:         @inverse-global-color;
+
+.hook-inverse-base-link() {}
+.hook-inverse-base-link-hover() {}
+
+.hook-inverse-base-code() {}
+
+.hook-inverse-base-heading() {}
+
+.hook-inverse-base-h1() when not (@inverse-base-h1-color = @inverse-base-heading-color) {
+    color: @inverse-base-h1-color;
+}
+.hook-inverse-base-h2() when not (@inverse-base-h2-color = @inverse-base-heading-color) {
+    color: @inverse-base-h2-color;
+}
+.hook-inverse-base-h3() when not (@inverse-base-h3-color = @inverse-base-heading-color) {
+    color: @inverse-base-h3-color;
+}
+.hook-inverse-base-h4() when not (@inverse-base-h4-color = @inverse-base-heading-color) {
+    color: @inverse-base-h4-color;
+}
+.hook-inverse-base-h5() when not (@inverse-base-h5-color = @inverse-base-heading-color) {
+    color: @inverse-base-h5-color;
+}
+.hook-inverse-base-h6() when not (@inverse-base-h6-color = @inverse-base-heading-color) {
+    color: @inverse-base-h6-color;
+}
+
+.hook-inverse-base-blockquote() when not (@base-blockquote-color = @global-color) {
+    color: @inverse-base-blockquote-color;
+}
+.hook-inverse-base-blockquote-footer() when not (@base-blockquote-footer-color = @base-blockquote-color) and not (@base-blockquote-color = @global-color) {
+    color: @inverse-base-blockquote-footer-color;
+}
+
+.hook-inverse-base-hr() {}

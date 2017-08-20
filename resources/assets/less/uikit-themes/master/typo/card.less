@@ -1,0 +1,160 @@
+//
+// Component: Card
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@card-title-font-family:                        @global-primary-font-family;
+@card-title-font-weight:                        @global-primary-font-weight;
+@card-title-text-transform:                     @global-primary-text-transform;
+@card-title-letter-spacing:                     @global-primary-letter-spacing;
+@card-title-font-style:                         @global-primary-font-style;
+
+@card-badge-color:                              @global-color;
+@card-badge-font-size:                          @global-font-size;
+@card-badge-font-family:                        @global-secondary-font-family;
+@card-badge-font-weight:                        @global-secondary-font-weight;
+@card-badge-text-transform:                     @global-secondary-text-transform;
+@card-badge-letter-spacing:                     @global-secondary-letter-spacing;
+
+
+// Component
+// ========================================================================
+
+.hook-card() {}
+
+
+// Sections
+// ========================================================================
+
+.hook-card-body() {}
+
+.hook-card-header() {}
+
+.hook-card-footer() {}
+
+
+// Media
+// ========================================================================
+
+.hook-card-media() {}
+
+.hook-card-media-top() {}
+
+.hook-card-media-bottom() {}
+
+.hook-card-media-left() {}
+
+.hook-card-media-right() {}
+
+
+// Title
+// ========================================================================
+
+.hook-card-title() {}
+
+.hook-card-title() when not (@card-title-font-family = inherit) {
+    font-family: @card-title-font-family;
+}
+
+.hook-card-title() when not (@card-title-font-weight = inherit) {
+    font-weight: @card-title-font-weight;
+}
+
+.hook-card-title() when not (@card-title-text-transform = inherit) {
+    text-transform: @card-title-text-transform;
+}
+
+.hook-card-title() when not (@card-title-letter-spacing = inherit) {
+    letter-spacing: @card-title-letter-spacing;
+}
+
+.hook-card-title() when not (@card-title-font-style = inherit) {
+    font-style: @card-title-font-style;
+}
+
+
+// Badge
+// ========================================================================
+
+.hook-card-badge() {
+    color: @card-badge-color;
+    font-size: @card-badge-font-size;
+}
+
+.hook-card-badge() when not (@card-badge-font-family = inherit) {
+    font-family: @card-badge-font-family;
+}
+
+.hook-card-badge() when not (@card-badge-font-weight = inherit) {
+    font-weight: @card-badge-font-weight;
+}
+
+.hook-card-badge() when not (@card-badge-text-transform = inherit) {
+    text-transform: @card-badge-text-transform;
+}
+
+.hook-card-badge() when not (@card-badge-letter-spacing = inherit) {
+    letter-spacing: @card-badge-letter-spacing;
+}
+
+
+// Hover modifier
+// ========================================================================
+
+.hook-card-hover() {}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-card-default() {}
+
+.hook-card-default-title() {}
+
+.hook-card-default-hover() {}
+
+.hook-card-default-header() {}
+
+.hook-card-default-footer() {}
+
+//
+// Primary
+//
+
+.hook-card-primary() {}
+
+.hook-card-primary-title() {}
+
+.hook-card-primary-hover() {}
+
+//
+// Secondary
+//
+
+.hook-card-secondary() {}
+
+.hook-card-secondary-title() {}
+
+.hook-card-secondary-hover() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-card-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-card-badge-color:                      @inverse-global-color;
+
+.hook-inverse-card-badge() { color: @inverse-card-badge-color; }

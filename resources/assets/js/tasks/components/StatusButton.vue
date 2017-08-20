@@ -1,9 +1,9 @@
 <template>
     <transition mode="out-in">
-        <button v-if="task.activated" type="button" class="btn btn-md btn-primary" :class="{ 'btn-danger': hovering && !working, 'btn-loading btn-primary': working}" key="enabled" @mouseenter="hovering = true" @mouseleave="hovering = false" @click="deactivate" :disabled="working">
+        <button v-if="task.activated" type="button" class="uk-button uk-button-small" :class="{ 'uk-button-primary': !hovering && !working, 'uk-button-danger': hovering && !working, 'uk-button-secondary': working}" key="enabled" @mouseenter="hovering = true" @mouseleave="hovering = false" @click="deactivate" :disabled="working">
             {{ activeStatusText }}
         </button>
-        <button v-if="existsAndIsInActive" type="button" class="btn btn-md" :class="{'btn-danger': !hovering && !working, 'btn-primary': hovering && !working, 'btn-loading btn-primary': working}" key="disabled" @mouseenter="hovering = true" @mouseleave="hovering = false" @click="activate" :disabled="working">
+        <button v-if="existsAndIsInActive" type="button" class="uk-button uk-button-small" :class="{'uk-button-danger': !hovering && !working, 'uk-button-primary': hovering && !working, 'uk-button-secondary': working}" key="disabled" @mouseenter="hovering = true" @mouseleave="hovering = false" @click="activate" :disabled="working">
             {{ inActiveStatusText }}
         </button>
     </transition>

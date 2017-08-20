@@ -1,0 +1,73 @@
+//
+// Component: Animation
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-animation-misc() when (@internal-heading-hero-mode = glitch) {
+
+    @-webkit-keyframes uk-text-shadow-glitch {
+        0% { text-shadow: none; }
+        25% { text-shadow: -2px -2px 0 @internal-heading-hero-glitch-color-1, 2px 2px 0 @internal-heading-hero-glitch-color-2; }
+        50% { text-shadow: 2px -2px 0 @internal-heading-hero-glitch-color-1, -2px 2px 0 @internal-heading-hero-glitch-color-2; }
+        75% { text-shadow: -2px 2px 0 @internal-heading-hero-glitch-color-1, 2px -2px 0 @internal-heading-hero-glitch-color-2; }
+        100% { text-shadow: 2px 2px 0 @internal-heading-hero-glitch-color-1, -2px -2px 0 @internal-heading-hero-glitch-color-2; }
+    }
+
+    @keyframes uk-text-shadow-glitch {
+        0% { text-shadow: none; }
+        25% { text-shadow: -2px -2px 0 @internal-heading-hero-glitch-color-1, 2px 2px 0 @internal-heading-hero-glitch-color-2; }
+        50% { text-shadow: 2px -2px 0 @internal-heading-hero-glitch-color-1, -2px 2px 0 @internal-heading-hero-glitch-color-2; }
+        75% { text-shadow: -2px 2px 0 @internal-heading-hero-glitch-color-1, 2px -2px 0 @internal-heading-hero-glitch-color-2; }
+        100% { text-shadow: 2px 2px 0 @internal-heading-hero-glitch-color-1, -2px -2px 0 @internal-heading-hero-glitch-color-2; }
+    }
+
+}
+
+.hook-animation-misc() when (@internal-navbar-nav-item-mode = flicker),
+                            (@internal-pagination-item-mode = flicker) {
+
+    @-webkit-keyframes uk-flicker {
+        0% { opacity: 0; }
+        10% {
+            opacity: 0.6;
+            -webkit-transform: scale(0.8);
+        }
+        20% { opacity: 0; }
+        40% { opacity: 1; }
+        50% {
+            opacity: 0.2;
+            -webkit-transform: scale(1.1);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: scale(1);
+        }
+    }
+
+    @keyframes uk-flicker {
+        0% { opacity: 0; }
+        10% {
+            opacity: 0.6;
+            transform: scale(0.8);
+        }
+        20% { opacity: 0; }
+        40% { opacity: 1; }
+        50% {
+            opacity: 0.2;
+            transform: scale(1.1);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+}

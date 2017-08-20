@@ -1,0 +1,50 @@
+//
+// Component: Totop
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@totop-background:                              transparent;
+@totop-hover-background:                        transparent;
+@totop-active-background:                       transparent;
+
+
+// Component
+// ========================================================================
+
+.hook-totop() {
+    background: @totop-background;
+    -webkit-transition: 0.1s ease-in-out;
+    transition: 0.1s ease-in-out;
+    -webkit-transition-property: color, background-color, border-color, box-shadow;
+    transition-property: color, background-color, border-color, box-shadow;
+}
+
+.hook-totop-hover() { background-color: @totop-hover-background; }
+
+.hook-totop-active() { background-color: @totop-active-background; }
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-icon-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-totop-background:                              transparent;
+@inverse-totop-hover-background:                        transparent;
+@inverse-totop-active-background:                       transparent;
+
+.hook-inverse-totop() { background-color: @inverse-totop-background; }
+.hook-inverse-totop-hover() { background-color: @inverse-totop-hover-background; }
+.hook-inverse-totop-active() { background-color: @inverse-totop-active-background; }

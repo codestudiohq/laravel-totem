@@ -1,0 +1,57 @@
+//
+// Component: Base
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@text-lead-font-size:                           @global-medium-font-size;
+@text-lead-line-height:                         1.4;
+@text-lead-color:                               @global-primary-background;
+
+@text-large-font-size:                          @global-medium-font-size;
+
+//
+// Master
+//
+
+@internal-text-background-color-gradient:       linear-gradient(135deg, @global-primary-background, desaturate(darken(spin(@global-primary-background, -45%), 15%), 25%));
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-text-lead() {}
+
+.hook-text-meta() {}
+
+
+// Size modifiers
+// ========================================================================
+
+.hook-text-small() {}
+
+.hook-text-large() {}
+
+
+// Background modifier
+// ========================================================================
+
+.hook-text-background() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-text-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-text-lead-color:                      @inverse-global-emphasis-color;
+
+.hook-inverse-text-lead() {}
+.hook-inverse-text-meta() {}

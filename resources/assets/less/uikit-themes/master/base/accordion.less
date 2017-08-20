@@ -1,0 +1,87 @@
+//
+// Component: Accordion
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@accordion-title-padding-vertical:             0;
+@accordion-title-padding-horizontal:           0;
+@accordion-title-background:                   transparent;
+
+@accordion-icon-color:                         @global-color;
+
+@internal-accordion-icon-close-image:          "../../images/backgrounds/accordion-close.svg";
+@internal-accordion-icon-open-image:           "../../images/backgrounds/accordion-open.svg";
+
+
+// Component
+// ========================================================================
+
+.hook-accordion() {}
+
+
+// Item
+// ========================================================================
+
+.hook-accordion-item() {}
+
+
+// Title
+// ========================================================================
+
+.hook-accordion-title() {
+    padding: @accordion-title-padding-vertical @accordion-title-padding-horizontal;
+    background: @accordion-title-background;
+    overflow: hidden;
+
+    &::after {
+        content: "";
+        width: (@accordion-title-line-height * 1em);
+        height: (@accordion-title-line-height * 1em);
+        float: right;
+        .svg-fill(@internal-accordion-icon-close-image, "#000", @accordion-icon-color);
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+
+    .uk-open > &::after { .svg-fill(@internal-accordion-icon-open-image, "#000", @accordion-icon-color); }
+
+}
+
+
+// Content
+// ========================================================================
+
+.hook-accordion-content() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-accordion-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-accordion-title-background:           transparent;
+@inverse-accordion-icon-color:                 @inverse-global-color;
+
+.hook-inverse-accordion-item() {}
+
+.hook-inverse-accordion-title() { background-color: @inverse-accordion-title-background; }
+
+.hook-inverse() {
+
+    .uk-accordion-title::after { .svg-fill(@internal-accordion-icon-close-image, "#000", @inverse-accordion-icon-color); }
+
+    .uk-open > .uk-accordion-title::after { .svg-fill(@internal-accordion-icon-open-image, "#000", @inverse-accordion-icon-color); }
+
+}

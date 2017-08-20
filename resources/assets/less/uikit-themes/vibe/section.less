@@ -1,0 +1,60 @@
+//
+// Component: Section
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@section-primary-background:                      #612A50;
+@section-secondary-background:                    darken(@global-background, 1%);
+
+//
+// Master
+//
+
+@internal-section-default-gradient:               linear-gradient(saturate(@section-default-background, 55%), saturate(@section-default-background, 55%));
+@internal-section-muted-gradient:                 linear-gradient(lighten(saturate(@section-muted-background, 35%), 5%), lighten(saturate(@section-muted-background, 35%), 5%));
+@internal-section-primary-gradient:               linear-gradient(135deg, #ab2054, #7c228a);
+
+@internal-section-default-image:                  "../../master-vibe/images/section-background-image.jpg";
+@internal-section-muted-image:                    "../../master-vibe/images/section-background-image.jpg";
+@internal-section-primary-image:                  "../../master-vibe/images/section-background-image.jpg";
+
+@internal-section-default-mode:                   blend;
+@internal-section-muted-mode:                     blend;
+@internal-section-primary-mode:                   blend;
+@internal-section-secondary-mode:                 none;
+
+
+// Component
+// ========================================================================
+
+.hook-section() {}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-section-default() {}
+
+.hook-section-muted() {}
+
+.hook-section-primary() {}
+
+.hook-section-secondary() {}
+
+.hook-section-media() {}
+
+
+// Overlap modifier
+// ========================================================================
+
+.hook-section-overlap() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-section-misc() {}

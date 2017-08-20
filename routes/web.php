@@ -15,7 +15,7 @@ Route::group(['prefix' => 'tasks'], function () {
     Route::get('create', 'TasksController@create')->name('totem.task.create');
     Route::post('create', 'TasksController@store');
 
-    Route::get('{task}', 'TasksController@show')->name('totem.task.view');
+    Route::get('{task}', 'TasksController@view')->name('totem.task.view');
 
     Route::get('{task}/edit', 'TasksController@edit')->name('totem.task.edit');
     Route::post('{task}/edit', 'TasksController@update');
