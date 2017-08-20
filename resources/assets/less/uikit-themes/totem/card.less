@@ -1,0 +1,140 @@
+//
+// Component: Card
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@card-title-font-size:                         18px;
+
+@card-hover-background:                        @global-background;
+
+@card-default-background:                      @global-background;
+@card-default-hover-background:                @card-default-background;
+
+@card-primary-hover-background:                darken(spin(@button-primary-background, -7%), 6%);
+
+@card-secondary-hover-background:              lighten(@card-secondary-background, 3%);
+
+//
+// Master
+//
+
+@card-title-font-weight:                       500;
+@card-border-radius:                           @global-border-radius;
+
+@card-badge-padding-horizontal:                7px;
+@card-badge-border-width:                      @global-border-width;
+@card-badge-border:                            @global-border;
+@card-badge-font-size:                         @global-small-font-size;
+
+@card-hover-box-shadow:                        @global-large-box-shadow;
+
+@card-default-box-shadow:                      @global-medium-box-shadow;
+@card-default-hover-box-shadow:                @global-large-box-shadow;
+
+@internal-card-primary-gradient:               linear-gradient(135deg, @card-primary-background, darken(spin(@card-primary-background, -14%), 18%));
+@internal-card-primary-hover-gradient:         linear-gradient(155deg, lighten(spin(@card-primary-background, 6%), 4%), darken(spin(@card-primary-background, -18%), 18%));
+@card-primary-box-shadow:                      2px 15px 50px fade(@card-primary-background, 35%);
+@card-primary-hover-box-shadow:                2px 21px 50px fade(@card-primary-background, 45%);
+
+@internal-card-secondary-gradient:             linear-gradient(45deg, lighten(@card-secondary-background, 4%), darken(@card-secondary-background, 4%));
+@internal-card-secondary-hover-gradient:       linear-gradient(135deg, lighten(@card-secondary-background, 7%), darken(@card-secondary-background, 7%));
+@card-secondary-box-shadow:                    @global-medium-box-shadow;
+@card-secondary-hover-box-shadow:              @global-large-box-shadow;
+
+
+// Component
+// ========================================================================
+
+.hook-card() {}
+
+
+// Sections
+// ========================================================================
+
+.hook-card-body() {}
+
+.hook-card-header() {}
+
+.hook-card-footer() {}
+
+
+// Media
+// ========================================================================
+
+.hook-card-media() {}
+
+.hook-card-media-top() {}
+
+.hook-card-media-bottom() {}
+
+.hook-card-media-left() {}
+
+.hook-card-media-right() {}
+
+
+// Title
+// ========================================================================
+
+.hook-card-title() {}
+
+
+// Badge
+// ========================================================================
+
+.hook-card-badge() {}
+
+
+// Hover modifier
+// ========================================================================
+
+.hook-card-hover() {}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-card-default() {}
+
+.hook-card-default-title() {}
+
+.hook-card-default-hover() {}
+
+.hook-card-default-header() {}
+
+.hook-card-default-footer() {}
+
+//
+// Primary
+//
+
+.hook-card-primary() {}
+
+.hook-card-primary-title() {}
+
+.hook-card-primary-hover() {}
+
+//
+// Secondary
+//
+
+.hook-card-secondary() {}
+
+.hook-card-secondary-title() {}
+
+.hook-card-secondary-hover() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-card-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-card-badge-border:                 @inverse-global-color;

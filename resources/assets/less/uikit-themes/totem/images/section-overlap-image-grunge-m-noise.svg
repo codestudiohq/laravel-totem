@@ -1,0 +1,25 @@
+<svg width="930" height="10" viewBox="0 0 930 10" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <!--
+
+    http://vanseodesign.com/web-design/svg-pattern-attributes/
+    http://vanseodesign.com/web-design/svg-pattern-element/
+
+    -->
+
+    <defs>
+
+        <clipPath id="mask">
+            <path d="M930 1.74c-15-.005-27.21 1.502-40.49 2.56-3.773-2.326-28.43-.24-36.533-.993l.77-.19c-21.115 1.79-43.483-1.486-63.835.115.726-.17 1.165-.726 4.9-.84-14.724.295-34.122.76-35.204-.563-35.41.353-84.84-.272-107.53 1.887l1.556-.375c-12.93 1.458-16.738.218-31.193.958-.787-.177-1.81-.268-1.647-.343-14.086 1.44-41.107.226-52.496.84l-.737-.9-28.05.21 10.482.193c-3.634 2.47-21.217-1.548-41.56.05-19.034-.31-38.608 5.135-58.382 3.926-9.428 1.157 8.303-1.88-5.79-.99-.46-1.287 6.584-.808 2.955-1.835-13.84.612-22.696-1.315-39.767-.445L406.75 4c-22.266 1.834-42.014-1.32-56.837.428-22.962.83-15.396-2.98-39.31-1.015l-9.296-1.357c-10.232-.22-7.33 1.664-18.672 1.006.69-.856-14.337-.68-7.694-1.494-25.68-1.336-52.127 1.9-85.946-.36-7.345 1.662-24.37.672-29.852 1.922-.906-.725-34.115-.117-14.997-1.69 1.643-.13 4.545-.105 4.345.177l2.29-.986c-19.29-1.862-35.05 1.026-54.136.738 5.656.327 13.186.24 8.154.92L87.066 2.15l3.69-.832L64.34.835l3.64 1.028c-12.93-.528-17.476-2.277-32.054-.816-6.597.813 12.244 1.385-1.402 1.707l-12.215-.49c-1.17-.04-2.358-.085-3.564-.13-1.96-.042-3.948-.085-5.962-.13L.16 1.742C.107 4.465.054 7 0 10h930V1.74z"></path>
+        </clipPath>
+
+        <pattern id="image" width="20" height="20" patternUnits="userSpaceOnUse">
+            <image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAGFBMVEWSkpJJSUkAAAAkJCRtbW22trb////b29tExgu2AAAACHRSTlMHBwcHBwcHB54dpMYAAAMtSURBVDjLBcGxQhs5FEBRMcDUIAenla6kN+1GLEMbBHhbEIlp7WdbboNCnN/fc8xZwBN5KURYuxLK2WPxlmre/e8cFZtY110EYRLILA0Lcw/05PoloAhy4PEKI9xjjxKvp69OH6h6y2kcJa/NmsO4klt1DEBtWB/p8UbMW3yEMnIDVNyCvWztH2U2z2GwupGqU39Se7bhsNpIYDoa5c3C7KeQh9yrbfXoHVs5GISoj2EPynKQxR+Zq5BXatyjAsD0wHmmyMQTQo1m4LKmImkJ6arzne4qyYLBkBA50HiPNi6tvn9eD4I1mf3w0ReUkx2ceOH1222kXWBaAfFc2I9M+ERqcGWVdDoYtCljIrCJl3GDgxiZxmrSV52sQ3l8oND0OLZCPHox5G8bN6yAH86toQGZtFTj4qy617uvnLoj9eYcdnhqxSj+u8AEKqqXxQcfwYPhZURCeL87E7lylcGWN1tATGFPPpwOa2VJy8RuARUxxAXCphs93ktgHERSKtRmAELxp5ycai2EIQIpiBkinabM2zQdm1N+xDvOOHemPuhJRbO25wZeQHWFeIwnVovIwpsCQznR8Ltkd0bg1mtRD1NBgxw7u7CrarJO4Xtm7MpY1YNMI9OT7UZpbFZ+5dwI6NYq6LPNmLYUDZF667elDJ/+uWuzX7Rh5nIbTpHzzZY+2J46e79e2lnNsufdHuKOLKJVFVjuKGp2Myffx1igZWCUoXDHP8n4uAESjkmRnOIpC+HLBmNf5Sa0HaXmV0V+AZai07Wx/sp5WeH9zoriyb0IqDc+TBJInGvRNNaZol1bDsUMlUHrLQr5bTF06rNuyxo1vNb70S4Y+JybvBSk7QP5Qsw6QNZBLnbA1JiSFef33RoA7aWG5pmZ9ZxUfv6EwajiWfyFXnmSGN1KfgyiYW+8L86KXLl1Vk0MxL2KPaBmdA9hG/4dAdqf2W1fUb35CJj5eq/rzFpkGlFLdY49k+sG2l/AERlwL8rFCDJxMBFcX3WWM2a31KOmX0chginOItd8/eSgQGbleXmqCQPyEQuBQvxNOVOrB+5EqonFim1bTh4kI/X1P0acpv8B3yT8P2JOySQAAAAASUVORK5CYII=" x="0" y="0"></image>
+        </pattern>
+
+    </defs>s
+
+    <rect width="930" height="10" fill="#000" clip-path="url(#mask)"></rect>
+    <rect width="930" height="10" fill="url(#image)" clip-path="url(#mask)"></rect>
+
+</svg>

@@ -16,7 +16,8 @@
         {{--</li>--}}
         <li class="{{ url()->current() == route('totem.tasks.all') ? 'uk-active' : '' }}">
             <a href="{{route('totem.tasks.all')}}" class="uk-flex uk-flex-middle">
-                <img src="/vendor/totem/img/icons/clock.svg" width="15" heigh="15" class="uk-svg">
+                <vk-icon icon="clock" class="uk-margin-small-right uk-icon"></vk-icon>
+                {{--<img src="/vendor/totem/img/icons/clock.svg" width="15" heigh="15" class="uk-svg">--}}
                 <span class="uk-vertical-align-middle">Tasks</span>
             </a>
         </li>

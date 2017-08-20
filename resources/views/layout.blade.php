@@ -23,6 +23,7 @@
                 <div class="uk-grid uk-grid-collapse">
                     @include('totem::partials.sidebar')
                     <section class="uk-width-5-6@l">
+                        @yield('main-panel-before')
                         <div class="uk-card uk-card-default">
                             <div class="uk-card-header">
                                 @yield('title')
@@ -33,15 +34,15 @@
                             </div>
                             @yield('main-panel-footer')
                         </div>
+                        @yield('main-panel-after')
                         @yield('additional-panels')
+                        <div class="uk-margin-top">
+                            @include('totem::partials.footer')
+                        </div>
                     </section>
                 </div>
             </div>
         </main>
-        @include('totem::partials.footer')
-        <div style="height: 0; width: 0; position: absolute; visibility: hidden;">
-            {!! file_get_contents(public_path('/vendor/totem/img/sprite.svg')) !!}
-        </div>
         <script src="{{ asset('/vendor/totem/js/app.js') }}"></script>
         @yield('scripts')
     </body>

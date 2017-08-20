@@ -2,7 +2,7 @@
 // Fonts
 //
 
-@internal-fonts: ;
+@internal-fonts: '';
 
 .font() when not (@internal-fonts = ~'') {
     @import 'https://fonts.googleapis.com/css?family=@{internal-fonts}';

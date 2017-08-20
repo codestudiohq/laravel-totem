@@ -1,7 +1,13 @@
-import './bootstrap';
-import Vue from 'vue';
-import moment from 'moment';
-import StatusButton from './tasks/components/StatusButton.vue';
+import './bootstrap'
+import Vue from 'vue'
+import moment from 'moment'
+import Vuikit from 'vuikit'
+import StatusButton from './tasks/components/StatusButton.vue'
+
+import IconCog from 'vuikit/icons/cog'
+import IconClock from 'vuikit/icons/clock'
+import IconSearch from 'vuikit/icons/search'
+
 
 Promise.delay = function (time) {
     return new Promise((resolve, reject) => {
@@ -30,13 +36,19 @@ Vue.mixin({
          * Convert to human readable timestamp.
          */
         readableTimestamp(timestamp){
-            return this.formatDate(timestamp).format('HH:mm:ss');
+            return this.formatDate(timestamp).format('HH:mm:ss')
         }
     }
-});
+})
+console.log(Vuikit)
 
-Vue.component('status-button', StatusButton);
+Vuikit.Icon.register(IconCog)
+Vuikit.Icon.register(IconClock)
+Vuikit.Icon.register(IconSearch)
 
+Vue.component('status-button', StatusButton)
+
+Vue.use(Vuikit)
 new Vue({
     el: '#root'
-});
+})

@@ -3,14 +3,17 @@
     @parent
     - {{ $task->exists ? 'Update' : 'Create'}} Task
 @stop
+@section('main-panel-before')
+    <form action="{{ request()->fullUrl() }}" method="POST" class="uk-form-horizontal">
+        {{csrf_field()}}
+@stop
 @section('title')
     <div class="uk-flex uk-flex-between uk-flex-middle">
         <h5 class="uk-margin-remove">{{ $task->exists ? 'Update' : 'Create'}} Task</h5>
+        <button class="uk-button uk-button-primary uk-button-small" type="submit">Save</button>
     </div>
 @stop
 @section('main-panel-content')
-<form action="{{ request()->fullUrl() }}" method="POST" class="uk-form-horizontal">
-    {{csrf_field()}}
     <div class="uk-margin">
         <label class="uk-form-label">Description</label>
         <div class="uk-form-controls">
@@ -24,8 +27,8 @@
         <label class="uk-form-label">Command</label>
         <div class="uk-form-controls">
             <select id="command" name="command" class="uk-select" placeholder="Click here to select one of the available commands">
-                @foreach ($commands as $key => $command)
-                    <option value="{{$key}}" {{old('command', $task->command) == $key ? 'selected' : ''}}>{{$command}}</option>
+                @foreach ($commands as $command)
+                    <option value="{{$command->getName()}}" {{old('command', $task->command) == $command->getName() ? 'selected' : ''}}>{{$command->getDescription()}}</option>
                 @endforeach
             </select>
             @if($errors->has('command'))
@@ -85,6 +88,7 @@
             </label>
         </div>
     </div>
-    <button class="uk-button uk-button-primary uk-button-small" type="submit">Save</button>
-</form>
+@stop
+@section('main-panel-after')
+    </form>
 @stop

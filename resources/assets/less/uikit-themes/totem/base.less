@@ -1,0 +1,152 @@
+//
+// Component: Base
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@base-body-font-weight:                         400;
+
+@base-small-font-size:                          90%;
+
+@base-h3-font-size:                             @global-medium-font-size;
+@base-h4-font-size:                             13px;
+@base-h5-font-size:                             12px;
+
+@base-code-color:                               #435DBA;
+@base-em-color:                                 @global-link-hover-color;
+@base-ins-background:                           #FBFFC9;
+@base-ins-color:                                #7B3715;
+@base-mark-background:                          @base-ins-background;
+@base-mark-color:                               @base-ins-color;
+
+@base-blockquote-font-size:                     @global-large-font-size;
+@base-blockquote-line-height:                   1.4;
+@base-blockquote-footer-margin-top:             @global-margin;
+@base-blockquote-footer-font-size:              18px;
+@base-blockquote-footer-line-height:            1.4;
+
+@base-selection-background:                     @global-primary-background;
+
+//
+// Master
+//
+
+@base-heading-letter-spacing:                   0;
+
+@base-h2-font-weight:                           500;
+@base-h3-font-weight:                           500;
+
+@base-h4-color:                                 @global-primary-background;
+
+@base-code-padding-horizontal:                  6px;
+@base-code-padding-vertical:                    2px;
+@base-code-border-width:                        @global-border-width;
+@base-code-border:                              @global-border;
+@base-code-border-radius:                       3px;
+
+@base-pre-padding:                              10px;
+@base-pre-background:                           @global-background;
+@base-pre-border-width:                         @global-border-width;
+@base-pre-border:                               @global-border;
+@base-pre-border-radius:                        3px;
+
+@base-blockquote-text-transform:                none;
+@base-blockquote-letter-spacing:                0;
+
+@base-blockquote-footer-color:                  @global-emphasis-color;
+@base-blockquote-footer-font-family:            @global-primary-font-family;
+@base-blockquote-footer-font-weight:            500;
+@base-blockquote-footer-text-transform:         @global-primary-text-transform;
+@base-blockquote-footer-letter-spacing:         @global-primary-letter-spacing;
+
+
+// Body
+// ========================================================================
+
+.hook-base-body() {}
+
+
+// Links
+// ========================================================================
+
+.hook-base-link() {}
+
+.hook-base-link-hover() {}
+
+
+// Text-level semantics
+// ========================================================================
+
+.hook-base-code() {}
+
+
+// Headings
+// ========================================================================
+
+.hook-base-heading() {}
+
+.hook-base-h1() {}
+
+.hook-base-h2() {}
+
+.hook-base-h3() {}
+
+.hook-base-h4() {}
+
+.hook-base-h5() {}
+
+.hook-base-h6() {}
+
+
+// Horizontal rules
+// ========================================================================
+
+.hook-base-hr() {}
+
+
+// Blockquotes
+// ========================================================================
+
+.hook-base-blockquote() {}
+
+.hook-base-blockquote-footer() {}
+
+
+// Preformatted text
+// ========================================================================
+
+.hook-base-pre() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-base-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-base-code-border:                              @inverse-global-border;
+
+.hook-inverse-base-link() {}
+.hook-inverse-base-link-hover() {}
+
+.hook-inverse-base-code() {}
+
+.hook-inverse-base-heading() {}
+
+.hook-inverse-base-h1() {}
+.hook-inverse-base-h2() {}
+.hook-inverse-base-h3() {}
+.hook-inverse-base-h4() {}
+.hook-inverse-base-h5() {}
+.hook-inverse-base-h6() {}
+
+.hook-inverse-base-blockquote() {}
+.hook-inverse-base-blockquote-footer() {}
+
+.hook-inverse-base-hr() {}

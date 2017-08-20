@@ -8,8 +8,9 @@
         <h4 class="uk-margin-remove">Tasks</h4>
         <form class="uk-display-inline uk-search uk-search-default">
             <span class="uk-icon uk-search-icon">
-                <img src="/vendor/totem/img/icons/search.svg" width="15" height="15">
+                <vk-icon icon="search"></vk-icon>
             </span>
+
             <input class="uk-search-input" type="search" placeholder="Search...">
         </form>
     </div>
@@ -43,7 +44,7 @@
                     <td class="ph2">{{$task->upcoming}}</td>
                     <td class="ph2">
                         <a href="{{ route('totem.task.run', $task) }}">
-                            <img src="/vendor/totem/img/icons/cog.svg" width="20" height="20" uk-svg>
+                            <vk-icon icon="cog"></vk-icon>
                         </a>
                     </td>
                 </tr>
@@ -62,5 +63,6 @@
 @section('main-panel-footer')
     <div class="uk-card-footer">
         <a class="uk-button uk-button-primary uk-button-small" href="{{route('totem.task.create')}}">New Task</a>
+        {{$tasks->links('totem::partials.pagination')}}
     </div>
 @stop

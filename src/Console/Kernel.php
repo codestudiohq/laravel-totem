@@ -49,13 +49,11 @@ class Kernel extends AppKernel
     /**
      * @return array
      */
-    public function getCommands(): array
+    public function getCommands()
     {
         return collect($this->all())->sortBy(function ($command) {
             return $command->getDescription();
-        })->flatMap(function ($command) {
-            return [$command->getName() => $command->getDescription().' ('.$command->getName().')'];
-        })->toArray();
+        });
     }
 
     public function prepareSchedule($schedule)

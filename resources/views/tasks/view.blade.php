@@ -10,7 +10,7 @@
     </div>
 @stop
 @section('main-panel-content')
-    <ul class="uk-list">
+    <ul class="uk-list uk-list-striped">
         <li>Description         : {{$task->description}}</li>
         <li>Command             : {{$task->command }}</li>
         <li>Parameters          : {{$task->parameteres or 'N/A' }}</li>
@@ -42,8 +42,8 @@
         <div class="uk-card-header">
             <h5>Execution Results</h5>
         </div>
-        <div class="uk-card-body">
-            <table class="uk-table" cellpadding="0" cellspacing="0" class="mb1">
+        <div class="uk-card-body uk-padding-remove-top">
+            <table class="uk-table uk-table-striped">
                 <thead>
                 <tr>
                     <th class="pl2">Executed At</th>
@@ -51,7 +51,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @forelse($results = $task->results()->paginate(10) as $result)
+                @forelse($results = $task->results()->orderByDesc('created_at')->paginate(10) as $result)
                     <tr>
                         <td class="ph2">{{$result->ran_at->toDateTimeString()}}</td>
                         <td class="ph2">{{ number_format($result->duration / 1000 , 2)}} seconds</td>
@@ -66,8 +66,8 @@
                 </tbody>
             </table>
         </div>
-        <div class="panel-footer">
-            {{$results->links()}}
+        <div class="uk-card-footer">
+            {{$results->links('totem::partials.pagination')}}
         </div>
 
     </div>
