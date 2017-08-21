@@ -27,9 +27,15 @@ Add `TotemServiceProvider` to the `providers` array of your Laravel v5.4 applica
 
     Studio\Totem\Providers\TotemServiceProvider::class,
 
-Once `Laravel Totem` is installed & registered, you can publish `Totem` assets to your public folder using the following command
+Once `Laravel Totem` is installed & registered, 
+
+- Run the migration
     
-    php artisan totem:assets
+        php artisan migrate
+    
+- Publish `Totem` assets to your public folder using the following command
+    
+        php artisan totem:assets
 
 #### Configuration
 
