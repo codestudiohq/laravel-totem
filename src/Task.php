@@ -26,7 +26,7 @@ class Task extends Model
 
     public function setTimezoneAttribute($value)
     {
-        return $this->attributes['timezone'] = $value?: config('app.timezone');
+        return $this->attributes['timezone'] = $value ?: config('app.timezone');
     }
 
     public function getActivatedAttribute()
