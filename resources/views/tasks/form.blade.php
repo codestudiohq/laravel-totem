@@ -46,7 +46,7 @@
         <div class="uk-form-controls">
             <select id="timezone" name="timezone" class="uk-select" placeholder="Click here to select one of the available commands">
                 @foreach ($timezones as $key => $timezone)
-                    <option value="{{$timezone}}" {{old('timezone', $task->timezone) == $timezone ? 'selected' : ''}}>{{$timezone}}</option>
+                    <option value="{{$timezone}}" {{old('timezone', $task->exists ? $task->timezone :  config('app.timezone')) == $timezone ? 'selected' : ''}}>{{$timezone}}</option>
                 @endforeach
             </select>
         </div>
