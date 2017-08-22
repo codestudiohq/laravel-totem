@@ -8,7 +8,7 @@
         <h4 class="uk-card-title uk-margin-remove">Tasks</h4>
         <form class="uk-display-inline uk-search uk-search-default">
             <span class="uk-icon uk-search-icon">
-                <vk-icon icon="search"></vk-icon>
+                <icon name="search" :scale="100"></icon>
             </span>
 
             <input class="uk-search-input" type="search" placeholder="Search...">
@@ -56,7 +56,7 @@
                     </td>
                     <td>
                         <a href="{{ route('totem.task.run', $task) }}">
-                            <vk-icon icon="cog" class="uk-visible@s"></vk-icon>
+                            <icon name="cog" :scale="100" class="uk-visible@s"></icon>
                             <span class="uk-hidden@s">Execute</span>
                         </a>
                     </td>

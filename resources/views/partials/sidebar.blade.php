@@ -17,7 +17,7 @@
         {{--</li>--}}
         <li class="{{ str_contains(url()->current(), 'tasks') ? 'uk-active' : '' }}">
             <a href="{{route('totem.tasks.all')}}" class="uk-flex uk-flex-middle">
-                <vk-icon icon="clock" class="uk-visible@m uk-margin-small-right uk-icon"></vk-icon>
+                <icon name="clock" :scale="100" class="uk-visible@m uk-margin-small-right uk-icon"></icon>
                 <span class="uk-vertical-align-middle">Tasks</span>
             </a>
         </li>

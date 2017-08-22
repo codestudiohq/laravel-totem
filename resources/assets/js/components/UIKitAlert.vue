@@ -1,7 +1,7 @@
 <template>
     <div :class="classes" v-if="show">
         <a class="uk-alert-close uk-close uk-icon" @click="show = false">
-            <vk-icon icon="close"></vk-icon>
+            <icon name="close" :scale="100"></icon>
         </a>
         <slot></slot>
     </div>
@@ -9,7 +9,7 @@
 
 <script>
     export default {
-        name: 'VkAlert',
+        name: 'UIKitAlert',
         props: {
             type: {
                 type: String,

@@ -3,6 +3,7 @@
 namespace Studio\Totem\Http\Controllers;
 
 use Studio\Totem\Task;
+use Studio\Totem\Totem;
 use Studio\Totem\Console\Kernel;
 use Studio\Totem\Contracts\TaskInterface;
 use Studio\Totem\Http\Requests\TaskRequest;
@@ -48,9 +49,10 @@ class TasksController extends Controller
     public function create()
     {
         return view('totem::tasks.form', [
-            'task'      => new Task,
-            'commands'  => $this->kernel->getCommands(),
-            'timezones' => timezone_identifiers_list(),
+            'task'          => new Task,
+            'commands'      => $this->kernel->getCommands(),
+            'timezones'     => timezone_identifiers_list(),
+            'frequencies'   => Totem::frequencies(),
         ]);
     }
 
@@ -85,9 +87,10 @@ class TasksController extends Controller
     public function edit($task)
     {
         return view('totem::tasks.form', [
-            'task'      => $task,
-            'commands'  => $this->kernel->getCommands(),
-            'timezones' => timezone_identifiers_list(),
+            'task'          => $task,
+            'commands'      => $this->kernel->getCommands(),
+            'timezones'     => timezone_identifiers_list(),
+            'frequencies'   => Totem::frequencies(),
         ]);
     }
 

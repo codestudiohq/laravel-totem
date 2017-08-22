@@ -51,24 +51,29 @@
             </select>
         </div>
     </div>
-    <task-type>
-        <div class="uk-margin">
-            <div class="uk-form-label">Type</div>
-            <div class="uk-form-controls uk-form-controls-text">
-                <label>
-                    <input type="radio" name="type" id="type" value="cron" {{old('type', 'cron') == 'cron' ? 'checked' : ''}}> Cron
-                </label><br>
-                <label>
-                    <input type="radio" name="type" id="type" value="cron" {{old('type', 'cron') == 'cron' ? 'checked' : ''}}> Cron
-                </label><br>
+    <task-type type="cron">
+        <div>
+            <div class="uk-margin">
+                <div class="uk-form-label">Type</div>
+                <div class="uk-form-controls uk-form-controls-text">
+                    <label>
+                        <input type="radio" id="type" value="cron" {{old('type', $task->cron ? 'cron' : 'frequency') == 'cron' ? 'checked' : ''}}> Cron
+                    </label><br>
+                    <label>
+                        <input type="radio" id="type" value="frequency" {{old('type', $task->cron ? 'cron' : 'frequency') == 'frequency' ? 'checked' : ''}}> Frequency
+                    </label>
+                </div>
             </div>
-        </div>
-        <div class="uk-margin">
-            <select id="frequency" class="uk-select" placeholder="Select a type of frequency">
-                @foreach ($timezones as $key => $timezone)
-                    <option value="{{$timezone}}" {{old('timezone', $task->exists ? $task->timezone :  config('app.timezone')) == $timezone ? 'selected' : ''}}>{{$timezone}}</option>
-                @endforeach
-            </select>
+            <div class="uk-margin">
+                <label class="uk-form-label">Frequency</label>
+                <div class="uk-form-controls">
+                    <select id="frequency" class="uk-select" placeholder="Select a type of frequency">
+                        @foreach (collect($frequencies) as $key => $frequency)
+                            <option value="{{$key}}">{{$frequency['label']}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
         </div>
     </task-type>
     <div class="uk-margin">
