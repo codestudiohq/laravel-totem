@@ -51,40 +51,62 @@
             </select>
         </div>
     </div>
-    <task-type type="cron">
+    <task-type inline-template>
         <div>
             <div class="uk-margin">
                 <div class="uk-form-label">Type</div>
                 <div class="uk-form-controls uk-form-controls-text">
                     <label>
-                        <input type="radio" id="type" value="cron" {{old('type', $task->cron ? 'cron' : 'frequency') == 'cron' ? 'checked' : ''}}> Cron
+                        <input type="radio" name="type" v-model="type" value="cron"> Cron
                     </label><br>
                     <label>
-                        <input type="radio" id="type" value="frequency" {{old('type', $task->cron ? 'cron' : 'frequency') == 'frequency' ? 'checked' : ''}}> Frequency
+                        <input type="radio" name="type" v-model="type" value="frequency"> Frequency
                     </label>
                 </div>
             </div>
-            <div class="uk-margin">
-                <label class="uk-form-label">Frequency</label>
+            <div class="uk-margin" v-if="isCron">
+                <label class="uk-form-label">Cron Expression</label>
                 <div class="uk-form-controls">
-                    <select id="frequency" class="uk-select" placeholder="Select a type of frequency">
-                        @foreach (collect($frequencies) as $key => $frequency)
-                            <option value="{{$key}}">{{$frequency['label']}}</option>
-                        @endforeach
-                    </select>
+                    <input class="uk-input" placeholder="e.g * * * * * to run this task all the time" name="cron" id="cron" value="{{old('cron', $task->cron)}}" type="text">
+                    @if($errors->has('cron'))
+                        <p class="uk-text-danger">{{$errors->first('cron')}}</p>
+                    @endif
+                </div>
+            </div>
+            <div class="uk-margin" v-if="managesFrequencies">
+                <label class="uk-form-label"></label>
+                <div class="uk-form-controls">
+                    <button class="uk-button uk-button-small uk-button-link" @click.self.prevent="showModal = true">Add Frequency</button>
+                    @include('totem::dialogs.frequencies.add')
+                    <table class="uk-table">
+                        <thead>
+                            <tr>
+                                <th class="uk-padding-remove-left">
+                                    Frequency
+                                </th>
+                                <th class="uk-padding-remove-left">
+                                    Parameters
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(frequency, index) in frequencies">
+                                <td class="uk-padding-remove-left">
+                                    @{{ frequency.label }}
+                                    <input type="hidden" :name="'frequencies[' + index + '][frequency]'" v-model="frequency.value">
+                                </td>
+                                <td class="uk-padding-remove-left">
+                                    <span v-if="frequency.parameters">
+                                    </span>
+                                    <span v-else="frequency.parameters">No Parameters</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </task-type>
-    <div class="uk-margin">
-        <label class="uk-form-label">Cron Expression</label>
-        <div class="uk-form-controls">
-            <input class="uk-input" placeholder="e.g * * * * * to run this task all the time" name="cron" id="cron" value="{{old('cron', $task->cron)}}" type="text">
-            @if($errors->has('cron'))
-                <p class="uk-text-danger">{{$errors->first('cron')}}</p>
-            @endif
-        </div>
-    </div>
     <div class="uk-margin">
         <label class="uk-form-label">Notification Email</label>
         <div class="uk-form-controls">

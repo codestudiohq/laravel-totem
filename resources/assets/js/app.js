@@ -43,8 +43,10 @@ new Vue({
     el: '#root',
     components: {
         'icon'  : Icon,
-        'status-button': StatusButton,
         'uikit-alert'  : UIKitAlert,
-        'task-type' : TaskType,
+        'status-button': StatusButton,
+
+        'task-type' : TaskType
+
     }
 })

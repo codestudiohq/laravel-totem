@@ -2,16 +2,19 @@
 
 return [
     'frequencies'  => [
-        'everyMinute' => [
+        [
             'label'         => 'Every Minute',
+            'value'         =>  'everyMinute',
             'parameters'    => false,
         ],
-        'everyFiveMinutes' => [
+        [
             'label'         => 'Every Five Minutes',
+            'value'         =>  'everyFiveMinutes',
             'parameters'    => false,
         ],
-        'everyTenMinutes' => [
+        [
             'label'         => 'Every Ten Minutes',
+            'value'         => 'everyTenMinutes',
             'parameters'    => false,
         ],
         'everyThirtyMinutes' => [

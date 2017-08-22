@@ -29,7 +29,7 @@ export default {
         inActiveStatusText() {
             return this.hovering ? 'Enable' : 'Disabled'
         },
-        activeStatusText(){
+        activeStatusText() {
             return this.hovering ? 'Disable' : 'Enabled'
         },
         existsAndIsInActive() {
