@@ -78,7 +78,7 @@
                 <div class="uk-form-controls">
                     <button class="uk-button uk-button-small uk-button-link" @click.self.prevent="showModal = true">Add Frequency</button>
                     @include('totem::dialogs.frequencies.add')
-                    <table class="uk-table">
+                    <table class="uk-table uk-table-divider uk-margin-remove">
                         <thead>
                             <tr>
                                 <th class="uk-padding-remove-left">
@@ -100,6 +100,14 @@
                                     </span>
                                     <span v-else="frequency.parameters">No Parameters</span>
                                 </td>
+                                <td>
+                                    <a class="uk-button uk-button-link" @click="remove(index)">
+                                        <icon name="close" :scale="100"></icon>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr v-if="frequencies.length == 0">
+                                <td colspan="3" class="uk-padding-remove-left">No Frequencies Found</td>
                             </tr>
                         </tbody>
                     </table>

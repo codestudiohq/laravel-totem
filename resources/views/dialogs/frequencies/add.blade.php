@@ -1,9 +1,10 @@
 <uikit-modal :show="showModal" @close="closeModal">
     <div class="uk-modal-header">
-        <h4 class="uk-modal-title">Add Frequency</h4>
+        <h3>Add Frequency</h3>
     </div>
     <div class="uk-modal-body">
-        <select id="frequency" class="uk-select" placeholder="Select a type of frequency" v-model="frequency">
+        <select id="frequency" class="uk-select" v-model="frequency">
+            <option value="-" selected>Select a type of frequency</option>
             @foreach (collect($frequencies) as $key => $frequency)
                 <option :value="{{ json_encode($frequency) }}">{{$frequency['label']}}</option>
             @endforeach
