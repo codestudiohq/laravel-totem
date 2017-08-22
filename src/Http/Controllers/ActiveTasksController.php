@@ -13,7 +13,6 @@ class ActiveTasksController extends Controller
     private $tasks;
 
     /**
-     * TasksController constructor.
      * @param TaskInterface $tasks
      */
     public function __construct(TaskInterface $tasks)

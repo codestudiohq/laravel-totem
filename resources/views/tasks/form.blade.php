@@ -51,12 +51,26 @@
             </select>
         </div>
     </div>
-    <div class="uk-margin">
-        <div class="uk-form-label">Type</div>
-        <div class="uk-form-controls uk-form-controls-text">
-            <label><input type="radio" name="type" id="type" value="cron" {{old('type', 'cron') == 'cron' ? 'checked' : ''}}> Cron</label><br>
+    <task-type>
+        <div class="uk-margin">
+            <div class="uk-form-label">Type</div>
+            <div class="uk-form-controls uk-form-controls-text">
+                <label>
+                    <input type="radio" name="type" id="type" value="cron" {{old('type', 'cron') == 'cron' ? 'checked' : ''}}> Cron
+                </label><br>
+                <label>
+                    <input type="radio" name="type" id="type" value="cron" {{old('type', 'cron') == 'cron' ? 'checked' : ''}}> Cron
+                </label><br>
+            </div>
         </div>
-    </div>
+        <div class="uk-margin">
+            <select id="frequency" class="uk-select" placeholder="Select a type of frequency">
+                @foreach ($timezones as $key => $timezone)
+                    <option value="{{$timezone}}" {{old('timezone', $task->exists ? $task->timezone :  config('app.timezone')) == $timezone ? 'selected' : ''}}>{{$timezone}}</option>
+                @endforeach
+            </select>
+        </div>
+    </task-type>
     <div class="uk-margin">
         <label class="uk-form-label">Cron Expression</label>
         <div class="uk-form-controls">

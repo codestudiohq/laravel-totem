@@ -5,8 +5,7 @@ namespace Studio\Totem\Http\Controllers;
 use Studio\Totem\Task;
 use Studio\Totem\Console\Kernel;
 use Studio\Totem\Contracts\TaskInterface;
-use Studio\Totem\Http\Requests\CreateTaskRequest;
-use Studio\Totem\Http\Requests\UpdateTaskRequest;
+use Studio\Totem\Http\Requests\TaskRequest;
 
 class TasksController extends Controller
 {
@@ -56,10 +55,10 @@ class TasksController extends Controller
     }
 
     /**
-     * @param CreateTaskRequest $request
+     * @param TaskRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(CreateTaskRequest $request)
+    public function store(TaskRequest $request)
     {
         $this->tasks->store($request->all());
 
@@ -93,11 +92,11 @@ class TasksController extends Controller
     }
 
     /**
-     * @param UpdateTaskRequest $request
+     * @param TaskRequest $request
      * @param $task
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(UpdateTaskRequest $request, $task)
+    public function update(TaskRequest $request, $task)
     {
         $task = $this->tasks->update($request->all(), $task);
 

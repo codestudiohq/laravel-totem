@@ -31,13 +31,6 @@ class EloquentTaskRepository implements TaskInterface
         });
     }
 
-    public function isActive($id)
-    {
-        $task = $this->find($id);
-
-        return $task->is_active;
-    }
-
     public function findAll()
     {
         return Cache::rememberForever('totem.tasks.all', function () {
@@ -92,6 +85,8 @@ class EloquentTaskRepository implements TaskInterface
             Deleted::dispatch($task);
 
             $task->frequencies()->delete();
+
+            $task->results()->delete();
 
             $task->delete();
 

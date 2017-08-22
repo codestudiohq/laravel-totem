@@ -12,10 +12,8 @@
             Totem
             @yield('page-title')
         </title>
-
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{{ asset('/vendor/totem/css/app.css') }}">
-        @yield('style')
+        @stack('style')
     </head>
     <body>
         <main id="root">
@@ -46,6 +44,6 @@
             </div>
         </main>
         <script src="{{ asset('/vendor/totem/js/app.js') }}"></script>
-        @yield('scripts')
+        @stack('scripts')
     </body>
 </html>
