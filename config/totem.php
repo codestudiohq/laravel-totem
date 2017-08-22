@@ -17,131 +17,165 @@ return [
             'value'         => 'everyTenMinutes',
             'parameters'    => false,
         ],
-        'everyThirtyMinutes' => [
+        [
             'label'         => 'Every Thirty Minutes',
+            'value'         => 'everyThirtyMinutes',
             'parameters'    => false,
         ],
-        'hourly' => [
+        [
             'label'         => 'Hourly',
+            'value'         => 'hourly',
             'parameters'    => false,
         ],
-        'hourlyAt' => [
+        [
             'label'         => 'Hourly at',
+            'value'         => 'everyTenMinutes',
             'parameters'    => [
-                'at',
+                [
+                    'label'     => 'At',
+                    'value'     => 'at',
+                    'type'      => 'time'
+                ]
             ],
         ],
-        'daily' => [
+        [
             'label'         => 'Daily',
+            'value'         => 'daily',
             'parameters'    => false,
         ],
-        'dailyAt' => [
+        [
             'label'         => 'Daily at',
+            'value'         => 'dailyAt',
             'parameters'    => [
-                'at' => [
-                    'label' => 'At',
-                    'type'  => 'time',
-                ],
+                [
+                    'label'     => 'At',
+                    'value'     => 'at',
+                    'type'      => 'time'
+                ]
             ],
         ],
-        'twiceDaily' => [
+        [
             'label'         => 'Twice Daily',
+            'value'         => 'twiceDaily',
             'parameters'    => [
-                'at' => [
-                    'label' => 'First At',
-                    'type'  => 'time',
+                [
+                    'label'     => 'First',
+                    'value'     => 'at',
+                    'type'      => 'time'
                 ],
-                'second_at' => [
-                    'label' => 'Second At',
-                    'type'  => 'time',
-                ],
+                [
+                    'label'     => 'Second',
+                    'value'     => 'second_at',
+                    'type'      => 'time'
+                ]
             ],
         ],
-        'weekly' => [
+        [
             'label'         => 'Weekly',
+            'value'         =>  'weekly',
             'parameters'    => false,
         ],
-        'monthly' => [
+        [
             'label'         => 'Monthly',
+            'value'         =>  'monthly',
             'parameters'    => false,
         ],
-        'monthlyOn' => [
+        [
             'label'         => 'Monthly On',
+            'value'         => 'monthlyOn',
             'parameters'    => [
-                'on' => [
-                    'label' => 'On',
-                    'type'  => 'day',
+                [
+                    'label'     => 'On',
+                    'value'     => 'on',
+                    'type'      => 'date'
                 ],
-                'at' => [
-                    'label' => 'At',
-                    'type'  => 'time',
-                ],
+                [
+                    'label'     => 'At',
+                    'value'     => 'at',
+                    'type'      => 'time'
+                ]
             ],
         ],
-        'quarterly' => [
+        [
             'label'         => 'Quarterly',
+            'value'         => 'quarterly',
             'parameters'    => false,
         ],
-        'yearly' => [
+        [
             'label'         => 'Yearly',
+            'value'         => 'yearly',
             'parameters'    => false,
         ],
-        'weekdays' => [
+        [
             'label'         => 'Weekdays',
+            'value'         => 'weekdays',
             'parameters'    => false,
         ],
-        'sundays' => [
+        [
             'label'         => 'Every Sunday',
+            'value'         => 'sundays',
             'parameters'    => false,
         ],
-        'mondays' => [
+        [
             'label'         => 'Every Monday',
+            'value'         => 'mondays',
             'parameters'    => false,
         ],
-        'tuesdays' => [
+        [
             'label'         => 'Every Tuesday',
+            'value'         => 'tuesdays',
             'parameters'    => false,
         ],
-        'wednesdays' => [
+        [
             'label'         => 'Every Wednesday',
+            'value'         => 'wednesdays',
             'parameters'    => false,
         ],
-        'thursdays' => [
+        [
             'label'         => 'Every Thursday',
+            'value'         => 'thursdays',
             'parameters'    => false,
         ],
-        'fridays' => [
+        [
             'label'         => 'Every Friday',
+            'value'         => 'fridays',
             'parameters'    => false,
         ],
-        'saturdays' => [
+        [
             'label'         => 'Every Saturday',
+            'value'         => 'saturdays',
             'parameters'    => false,
         ],
-        'between'   => [
+        [
             'label'         => 'Between',
+            'value'         => 'between',
             'parameters'    => [
-                'start' => [
-                    'label' => 'Start Time',
-                    'type'  => 'time',
+                [
+                    'label'     => 'Start',
+                    'value'     => 'start',
+                    'type'      => 'time'
                 ],
-                'end' => [
-                    'label' => 'End Time',
-                    'type'  => 'time',
-                ],
+                [
+                    'label'     => 'End',
+                    'value'     => 'end',
+                    'type'      => 'time'
+                ]
             ],
         ],
-        'unlessBetween'   => [
+        [
             'label'         => 'Unless Between',
+            'value'         => 'unlessBetween',
             'parameters'    => [
-                'start' => [
-                    'label' => 'Start Time',
-                    'type'  => 'time',
+                [
+                    'label'     => 'Start',
+                    'value'     => 'start',
+                    'type'      => 'time'
                 ],
-                'end' => [
-                    'label' => 'End Time',
-                    'type'  => 'time',
-                ],
+                [
+                    'label'     => 'End',
+                    'value'     => 'end',
+                    'type'      => 'time'
+                ]
             ],
         ],
     ],

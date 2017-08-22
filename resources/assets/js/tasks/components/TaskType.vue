@@ -1,7 +1,6 @@
 <script>
     import UIKitModal from '../../components/UIKitModal.vue'
     import Icon from '../../components/Icon.vue'
-
     export default {
         components: {
             'uikit-modal':UIKitModal,
@@ -17,16 +16,23 @@
             return {
                 type : this.current,
                 showModal: false,
-                frequency: {
+                placeholder: {
                     label : 'Please select a frequency',
-                    value: '-',
+                    value: false,
                     parameters: false
                 },
-                parameters: false,
+                frequency: {
+                    label : 'Please select a frequency',
+                    value: false,
+                    parameters: false
+                },
                 frequencies: []
             };
         },
         computed: {
+            isValid: function () {
+                return this.frequency.value
+            },
             isCron: function () {
                 return this.type == 'cron'
             },
@@ -36,8 +42,10 @@
         },
         methods: {
             addFrequency() {
-                this.frequencies.push(this.frequency)
-                this.closeModal()
+                if(this.isValid) {
+                    this.frequencies.push(this.frequency)
+                    this.closeModal()
+                }
             },
             closeModal() {
                 this.showModal = false
@@ -47,8 +55,7 @@
             }
         },
         mounted() {
-            console.log(this.current)
-            console.log(this.frequency)
+
         }
     }
 </script>

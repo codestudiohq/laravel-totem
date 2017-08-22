@@ -27,6 +27,7 @@ class TaskRequest extends FormRequest
             'description'   => 'required',
             'command'       => 'required',
             'cron'          => 'required_if:type,cron|cron_expression',
+            'frequencies'   => 'required_if:type,frequency|array'
         ];
     }
 
@@ -40,7 +41,9 @@ class TaskRequest extends FormRequest
         return [
             'description.required'      => 'Task description is required',
             'command.required'          => 'Please select a command',
-            'cron.required.if'          => 'Cron Expression is required if task type is cron',
+            'cron.required_if'          => 'Cron Expression is required if task type is cron',
+            'frequencies.required_if'   => 'At least one frequency is required',
+            'frequencies.array'         => 'At least one frequency is required',
             'cron_expression'           => 'This is not a valid cron expression.',
         ];
     }

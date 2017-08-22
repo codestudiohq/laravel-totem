@@ -8,8 +8,12 @@
 </template>
 
 <script>
+    import Icon from './Icon.vue'
     export default {
         name: 'UIKitAlert',
+        components: {
+            'icon'  : Icon
+        },
         props: {
             type: {
                 type: String,

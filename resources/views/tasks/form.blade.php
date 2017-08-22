@@ -26,6 +26,7 @@
         <label class="uk-form-label">Command</label>
         <div class="uk-form-controls">
             <select id="command" name="command" class="uk-select" placeholder="Click here to select one of the available commands">
+                <option value="">Click here to select one of the available commands</option>
                 @foreach ($commands as $command)
                     <option value="{{$command->getName()}}" {{old('command', $task->command) == $command->getName() ? 'selected' : ''}}>{{$command->getDescription()}}</option>
                 @endforeach
@@ -51,7 +52,7 @@
             </select>
         </div>
     </div>
-    <task-type inline-template>
+    <task-type inline-template current="{{old('type', $task->cron ? 'cron' : 'frequency')}}">
         <div>
             <div class="uk-margin">
                 <div class="uk-form-label">Type</div>
@@ -60,7 +61,7 @@
                         <input type="radio" name="type" v-model="type" value="cron"> Cron
                     </label><br>
                     <label>
-                        <input type="radio" name="type" v-model="type" value="frequency"> Frequency
+                        <input type="radio" name="type" v-model="type" value="frequency"> Frequencies
                     </label>
                 </div>
             </div>
@@ -111,6 +112,9 @@
                             </tr>
                         </tbody>
                     </table>
+                    @if($errors->has('frequencies'))
+                        <p class="uk-text-danger">{{$errors->first('frequencies')}}</p>
+                    @endif
                 </div>
             </div>
         </div>
