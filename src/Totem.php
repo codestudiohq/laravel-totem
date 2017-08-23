@@ -40,7 +40,7 @@ class Totem
     }
 
     /**
-     * Return available frequencies
+     * Return available frequencies.
      *
      * @return array
      */

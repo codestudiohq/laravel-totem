@@ -16,6 +16,7 @@ class CreateTaskFrequenciesTable extends Migration
         Schema::create('task_frequencies', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('task_id');
+            $table->string('label');
             $table->enum('frequency', [
                 'everyMinute',
                 'everyFiveMinutes',

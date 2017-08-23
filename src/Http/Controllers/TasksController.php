@@ -100,7 +100,7 @@ class TasksController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(TaskRequest $request, $task)
-    {   dd($request->all());
+    {
         $task = $this->tasks->update($request->all(), $task);
 
         return redirect()->route('totem.task.view', $task)

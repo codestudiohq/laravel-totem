@@ -19,7 +19,6 @@ interface TaskInterface
      */
     public function find($id);
 
-
     /**
      * Returns all tasks.
      * @return Collection

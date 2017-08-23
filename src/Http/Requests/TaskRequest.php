@@ -27,7 +27,7 @@ class TaskRequest extends FormRequest
             'description'   => 'required',
             'command'       => 'required',
             'expression'    => 'required_if:type,expression|cron_expression',
-            'frequencies'   => 'required_if:type,frequency|array'
+            'frequencies'   => 'required_if:type,frequency|array',
         ];
     }
 
