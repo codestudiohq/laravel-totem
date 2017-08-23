@@ -62,8 +62,15 @@ class Kernel extends AppKernel
 
         $tasks->each(function ($task) use ($schedule) {
             $event = $schedule->command($task->command.' '.$task->parameters);
-            $event->cron($task->cron)
-                ->name($task->description)
+            if ($task->expression) {
+                $event = $event->crons($task->expression);
+            } else {
+                foreach ($task->frequencies as $item) {
+                    $event = $event->{$item->frequency}();
+                }
+            }
+
+            $event->name($task->description)
                 ->timezone($task->timezone)
                 ->before(function () use ($task, $event) {
                     $event->start = microtime(true);

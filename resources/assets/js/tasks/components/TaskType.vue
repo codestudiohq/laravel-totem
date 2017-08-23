@@ -10,6 +10,9 @@
             current: {
                 type: String,
                 default: 'frequency'
+            },
+            frequencies: {
+                type: Array
             }
         },
         data() {
@@ -18,23 +21,22 @@
                 showModal: false,
                 placeholder: {
                     label : 'Please select a frequency',
-                    value: false,
+                    frequency: false,
                     parameters: false
                 },
-                frequency: {
+                selected: {
                     label : 'Please select a frequency',
-                    value: false,
+                    frequency: false,
                     parameters: false
-                },
-                frequencies: []
+                }
             };
         },
         computed: {
             isValid: function () {
-                return this.frequency.value
+                return this.selected.frequency
             },
             isCron: function () {
-                return this.type == 'cron'
+                return this.type == 'expression'
             },
             managesFrequencies: function () {
                 return this.type == 'frequency'
@@ -42,8 +44,9 @@
         },
         methods: {
             addFrequency() {
+                console.log(this.isValid)
                 if(this.isValid) {
-                    this.frequencies.push(this.frequency)
+                    this.frequencies.push(this.selected)
                     this.closeModal()
                 }
             },
@@ -53,9 +56,6 @@
             remove(index) {
                 this.frequencies.splice(index,1);
             }
-        },
-        mounted() {
-
         }
     }
 </script>

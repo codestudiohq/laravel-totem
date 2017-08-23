@@ -52,13 +52,13 @@
             </select>
         </div>
     </div>
-    <task-type inline-template current="{{old('type', $task->cron ? 'cron' : 'frequency')}}">
+    <task-type inline-template current="{{old('type', $task->expression ? 'expression' : 'frequency')}}" :frequencies="{{old('frequencies') ? json_encode(old('frequencies')) : $task->frequencies}}" >
         <div>
             <div class="uk-margin">
                 <div class="uk-form-label">Type</div>
                 <div class="uk-form-controls uk-form-controls-text">
                     <label>
-                        <input type="radio" name="type" v-model="type" value="cron"> Cron
+                        <input type="radio" name="type" v-model="type" value="expression"> Expression
                     </label><br>
                     <label>
                         <input type="radio" name="type" v-model="type" value="frequency"> Frequencies
@@ -68,9 +68,9 @@
             <div class="uk-margin" v-if="isCron">
                 <label class="uk-form-label">Cron Expression</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" placeholder="e.g * * * * * to run this task all the time" name="cron" id="cron" value="{{old('cron', $task->cron)}}" type="text">
-                    @if($errors->has('cron'))
-                        <p class="uk-text-danger">{{$errors->first('cron')}}</p>
+                    <input class="uk-input" placeholder="e.g * * * * * to run this task all the time" name="expression" id="expression" value="{{old('expression', $task->expression)}}" type="text">
+                    @if($errors->has('expression'))
+                        <p class="uk-text-danger">{{$errors->first('expression')}}</p>
                     @endif
                 </div>
             </div>
@@ -91,15 +91,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(frequency, index) in frequencies">
+                            <tr v-for="(item, index) in frequencies">
                                 <td class="uk-padding-remove-left">
-                                    @{{ frequency.label }}
-                                    <input type="hidden" :name="'frequencies[' + index + '][frequency]'" v-model="frequency.value">
+                                    @{{ item.label }}
+                                    <input type="hidden" :name="'frequencies[' + index + '][frequency]'" v-model="item.frequency">
+                                    <input type="hidden" :name="'frequencies[' + index + '][label]'" v-model="item.label">
                                 </td>
                                 <td class="uk-padding-remove-left">
-                                    <span v-if="frequency.parameters">
+                                    <span v-if="item.parameters">
                                     </span>
-                                    <span v-else="frequency.parameters">No Parameters</span>
+                                    <span v-else="item.parameters">
+                                        No Parameters
+                                    </span>
                                 </td>
                                 <td>
                                     <a class="uk-button uk-button-link" @click="remove(index)">

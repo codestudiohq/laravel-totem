@@ -3,13 +3,12 @@
         <h3>Add Frequency</h3>
     </div>
     <div class="uk-modal-body">
-        <select id="frequency" class="uk-select" v-model="frequency">
+        <select id="frequency" class="uk-select" v-model="selected">
             <option :value="placeholder" disabled>Select a type of frequency</option>
             @foreach (collect($frequencies) as $key => $frequency)
                 <option :value="{{ json_encode($frequency) }}">{{$frequency['label']}}</option>
             @endforeach
         </select>
-        <input class="uk-input" type="text" v-if="frequency.parameters && frequency.parameters[0] == 'at'" v-model="frequency.parameters[0]">
     </div>
     <div class="uk-modal-footer">
         <div class="uk-flex uk-flex-right">

@@ -4,14 +4,17 @@ namespace Studio\Totem;
 
 use Cron\CronExpression;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Console\Scheduling\ManagesFrequencies;
 
 class Task extends Model
 {
+    use ManagesFrequencies;
+
     protected $fillable = [
         'description',
         'command',
         'parameters',
-        'cron',
+        'expression',
         'timezone',
         'is_active',
         'dont_overlap',
@@ -31,7 +34,15 @@ class Task extends Model
 
     public function getUpcomingAttribute()
     {
-        return CronExpression::factory($this->cron)->getNextRunDate()->format('Y-m-d H:i:s');
+        if (! $this->expression) {
+            $this->expression = '* * * * * *';
+        }
+        foreach ($this->frequencies as $item) {
+            $method = $item->frequency;
+            $this->{$method}();
+        }
+
+        return CronExpression::factory($this->expression)->getNextRunDate()->format('Y-m-d H:i:s');
     }
 
     public function frequencies()

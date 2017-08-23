@@ -25,7 +25,7 @@
         </li>
         <li>
             <span class="uk-text-muted uk-float-right">Cron Expression</span>
-            <span class="uk-float-left">{{$task->cron}}</span>
+            <span class="uk-float-left">{{$task->expression}}</span>
         </li>
         <li>
             <span class="uk-text-muted uk-float-right">Timezone</span>

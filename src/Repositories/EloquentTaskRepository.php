@@ -57,6 +57,10 @@ class EloquentTaskRepository implements TaskInterface
 
         $task->fill(array_only($input, $task->getFillable()))->save();
 
+        if($input['type'] == 'frequency') {
+            $task->frequencies()->createMany(array_only($input, 'frequencies'));
+        }
+
         Created::dispatch($task);
 
         return $task;
@@ -71,6 +75,11 @@ class EloquentTaskRepository implements TaskInterface
         }
 
         $task->fill(array_only($input, $task->getFillable()))->save();
+
+        if($input['type'] == 'frequency') {
+            $task->frequencies()->delete();
+            $task->frequencies()->createMany(array_only($input, 'frequencies'));
+        }
 
         Updated::dispatch($task);
 
