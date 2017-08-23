@@ -52,7 +52,7 @@
             </select>
         </div>
     </div>
-    <task-type inline-template current="{{old('type', $task->expression ? 'expression' : 'frequency')}}" :frequencies="{{old('frequencies') ? json_encode(old('frequencies')) : $task->frequencies}}" >
+    <task-type inline-template current="{{old('type', $task->expression ? 'expression' : 'frequency')}}" :existing="{{old('frequencies') ? json_encode(old('frequencies')) : $task->frequencies}}" >
         <div>
             <div class="uk-margin">
                 <div class="uk-form-label">Type</div>
@@ -91,16 +91,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(item, index) in frequencies">
+                            <tr v-for="(frequency, index) in frequencies">
                                 <td class="uk-padding-remove-left">
-                                    @{{ item.label }}
-                                    <input type="hidden" :name="'frequencies[' + index + '][frequency]'" v-model="item.frequency">
-                                    <input type="hidden" :name="'frequencies[' + index + '][label]'" v-model="item.label">
+                                    @{{ frequency.label }}
+                                    <input type="hidden" :name="'frequencies[' + index + '][interval]'" v-model="frequency.interval">
+                                    <input type="hidden" :name="'frequencies[' + index + '][label]'" v-model="frequency.label">
                                 </td>
                                 <td class="uk-padding-remove-left">
-                                    <span v-if="item.parameters">
+                                    <span v-if="frequency.parameters">
+                                        <span v-for="parameter in frequency.parameters">
+                                            @{{ parameter.label + ' : ' + parameter.value }}
+                                            <input type="hidden" :name="'frequencies[' + index + '][' + parameter.modifier +']'" v-model="parameter.value">
+                                        </span>
                                     </span>
-                                    <span v-else="item.parameters">
+                                    <span v-else="frequency.parameters">
                                         No Parameters
                                     </span>
                                 </td>

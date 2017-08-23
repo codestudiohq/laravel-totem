@@ -4,176 +4,213 @@ return [
     'frequencies'  => [
         [
             'label'             => 'Every Minute',
-            'frequency'         => 'everyMinute',
+            'interval'          => 'everyMinute',
             'parameters'        => false,
         ],
         [
             'label'             => 'Every Five Minutes',
-            'frequency'         => 'everyFiveMinutes',
+            'interval'          => 'everyFiveMinutes',
             'parameters'        => false,
         ],
         [
             'label'             => 'Every Ten Minutes',
-            'frequency'         => 'everyTenMinutes',
+            'interval'          => 'everyTenMinutes',
             'parameters'        => false,
         ],
         [
             'label'             => 'Every Thirty Minutes',
-            'frequency'         => 'everyThirtyMinutes',
+            'interval'          => 'everyThirtyMinutes',
             'parameters'        => false,
         ],
         [
             'label'             => 'Hourly',
-            'frequency'         => 'hourly',
+            'interval'          => 'hourly',
             'parameters'        => false,
         ],
         [
             'label'             => 'Hourly at',
-            'frequency'         => 'everyTenMinutes',
+            'interval'          => 'hourlyAt',
             'parameters'        => [
                 [
                     'label'         => 'At',
-                    'frequency'     => 'at',
-                    'type'          => 'time',
+                    'modifier'      => 'at',
+                    'type'          => 'number',
+                    'min'           => '0',
+                    'max'           => '59',
                 ],
             ],
         ],
         [
             'label'             => 'Daily',
-            'frequency'         => 'daily',
+            'interval'          => 'daily',
             'parameters'        => false,
         ],
         [
             'label'             => 'Daily at',
-            'frequency'         => 'dailyAt',
+            'interval'          => 'dailyAt',
             'parameters'        => [
                 [
                     'label'         => 'At',
-                    'frequency'     => 'at',
+                    'modifier'      => 'at',
                     'type'          => 'time',
                 ],
             ],
         ],
         [
             'label'             => 'Twice Daily',
-            'frequency'         => 'twiceDaily',
+            'interval'          => 'twiceDaily',
             'parameters'        => [
                 [
                     'label'         => 'First',
-                    'frequency'     => 'at',
+                    'modifier'      => 'at',
                     'type'          => 'time',
                 ],
                 [
                     'label'         => 'Second',
-                    'frequency'     => 'second_at',
+                    'modifier'      => 'second_at',
                     'type'          => 'time',
                 ],
             ],
         ],
         [
             'label'             => 'Weekly',
-            'frequency'         => 'weekly',
+            'interval'          => 'weekly',
             'parameters'        => false,
         ],
         [
+            'label'             => 'Weekly On',
+            'interval'          => 'weeklyOn',
+            'parameters'        => [
+                [
+                    'label'         => 'On',
+                    'modifier'      => 'on',
+                    'type'          => 'number',
+                    'min'           => '1',
+                    'max'           => '31',
+                ],
+                [
+                    'label'         => 'At',
+                    'modifier'      => 'at',
+                    'type'          => 'time',
+                ],
+            ],
+        ],
+        [
             'label'             => 'Monthly',
-            'frequency'         => 'monthly',
+            'interval'          => 'monthly',
             'parameters'        => false,
         ],
         [
             'label'             => 'Monthly On',
-            'frequency'         => 'monthlyOn',
+            'interval'          => 'monthlyOn',
             'parameters'        => [
                 [
                     'label'         => 'On',
-                    'frequency'     => 'on',
-                    'type'          => 'date',
+                    'modifier'      => 'on',
+                    'type'          => 'number',
+                    'max'           => '',
                 ],
                 [
                     'label'         => 'At',
-                    'frequency'     => 'at',
+                    'modifier'      => 'at',
+                    'type'          => 'time',
+                ],
+            ],
+        ],
+        [
+            'label'             => 'Twice Monthly',
+            'interval'          => 'twiceMonthly',
+            'parameters'        => [
+                [
+                    'label'         => 'First',
+                    'modifier'      => 'on',
+                    'type'          => 'number',
+                ],
+                [
+                    'label'         => 'Second',
+                    'modifier'      => 'second_at',
                     'type'          => 'time',
                 ],
             ],
         ],
         [
             'label'             => 'Quarterly',
-            'frequency'         => 'quarterly',
+            'interval'          => 'quarterly',
             'parameters'        => false,
         ],
         [
             'label'             => 'Yearly',
-            'frequency'         => 'yearly',
+            'interval'          => 'yearly',
             'parameters'        => false,
         ],
         [
             'label'             => 'Weekdays',
-            'frequency'         => 'weekdays',
+            'interval'          => 'weekdays',
             'parameters'        => false,
         ],
         [
             'label'             => 'Every Sunday',
-            'frequency'         => 'sundays',
+            'interval'          => 'sundays',
             'parameters'        => false,
         ],
         [
             'label'             => 'Every Monday',
-            'frequency'         => 'mondays',
+            'interval'          => 'mondays',
             'parameters'        => false,
         ],
         [
             'label'             => 'Every Tuesday',
-            'frequency'         => 'tuesdays',
+            'interval'          => 'tuesdays',
             'parameters'        => false,
         ],
         [
             'label'             => 'Every Wednesday',
-            'frequency'         => 'wednesdays',
+            'interval'          => 'wednesdays',
             'parameters'        => false,
         ],
         [
             'label'             => 'Every Thursday',
-            'frequency'         => 'thursdays',
+            'interval'          => 'thursdays',
             'parameters'        => false,
         ],
         [
             'label'             => 'Every Friday',
-            'frequency'         => 'fridays',
+            'interval'          => 'fridays',
             'parameters'        => false,
         ],
         [
             'label'             => 'Every Saturday',
-            'frequency'         => 'saturdays',
+            'interval'          => 'saturdays',
             'parameters'        => false,
         ],
         [
             'label'             => 'Between',
-            'frequency'         => 'between',
+            'interval'          => 'between',
             'parameters'        => [
                 [
                     'label'         => 'Start',
-                    'frequency'     => 'start',
+                    'modifier'      => 'start',
                     'type'          => 'time',
                 ],
                 [
                     'label'         => 'End',
-                    'frequency'     => 'end',
+                    'modifier'      => 'end',
                     'type'          => 'time',
                 ],
             ],
         ],
         [
             'label'             => 'Unless Between',
-            'frequency'         => 'unlessBetween',
+            'interval'          => 'unlessBetween',
             'parameters'        => [
                 [
                     'label'         => 'Start',
-                    'frequency'     => 'start',
+                    'modifier'      => 'start',
                     'type'          => 'time',
                 ],
                 [
                     'label'         => 'End',
-                    'frequency'     => 'end',
+                    'modifier'      => 'end',
                     'type'          => 'time',
                 ],
             ],

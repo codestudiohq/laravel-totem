@@ -25,7 +25,10 @@
         </li>
         <li>
             <span class="uk-text-muted uk-float-right">Cron Expression</span>
-            <span class="uk-float-left">{{$task->expression}}</span>
+            <span class="uk-float-left">
+                <span>{{$task->expression}}</span>
+                <span class="uk-margin-left">( <em>{{$task->frequencies->pluck('label')->implode(', ')}}</em> )</span>
+            </span>
         </li>
         <li>
             <span class="uk-text-muted uk-float-right">Timezone</span>

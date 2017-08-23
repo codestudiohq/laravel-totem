@@ -17,7 +17,7 @@ class CreateTaskFrequenciesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('task_id');
             $table->string('label');
-            $table->enum('frequency', [
+            $table->enum('interval', [
                 'everyMinute',
                 'everyFiveMinutes',
                 'everyTenMinutes',
@@ -28,7 +28,9 @@ class CreateTaskFrequenciesTable extends Migration
                 'dailyAt',
                 'twiceDaily',
                 'weekly',
+                'weeklyOn',
                 'monthly',
+                'twiceMonthly',
                 'monthlyOn',
                 'quarterly',
                 'yearly',
@@ -41,7 +43,8 @@ class CreateTaskFrequenciesTable extends Migration
                 'fridays',
                 'saturdays',
             ]);
-            $table->date('on')->nullable();
+            $table->integer('on')->nullable();
+            $table->integer('second_on')->nullable();
             $table->time('at')->nullable();
             $table->time('second_at')->nullable();
             $table->time('start')->nullable();

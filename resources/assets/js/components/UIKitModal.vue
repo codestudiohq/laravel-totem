@@ -28,6 +28,13 @@
             close() {
                 this.$emit('close')
             }
+        },
+        mounted() {
+            document.addEventListener("keydown", (e) => {
+                if (this.show && e.keyCode == 27) {
+                    this.close();
+                }
+            });
         }
     }
 </script>

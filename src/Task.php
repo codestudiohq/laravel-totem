@@ -34,15 +34,7 @@ class Task extends Model
 
     public function getUpcomingAttribute()
     {
-        if (! $this->expression) {
-            $this->expression = '* * * * * *';
-        }
-        foreach ($this->frequencies as $item) {
-            $method = $item->frequency;
-            $this->{$method}();
-        }
-
-        return CronExpression::factory($this->expression)->getNextRunDate()->format('Y-m-d H:i:s');
+        return CronExpression::factory($this->getCronExpression())->getNextRunDate()->format('Y-m-d H:i:s');
     }
 
     public function frequencies()
@@ -53,5 +45,27 @@ class Task extends Model
     public function results()
     {
         return $this->hasMany(TaskResult::class, 'task_id', 'id');
+    }
+
+    public function getCronExpression()
+    {
+        if (! $this->expression) {
+            $this->expression = '* * * * * *';
+            foreach ($this->frequencies as $frequency) {
+                $method = $frequency->interval;
+                $args = [];
+                $config = collect(config('totem.frequencies'))->filter(function ($item) use ($method) {
+                    return $item['interval'] == $method;
+                })->first();
+                if ($config['parameters']) {
+                    foreach ($config['parameters'] as $parameter) {
+                        $args[] = $frequency->{$parameter['modifier']};
+                    }
+                }
+                call_user_func_array([$this,$method], $args);
+            }
+        }
+
+        return $this->expression;
     }
 }

@@ -10,7 +10,7 @@ class Frequency extends Model
 
     protected $fillable = [
         'label',
-        'frequency',
+        'interval',
         'on',
         'at',
         'second_at',

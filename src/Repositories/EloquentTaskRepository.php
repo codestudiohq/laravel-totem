@@ -78,7 +78,7 @@ class EloquentTaskRepository implements TaskInterface
 
         if ($input['type'] == 'frequency') {
             $task->frequencies()->delete();
-            $task->frequencies()->createMany(array_only($input, 'frequencies'));
+            $task->frequencies()->createMany($input['frequencies']);
         }
 
         Updated::dispatch($task);
