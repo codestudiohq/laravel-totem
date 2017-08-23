@@ -8,3 +8,7 @@
 .styleci.yml export-ignore
 .travis.yml export-ignore
 phpunit.xml.dist export-ignore
+
+*.less linguist-vendored
+*.css linguist-vendored
+*.js linguist-vendored
