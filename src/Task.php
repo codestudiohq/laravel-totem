@@ -62,7 +62,7 @@ class Task extends Model
                         $args[] = $frequency->{$parameter['modifier']};
                     }
                 }
-                call_user_func_array([$this,$method], $args);
+                call_user_func_array([$this, $method], $args);
             }
         }
 
