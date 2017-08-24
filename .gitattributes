@@ -12,3 +12,4 @@ phpunit.xml.dist export-ignore
 *.less linguist-vendored
 *.css linguist-vendored
 *.js linguist-vendored
+
