@@ -19,7 +19,7 @@
     <table class="uk-table uk-table-responsive" cellpadding="0" cellspacing="0" class="mb1">
         <thead>
             <tr>
-                <th>Command</th>
+                <th>Description</th>
                 <th>Average Runtime</th>
                 <th>Last Run</th>
                 <th>Next Run</th>
@@ -31,7 +31,7 @@
                 <tr class="{{$task->is_active ?: 'uk-text-danger'}}">
                     <td>
                         <a href="{{route('totem.task.view', $task)}}">
-                            {{$task->command}}
+                            {{str_limit($task->description, 30)}}
                         </a>
                         <span class="uk-float-right uk-hidden@s uk-text-muted">Command</span>
                     </td>
