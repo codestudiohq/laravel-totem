@@ -16,7 +16,6 @@
     "phpunserialize": "1.*",
     "uikit": "^3.0.0-beta.30",
     "vue": "^2.2.0",
-    "@vuikit/util": "^1.3.0",
-    "vuikit": "git+https://github.com/vuikit/vuikit.git#next"
+    "xml-loader": "1.1.0"
   }
 }

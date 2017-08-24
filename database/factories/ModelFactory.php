@@ -27,8 +27,8 @@ $factory->define(Studio\Totem\Task::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'description' => $faker->sentence,
-        'command'     => 'Studio\Totem\Console\Commands\ListSchedule',
-        'cron'        => '* * * * *',
+        'description'  => $faker->sentence,
+        'command'      => 'Studio\Totem\Console\Commands\ListSchedule',
+        'expression'   => '* * * * *',
     ];
 });

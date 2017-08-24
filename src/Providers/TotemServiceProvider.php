@@ -55,6 +55,11 @@ class TotemServiceProvider extends ServiceProvider
                 'Studio\Totem\Console\Kernel'
             );
         }
+
+        $this->mergeConfigFrom(
+            __DIR__.'/../../config/totem.php',
+            'totem'
+        );
     }
 
     /**

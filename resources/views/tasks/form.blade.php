@@ -26,6 +26,7 @@
         <label class="uk-form-label">Command</label>
         <div class="uk-form-controls">
             <select id="command" name="command" class="uk-select" placeholder="Click here to select one of the available commands">
+                <option value="">Click here to select one of the available commands</option>
                 @foreach ($commands as $command)
                     <option value="{{$command->getName()}}" {{old('command', $task->command) == $command->getName() ? 'selected' : ''}}>{{$command->getDescription()}}</option>
                 @endforeach
@@ -51,21 +52,80 @@
             </select>
         </div>
     </div>
-    <div class="uk-margin">
-        <div class="uk-form-label">Type</div>
-        <div class="uk-form-controls uk-form-controls-text">
-            <label><input type="radio" name="type" id="type" value="cron" {{old('type', 'cron') == 'cron' ? 'checked' : ''}}> Cron</label><br>
+    <task-type inline-template current="{{old('type', $task->expression ? 'expression' : 'frequency')}}" :existing="{{old('frequencies') ? json_encode(old('frequencies')) : $task->getFormattedFrequencies()}}" >
+        <div>
+            <div class="uk-margin">
+                <div class="uk-form-label">Type</div>
+                <div class="uk-form-controls uk-form-controls-text">
+                    <label>
+                        <input type="radio" name="type" v-model="type" value="expression"> Expression
+                    </label><br>
+                    <label>
+                        <input type="radio" name="type" v-model="type" value="frequency"> Frequencies
+                    </label>
+                </div>
+            </div>
+            <div class="uk-margin" v-if="isCron">
+                <label class="uk-form-label">Cron Expression</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" placeholder="e.g * * * * * to run this task all the time" name="expression" id="expression" value="{{old('expression', $task->expression)}}" type="text">
+                    @if($errors->has('expression'))
+                        <p class="uk-text-danger">{{$errors->first('expression')}}</p>
+                    @endif
+                </div>
+            </div>
+            <div class="uk-margin" v-if="managesFrequencies">
+                <label class="uk-form-label"></label>
+                <div class="uk-form-controls">
+                    <button class="uk-button uk-button-small uk-button-link" @click.self.prevent="showModal = true">Add Frequency</button>
+                    @include('totem::dialogs.frequencies.add')
+                    <table class="uk-table uk-table-divider uk-margin-remove">
+                        <thead>
+                            <tr>
+                                <th class="uk-padding-remove-left">
+                                    Frequency
+                                </th>
+                                <th class="uk-padding-remove-left">
+                                    Parameters
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(frequency, index) in frequencies">
+                                <td class="uk-padding-remove-left">
+                                    @{{ frequency.label }}
+                                    <input type="hidden" :name="'frequencies[' + index + '][interval]'" v-model="frequency.interval">
+                                    <input type="hidden" :name="'frequencies[' + index + '][label]'" v-model="frequency.label">
+                                </td>
+                                <td class="uk-padding-remove-left">
+                                    <span v-if="frequency.parameters">
+                                        <span v-for="parameter in frequency.parameters">
+                                            @{{ parameter.label + ' : ' + parameter.value }}
+                                            <input type="hidden" :name="'frequencies[' + index + '][' + parameter.modifier +']'" v-model="parameter.value">
+                                        </span>
+                                    </span>
+                                    <span v-else="frequency.parameters">
+                                        No Parameters
+                                    </span>
+                                </td>
+                                <td>
+                                    <a class="uk-button uk-button-link" @click="remove(index)">
+                                        <icon name="close" :scale="100"></icon>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr v-if="frequencies.length == 0">
+                                <td colspan="3" class="uk-padding-remove-left">No Frequencies Found</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    @if($errors->has('frequencies'))
+                        <p class="uk-text-danger">{{$errors->first('frequencies')}}</p>
+                    @endif
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="uk-margin">
-        <label class="uk-form-label">Cron Expression</label>
-        <div class="uk-form-controls">
-            <input class="uk-input" placeholder="e.g * * * * * to run this task all the time" name="cron" id="cron" value="{{old('cron', $task->cron)}}" type="text">
-            @if($errors->has('cron'))
-                <p class="uk-text-danger">{{$errors->first('cron')}}</p>
-            @endif
-        </div>
-    </div>
+    </task-type>
     <div class="uk-margin">
         <label class="uk-form-label">Notification Email</label>
         <div class="uk-form-controls">

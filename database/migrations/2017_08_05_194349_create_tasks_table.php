@@ -18,9 +18,9 @@ class CreateTasksTable extends Migration
             $table->string('description');
             $table->string('command');
             $table->string('parameters')->nullable();
-            $table->string('cron')->nullable();
+            $table->string('expression')->nullable();
             $table->string('timezone')->default('UTC');
-            $table->boolean('is_active')->default(false);
+            $table->boolean('is_active')->default(true);
             $table->boolean('dont_overlap')->default(false);
             $table->boolean('run_in_maintenance')->default(false);
             $table->string('notification_email_address')->nullable();

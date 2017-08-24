@@ -32,6 +32,7 @@ class CreateTaskTest extends TestCase
         $response = $this->post(route('totem.task.create'), [
             'description'   => 'List All Scheduled Commands',
             'command'       => 'Studio\Totem\Console\Commands\ListSchedule',
+            'type'          => 'cron',
             'cron'          => '* * * * *',
         ]);
 

@@ -15,7 +15,7 @@ class EditTaskTest extends TestCase
         $response = $this->get(route('totem.task.edit', $task));
         $response->assertStatus(200);
         $response->assertSee($task->description);
-        $response->assertSee($task->cron);
+        $response->assertSee($task->expression);
     }
 
     /** @test */
@@ -32,10 +32,12 @@ class EditTaskTest extends TestCase
         $this->disableExceptionHandling()->signIn();
         $task = factory(Task::class)->create();
         $response = $this->post(route('totem.task.edit', $task), [
-            'description'   => 'List All Scheduled Commands',
-            'command'       => 'Studio\Totem\Console\Commands\ListSchedule',
-            'cron'          => '5 * * * *',
+            'description'         => 'List All Scheduled Commands',
+            'command'             => 'Studio\Totem\Console\Commands\ListSchedule',
+            'type'                => 'cron',
+            'expression'          => '5 * * * *',
         ]);
+
         $response->assertSessionHas('task');
         $response->assertRedirect(route('totem.task.view', $task));
     }

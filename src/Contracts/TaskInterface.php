@@ -14,28 +14,20 @@ interface TaskInterface
     /**
      * Returns a task by its primary key.
      *
-     * @param  int|Task  $id
-     * @return Task
+     * @param  int|\Studio\Totem\Task  $id
+     * @return \Studio\Totem\Task
      */
     public function find($id);
 
     /**
-     * Checks if the given task is active or not.
-     *
-     * @param  int|Task  $id
-     * @return bool
-     */
-    public function isActive($id);
-
-    /**
      * Returns all tasks.
-     * @return Collection
+     * @return \Illuminate\Database\Eloquent\Collection
      */
     public function findAll();
 
     /**
      * Returns all active tasks.
-     * @return Collection
+     * @return \Illuminate\Database\Eloquent\Collection
      */
     public function findAllActive();
 
@@ -43,7 +35,7 @@ interface TaskInterface
      * Creates a new task with the given data.
      *
      * @param  array $input
-     * @return Task
+     * @return \Studio\Totem\Task
      */
     public function store(array $input);
 
@@ -51,15 +43,15 @@ interface TaskInterface
      * Updates the given task with the given data.
      *
      * @param  array $input
-     * @param  Task  $task
-     * @return Task
+     * @param  \Studio\Totem\Task  $task
+     * @return \Studio\Totem\Task
      */
     public function update(array $input, $task);
 
     /**
      * Deletes the given task.
      *
-     * @param  int|Task  $id
+     * @param  int|\Studio\Totem\Task  $id
      * @return bool
      */
     public function destroy($id);

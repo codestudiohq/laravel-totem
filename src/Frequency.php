@@ -9,7 +9,8 @@ class Frequency extends Model
     protected $table = 'task_frequencies';
 
     protected $fillable = [
-        'frequency',
+        'label',
+        'interval',
         'on',
         'at',
         'second_at',

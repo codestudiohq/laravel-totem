@@ -31,13 +31,6 @@ class EloquentTaskRepository implements TaskInterface
         });
     }
 
-    public function isActive($id)
-    {
-        $task = $this->find($id);
-
-        return $task->is_active;
-    }
-
     public function findAll()
     {
         return Cache::rememberForever('totem.tasks.all', function () {
@@ -64,6 +57,10 @@ class EloquentTaskRepository implements TaskInterface
 
         $task->fill(array_only($input, $task->getFillable()))->save();
 
+        if ($input['type'] == 'frequency') {
+            $task->frequencies()->createMany($input['frequencies']);
+        }
+
         Created::dispatch($task);
 
         return $task;
@@ -79,6 +76,11 @@ class EloquentTaskRepository implements TaskInterface
 
         $task->fill(array_only($input, $task->getFillable()))->save();
 
+        if ($input['type'] == 'frequency') {
+            $task->frequencies()->delete();
+            $task->frequencies()->createMany($input['frequencies']);
+        }
+
         Updated::dispatch($task);
 
         return $task;
@@ -92,6 +94,8 @@ class EloquentTaskRepository implements TaskInterface
             Deleted::dispatch($task);
 
             $task->frequencies()->delete();
+
+            $task->results()->delete();
 
             $task->delete();
 

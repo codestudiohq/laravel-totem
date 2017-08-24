@@ -25,22 +25,15 @@
         </li>
         <li>
             <span class="uk-text-muted uk-float-right">Cron Expression</span>
-            <span class="uk-float-left">{{$task->cron}}</span>
+            <span class="uk-float-left">
+                <span>{{$task->expression}}</span>
+                <span class="uk-margin-left">( <em>{{$task->frequencies->pluck('label')->implode(', ')}}</em> )</span>
+            </span>
         </li>
         <li>
             <span class="uk-text-muted uk-float-right">Timezone</span>
             <span class="uk-float-left">{{$task->timezone}}</span>
         </li>
-        @if($task->dont_overlap)
-        <li>
-            <span class="uk-float-left">Doesn't Overlap with another instance of this task</span>
-        </li>
-        @endif
-        @if($task->run_in_maintenance)
-        <li>
-            <span class="uk-float-left">Runs in maintenance mode</span>
-        </li>
-        @endif
         <li>
             <span class="uk-text-muted uk-float-right">Created At</span>
             <span class="uk-float-left">{{$task->created_at->toDateTimeString()}}</span>
@@ -61,6 +54,16 @@
             <span class="uk-text-muted uk-float-right">Next Run Schedule</span>
             <span class="uk-float-left">{{$task->upcoming }}</span>
         </li>
+        @if($task->dont_overlap)
+            <li>
+                <span class="uk-float-left">Doesn't Overlap with another instance of this task</span>
+            </li>
+        @endif
+        @if($task->run_in_maintenance)
+            <li>
+                <span class="uk-float-left">Runs in maintenance mode</span>
+            </li>
+        @endif
     </ul>
 @stop
 @section('main-panel-footer')
@@ -84,21 +87,21 @@
         <div class="uk-card-body uk-padding-remove-top">
             <table class="uk-table uk-table-striped">
                 <thead>
-                <tr>
-                    <th class="pl2">Executed At</th>
-                    <th class="pl2">Duration</th>
-                </tr>
+                    <tr>
+                        <th>Executed At</th>
+                        <th>Duration</th>
+                    </tr>
                 </thead>
                 <tbody>
                 @forelse($results = $task->results()->orderByDesc('created_at')->paginate(10) as $result)
                     <tr>
-                        <td class="ph2">{{$result->ran_at->toDateTimeString()}}</td>
-                        <td class="ph2">{{ number_format($result->duration / 1000 , 2)}} seconds</td>
+                        <td>{{$result->ran_at->toDateTimeString()}}</td>
+                        <td>{{ number_format($result->duration / 1000 , 2)}} seconds</td>
                     </tr>
                 @empty
                     <tr>
                         <td class="uk-text-center" colspan="5">
-                            <p class="pa2">Not executed yet.</p>
+                            <p>Not executed yet.</p>
                         </td>
                     </tr>
                 @endforelse

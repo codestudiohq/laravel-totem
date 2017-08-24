@@ -33,7 +33,7 @@ class Kernel extends AppKernel
     /**
      * Define the application's command schedule.
      *
-     * @param  \Illuminate\Console\Scheduling\Schedule $schedule
+     * @param  Schedule $schedule
      * @return void
      */
     protected function schedule(Schedule $schedule)
@@ -56,13 +56,14 @@ class Kernel extends AppKernel
         });
     }
 
-    public function prepareSchedule($schedule)
+    public function prepareSchedule(Schedule $schedule)
     {
         $tasks = $this->tasks->findAllActive();
 
         $tasks->each(function ($task) use ($schedule) {
             $event = $schedule->command($task->command.' '.$task->parameters);
-            $event->cron($task->cron)
+
+            $event->cron($task->getCronExpression())
                 ->name($task->description)
                 ->timezone($task->timezone)
                 ->before(function () use ($task, $event) {

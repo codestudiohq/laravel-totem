@@ -38,4 +38,14 @@ class Totem
 
         return new static;
     }
+
+    /**
+     * Return available frequencies.
+     *
+     * @return array
+     */
+    public static function frequencies()
+    {
+        return config('totem.frequencies');
+    }
 }

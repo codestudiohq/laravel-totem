@@ -16,7 +16,7 @@ class ViewTaskTest extends TestCase
         $response->assertStatus(200);
         $response->assertSee($task->description);
         $response->assertSee('Studio\Totem\Console\Commands\ListSchedule');
-        $response->assertSee($task->cron);
+        $response->assertSee($task->expression);
     }
 
     /** @test */

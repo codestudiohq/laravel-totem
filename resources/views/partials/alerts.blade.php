@@ -1,10 +1,10 @@
 @if(session()->has('success'))
-    <vk-alert type="success">
+    <uikit-alert type="success">
         {{session()->get('success')}}
-    </vk-alert>
+    </uikit-alert>
 @endif
 @if($errors->any())
-    <vk-alert type="danger">
+    <uikit-alert type="danger">
         Please Correct the errors and try resubmitting.
-    </vk-alert>
+    </uikit-alert>
 @endif

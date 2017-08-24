@@ -16,7 +16,8 @@ class CreateTaskFrequenciesTable extends Migration
         Schema::create('task_frequencies', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('task_id');
-            $table->enum('frequency', [
+            $table->string('label');
+            $table->enum('interval', [
                 'everyMinute',
                 'everyFiveMinutes',
                 'everyTenMinutes',
@@ -27,7 +28,9 @@ class CreateTaskFrequenciesTable extends Migration
                 'dailyAt',
                 'twiceDaily',
                 'weekly',
+                'weeklyOn',
                 'monthly',
+                'twiceMonthly',
                 'monthlyOn',
                 'quarterly',
                 'yearly',
@@ -40,9 +43,10 @@ class CreateTaskFrequenciesTable extends Migration
                 'fridays',
                 'saturdays',
             ]);
-            $table->date('on')->nullable();
-            $table->time('at')->nullable();
-            $table->time('second_at')->nullable();
+            $table->integer('on')->nullable();
+            $table->integer('second_on')->nullable();
+            $table->string('at')->nullable();
+            $table->string('second_at')->nullable();
             $table->time('start')->nullable();
             $table->time('end')->nullable();
             $table->timestamps();
