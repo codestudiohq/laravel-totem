@@ -60,7 +60,7 @@ By default Totem's dashboard only works in local environment. To view the dashbo
 
 #### Making Commands available in `Laravel Totem`
 
-All available commands can be scheduled. If you want to hide a command from Totem make sure you have the `hidden` attribute set to true in your command. For e.g.
+All artisan commands can be scheduled. If you want to hide a command from Totem make sure you have the `hidden` attribute set to true in your command. For e.g.
 
 ```
 protected $hidden = true;
