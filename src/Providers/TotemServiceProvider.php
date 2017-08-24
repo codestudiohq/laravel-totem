@@ -57,7 +57,8 @@ class TotemServiceProvider extends ServiceProvider
         }
 
         $this->mergeConfigFrom(
-            __DIR__.'/../../config/totem.php', 'totem'
+            __DIR__.'/../../config/totem.php',
+            'totem'
         );
     }
 

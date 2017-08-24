@@ -45,8 +45,8 @@ class CreateTaskFrequenciesTable extends Migration
             ]);
             $table->integer('on')->nullable();
             $table->integer('second_on')->nullable();
-            $table->time('at')->nullable();
-            $table->time('second_at')->nullable();
+            $table->string('at')->nullable();
+            $table->string('second_at')->nullable();
             $table->time('start')->nullable();
             $table->time('end')->nullable();
             $table->timestamps();

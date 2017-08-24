@@ -129,7 +129,7 @@ return [
                 [
                     'label'         => 'Second',
                     'modifier'      => 'second_at',
-                    'type'          => 'time',
+                    'type'          => 'text',
                 ],
             ],
         ],

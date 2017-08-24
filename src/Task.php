@@ -68,4 +68,56 @@ class Task extends Model
 
         return $this->expression;
     }
+
+    public function getFormattedFrequencies()
+    {
+        return $this->frequencies->map(function ($frequency) {
+            $parameters = false;
+            if ($frequency->on) {
+                $parameters[] = [
+                    'label'    => 'On',
+                    'modifier' => 'on',
+                    'value'    => $frequency->on,
+                ];
+            }
+            if ($frequency->second_on) {
+                $parameters[] = [
+                    'label'    => 'Second On',
+                    'modifier' => 'second_on',
+                    'value'    => $frequency->second_on,
+                ];
+            }
+            if ($frequency->at) {
+                $parameters[] = [
+                    'label'    => 'At',
+                    'modifier' => 'second_at',
+                    'value'    => $frequency->at,
+                ];
+            }
+            if ($frequency->second_at) {
+                $parameters[] = [
+                    'label'    => 'Second At',
+                    'modifier' => 'second_at',
+                    'value'    => $frequency->second_at,
+                ];
+            }
+            if ($frequency->start) {
+                $parameters[] = [
+                    'label'    => 'Start',
+                    'modifier' => 'start',
+                    'value'    => $frequency->start,
+                ];
+            }
+            if ($frequency->end) {
+                $parameters[] = [
+                    'label'    => 'End',
+                    'modifier' => 'end',
+                    'value'    => $frequency->end,
+                ];
+            }
+            $frequency->parameters = $parameters;
+
+            return $frequency;
+        });
+    }
 }

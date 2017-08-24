@@ -21,13 +21,13 @@ interface TaskInterface
 
     /**
      * Returns all tasks.
-     * @return Collection
+     * @return \Illuminate\Database\Eloquent\Collection
      */
     public function findAll();
 
     /**
      * Returns all active tasks.
-     * @return Collection
+     * @return \Illuminate\Database\Eloquent\Collection
      */
     public function findAllActive();
 

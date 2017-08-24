@@ -52,7 +52,7 @@
             </select>
         </div>
     </div>
-    <task-type inline-template current="{{old('type', $task->expression ? 'expression' : 'frequency')}}" :existing="{{old('frequencies') ? json_encode(old('frequencies')) : $task->frequencies}}" >
+    <task-type inline-template current="{{old('type', $task->expression ? 'expression' : 'frequency')}}" :existing="{{old('frequencies') ? json_encode(old('frequencies')) : $task->getFormattedFrequencies()}}" >
         <div>
             <div class="uk-margin">
                 <div class="uk-form-label">Type</div>
