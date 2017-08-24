@@ -58,7 +58,13 @@ class EloquentTaskRepository implements TaskInterface
         $task->fill(array_only($input, $task->getFillable()))->save();
 
         if ($input['type'] == 'frequency') {
-            $task->frequencies()->createMany($input['frequencies']);
+            foreach ($input['frequencies'] as $_frequency) {
+                $frequency = $task->frequencies()->create($_frequency);
+
+                if (isset($_frequency['parameters'])) {
+                    $frequency->parameters()->createMany($_frequency['parameters']);
+                }
+            }
         }
 
         Created::dispatch($task);
@@ -77,8 +83,14 @@ class EloquentTaskRepository implements TaskInterface
         $task->fill(array_only($input, $task->getFillable()))->save();
 
         if ($input['type'] == 'frequency') {
-            $task->frequencies()->delete();
-            $task->frequencies()->createMany($input['frequencies']);
+            foreach ($input['frequencies'] as $_frequency) {
+                $frequency = $task->frequencies()->updateOrCreate(array_only($_frequency, ['task_id', 'label', 'interval']));
+
+                $parameters = isset($_frequency['parameters']) ? $_frequency['parameters'] : [];
+                foreach ($parameters as $_parameter) {
+                    $frequency->parameters()->updateOrCreate($_parameter);
+                }
+            }
         }
 
         Updated::dispatch($task);

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTaskFrequenciesTable extends Migration
+class CreateFrequencyParametersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateTaskFrequenciesTable extends Migration
      */
     public function up()
     {
-        Schema::create('task_frequencies', function (Blueprint $table) {
+        Schema::create('frequency_parameters', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('task_id');
-            $table->string('label');
-            $table->string('interval');
+            $table->unsignedInteger('frequency_id');
+            $table->string('name');
+            $table->string('value');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateTaskFrequenciesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('task_frequencies');
+        Schema::dropIfExists('frequency_parameters');
     }
 }

@@ -52,7 +52,7 @@
             </select>
         </div>
     </div>
-    <task-type inline-template current="{{old('type', $task->expression ? 'expression' : 'frequency')}}" :existing="{{old('frequencies') ? json_encode(old('frequencies')) : $task->getFormattedFrequencies()}}" >
+    <task-type inline-template current="{{old('type', $task->expression ? 'expression' : 'frequency')}}" :existing="{{old('frequencies') ? json_encode(old('frequencies')) : $task->frequencies}}" >
         <div>
             <div class="uk-margin">
                 <div class="uk-form-label">Type</div>
@@ -77,7 +77,7 @@
             <div class="uk-margin" v-if="managesFrequencies">
                 <label class="uk-form-label"></label>
                 <div class="uk-form-controls">
-                    <button class="uk-button uk-button-small uk-button-link" @click.self.prevent="showModal = true">Add Frequency</button>
+                    <a class="uk-button uk-button-small uk-button-link" @click.self.prevent="showModal = true">Add Frequency</a>
                     @include('totem::dialogs.frequencies.add')
                     <table class="uk-table uk-table-divider uk-margin-remove">
                         <thead>
@@ -98,13 +98,15 @@
                                     <input type="hidden" :name="'frequencies[' + index + '][label]'" v-model="frequency.label">
                                 </td>
                                 <td class="uk-padding-remove-left">
-                                    <span v-if="frequency.parameters">
-                                        <span v-for="parameter in frequency.parameters">
-                                            @{{ parameter.label + ' : ' + parameter.value }}
-                                            <input type="hidden" :name="'frequencies[' + index + '][' + parameter.modifier +']'" v-model="parameter.value">
+                                    <span v-if="frequency.parameters.length > 0">
+                                        <span v-for="(parameter, key) in frequency.parameters">
+                                            @{{ parameter.value }}
+                                            <span v-if="frequency.parameters.length > 1 && key < frequency.parameters.length - 1">,</span>
+                                            <input type="hidden" :name="'frequencies[' + index + '][parameters][' + key +'][name]'" v-model="parameter.name">
+                                            <input type="hidden" :name="'frequencies[' + index + '][parameters][' + key +'][value]'" v-model="parameter.value">
                                         </span>
                                     </span>
-                                    <span v-else="frequency.parameters">
+                                    <span v-else>
                                         No Parameters
                                     </span>
                                 </td>

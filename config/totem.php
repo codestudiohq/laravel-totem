@@ -33,7 +33,7 @@ return [
             'parameters'        => [
                 [
                     'label'         => 'At',
-                    'modifier'      => 'at',
+                    'name'          => 'at',
                     'type'          => 'number',
                     'min'           => '0',
                     'max'           => '59',
@@ -51,7 +51,7 @@ return [
             'parameters'        => [
                 [
                     'label'         => 'At',
-                    'modifier'      => 'at',
+                    'name'          => 'at',
                     'type'          => 'time',
                 ],
             ],
@@ -62,12 +62,12 @@ return [
             'parameters'        => [
                 [
                     'label'         => 'First',
-                    'modifier'      => 'at',
+                    'name'          => 'at',
                     'type'          => 'time',
                 ],
                 [
                     'label'         => 'Second',
-                    'modifier'      => 'second_at',
+                    'name'          => 'second_at',
                     'type'          => 'time',
                 ],
             ],
@@ -83,14 +83,14 @@ return [
             'parameters'        => [
                 [
                     'label'         => 'On',
-                    'modifier'      => 'on',
+                    'name'          => 'on',
                     'type'          => 'number',
                     'min'           => '1',
                     'max'           => '31',
                 ],
                 [
                     'label'         => 'At',
-                    'modifier'      => 'at',
+                    'name'          => 'at',
                     'type'          => 'time',
                 ],
             ],
@@ -106,13 +106,13 @@ return [
             'parameters'        => [
                 [
                     'label'         => 'On',
-                    'modifier'      => 'on',
+                    'name'          => 'on',
                     'type'          => 'number',
                     'max'           => '',
                 ],
                 [
                     'label'         => 'At',
-                    'modifier'      => 'at',
+                    'name'          => 'at',
                     'type'          => 'time',
                 ],
             ],
@@ -123,12 +123,12 @@ return [
             'parameters'        => [
                 [
                     'label'         => 'First',
-                    'modifier'      => 'on',
+                    'name'          => 'on',
                     'type'          => 'number',
                 ],
                 [
                     'label'         => 'Second',
-                    'modifier'      => 'second_at',
+                    'name'          => 'second_at',
                     'type'          => 'text',
                 ],
             ],
@@ -189,12 +189,12 @@ return [
             'parameters'        => [
                 [
                     'label'         => 'Start',
-                    'modifier'      => 'start',
+                    'name'          => 'start',
                     'type'          => 'time',
                 ],
                 [
                     'label'         => 'End',
-                    'modifier'      => 'end',
+                    'name'          => 'end',
                     'type'          => 'time',
                 ],
             ],
@@ -205,12 +205,12 @@ return [
             'parameters'        => [
                 [
                     'label'         => 'Start',
-                    'modifier'      => 'start',
+                    'name'          => 'start',
                     'type'          => 'time',
                 ],
                 [
                     'label'         => 'End',
-                    'modifier'      => 'end',
+                    'name'          => 'end',
                     'type'          => 'time',
                 ],
             ],

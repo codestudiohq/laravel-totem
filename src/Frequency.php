@@ -11,15 +11,21 @@ class Frequency extends Model
     protected $fillable = [
         'label',
         'interval',
-        'on',
-        'at',
-        'second_at',
-        'start',
-        'end',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function task()
     {
         return $this->belongsTo(Task::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function parameters()
+    {
+        return $this->hasMany(Parameter::class);
     }
 }

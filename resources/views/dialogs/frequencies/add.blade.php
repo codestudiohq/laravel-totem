@@ -14,14 +14,14 @@
             </div>
             <div v-if="selected.parameters">
                 <div class="uk-margin" v-for="parameter in selected.parameters" >
-                    <input type="text" v-model="parameter.value" :name="parameter.modifier" :placeholder="parameter.label" class="uk-input">
+                    <input type="text" v-model="parameter.value" :name="parameter.name" :placeholder="parameter.label" class="uk-input">
                 </div>
             </div>
         </fieldset>
     </div>
     <div class="uk-modal-footer">
         <div class="uk-flex uk-flex-right">
-            <a class="uk-button uk-button-small uk-button-primary" @click="addFrequency">Add</a>
+            <button class="uk-button uk-button-small uk-button-primary" @click.self.prevent="addFrequency">Add</button>
         </div>
     </div>
 </uikit-modal>
