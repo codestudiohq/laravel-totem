@@ -66,10 +66,6 @@ All available commands can be scheduled. If you want to hide a command from Tote
 protected $hidden = true;
 ```
 
-#### Current limitations
-
-Currently tasks can only be scheduled with a cron expression. Stay tuned for more Laravel Schedule like fluent configurations.
-
 ### Screenshots
 
 ##### Task List
