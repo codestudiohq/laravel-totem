@@ -23,7 +23,7 @@
                 <th>Average Runtime</th>
                 <th>Last Run</th>
                 <th>Next Run</th>
-                <th>Execute</th>
+                <th class="uk-text-center">Execute</th>
             </tr>
         </thead>
         <tbody>
@@ -54,7 +54,7 @@
                         {{$task->upcoming}}
                         <span class="uk-float-right uk-hidden@s uk-text-muted">Next Run</span>
                     </td>
-                    <td>
+                    <td class="uk-text-center@m">
                         <a href="{{ route('totem.task.run', $task) }}">
                             <icon name="cog" :scale="100" class="uk-visible@s"></icon>
                             <span class="uk-hidden@s">Execute</span>
