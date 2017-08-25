@@ -50,9 +50,11 @@ This package assumes that you have a good understanding of [Laravel's Task Sched
 `Laravel Totem`'s  dashboard is inspired by `Laravel Horizon`. Just like Horizon you can configure authentication to `Totem`'s dashboard. Add the following to the boot method of your AppServiceProvider or wherever you might seem fit.   
 
 ```
+use Studio\Totem\Totem;
+
 Totem::auth(function($request) {
     // return true / false . For e.g.
-    return Auth::check()
+    return Auth::check();
 });
 ```
 
