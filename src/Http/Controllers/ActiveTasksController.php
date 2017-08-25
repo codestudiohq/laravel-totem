@@ -22,6 +22,12 @@ class ActiveTasksController extends Controller
         $this->tasks = $tasks;
     }
 
+    /**
+     * Store a newly active task in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
         $task = $this->tasks->activate($request->all());
@@ -29,6 +35,12 @@ class ActiveTasksController extends Controller
         return response()->json($task, 200);
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function destroy($id)
     {
         $task = $this->tasks->deactivate($id);

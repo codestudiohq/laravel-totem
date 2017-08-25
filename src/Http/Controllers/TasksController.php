@@ -22,6 +22,7 @@ class TasksController extends Controller
 
     /**
      * TasksController constructor.
+     *
      * @param TaskInterface $tasks
      * @param Kernel $kernel
      */
@@ -34,6 +35,8 @@ class TasksController extends Controller
     }
 
     /**
+     * Display a listing of the tasks.
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
@@ -44,6 +47,8 @@ class TasksController extends Controller
     }
 
     /**
+     * Show the form for creating a new task.
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
@@ -57,6 +62,8 @@ class TasksController extends Controller
     }
 
     /**
+     * Store a newly created task in storage.
+     *
      * @param TaskRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -70,6 +77,8 @@ class TasksController extends Controller
     }
 
     /**
+     * Display the specified task.
+     *
      * @param $task
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -81,6 +90,8 @@ class TasksController extends Controller
     }
 
     /**
+     * Show the form for editing the specified task.
+     *
      * @param $task
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -95,6 +106,8 @@ class TasksController extends Controller
     }
 
     /**
+     * Update the specified task in storage.
+     *
      * @param TaskRequest $request
      * @param $task
      * @return \Illuminate\Http\RedirectResponse
@@ -109,6 +122,8 @@ class TasksController extends Controller
     }
 
     /**
+     * Remove the specified task from storage.
+     *
      * @param $task
      * @return \Illuminate\Http\RedirectResponse
      */
