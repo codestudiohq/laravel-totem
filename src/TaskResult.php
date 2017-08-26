@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class TaskResult extends Model
 {
-    protected $table = 'task_results';
+    protected $table = 'totem_task_results';
 
     protected $fillable = [
         'duration',

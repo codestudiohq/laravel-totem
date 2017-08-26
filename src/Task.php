@@ -10,6 +10,8 @@ class Task extends Model
 {
     use ManagesFrequencies;
 
+    protected $table = 'totem_tasks';
+
     protected $fillable = [
         'description',
         'command',

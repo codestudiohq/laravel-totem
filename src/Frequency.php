@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Frequency extends Model
 {
-    protected $table = 'task_frequencies';
+    protected $table = 'totem_task_frequencies';
 
     protected $fillable = [
         'label',
