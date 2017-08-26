@@ -21,6 +21,8 @@ class Task extends Model
         'dont_overlap',
         'run_in_maintenance',
         'notification_email_address',
+        'notification_phone_number',
+        'notification_slack_webhook',
     ];
 
     protected $appends = [
@@ -91,5 +93,25 @@ class Task extends Model
     public function routeNotificationForMail()
     {
         return $this->notification_email_address;
+    }
+
+    /**
+     * Route notifications for the Nexmo channel.
+     *
+     * @return string
+     */
+    public function routeNotificationForNexmo()
+    {
+        return $this->notification_phone_number;
+    }
+
+    /**
+     * Route notifications for the Slack channel.
+     *
+     * @return string
+     */
+    public function routeNotificationForSlack()
+    {
+        return $this->notification_slack_webhook;
     }
 }

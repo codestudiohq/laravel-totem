@@ -24,6 +24,9 @@
     "orchestra/testbench" : "~3.0",
     "phpunit/phpunit": "~6.0"
   },
+  "suggest": {
+    "nexmo/client": "Required for sms notifications."
+  },
   "autoload": {
     "psr-4": {
       "Studio\\Totem\\": "src/",

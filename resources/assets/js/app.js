@@ -5,7 +5,7 @@ import Icon from './components/Icon.vue';
 import UIKitAlert from './components/UiKitAlert.vue'
 import TaskType from './tasks/components/TaskType.vue'
 import StatusButton from './tasks/components/StatusButton.vue'
-
+import ExecuteButton from './tasks/components/ExecuteButton.vue'
 
 Promise.delay = function (time) {
     return new Promise((resolve, reject) => {
@@ -45,7 +45,7 @@ new Vue({
         'icon'  : Icon,
         'uikit-alert'  : UIKitAlert,
         'status-button': StatusButton,
-
+        'execute-button': ExecuteButton,
         'task-type' : TaskType
 
     }

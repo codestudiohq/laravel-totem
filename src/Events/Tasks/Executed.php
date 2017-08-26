@@ -12,7 +12,7 @@ class Executed extends Event
      * Executed constructor.
      *
      * @param Task $task
-     * @param String $start
+     * @param string $start
      */
     public function __construct(Task $task, $start)
     {
