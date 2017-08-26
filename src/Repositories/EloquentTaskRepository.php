@@ -191,9 +191,8 @@ class EloquentTaskRepository implements TaskInterface
         return $task;
     }
 
-
     /**
-     * Execute a given task
+     * Execute a given task.
      *
      * @param $id
      * @return int|Task

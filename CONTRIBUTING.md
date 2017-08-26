@@ -1,6 +1,6 @@
-# Studio Contribution Guide
+# Code Studio Contribution Guide
 
-This page contains guidelines for contributing to the Studio packages. Please review these guidelines before submitting any pull requests to the package.
+This page contains guidelines for contributing to the Code Studio packages. Please review these guidelines before submitting any pull requests to the package.
 
 ## Which Branch?
 
@@ -18,10 +18,4 @@ If you have an idea for a new feature you would like to see added to the package
 
 ## Coding Guidelines
 
-Studio follows the [PSR-1](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md) and [PSR-4](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md) coding standards. In addition to these standards, below is a list of other coding standards that should be followed:
-
-- Namespace declarations should be on the same line as `<?php`.
-- Class opening `{` should be on the same line as the class name.
-- Function and control structure opening `{` should be on a separate line.
-- Interface names are suffixed with `Interface` (`FooInterface`)
-- Use tabs instead of 4 spaces.
+Code Studio follows the [PSR-1](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md) and [PSR-4](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md) and laravel coding standards.

@@ -2,9 +2,9 @@
 
 namespace Studio\Totem\Events\Tasks;
 
-use Studio\Totem\Notifications\TaskCompleted;
 use Studio\Totem\Task;
 use Studio\Totem\Events\Event;
+use Studio\Totem\Notifications\TaskCompleted;
 
 class Executed extends Event
 {
