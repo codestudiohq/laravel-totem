@@ -71,18 +71,14 @@ class Kernel extends AppKernel
                     Executing::dispatch($task);
                 })
                 ->after(function () use ($event, $task) {
-                    Executed::dispatch($task, $event);
+                    Executed::dispatch($task, $event->start);
                 })
-                ->sendOutputTo(storage_path('logs/schedule-'.sha1($event->mutexName()).'.log'));
+                ->sendOutputTo(storage_path($task->getMutexName()));
             if ($task->dont_overlap) {
                 $event->withoutOverlapping();
             }
             if ($task->run_in_maintenance) {
                 $event->evenInMaintenanceMode();
-            }
-
-            if ($task->notification_email_address) {
-                $event->emailOutputTo($task->notification_email_address);
             }
         });
     }

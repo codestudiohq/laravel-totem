@@ -1,21 +1,4 @@
-//
-// Component: Divider
-//
-// ========================================================================
-
-
-// Variables
-// ========================================================================
-
-//
-// New
-//
-
-@internal-divider-small-border-gradient:       ;
-
-
-// Icon
-// ========================================================================
+@internal-divider-small-border-gradient: ''      ;
 
 .hook-divider-icon() {}
 
@@ -25,10 +8,6 @@
 
 .hook-divider-icon-line-right() {}
 
-
-// Small
-// ========================================================================
-
 .hook-divider-small() {}
 
 .hook-divider-small() when not (@internal-divider-small-border-gradient = ~'') {
@@ -36,15 +15,7 @@
     border-image-slice: 1;
 }
 
-
-// Miscellaneous
-// ========================================================================
-
 .hook-divider-misc() {}
-
-
-// Inverse
-// ========================================================================
 
 .hook-inverse-divider-icon() {}
 .hook-inverse-divider-icon-line() {}

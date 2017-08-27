@@ -43,8 +43,16 @@
             <span class="uk-float-left">{{$task->updated_at->toDateTimeString()}}</span>
         </li>
         <li>
-            <span class="uk-text-muted uk-float-right">Email to receive task output</span>
+            <span class="uk-text-muted uk-float-right">Email Notification</span>
             <span class="uk-float-left">{{$task->notification_email_address or 'N/A'}}</span>
+        </li>
+        <li>
+            <span class="uk-text-muted uk-float-right">SMS Notification</span>
+            <span class="uk-float-left">{{$task->notification_phone_number or 'N/A'}}</span>
+        </li>
+        <li>
+            <span class="uk-text-muted uk-float-right">Slack Notification</span>
+            <span class="uk-float-left">{{$task->notification_slack_webhook or 'N/A'}}</span>
         </li>
         <li>
             <span class="uk-text-muted uk-float-right">Average Run Time</span>
@@ -76,7 +84,7 @@
                 <button type="submit" class="uk-button uk-button-danger uk-button-small">Delete</button>
             </form>
         </span>
-        <a href="{{ route('totem.task.run', $task) }}" class="uk-button uk-button-primary uk-button-small">Execute</a>
+        <execute-button :data-task="{{ $task }}" button-class="uk-button-small uk-button-primary"></execute-button>
     </div>
 @stop
 @section('additional-panels')

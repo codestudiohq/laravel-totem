@@ -98,7 +98,7 @@
                                     <input type="hidden" :name="'frequencies[' + index + '][label]'" v-model="frequency.label">
                                 </td>
                                 <td class="uk-padding-remove-left">
-                                    <span v-if="frequency.parameters.length > 0">
+                                    <span v-if="frequency.parameters && frequency.parameters.length > 0">
                                         <span v-for="(parameter, key) in frequency.parameters">
                                             @{{ parameter.value }}
                                             <span v-if="frequency.parameters.length > 1 && key < frequency.parameters.length - 1">,</span>
@@ -129,9 +129,30 @@
         </div>
     </task-type>
     <div class="uk-margin">
-        <label class="uk-form-label">Notification Email</label>
+        <label class="uk-form-label">Email Notification</label>
         <div class="uk-form-controls">
-            <input type="email" id="email" name="notification_email_address" value="{{old('notification_email_address', $task->notification_email_address)}}" class="uk-input" placeholder="Leave empty if you do not wish to receive email notifications">
+            <input type="text" id="email" name="notification_email_address" value="{{old('notification_email_address', $task->notification_email_address)}}" class="uk-input" placeholder="Leave empty if you do not wish to receive email notifications">
+            @if($errors->has('notification_email_address'))
+                <p class="uk-text-danger">{{$errors->first('notification_email_address')}}</p>
+            @endif
+        </div>
+    </div>
+    <div class="uk-margin">
+        <label class="uk-form-label">SMS Notification</label>
+        <div class="uk-form-controls">
+            <input type="text" id="phone" name="notification_phone_number" value="{{old('notification_phone_number', $task->notification_phone_number)}}" class="uk-input" placeholder="Leave empty if you do not wish to receive sms notifications">
+            @if($errors->has('notification_phone_number'))
+                <p class="uk-text-danger">{{$errors->first('notification_phone_number')}}</p>
+            @endif
+        </div>
+    </div>
+    <div class="uk-margin">
+        <label class="uk-form-label">Slack Notification</label>
+        <div class="uk-form-controls">
+            <input type="text" id="slack" name="notification_slack_webhook" value="{{old('notification_slack_webhook', $task->notification_slack_webhook)}}" class="uk-input" placeholder="Leave empty if you do not wish to receive slack notifications">
+            @if($errors->has('notification_slack_webhook'))
+                <p class="uk-text-danger">{{$errors->first('notification_slack_webhook')}}</p>
+            @endif
         </div>
     </div>
     <div class="uk-margin">
