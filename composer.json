@@ -21,7 +21,6 @@
     "illuminate/console": "~5.4.0",
     "illuminate/contracts": "~5.4.0",
     "illuminate/database":"~5.4.0",
-    "illuminate/foundation":"~5.4.0",
     "illuminate/events": "~5.4.0"
   },
   "require-dev": {
