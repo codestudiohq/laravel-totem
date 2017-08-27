@@ -18,24 +18,32 @@ Manage your `Laravel Schedule` from a pretty dashboard. Schedule your `Laravel C
 #### Installation
 
 `Totem` requires Laravel v5.4 and above. Use composer to install totem to your Laravel project
- 
-    composer require studio/laravel-totem
+
+```
+composer require studio/laravel-totem
+```
 
 > Laravel Totem supports auto package discovery for Laravel v5.5, therefore service provider registration is not required in Laravel v5.5
 
 Add `TotemServiceProvider` to the `providers` array of your Laravel v5.4 application's config/app.php
 
-    Studio\Totem\Providers\TotemServiceProvider::class,
+```php
+Studio\Totem\Providers\TotemServiceProvider::class,
+```
 
 Once `Laravel Totem` is installed & registered, 
 
 - Run the migration
-    
-        php artisan migrate
-    
+
+```
+php artisan migrate
+```
+
 - Publish `Totem` assets to your public folder using the following command
-    
-        php artisan totem:assets
+
+```    
+php artisan totem:assets
+```
 
 #### Configuration
 
@@ -43,13 +51,15 @@ Once `Laravel Totem` is installed & registered,
 
 This package assumes that you have a good understanding of [Laravel's Task Scheduling](https://laravel.com/docs/5.4/scheduling) and [Laravel Console Commands](https://laravel.com/docs/5.4/artisan#writing-commands). Before any of this works please make sure you have a cron running as follows:
 
-    * * * * * php /path-to-your-project/artisan schedule:run >> /dev/null 2>&1
+```
+* * * * * php /path-to-your-project/artisan schedule:run >> /dev/null 2>&1
+```
 
 ##### Web Dashboard 
 
 `Laravel Totem`'s  dashboard is inspired by `Laravel Horizon`. Just like Horizon you can configure authentication to `Totem`'s dashboard. Add the following to the boot method of your AppServiceProvider or wherever you might seem fit.   
 
-```
+```php
 use Studio\Totem\Totem;
 
 Totem::auth(function($request) {
@@ -64,7 +74,7 @@ By default Totem's dashboard only works in local environment. To view the dashbo
 
 All artisan commands can be scheduled. If you want to hide a command from Totem make sure you have the `hidden` attribute set to true in your command. For e.g.
 
-```
+```php
 protected $hidden = true;
 ```
 
