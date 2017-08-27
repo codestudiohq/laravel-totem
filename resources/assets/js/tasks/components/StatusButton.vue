@@ -2,11 +2,11 @@
     <transition mode="out-in">
         <button v-if="task.activated" type="button" class="uk-button uk-button-small" :class="{ 'uk-button-primary': !hovering && !working, 'uk-button-danger': hovering && !working, 'uk-spinner uk-icon uk-button-secondary': working}" key="enabled" @mouseenter="hovering = true" @mouseleave="hovering = false" @click="deactivate" :disabled="working">
             <span v-if="!working">{{ activeStatusText }}</span>
-            <icon v-if="working" name="spinner" :scale="100"></icon>
+            <icon v-if="working" name="spinner" :spin="true" :scale="80"></icon>
         </button>
         <button v-if="existsAndIsInActive" type="button" class="uk-button uk-button-small" :class="{'uk-button-danger': !hovering && !working, 'uk-button-primary': hovering && !working, 'uk-spinner uk-icon uk-button-secondary': working}" key="disabled" @mouseenter="hovering = true" @mouseleave="hovering = false" @click="activate" :disabled="working">
             <span v-if="!working">{{ inActiveStatusText }}</span>
-            <icon v-if="working" name="spinner" :scale="100"></icon>
+            <icon v-if="working" name="spinner" :spin="true" :scale="80"></icon>
         </button>
     </transition>
 </template>

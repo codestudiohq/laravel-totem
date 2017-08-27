@@ -55,10 +55,7 @@
                         <span class="uk-float-right uk-hidden@s uk-text-muted">Next Run</span>
                     </td>
                     <td class="uk-text-center@m">
-                        <a href="{{ route('totem.task.execute', $task) }}">
-                            <icon name="cog" :scale="100" class="uk-visible@s"></icon>
-                            <span class="uk-hidden@s">Execute</span>
-                        </a>
+                        <execute-button :data-task="{{$task}}" icon-name="cog" button-class="uk-button-link"></execute-button>
                     </td>
                 </tr>
             @empty

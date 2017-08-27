@@ -84,7 +84,7 @@
                 <button type="submit" class="uk-button uk-button-danger uk-button-small">Delete</button>
             </form>
         </span>
-        <execute-button :data-task="{{ $task }}" ></execute-button>
+        <execute-button :data-task="{{ $task }}" button-class="uk-button-small uk-button-primary"></execute-button>
     </div>
 @stop
 @section('additional-panels')
