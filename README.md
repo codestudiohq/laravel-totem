@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="https://github.com/codestudiollc/laravel-totem/blob/master/resources/assets/img/totem.png?raw=true" alt="Laravel Totem"/>
+  <img src="https://github.com/codestudeo/laravel-totem/blob/master/resources/assets/img/totem.png?raw=true" alt="Laravel Totem"/>
 </p>
 <p align="center">
-<a href="https://travis-ci.org/codestudiollc/laravel-totem"><img src="https://travis-ci.org/codestudiollc/laravel-totem.svg" alt="Build Status"></a>
+<a href="https://travis-ci.org/codestudeo/laravel-totem"><img src="https://travis-ci.org/codestudeo/laravel-totem.svg" alt="Build Status"></a>
 <a href="https://styleci.io/repos/99050894"><img src="https://styleci.io/repos/99050894/shield?branch=master" alt="StyleCI"></a>
 <a href="https://packagist.org/packages/studio/laravel-totem"><img src="https://poser.pugx.org/studio/laravel-totem/license.svg" alt="License"></a>
 </p>
@@ -97,10 +97,10 @@ From L5.5 onwards all commands are auto registered, so this wouldn't be a proble
 ### Screenshots
 
 ##### Task List
-<img src="https://github.com/codestudiollc/laravel-totem/blob/master/public/img/screenshots/tasks.png?raw=true" alt="Task List"/>
+<img src="https://github.com/codestudeo/laravel-totem/blob/master/public/img/screenshots/tasks.png?raw=true" alt="Task List"/>
 
 ##### Task Details
-<img src="https://github.com/codestudiollc/laravel-totem/blob/master/public/img/screenshots/task-details.png?raw=true" alt="Task List"/>
+<img src="https://github.com/codestudeo/laravel-totem/blob/master/public/img/screenshots/task-details.png?raw=true" alt="Task List"/>
  
 ## Changelog
 
@@ -110,7 +110,7 @@ Important versions listed below. Refer to the [Changelog](CHANGELOG.md) for a fu
 
 ## Credits
 
-- [Roshan Gautam](https://twitter.com/@roshangautam) for Laravel Totem
+- [Roshan Gautam](https://twitter.com/@roshangautam)
 
 Bug reports, feature requests, and pull requests can be submitted by following our [Contribution Guide](CONTRIBUTING.md).
 
