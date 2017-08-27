@@ -78,6 +78,22 @@ All artisan commands can be scheduled. If you want to hide a command from Totem 
 protected $hidden = true;
 ```
 
+##### Use one of the following options if you are registering your commands in app/Console/Kernel in L5.4 and below 
+
+- Option 1 : Create a array variable, let's say `$artisanCommands` in your app/Providers/AppServiceProvider and list all your commands just like you would do in app/Console/Kernel class. Now in the register method add the following
+
+```
+$this->commands($this->artisanCommands);
+```
+
+- Option 2: Roll your own ConsoleServiceProvider in app/Providers, create a array variable, let's say `$artisanCommands` and list all your commands just like you would do in app/Console/Kernel class. Now in its register method add the following. Don't forget to add this new provider to config/app.php's providers array.
+
+```
+$this->commands($this->artisanCommands);
+```
+
+From L5.5 onwards all commands are auto registered, so this wouldn't be a problem.
+
 ### Screenshots
 
 ##### Task List

@@ -55,4 +55,12 @@ interface TaskInterface
      * @return bool
      */
     public function destroy($id);
+
+    /**
+     * Executes the given task.
+     *
+     * @param  int|\Studio\Totem\Task  $id
+     * @return bool
+     */
+    public function execute($id);
 }

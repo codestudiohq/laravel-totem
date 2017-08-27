@@ -4,18 +4,29 @@ namespace Studio\Totem\Events\Tasks;
 
 use Studio\Totem\Task;
 use Studio\Totem\Events\Event;
+use Studio\Totem\Notifications\TaskCompleted;
 
 class Executed extends Event
 {
-    public function __construct(Task $task, $event)
+    /**
+     * Executed constructor.
+     *
+     * @param Task $task
+     * @param string $start
+     */
+    public function __construct(Task $task, $start)
     {
         parent::__construct($task);
 
-        $time_elapsed_secs = microtime(true) - $event->start;
+        $time_elapsed_secs = microtime(true) - $start;
+
+        $output = file_get_contents(storage_path($task->getMutexName()));
 
         $task->results()->create([
             'duration'  => $time_elapsed_secs * 1000,
-            'result'    => file_get_contents(storage_path('logs/schedule-'.sha1($event->mutexName()).'.log')),
+            'result'    => $output,
         ]);
+
+        $task->notify(new TaskCompleted($output));
     }
 }

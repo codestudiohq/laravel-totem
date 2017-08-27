@@ -4,11 +4,12 @@ namespace Studio\Totem;
 
 use Cron\CronExpression;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Console\Scheduling\ManagesFrequencies;
 
 class Task extends Model
 {
-    use ManagesFrequencies;
+    use ManagesFrequencies, Notifiable;
 
     protected $fillable = [
         'description',
@@ -20,6 +21,8 @@ class Task extends Model
         'dont_overlap',
         'run_in_maintenance',
         'notification_email_address',
+        'notification_phone_number',
+        'notification_slack_webhook',
     ];
 
     protected $appends = [
@@ -70,5 +73,45 @@ class Task extends Model
         }
 
         return $this->expression;
+    }
+
+    /**
+     * Get the mutex name for the scheduled task.
+     *
+     * @return string
+     */
+    public function getMutexName()
+    {
+        return 'logs'.DIRECTORY_SEPARATOR.'schedule-'.sha1($this->expression.$this->command);
+    }
+
+    /**
+     * Route notifications for the mail channel.
+     *
+     * @return string
+     */
+    public function routeNotificationForMail()
+    {
+        return $this->notification_email_address;
+    }
+
+    /**
+     * Route notifications for the Nexmo channel.
+     *
+     * @return string
+     */
+    public function routeNotificationForNexmo()
+    {
+        return $this->notification_phone_number;
+    }
+
+    /**
+     * Route notifications for the Slack channel.
+     *
+     * @return string
+     */
+    public function routeNotificationForSlack()
+    {
+        return $this->notification_slack_webhook;
     }
 }

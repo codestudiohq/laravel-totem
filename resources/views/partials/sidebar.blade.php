@@ -5,16 +5,6 @@
     </div>
     <hr>
     <ul class="uk-nav uk-nav-default">
-        {{--<li class="nav-item {{ url()->current() == route('totem.dashboard') ? 'nav-item-active' : '' }}">--}}
-            {{--<a class="nav-link" href="{{route('totem.dashboard')}}">--}}
-                {{--<i>--}}
-                    {{--<svg>--}}
-                        {{--<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#zondicon-dashboard"></use>--}}
-                    {{--</svg>--}}
-                {{--</i>--}}
-                {{--KPI--}}
-            {{--</a>--}}
-        {{--</li>--}}
         <li class="{{ str_contains(url()->current(), 'tasks') ? 'uk-active' : '' }}">
             <a href="{{route('totem.tasks.all')}}" class="uk-flex uk-flex-middle">
                 <icon name="clock" :scale="100" class="uk-visible@m uk-margin-small-right uk-icon"></icon>

@@ -48,11 +48,11 @@
             addFrequency() {
                 if(this.isValid) {
                     this.frequencies.push(this.selected)
-                    this.selected = this.placeholder
                     this.closeModal()
                 }
             },
             closeModal() {
+                this.selected = this.placeholder
                 this.showModal = false
             },
             remove(index) {
