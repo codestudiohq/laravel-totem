@@ -55,13 +55,13 @@
                         <span class="uk-float-right uk-hidden@s uk-text-muted">Next Run</span>
                     </td>
                     <td class="uk-text-center@m">
-                        <execute-button :data-task="{{$task}}" icon-name="cog" button-class="uk-button-link"></execute-button>
+                        <execute-button :data-task="{{$task}}" url="{{route('totem.task.execute', $task)}}" icon-name="cog" button-class="uk-button-link"></execute-button>
                     </td>
                 </tr>
             @empty
                 <tr>
                     <td class="uk-text-center" colspan="5">
-                        <img class="uk-svg" width="50" height="50" src="/vendor/totem/img/funnel.svg">
+                        <img class="uk-svg" width="50" height="50" src="{{asset('/vendor/totem/img/funnel.svg')}}">
                         <p>No Tasks Found.</p>
                     </td>
                 </tr>

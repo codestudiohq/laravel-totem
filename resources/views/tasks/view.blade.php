@@ -6,7 +6,7 @@
 @section('title')
     <div class="uk-flex uk-flex-between uk-flex-middle">
         <h5 class="uk-card-title uk-margin-remove">Task Details</h5>
-        <status-button :data-task="{{ $task }}" :data-exists="{{ $task->exists ? 1 : 0 }}"></status-button>
+        <status-button :data-task="{{ $task }}" :data-exists="{{ $task->exists ? 'true' : 'false' }}" activate-url="{{route('totem.task.activate')}}" deactivate-url="{{route('totem.task.deactivate', $task)}}"></status-button>
     </div>
 @stop
 @section('main-panel-content')
@@ -84,7 +84,7 @@
                 <button type="submit" class="uk-button uk-button-danger uk-button-small">Delete</button>
             </form>
         </span>
-        <execute-button :data-task="{{ $task }}" button-class="uk-button-small uk-button-primary"></execute-button>
+        <execute-button :data-task="{{ $task }}" url="{{route('totem.task.execute', $task)}}" button-class="uk-button-small uk-button-primary"></execute-button>
     </div>
 @stop
 @section('additional-panels')

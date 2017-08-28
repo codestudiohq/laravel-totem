@@ -18,6 +18,10 @@
         },
         props: {
             dataTask: {},
+            url: {
+                type: String,
+                required: true
+            },
             iconName: {
                 type: String,
                 default: null
@@ -42,7 +46,7 @@
             execute() {
                 this.running = true
 
-                axios.get('/totem/tasks/' + this.task.id + '/execute')
+                axios.get(this.url)
                     .takeAtLeast(500)
                     .then(response => {
                         this.task = response.data
