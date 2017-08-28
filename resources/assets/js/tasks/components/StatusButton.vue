@@ -17,10 +17,24 @@
         components: {
             'icon':Icon
         },
-        props: [
-            'dataTask',
-            'dataExists'
-        ],
+        props: {
+            dataTask: {
+                type: Object,
+                default: null
+            },
+            dataExists : {
+                type: Boolean,
+                required: false
+            },
+            activateUrl : {
+                type: String,
+                required: true
+            },
+            deactivateUrl : {
+                type: String,
+                required: true
+            }
+        },
         data() {
             return {
                 hovering: false,
@@ -44,8 +58,9 @@
             activate() {
                 this.working = true
 
-                axios.post('/totem/tasks/status', { task_id: this.task.id })
-                    .takeAtLeast(500)
+                axios.post(this.activateUrl, {
+                    task_id: this.dataTask.id
+                }).takeAtLeast(500)
                     .then(response => {
                         this.task = response.data
                         this.working = false
@@ -55,7 +70,7 @@
             deactivate() {
                 this.working = true
 
-                axios.delete(`/totem/tasks/status/${this.task.id}`)
+                axios.delete(this.deactivateUrl)
                     .takeAtLeast(500)
                     .then(response => {
                         this.task = response.data
