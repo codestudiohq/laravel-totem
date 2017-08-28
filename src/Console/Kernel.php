@@ -39,14 +39,13 @@ class Kernel extends AppKernel
     protected function schedule(Schedule $schedule)
     {
         $this->prepareSchedule($schedule);
-        //        $schedule->command('inspire')
-        //            ->hourly()
-        //            ->timezone('America/Chicago');
 
         parent::schedule($schedule);
     }
 
     /**
+     * Get a list of all artisan commands.
+     *
      * @return array
      */
     public function getCommands()
@@ -56,6 +55,11 @@ class Kernel extends AppKernel
         });
     }
 
+    /**
+     * Prepare schedule from tasks.
+     *
+     * @param Schedule $schedule
+     */
     public function prepareSchedule(Schedule $schedule)
     {
         $tasks = $this->tasks->findAllActive();

@@ -119,6 +119,11 @@ class EloquentTaskRepository implements TaskInterface
         $task->fill(array_only($input, $task->getFillable()))->save();
 
         if ($input['type'] == 'frequency') {
+            foreach ($task->frequencies as $frequency) {
+                if (! in_array($frequency->interval, collect($input['frequencies'])->pluck('interval')->toArray())) {
+                    $frequency->delete();
+                }
+            }
             foreach ($input['frequencies'] as $_frequency) {
                 $frequency = $task->frequencies()->updateOrCreate(array_only($_frequency, ['task_id', 'label', 'interval']));
 
