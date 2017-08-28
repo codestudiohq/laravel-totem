@@ -8,6 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Messages\NexmoMessage;
 use Illuminate\Notifications\Messages\SlackMessage;
+use Illuminate\Notifications\Messages\SlackAttachment;
 
 class TaskCompleted extends Notification implements ShouldQueue
 {
@@ -59,23 +60,8 @@ class TaskCompleted extends Notification implements ShouldQueue
         return (new MailMessage)
                     ->subject($notifiable->description)
                     ->greeting('Hi,')
-                    ->line("We just finished running your task. {$notifiable->description}")
-                    ->line($this->output)
-                    ->line('Your Truly,')
-                    ->line('Laravel Totem');
-    }
-
-    /**
-     * Get the array representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
-    public function toArray($notifiable)
-    {
-        return [
-            //
-        ];
+                    ->line("{$notifiable->description} just finished running.")
+                    ->line($this->output);
     }
 
     /**
@@ -99,6 +85,11 @@ class TaskCompleted extends Notification implements ShouldQueue
     public function toSlack($notifiable)
     {
         return (new SlackMessage)
-            ->content($notifiable->description.' just finished running.');
+            ->content(config('app.name'))
+            ->attachment(function (SlackAttachment $attachment) use ($notifiable) {
+                $attachment
+                    ->title('Totem Task')
+                    ->content($notifiable->description.' just finished running.');
+            });
     }
 }
