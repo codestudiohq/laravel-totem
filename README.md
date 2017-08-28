@@ -15,7 +15,7 @@ Manage your `Laravel Schedule` from a pretty dashboard. Schedule your `Laravel C
 
 ## Documentation
 
-#### Installation
+#### Installing
 
 `Totem` requires Laravel v5.4 and above. Use composer to install totem to your Laravel project
 
@@ -40,6 +40,14 @@ php artisan migrate
 ```
 
 - Publish `Totem` assets to your public folder using the following command
+
+```    
+php artisan totem:assets
+```
+
+#### Updating
+
+Please republish totem assets after updating totem to a new version
 
 ```    
 php artisan totem:assets
@@ -78,21 +86,15 @@ All artisan commands can be scheduled. If you want to hide a command from Totem 
 protected $hidden = true;
 ```
 
-##### Use one of the following options if you are registering your commands in app/Console/Kernel in L5.4 and below 
-
-- Option 1 : Create a array variable, let's say `$artisanCommands` in your app/Providers/AppServiceProvider and list all your commands just like you would do in app/Console/Kernel class. Now in the register method add the following
-
-```
-$this->commands($this->artisanCommands);
-```
-
-- Option 2: Roll your own ConsoleServiceProvider in app/Providers, create a array variable, let's say `$artisanCommands` and list all your commands just like you would do in app/Console/Kernel class. Now in its register method add the following. Don't forget to add this new provider to config/app.php's providers array.
-
-```
-$this->commands($this->artisanCommands);
-```
-
 From L5.5 onwards all commands are auto registered, so this wouldn't be a problem.
+
+#### Console Command
+
+In addition to the dashboard, Totem provides an artisan command to view a list of scheduled task.
+
+```    
+php artisan schedule:list
+```
 
 ### Screenshots
 
@@ -101,6 +103,12 @@ From L5.5 onwards all commands are auto registered, so this wouldn't be a proble
 
 ##### Task Details
 <img src="https://github.com/codestudeo/laravel-totem/blob/master/public/img/screenshots/task-details.png?raw=true" alt="Task List"/>
+
+##### Edit Task
+<img src="https://github.com/codestudeo/laravel-totem/blob/master/public/img/screenshots/edit-task.png?raw=true" alt="Task List"/>
+
+##### Artisan Command to view scheduled tasks
+<img src="https://github.com/codestudeo/laravel-totem/blob/master/public/img/screenshots/artisan.png?raw=true" alt="Task List"/>
  
 ## Changelog
 
