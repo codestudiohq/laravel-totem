@@ -50,10 +50,7 @@ class TotemServiceProvider extends ServiceProvider
         $this->app->register(TotemEventServiceProvider::class);
 
         if (Schema::hasTable('tasks')) {
-            $this->app->singleton(
-                'Illuminate\Contracts\Console\Kernel',
-                'Studio\Totem\Console\Kernel'
-            );
+            $this->app->register(ConsoleServiceProvider::class);
         }
 
         $this->mergeConfigFrom(

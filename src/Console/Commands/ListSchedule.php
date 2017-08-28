@@ -51,11 +51,11 @@ class ListSchedule extends Command
         if (count($this->schedule->events()) > 0) {
             $events = collect($this->schedule->events())->map(function ($event) {
                 return [
-                    'description'   => $event->description,
+                    'description'   => $event->description ?: 'N/A',
                     'command'       => ltrim(strtok(str_after($event->command, "'artisan'"), ' ')),
                     'schedule'      => $event->expression,
                     'upcoming'      => $this->upcoming($event),
-                    'timezone'      => $event->timezone,
+                    'timezone'      => $event->timezone ?: config('app.timezone'),
                     'overlaps'      => $event->withoutOverlapping ? 'No' : 'Yes',
                     'maintenance'   => $event->evenInMaintenanceMode ? 'Yes' : 'No',
                 ];

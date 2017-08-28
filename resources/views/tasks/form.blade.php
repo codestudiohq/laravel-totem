@@ -4,7 +4,7 @@
     - {{ $task->exists ? 'Update' : 'Create'}} Task
 @stop
 @section('main-panel-before')
-    <form action="{{ request()->fullUrl() }}" method="POST" class="uk-form-horizontal">
+    <form action="{{ request()->fullUrl() }}" method="POST">
         {{csrf_field()}}
 @stop
 @section('title')
@@ -13,20 +13,26 @@
     </div>
 @stop
 @section('main-panel-content')
-    <div class="uk-margin">
-        <label class="uk-form-label">Description</label>
-        <div class="uk-form-controls">
-            <input class="uk-input" placeholder="A brief description" name="description" id="description" value="{{old('description', $task->description)}}" type="text">
+    <div class="uk-grid">
+        <div class="uk-width-1-3">
+            <label class="uk-form-label">Description</label>
+            <div class="uk-text-meta">Provide a descriptive name for your task</div>
+        </div>
+        <div class="uk-width-2-3">
+            <input class="uk-input" placeholder="e.g. Daily Backups" name="description" id="description" value="{{old('description', $task->description)}}" type="text">
             @if($errors->has('description'))
                 <p class="uk-text-danger">{{$errors->first('description')}}</p>
             @endif
         </div>
     </div>
-    <div class="uk-margin">
-        <label class="uk-form-label">Command</label>
-        <div class="uk-form-controls">
+    <div class="uk-grid">
+        <div class="uk-width-1-3">
+            <label class="uk-form-label">Command</label>
+            <div class="uk-text-meta">Select an artisan command to schedule</div>
+        </div>
+        <div class="uk-width-2-3">
             <select id="command" name="command" class="uk-select" placeholder="Click here to select one of the available commands">
-                <option value="">Click here to select one of the available commands</option>
+                <option value="">Select a command</option>
                 @foreach ($commands as $command)
                     <option value="{{$command->getName()}}" {{old('command', $task->command) == $command->getName() ? 'selected' : ''}}>{{$command->getDescription()}}</option>
                 @endforeach
@@ -36,16 +42,23 @@
             @endif
         </div>
     </div>
-    <div class="uk-margin">
-        <label class="uk-form-label">Parameters</label>
-        <div class="uk-form-controls">
-            <input class="uk-input" placeholder="Any command parameters required to run the selected command" name="parameters" id="parameters" value="{{old('parameters', $task->parameters)}}" type="text">
+    <div class="uk-grid">
+        <div class="uk-width-1-3">
+            <label class="uk-form-label">Parameters (Optional)</label>
+            <div class="uk-text-meta">Command parameters required to run the selected command</div>
+        </div>
+        <div class="uk-width-2-3">
+            <input class="uk-input" placeholder="e.g. --type=all" name="parameters" id="parameters" value="{{old('parameters', $task->parameters)}}" type="text">
         </div>
     </div>
-    <div class="uk-margin">
-        <label class="uk-form-label">Timezone</label>
-        <div class="uk-form-controls">
-            <select id="timezone" name="timezone" class="uk-select" placeholder="Click here to select one of the available commands">
+    <hr class="uk-divider-icon">
+    <div class="uk-grid">
+        <div class="uk-width-1-3">
+            <label class="uk-form-label">Timezone</label>
+            <div class="uk-text-meta">Select a timezone for your task. App timezone is selected by default</div>
+        </div>
+        <div class="uk-width-2-3">
+            <select id="timezone" name="timezone" class="uk-select" placeholder="Select a timezone">
                 @foreach ($timezones as $key => $timezone)
                     <option value="{{$timezone}}" {{old('timezone', $task->exists ? $task->timezone :  config('app.timezone')) == $timezone ? 'selected' : ''}}>{{$timezone}}</option>
                 @endforeach
@@ -53,10 +66,13 @@
         </div>
     </div>
     <task-type inline-template current="{{old('type', $task->expression ? 'expression' : 'frequency')}}" :existing="{{old('frequencies') ? json_encode(old('frequencies')) : $task->frequencies}}" >
-        <div>
-            <div class="uk-margin">
-                <div class="uk-form-label">Type</div>
-                <div class="uk-form-controls uk-form-controls-text">
+        <div class="uk-margin">
+            <div class="uk-grid">
+                <div class="uk-width-1-3">
+                    <div class="uk-form-label">Type</div>
+                    <div class="uk-text-meta">Choose whether to define a cron expression or to add frequencies</div>
+                </div>
+                <div class="uk-width-2-3 uk-form-controls-text">
                     <label>
                         <input type="radio" name="type" v-model="type" value="expression"> Expression
                     </label><br>
@@ -65,18 +81,24 @@
                     </label>
                 </div>
             </div>
-            <div class="uk-margin" v-if="isCron">
-                <label class="uk-form-label">Cron Expression</label>
-                <div class="uk-form-controls">
+            <div class="uk-grid" v-if="isCron">
+                <div class="uk-width-1-3">
+                    <label class="uk-form-label">Cron Expression</label>
+                    <div class="uk-text-meta">Add a cron expression for your task</div>
+                </div>
+                <div class="uk-width-2-3">
                     <input class="uk-input" placeholder="e.g * * * * * to run this task all the time" name="expression" id="expression" value="{{old('expression', $task->expression)}}" type="text">
                     @if($errors->has('expression'))
                         <p class="uk-text-danger">{{$errors->first('expression')}}</p>
                     @endif
                 </div>
             </div>
-            <div class="uk-margin" v-if="managesFrequencies">
-                <label class="uk-form-label"></label>
-                <div class="uk-form-controls">
+            <div class="uk-grid" v-if="managesFrequencies">
+                <div class="uk-width-1-3">
+                    <label class="uk-form-label">Frequencies</label>
+                    <div class="uk-text-meta">Add frequencies to your task. These frequencies will be converted into a cron expression while scheduling the task</div>
+                </div>
+                <div class="uk-width-2-3">
                     <a class="uk-button uk-button-small uk-button-link" @click.self.prevent="showModal = true">Add Frequency</a>
                     @include('totem::dialogs.frequencies.add')
                     <table class="uk-table uk-table-divider uk-margin-remove">
@@ -128,36 +150,51 @@
             </div>
         </div>
     </task-type>
-    <div class="uk-margin">
-        <label class="uk-form-label">Email Notification</label>
-        <div class="uk-form-controls">
-            <input type="text" id="email" name="notification_email_address" value="{{old('notification_email_address', $task->notification_email_address)}}" class="uk-input" placeholder="Leave empty if you do not wish to receive email notifications">
+    <hr class="uk-divider-icon">
+    <div class="uk-grid">
+        <div class="uk-width-1-3">
+            <label class="uk-form-label">Email Notification (optional)</label>
+            <div class="uk-text-meta">Add an email address to receive notifications when this task gets executed. Leave empty if you do not wish to receive email notifications</div>
+        </div>
+        <div class="uk-width-2-3">
+            <input type="text" id="email" name="notification_email_address" value="{{old('notification_email_address', $task->notification_email_address)}}" class="uk-input" placeholder="e.g. john.doe@name.tld">
             @if($errors->has('notification_email_address'))
                 <p class="uk-text-danger">{{$errors->first('notification_email_address')}}</p>
             @endif
         </div>
     </div>
-    <div class="uk-margin">
-        <label class="uk-form-label">SMS Notification</label>
-        <div class="uk-form-controls">
-            <input type="text" id="phone" name="notification_phone_number" value="{{old('notification_phone_number', $task->notification_phone_number)}}" class="uk-input" placeholder="Leave empty if you do not wish to receive sms notifications">
+    <div class="uk-grid">
+        <div class="uk-width-1-3">
+            <label class="uk-form-label">SMS Notification (optional)</label>
+            <div class="uk-text-meta">Add a phone number to receive SMS notifications. Leave empty if you do not wish to receive sms notifications</div>
+        </div>
+        <div class="uk-width-2-3">
+            <input type="text" id="phone" name="notification_phone_number" value="{{old('notification_phone_number', $task->notification_phone_number)}}" class="uk-input" placeholder="e.g. 18701234567">
             @if($errors->has('notification_phone_number'))
                 <p class="uk-text-danger">{{$errors->first('notification_phone_number')}}</p>
             @endif
         </div>
     </div>
-    <div class="uk-margin">
-        <label class="uk-form-label">Slack Notification</label>
-        <div class="uk-form-controls">
-            <input type="text" id="slack" name="notification_slack_webhook" value="{{old('notification_slack_webhook', $task->notification_slack_webhook)}}" class="uk-input" placeholder="Leave empty if you do not wish to receive slack notifications">
+    <div class="uk-grid">
+        <div class="uk-width-1-3">
+            <label class="uk-form-label">Slack Notification (optional)</label>
+            <div class="uk-text-meta">Add a slack web hook url to recieve slack notifications. Phone numbers should include country code and are digits only. Leave empty if you do not wish to receive slack notifications</div>
+        </div>
+        <div class="uk-width-2-3">
+            <input type="text" id="slack" name="notification_slack_webhook" value="{{old('notification_slack_webhook', $task->notification_slack_webhook)}}" class="uk-input" placeholder="e.g. https://hooks.slack.com/TXXXXX/BXXXXX/XXXXXXXXXX">
             @if($errors->has('notification_slack_webhook'))
                 <p class="uk-text-danger">{{$errors->first('notification_slack_webhook')}}</p>
             @endif
         </div>
     </div>
-    <div class="uk-margin">
-        <div class="uk-form-label"></div>
-        <div class="uk-form-controls uk-form-controls-text">
+    <hr class="uk-divider-icon">
+    <div class="uk-grid">
+        <div class="uk-width-1-3">
+            <div class="uk-form-controls">Miscellaneous Options</div>
+            <div class="uk-text-meta">Decide whether multiple instances of same task should overlap each other or not.</div>
+            <div class="uk-text-meta">Decide whether the task should be executed while the app is in maintenance mode.</div>
+        </div>
+        <div class="uk-width-2-3 uk-form-controls-text">
             <label>
                 <input type="hidden" name="dont_overlap" id="dont_overlap" value="0" {{old('dont_overlap', $task->dont_overlap) ? '' : 'checked'}}>
                 <input type="checkbox" name="dont_overlap" id="dont_overlap" value="1" {{old('dont_overlap', $task->dont_overlap) ? 'checked' : ''}}>
