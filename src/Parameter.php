@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Parameter extends Model
 {
-    protected $table = 'frequency_parameters';
+    protected $table = 'totem_frequency_parameters';
 
     protected $fillable = [
         'name',

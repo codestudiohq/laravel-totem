@@ -49,7 +49,7 @@ class TotemServiceProvider extends ServiceProvider
         $this->app->register(TotemRouteServiceProvider::class);
         $this->app->register(TotemEventServiceProvider::class);
 
-        if (Schema::hasTable('tasks')) {
+        if (Schema::hasTable('totem_tasks')) {
             $this->app->singleton(
                 'Illuminate\Contracts\Console\Kernel',
                 'Studio\Totem\Console\Kernel'

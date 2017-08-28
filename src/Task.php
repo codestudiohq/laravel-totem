@@ -11,6 +11,8 @@ class Task extends Model
 {
     use ManagesFrequencies, Notifiable;
 
+    protected $table = 'totem_tasks';
+
     protected $fillable = [
         'description',
         'command',

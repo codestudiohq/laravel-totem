@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTaskResultsTable extends Migration
+class CreateTotemTaskFrequenciesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateTaskResultsTable extends Migration
      */
     public function up()
     {
-        Schema::create('task_results', function (Blueprint $table) {
+        Schema::create('totem_task_frequencies', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('task_id');
-            $table->timestamp('ran_at')->useCurrent();
-            $table->string('duration');
-            $table->longText('result');
+            $table->string('label');
+            $table->string('interval');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateTaskResultsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('task_results');
+        Schema::dropIfExists('totem_task_frequencies');
     }
 }

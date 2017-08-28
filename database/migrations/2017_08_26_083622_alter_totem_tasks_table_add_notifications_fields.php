@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlterTasksTableAddNotificationsFields extends Migration
+class AlterTotemTasksTableAddNotificationsFields extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AlterTasksTableAddNotificationsFields extends Migration
      */
     public function up()
     {
-        Schema::table('tasks', function (Blueprint $table) {
+        Schema::table('totem_tasks', function (Blueprint $table) {
             $table->string('notification_phone_number')->nullable()->after('notification_email_address');
             $table->string('notification_slack_webhook')->nullable()->after('notification_phone_number');
         });
@@ -26,7 +26,7 @@ class AlterTasksTableAddNotificationsFields extends Migration
      */
     public function down()
     {
-        Schema::table('tasks', function (Blueprint $table) {
+        Schema::table('totem_tasks', function (Blueprint $table) {
             $table->dropColumn('notification_phone_number');
             $table->dropColumn('notification_slack_webhook');
         });
