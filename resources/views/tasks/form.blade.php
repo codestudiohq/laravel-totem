@@ -14,11 +14,11 @@
 @stop
 @section('main-panel-content')
     <div class="uk-grid">
-        <div class="uk-width-1-3">
+        <div class="uk-width-1-1@s uk-width-1-3@m">
             <label class="uk-form-label">Description</label>
             <div class="uk-text-meta">Provide a descriptive name for your task</div>
         </div>
-        <div class="uk-width-2-3">
+        <div class="uk-width-1-1@s uk-width-2-3@m">
             <input class="uk-input" placeholder="e.g. Daily Backups" name="description" id="description" value="{{old('description', $task->description)}}" type="text">
             @if($errors->has('description'))
                 <p class="uk-text-danger">{{$errors->first('description')}}</p>
@@ -26,11 +26,11 @@
         </div>
     </div>
     <div class="uk-grid">
-        <div class="uk-width-1-3">
+        <div class="uk-width-1-1@s uk-width-1-3@m">
             <label class="uk-form-label">Command</label>
             <div class="uk-text-meta">Select an artisan command to schedule</div>
         </div>
-        <div class="uk-width-2-3">
+        <div class="uk-width-1-1@s uk-width-2-3@m">
             <select id="command" name="command" class="uk-select" placeholder="Click here to select one of the available commands">
                 <option value="">Select a command</option>
                 @foreach ($commands as $command)
@@ -43,21 +43,21 @@
         </div>
     </div>
     <div class="uk-grid">
-        <div class="uk-width-1-3">
+        <div class="uk-width-1-1@s uk-width-1-3@m">
             <label class="uk-form-label">Parameters (Optional)</label>
             <div class="uk-text-meta">Command parameters required to run the selected command</div>
         </div>
-        <div class="uk-width-2-3">
+        <div class="uk-width-1-1@s uk-width-2-3@m">
             <input class="uk-input" placeholder="e.g. --type=all" name="parameters" id="parameters" value="{{old('parameters', $task->parameters)}}" type="text">
         </div>
     </div>
     <hr class="uk-divider-icon">
     <div class="uk-grid">
-        <div class="uk-width-1-3">
+        <div class="uk-width-1-1@s uk-width-1-3@m">
             <label class="uk-form-label">Timezone</label>
             <div class="uk-text-meta">Select a timezone for your task. App timezone is selected by default</div>
         </div>
-        <div class="uk-width-2-3">
+        <div class="uk-width-1-1@s uk-width-2-3@m">
             <select id="timezone" name="timezone" class="uk-select" placeholder="Select a timezone">
                 @foreach ($timezones as $key => $timezone)
                     <option value="{{$timezone}}" {{old('timezone', $task->exists ? $task->timezone :  config('app.timezone')) == $timezone ? 'selected' : ''}}>{{$timezone}}</option>
@@ -68,11 +68,11 @@
     <task-type inline-template current="{{old('type', $task->expression ? 'expression' : 'frequency')}}" :existing="{{old('frequencies') ? json_encode(old('frequencies')) : $task->frequencies}}" >
         <div class="uk-margin">
             <div class="uk-grid">
-                <div class="uk-width-1-3">
+                <div class="uk-width-1-1@s uk-width-1-3@m">
                     <div class="uk-form-label">Type</div>
                     <div class="uk-text-meta">Choose whether to define a cron expression or to add frequencies</div>
                 </div>
-                <div class="uk-width-2-3 uk-form-controls-text">
+                <div class="uk-width-1-1@s uk-width-2-3@m uk-form-controls-text">
                     <label>
                         <input type="radio" name="type" v-model="type" value="expression"> Expression
                     </label><br>
@@ -82,11 +82,11 @@
                 </div>
             </div>
             <div class="uk-grid" v-if="isCron">
-                <div class="uk-width-1-3">
+                <div class="uk-width-1-1@s uk-width-1-3@m">
                     <label class="uk-form-label">Cron Expression</label>
                     <div class="uk-text-meta">Add a cron expression for your task</div>
                 </div>
-                <div class="uk-width-2-3">
+                <div class="uk-width-1-1@s uk-width-2-3@m">
                     <input class="uk-input" placeholder="e.g * * * * * to run this task all the time" name="expression" id="expression" value="{{old('expression', $task->expression)}}" type="text">
                     @if($errors->has('expression'))
                         <p class="uk-text-danger">{{$errors->first('expression')}}</p>
@@ -94,11 +94,11 @@
                 </div>
             </div>
             <div class="uk-grid" v-if="managesFrequencies">
-                <div class="uk-width-1-3">
+                <div class="uk-width-1-1@s uk-width-1-3@m">
                     <label class="uk-form-label">Frequencies</label>
                     <div class="uk-text-meta">Add frequencies to your task. These frequencies will be converted into a cron expression while scheduling the task</div>
                 </div>
-                <div class="uk-width-2-3">
+                <div class="uk-width-1-1@s uk-width-2-3@m">
                     <a class="uk-button uk-button-small uk-button-link" @click.self.prevent="showModal = true">Add Frequency</a>
                     @include('totem::dialogs.frequencies.add')
                     <table class="uk-table uk-table-divider uk-margin-remove">
@@ -152,11 +152,11 @@
     </task-type>
     <hr class="uk-divider-icon">
     <div class="uk-grid">
-        <div class="uk-width-1-3">
+        <div class="uk-width-1-1@s uk-width-1-3@m">
             <label class="uk-form-label">Email Notification (optional)</label>
             <div class="uk-text-meta">Add an email address to receive notifications when this task gets executed. Leave empty if you do not wish to receive email notifications</div>
         </div>
-        <div class="uk-width-2-3">
+        <div class="uk-width-1-1@s uk-width-2-3@m">
             <input type="text" id="email" name="notification_email_address" value="{{old('notification_email_address', $task->notification_email_address)}}" class="uk-input" placeholder="e.g. john.doe@name.tld">
             @if($errors->has('notification_email_address'))
                 <p class="uk-text-danger">{{$errors->first('notification_email_address')}}</p>
@@ -164,11 +164,11 @@
         </div>
     </div>
     <div class="uk-grid">
-        <div class="uk-width-1-3">
+        <div class="uk-width-1-1@s uk-width-1-3@m">
             <label class="uk-form-label">SMS Notification (optional)</label>
             <div class="uk-text-meta">Add a phone number to receive SMS notifications. Leave empty if you do not wish to receive sms notifications</div>
         </div>
-        <div class="uk-width-2-3">
+        <div class="uk-width-1-1@s uk-width-2-3@m">
             <input type="text" id="phone" name="notification_phone_number" value="{{old('notification_phone_number', $task->notification_phone_number)}}" class="uk-input" placeholder="e.g. 18701234567">
             @if($errors->has('notification_phone_number'))
                 <p class="uk-text-danger">{{$errors->first('notification_phone_number')}}</p>
@@ -176,11 +176,11 @@
         </div>
     </div>
     <div class="uk-grid">
-        <div class="uk-width-1-3">
+        <div class="uk-width-1-1@s uk-width-1-3@m">
             <label class="uk-form-label">Slack Notification (optional)</label>
             <div class="uk-text-meta">Add a slack web hook url to recieve slack notifications. Phone numbers should include country code and are digits only. Leave empty if you do not wish to receive slack notifications</div>
         </div>
-        <div class="uk-width-2-3">
+        <div class="uk-width-1-1@s uk-width-2-3@m">
             <input type="text" id="slack" name="notification_slack_webhook" value="{{old('notification_slack_webhook', $task->notification_slack_webhook)}}" class="uk-input" placeholder="e.g. https://hooks.slack.com/TXXXXX/BXXXXX/XXXXXXXXXX">
             @if($errors->has('notification_slack_webhook'))
                 <p class="uk-text-danger">{{$errors->first('notification_slack_webhook')}}</p>
@@ -189,22 +189,27 @@
     </div>
     <hr class="uk-divider-icon">
     <div class="uk-grid">
-        <div class="uk-width-1-3">
-            <div class="uk-form-controls">Miscellaneous Options</div>
-            <div class="uk-text-meta">Decide whether multiple instances of same task should overlap each other or not.</div>
-            <div class="uk-text-meta">Decide whether the task should be executed while the app is in maintenance mode.</div>
+        <div class="uk-width-1-1@s uk-width-1-3@m">
+            <div class="uk-form-label">Miscellaneous Options</div>
+            <ul class="uk-list uk-padding-remove">
+                <li class="uk-text-meta">Decide whether multiple instances of same task should overlap each other or not.</li>
+                <li class="uk-text-meta">Decide whether the task should be executed while the app is in maintenance mode.</li>
+            </ul>
         </div>
-        <div class="uk-width-2-3 uk-form-controls-text">
-            <label>
+        <div class="uk-width-1-1@s uk-width-2-3@m uk-form-controls-text">
+            <label class="uk-margin">
                 <input type="hidden" name="dont_overlap" id="dont_overlap" value="0" {{old('dont_overlap', $task->dont_overlap) ? '' : 'checked'}}>
                 <input type="checkbox" name="dont_overlap" id="dont_overlap" value="1" {{old('dont_overlap', $task->dont_overlap) ? 'checked' : ''}}>
                 Don't Overlap
-            </label><br>
-            <label>
-                <input type="hidden" name="run_in_maintenance" id="run_in_maintenance" value="0" {{old('run_in_maintenance', $task->run_in_maintenance) ? '' : 'checked'}}>
-                <input type="checkbox" name="run_in_maintenance" id="run_in_maintenance" value="1" {{old('run_in_maintenance', $task->run_in_maintenance) ? 'checked' : ''}}>
-                Run in maintenance mode
             </label>
+
+            <div class="uk-margin">
+                <label class="uk-margin">
+                    <input type="hidden" name="run_in_maintenance" id="run_in_maintenance" value="0" {{old('run_in_maintenance', $task->run_in_maintenance) ? '' : 'checked'}}>
+                    <input type="checkbox" name="run_in_maintenance" id="run_in_maintenance" value="1" {{old('run_in_maintenance', $task->run_in_maintenance) ? 'checked' : ''}}>
+                    Run in maintenance mode
+                </label>
+            </div>
         </div>
     </div>
 @stop
