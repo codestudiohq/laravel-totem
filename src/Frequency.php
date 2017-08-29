@@ -2,10 +2,13 @@
 
 namespace Studio\Totem;
 
+use Studio\Totem\Traits\HasParameters;
 use Illuminate\Database\Eloquent\Model;
 
 class Frequency extends Model
 {
+    use HasParameters;
+
     protected $table = 'task_frequencies';
 
     protected $fillable = [
@@ -19,13 +22,5 @@ class Frequency extends Model
     public function task()
     {
         return $this->belongsTo(Task::class);
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function parameters()
-    {
-        return $this->hasMany(Parameter::class);
     }
 }
