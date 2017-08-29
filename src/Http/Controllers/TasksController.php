@@ -4,7 +4,7 @@ namespace Studio\Totem\Http\Controllers;
 
 use Studio\Totem\Task;
 use Studio\Totem\Totem;
-use Studio\Totem\Console\Kernel;
+use Illuminate\Contracts\Console\Kernel;
 use Studio\Totem\Contracts\TaskInterface;
 use Studio\Totem\Http\Requests\TaskRequest;
 
@@ -55,7 +55,9 @@ class TasksController extends Controller
     {
         return view('totem::tasks.form', [
             'task'          => new Task,
-            'commands'      => $this->kernel->getCommands(),
+            'commands'      => collect($this->kernel->all())->sortBy(function ($command) {
+                return $command->getDescription();
+            }),
             'timezones'     => timezone_identifiers_list(),
             'frequencies'   => Totem::frequencies(),
         ]);
@@ -99,7 +101,9 @@ class TasksController extends Controller
     {
         return view('totem::tasks.form', [
             'task'          => $task,
-            'commands'      => $this->kernel->getCommands(),
+            'commands'      => collect($this->kernel->all())->sortBy(function ($command) {
+                return $command->getDescription();
+            }),
             'timezones'     => timezone_identifiers_list(),
             'frequencies'   => Totem::frequencies(),
         ]);

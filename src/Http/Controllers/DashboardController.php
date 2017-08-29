@@ -12,6 +12,5 @@ class DashboardController extends Controller
     public function index()
     {
         return redirect()->route('totem.tasks.all');
-        //        return view('totem::dashboard');
     }
 }
