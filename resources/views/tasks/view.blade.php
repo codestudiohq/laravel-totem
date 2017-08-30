@@ -26,8 +26,7 @@
         <li>
             <span class="uk-text-muted uk-float-right">Cron Expression</span>
             <span class="uk-float-left">
-                <span>{{$task->expression}}</span>
-                <span class="uk-margin-left">( <em>{{$task->frequencies->pluck('label')->implode(', ')}}</em> )</span>
+                <span>{{$task->getCronExpression()}}</span>
             </span>
         </li>
         <li>
