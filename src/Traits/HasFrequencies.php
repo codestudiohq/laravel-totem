@@ -67,7 +67,9 @@ trait HasFrequencies
      */
     public function beforeDelete()
     {
-        $this->frequencies()->delete();
+        $this->frequencies->each(function ($frequency) {
+            $frequency->delete();
+        });
 
         $this->results()->delete();
     }

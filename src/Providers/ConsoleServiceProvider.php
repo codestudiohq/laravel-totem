@@ -2,9 +2,9 @@
 
 namespace Studio\Totem\Providers;
 
+use Studio\Totem\Events\Executed;
+use Studio\Totem\Events\Executing;
 use Illuminate\Support\ServiceProvider;
-use Studio\Totem\Events\Tasks\Executed;
-use Studio\Totem\Events\Tasks\Executing;
 use Illuminate\Console\Scheduling\Schedule;
 
 class ConsoleServiceProvider extends ServiceProvider

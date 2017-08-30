@@ -7,12 +7,12 @@ use Studio\Totem\Events\Created;
 use Studio\Totem\Events\Deleted;
 use Studio\Totem\Events\Updated;
 use Studio\Totem\Events\Creating;
+use Studio\Totem\Events\Executed;
 use Studio\Totem\Events\Updating;
 use Studio\Totem\Events\Activated;
 use Studio\Totem\Events\Deactivated;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Artisan;
-use Studio\Totem\Events\Tasks\Executed;
 use Studio\Totem\Contracts\TaskInterface;
 
 class EloquentTaskRepository implements TaskInterface
