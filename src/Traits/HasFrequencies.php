@@ -45,7 +45,7 @@ trait HasFrequencies
     {
         $input = request()->all();
 
-        if ($input['type'] == 'frequency') {
+        if (isset($input['type']) && $input['type'] == 'frequency') {
             foreach ($this->frequencies as $frequency) {
                 if (! in_array($frequency->interval, collect($input['frequencies'])->pluck('interval')->toArray())) {
                     $frequency->delete();
