@@ -65,7 +65,7 @@ trait HasFrequencies
     /**
      * Task Deleted.
      */
-    public function beforeDeleted()
+    public function beforeDelete()
     {
         $this->frequencies()->delete();
 

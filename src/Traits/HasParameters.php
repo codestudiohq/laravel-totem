@@ -16,7 +16,7 @@ trait HasParameters
         });
 
         static::deleting(function ($model) {
-            $model->beforeDeleted();
+            $model->beforeDelete();
         });
     }
 
@@ -33,7 +33,7 @@ trait HasParameters
         }
     }
 
-    public function beforeDeleted()
+    public function beforeDelete()
     {
         $this->parameters()->delete();
     }
