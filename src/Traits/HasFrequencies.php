@@ -29,37 +29,19 @@ trait HasFrequencies
      */
     public static function bootHasFrequencies()
     {
-        static::created(function ($model) {
-            $model->afterCreated();
-        });
-
-        static::updated(function ($model) {
-            $model->afterUpdated();
+        static::saved(function ($model) {
+            $model->afterSave();
         });
 
         static::deleting(function ($model) {
-            $model->beforeDeleted();
+            $model->beforeDelete();
         });
-    }
-
-    /**
-     * Task Created.
-     */
-    public function afterCreated()
-    {
-        $input = request()->all();
-
-        if ($input['type'] == 'frequency') {
-            foreach ($input['frequencies'] as $_frequency) {
-                $this->frequencies()->create($_frequency);
-            }
-        }
     }
 
     /**
      * Task Updated.
      */
-    public function afterUpdated()
+    public function afterSave()
     {
         $input = request()->all();
 
@@ -71,17 +53,12 @@ trait HasFrequencies
             }
 
             foreach ($input['frequencies'] as $_frequency) {
-                $frequency = $this->frequencies()->updateOrCreate(array_only($_frequency, ['task_id', 'label', 'interval']));
-
-                $parameters = isset($_frequency['parameters']) ? $_frequency['parameters'] : [];
-                foreach ($parameters as $_parameter) {
-                    $frequency->parameters()->updateOrCreate($_parameter);
-                }
+                $this->frequencies()->updateOrCreate(array_only($_frequency, ['task_id', 'label', 'interval']));
             }
-            $this->expression = null;
-            $this->save();
         } else {
-            $this->frequencies()->delete();
+            $this->frequencies->each(function ($frequency) {
+                $frequency->delete();
+            });
         }
     }
 

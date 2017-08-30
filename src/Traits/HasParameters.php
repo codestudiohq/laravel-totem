@@ -11,12 +11,8 @@ trait HasParameters
      */
     public static function bootHasParameters()
     {
-        static::created(function ($model) {
-            $model->afterCreated();
-        });
-
-        static::updated(function ($model) {
-            $model->afterUpdated();
+        static::saved(function ($model) {
+            $model->afterSave();
         });
 
         static::deleting(function ($model) {
@@ -24,17 +20,17 @@ trait HasParameters
         });
     }
 
-    public function afterCreated()
+    public function afterSave()
     {
-        $input = collect(request()->only('frequencies'));
-        dd($input);
-//        if (isset($_frequency['parameters'])) {
-//            $this->parameters()->createMany($_frequency['parameters']);
-//        }
-    }
+        $frequency = collect(request()->input('frequencies'))->filter(function ($frequency) {
+            return $frequency['interval'] == $this->interval;
+        })->first();
 
-    public function afterUpdated()
-    {
+        if (isset($frequency['parameters'])) {
+            foreach ($frequency['parameters'] as $parameter) {
+                $this->parameters()->updateOrCreate(array_only($parameter, 'name'), $parameter);
+            }
+        }
     }
 
     public function beforeDeleted()

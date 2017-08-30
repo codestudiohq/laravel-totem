@@ -26,7 +26,7 @@ class TaskRequest extends FormRequest
         return [
             'description'                => 'required',
             'command'                    => 'required',
-            'expression'                 => 'required_if:type,expression|cron_expression',
+            'expression'                 => 'nullable|required_if:type,expression|cron_expression',
             'frequencies'                => 'required_if:type,frequency|array',
             'notification_email_address' => 'nullable|email',
             'notification_phone_number'  => 'nullable|digits_between:11,13',
@@ -52,5 +52,19 @@ class TaskRequest extends FormRequest
             'notification_phone_number.digits_between'        => 'Phone number should be between 11 and 13 digits including country code',
             'notification_slack_webhook.url'                  => 'Slack Webhook must be a valid url',
         ];
+    }
+
+    /**
+     * Get data to be validated from the request.
+     *
+     * @return array
+     */
+    protected function validationData()
+    {
+        if ($this->input('type') == 'frequency') {
+            $this->merge(['expression' => null]);
+        }
+
+        return $this->all();
     }
 }
