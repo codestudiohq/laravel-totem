@@ -4,6 +4,7 @@ import moment from 'moment'
 import Icon from './components/Icon.vue';
 import UIKitAlert from './components/UiKitAlert.vue'
 import TaskType from './tasks/components/TaskType.vue'
+import TaskOutput from './tasks/components/TaskOutput.vue'
 import StatusButton from './tasks/components/StatusButton.vue'
 import ExecuteButton from './tasks/components/ExecuteButton.vue'
 
@@ -46,7 +47,7 @@ new Vue({
         'uikit-alert'  : UIKitAlert,
         'status-button': StatusButton,
         'execute-button': ExecuteButton,
-        'task-type' : TaskType
-
+        'task-type' : TaskType,
+        'task-output' : TaskOutput
     }
 })

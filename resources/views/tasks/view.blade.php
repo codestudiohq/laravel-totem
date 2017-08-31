@@ -97,6 +97,7 @@
                     <tr>
                         <th>Executed At</th>
                         <th>Duration</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -104,6 +105,9 @@
                     <tr>
                         <td>{{$result->ran_at->toDateTimeString()}}</td>
                         <td>{{ number_format($result->duration / 1000 , 2)}} seconds</td>
+                        <td>
+                            <task-output output="{{nl2br($result->result)}}"></task-output>
+                        </td>
                     </tr>
                 @empty
                     <tr>
