@@ -1,5 +1,5 @@
 <template>
-    <transition >
+    <transition mode="out-in">
         <div class="uk-modal uk-flex-top" v-if="show" :class="{ 'uk-open uk-display-block': show}" @click="close">
             <div class="uk-modal-dialog uk-margin-auto-vertical" @click.stop>
                 <div class="uk-button uk-button-link uk-modal-close-default" @click="close">
@@ -30,11 +30,11 @@
             }
         },
         mounted() {
-//            document.addEventListener("keydown", (e) => {
-//                if (this.show && e.keyCode == 27) {
-//                    this.close();
-//                }
-//            });
+            document.addEventListener("keydown", (e) => {
+                if (this.show && e.keyCode == 27) {
+                    this.close();
+                }
+            });
         }
     }
 </script>
