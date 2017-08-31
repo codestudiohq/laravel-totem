@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="https://github.com/codestudeo/laravel-totem/blob/master/resources/assets/img/totem.png?raw=true" alt="Laravel Totem"/>
+  <img src="https://github.com/codestudiohq/laravel-totem/blob/master/resources/assets/img/totem.png?raw=true" alt="Laravel Totem"/>
 </p>
 <p align="center">
-<a href="https://travis-ci.org/codestudeo/laravel-totem"><img src="https://travis-ci.org/codestudeo/laravel-totem.svg" alt="Build Status"></a>
+<a href="https://travis-ci.org/codestudiohq/laravel-totem"><img src="https://travis-ci.org/codestudiohq/laravel-totem.svg" alt="Build Status"></a>
 <a href="https://styleci.io/repos/99050894"><img src="https://styleci.io/repos/99050894/shield?branch=master" alt="StyleCI"></a>
 <a href="https://packagist.org/packages/studio/laravel-totem"><img src="https://poser.pugx.org/studio/laravel-totem/license.svg" alt="License"></a>
 </p>
@@ -99,16 +99,16 @@ php artisan schedule:list
 ### Screenshots
 
 ##### Task List
-<img src="https://github.com/codestudeo/laravel-totem/blob/master/public/img/screenshots/tasks.png?raw=true" alt="Task List"/>
+<img src="https://github.com/codestudiohq/laravel-totem/blob/master/public/img/screenshots/tasks.png?raw=true" alt="Task List"/>
 
 ##### Task Details
-<img src="https://github.com/codestudeo/laravel-totem/blob/master/public/img/screenshots/task-details.png?raw=true" alt="Task List"/>
+<img src="https://github.com/codestudiohq/laravel-totem/blob/master/public/img/screenshots/task-details.png?raw=true" alt="Task List"/>
 
 ##### Edit Task
-<img src="https://github.com/codestudeo/laravel-totem/blob/master/public/img/screenshots/edit-task.png?raw=true" alt="Task List"/>
+<img src="https://github.com/codestudiohq/laravel-totem/blob/master/public/img/screenshots/edit-task.png?raw=true" alt="Task List"/>
 
 ##### Artisan Command to view scheduled tasks
-<img src="https://github.com/codestudeo/laravel-totem/blob/master/public/img/screenshots/artisan.png?raw=true" alt="Task List"/>
+<img src="https://github.com/codestudiohq/laravel-totem/blob/master/public/img/screenshots/artisan.png?raw=true" alt="Task List"/>
  
 ## Changelog
 
