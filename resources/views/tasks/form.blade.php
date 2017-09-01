@@ -48,7 +48,7 @@
             <div class="uk-text-meta">Command parameters required to run the selected command</div>
         </div>
         <div class="uk-width-1-1@s uk-width-2-3@m">
-            <input class="uk-input" placeholder="e.g. --type=all" name="parameters" id="parameters" value="{{old('parameters', $task->parameters)}}" type="text">
+            <input class="uk-input" placeholder="e.g. --type=all for options or name=John for arguments" name="parameters" id="parameters" value="{{old('parameters', $task->parameters)}}" type="text">
         </div>
     </div>
     <hr class="uk-divider-icon">
