@@ -2,6 +2,8 @@
 
 namespace Studio\Totem\Console;
 
+use Illuminate\Support\Facades\Artisan;
+
 class Kernel extends \Illuminate\Foundation\Console\Kernel
 {
     /**
@@ -13,13 +15,9 @@ class Kernel extends \Illuminate\Foundation\Console\Kernel
     {
         $this->bootstrap();
 
-        if (! $this->commandsLoaded) {
-            $this->commands();
+        $this->commands();
 
-            $this->commandsLoaded = true;
-        }
-
-        return collect($this->getArtisan()->all())->sortBy(function ($command) {
+        return collect(Artisan::all())->sortBy(function ($command) {
             return $command->getDescription();
         });
     }
@@ -31,11 +29,6 @@ class Kernel extends \Illuminate\Foundation\Console\Kernel
      */
     protected function commands()
     {
-        // TODO: remove this method while 5.5 branching
-        if (method_exists($this, 'load')) {
-            $this->load(base_path('app/Console/Commands'));
-        }
-
         if (file_exists(base_path('routes/console.php'))) {
             require base_path('routes/console.php');
         }
