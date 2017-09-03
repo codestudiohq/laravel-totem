@@ -42,7 +42,7 @@
   "extra": {
     "component": "package",
     "branch-alias": {
-      "dev-master": "1.0.x-dev"
+      "dev-2.0": "2.0.x-dev"
     },
     "laravel": {
       "providers": [
