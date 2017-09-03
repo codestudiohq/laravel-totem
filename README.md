@@ -88,6 +88,15 @@ protected $hidden = true;
 
 From L5.5 onwards all commands are auto registered, so this wouldn't be a problem.
 
+#### Command Parameters
+
+If your command requires arguments or options please use the optional command parameters field. You can provide parameters to your command as a string in the following manner
+
+```text
+name=john.doe --greetings='Welcome to the new world'
+```
+In the example above, name is an argument while greetings is an option
+
 #### Console Command
 
 In addition to the dashboard, Totem provides an artisan command to view a list of scheduled task.

@@ -14,9 +14,10 @@ class ConsoleServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function boot()
     {
-        $this->app->booted(function () {
+        // TODO: refactor this to resolving callback while 5.5 branching
+         $this->app->booted(function () {
             if ($this->app->runningInConsole()) {
                 $this->schedule($this->app->make(Schedule::class));
             }
@@ -33,7 +34,8 @@ class ConsoleServiceProvider extends ServiceProvider
         $tasks = app('totem.tasks')->findAllActive();
 
         $tasks->each(function ($task) use ($schedule) {
-            $event = $schedule->command($task->command.' '.$task->parameters);
+
+            $event = $schedule->command($task->command, $task->compileParameters(true));
 
             $event->cron($task->getCronExpression())
                 ->name($task->description)

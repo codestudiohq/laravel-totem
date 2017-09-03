@@ -176,17 +176,10 @@ class EloquentTaskRepository implements TaskInterface
     public function execute($id)
     {
         $task = $this->find($id);
-
         $start = microtime(true);
-
         try {
-            $parameters = collect(explode(' ', $task->parameters))->mapWithKeys(function ($parameter) {
-                $param = explode('=', $parameter);
+            Artisan::call($task->command, $task->compileParameters());
 
-                return count($param) > 1 ? [$param[0] => $param[1]] : $param;
-            })->toArray();
-
-            Artisan::call($task->command, $parameters);
             file_put_contents(storage_path($task->getMutexName()), Artisan::output());
         } catch (\Exception $e) {
             file_put_contents(storage_path($task->getMutexName()), $e->getMessage());

@@ -31,6 +31,7 @@ class Kernel extends \Illuminate\Foundation\Console\Kernel
      */
     protected function commands()
     {
+        // TODO: remove this method while 5.5 branching
         if (method_exists($this, 'load')) {
             $this->load(base_path('app/Console/Commands'));
         }

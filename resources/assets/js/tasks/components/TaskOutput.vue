@@ -7,7 +7,7 @@
             <div class="uk-modal-header">
                 <h3>Output</h3>
             </div>
-            <div class="uk-modal-body">
+            <div class="uk-modal-body uk-overflow-auto uk-height-max-large">
                 <div v-html="output"></div>
             </div>
             <div class="uk-modal-footer">

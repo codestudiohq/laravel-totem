@@ -61,6 +61,30 @@ class Task extends Model
     }
 
     /**
+     * Convert a string of command arguments and options to an array.
+     *
+     * @param bool $console if true will convert arguments to non associative array
+     * @return array
+     */
+    public function compileParameters($console = false)
+    {
+        if ($this->parameters) {
+            $regex = '/(?=\S)[^\'"\s]*(?:\'[^\']*\'[^\'"\s]*|"[^"]*"[^\'"\s]*)*/';
+            preg_match_all($regex, $this->parameters, $matches, PREG_SET_ORDER, 0);
+
+            $parameters = collect($matches)->mapWithKeys(function ($parameter) use ($console) {
+                $param = explode('=', $parameter[0]);
+
+                return count($param) > 1 ? ($console ? ((starts_with($param[0], '--') ? [$param[0] => $param[1]] : [$param[1]])) : [$param[0] => $param[1]]) : $param;
+            })->toArray();
+
+            return $parameters;
+        }
+
+        return [];
+    }
+
+    /**
      * Results Relation.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
