@@ -17,7 +17,7 @@ Manage your `Laravel Schedule` from a pretty dashboard. Schedule your `Laravel C
 
 #### Compatiblity Matrix
 
-|<p align="left">Laravel</p> |    Totem  | 
+|<span align="left">Laravel</span> |<span align="left">Totem</span>| 
 |:-------|----------:|
 |master  |     master|
 |5.5     |     2.0   |
