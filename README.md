@@ -9,8 +9,6 @@
 
 # Introduction
 
-> `Laravel Totem` is in its `Alpha` state. Its still a work in progress. Please proceed with caution and on your own risk.
-
 Manage your `Laravel Schedule` from a pretty dashboard. Schedule your `Laravel Console Commands` to your liking. Enable/Disable scheduled tasks on the fly without going back to your code again.
 
 ## Documentation
