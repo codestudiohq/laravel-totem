@@ -4,7 +4,7 @@ namespace Studio\Totem\Http\Controllers;
 
 use Studio\Totem\Task;
 use Studio\Totem\Totem;
-use Studio\Totem\Console\Kernel;
+use Illuminate\Support\Facades\Artisan;
 use Studio\Totem\Contracts\TaskInterface;
 use Studio\Totem\Http\Requests\TaskRequest;
 
@@ -16,22 +16,15 @@ class TasksController extends Controller
     private $tasks;
 
     /**
-     * @var Kernel
-     */
-    private $kernel;
-
-    /**
      * TasksController constructor.
      *
      * @param TaskInterface $tasks
-     * @param Kernel $kernel
      */
-    public function __construct(TaskInterface $tasks, Kernel $kernel)
+    public function __construct(TaskInterface $tasks)
     {
         parent::__construct();
-        $this->tasks = $tasks;
 
-        $this->kernel = $kernel;
+        $this->tasks = $tasks;
     }
 
     /**
@@ -55,7 +48,9 @@ class TasksController extends Controller
     {
         return view('totem::tasks.form', [
             'task'          => new Task,
-            'commands'      => $this->kernel->all(),
+            'commands'      => collect(Artisan::all())->sortBy(function ($command) {
+                return $command->getDescription();
+            }),
             'timezones'     => timezone_identifiers_list(),
             'frequencies'   => Totem::frequencies(),
         ]);
@@ -99,7 +94,9 @@ class TasksController extends Controller
     {
         return view('totem::tasks.form', [
             'task'          => $task,
-            'commands'      => $this->kernel->all(),
+            'commands'      => collect(Artisan::all())->sortBy(function ($command) {
+                return $command->getDescription();
+            }),
             'timezones'     => timezone_identifiers_list(),
             'frequencies'   => Totem::frequencies(),
         ]);
