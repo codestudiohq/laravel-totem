@@ -80,7 +80,7 @@ class TasksController extends Controller
     public function view($task)
     {
         return view('totem::tasks.view', [
-            'task'  => $task,
+            'task'  => $this->tasks->find($task),
         ]);
     }
 
@@ -93,7 +93,7 @@ class TasksController extends Controller
     public function edit($task)
     {
         return view('totem::tasks.form', [
-            'task'          => $task,
+            'task'          => $this->tasks->find($task),
             'commands'      => collect(Artisan::all())->sortBy(function ($command) {
                 return $command->getDescription();
             }),
