@@ -1,0 +1,10 @@
+@override-navbar-gradient: ''                    ;
+@override-navbar-nav-item-line-gradient: ''      ;
+
+.hook-navbar-container() when not (@override-navbar-gradient = ~'') {
+    background-image: @override-navbar-gradient;
+}
+
+.hook-navbar-nav-item-line() when not (@override-navbar-nav-item-line-gradient = ~'') {
+    background-image: @override-navbar-nav-item-line-gradient;
+}

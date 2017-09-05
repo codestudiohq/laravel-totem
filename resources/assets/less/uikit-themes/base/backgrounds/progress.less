@@ -1,0 +1,5 @@
+@override-progress-bar-gradient:               ;
+
+.hook-progress-bar() when not (@override-progress-bar-gradient = ~'') {
+    background-image: @override-progress-bar-gradient;
+}

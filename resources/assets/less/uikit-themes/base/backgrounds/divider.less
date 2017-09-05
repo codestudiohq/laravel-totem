@@ -1,0 +1,10 @@
+@override-divider-small-border-gradient: ''      ;
+
+.hook-divider-small() when not (@override-divider-small-border-gradient = ~'') {
+    border-image: @override-divider-small-border-gradient;
+    border-image-slice: 1;
+}
+
+.hook-inverse-divider-small() when not (@override-divider-small-border-gradient = ~'') {
+    border-image: none;
+}

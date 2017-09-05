@@ -1,0 +1,11 @@
+@override-overlay-default-gradient: ''           ;
+@override-overlay-primary-gradient: ''           ;
+
+.hook-overlay-default() when not (@override-overlay-default-gradient = ~'') {
+    background-image: @override-overlay-default-gradient;
+}
+
+.hook-overlay-primary() when not (@override-overlay-primary-gradient = ~'') {
+    background-image: @override-overlay-primary-gradient;
+}
+

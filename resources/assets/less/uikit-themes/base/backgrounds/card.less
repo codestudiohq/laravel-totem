@@ -1,0 +1,32 @@
+@override-card-default-gradient: ''              ;
+@override-card-default-hover-gradient: ''        ;
+
+@override-card-primary-gradient: ''              ;
+@override-card-primary-hover-gradient: ''        ;
+
+@override-card-secondary-gradient: ''            ;
+@override-card-secondary-hover-gradient: ''      ;
+
+.hook-card-default() when not (@override-card-default-gradient = ~'') {
+    background-image: @override-card-default-gradient;
+}
+
+.hook-card-default-hover() when not (@override-card-default-hover-gradient = ~'') {
+    background-image: @override-card-default-hover-gradient;
+}
+
+.hook-card-primary() when not (@override-card-primary-gradient = ~'') {
+    background-image: @override-card-primary-gradient;
+}
+
+.hook-card-primary-hover() when not (@override-card-primary-hover-gradient = ~'') {
+    background-image: @override-card-primary-hover-gradient;
+}
+
+.hook-card-secondary() when not (@override-card-secondary-gradient = ~'') {
+    background-image: @override-card-secondary-gradient;
+}
+
+.hook-card-secondary-hover() when not (@override-card-secondary-hover-gradient = ~'') {
+    background-image: @override-card-secondary-hover-gradient;
+}

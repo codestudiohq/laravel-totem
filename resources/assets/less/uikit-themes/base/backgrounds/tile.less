@@ -1,0 +1,57 @@
+@override-tile-default-gradient:               ;
+@override-tile-muted-gradient:                 ;
+@override-tile-primary-gradient:               ;
+@override-tile-secondary-gradient:             ;
+
+@override-tile-default-image:                  ;
+@override-tile-muted-image:                    ;
+@override-tile-primary-image:                  ;
+@override-tile-secondary-image:                ;
+
+.hook-tile-default() when not (@override-tile-default-gradient = ~'') and (@override-tile-default-image = ~'') {
+    background-image: @override-tile-default-gradient;
+}
+
+.hook-tile-default() when not (@override-tile-default-image = ~'') and (@override-tile-default-gradient = ~'') {
+    background-image: url("@{override-tile-default-image}");
+}
+
+.hook-tile-default() when not (@override-tile-default-gradient = ~'') and not (@override-tile-default-image = ~'') {
+    background-image: url("@{override-tile-default-image}"), @override-tile-default-gradient;
+}
+
+.hook-tile-muted() when not (@override-tile-muted-gradient = ~'') and (@override-tile-muted-image = ~'') {
+    background-image: @override-tile-muted-gradient;
+}
+
+.hook-tile-muted() when not (@override-tile-muted-image = ~'') and (@override-tile-muted-gradient = ~'') {
+    background-image: url("@{override-tile-muted-image}");
+}
+
+.hook-tile-muted() when not (@override-tile-muted-gradient = ~'') and not (@override-tile-muted-image = ~'') {
+    background-image: url("@{override-tile-muted-image}"), @override-tile-muted-gradient;
+}
+
+.hook-tile-primary() when not (@override-tile-primary-gradient = ~'') and (@override-tile-primary-image = ~'') {
+    background-image: @override-tile-primary-gradient;
+}
+
+.hook-tile-primary() when not (@override-tile-primary-image = ~'') and (@override-tile-primary-gradient = ~'') {
+    background-image: url("@{override-tile-primary-image}");
+}
+
+.hook-tile-primary() when not (@override-tile-primary-gradient = ~'') and not (@override-tile-primary-image = ~'') {
+    background-image: url("@{override-tile-primary-image}"), @override-tile-primary-gradient;
+}
+
+.hook-tile-secondary() when not (@override-tile-secondary-gradient = ~'') and (@override-tile-secondary-image = ~'') {
+    background-image: @override-tile-secondary-gradient;
+}
+
+.hook-tile-secondary() when not (@override-tile-secondary-image = ~'') and (@override-tile-secondary-gradient = ~'') {
+    background-image: url("@{override-tile-secondary-image}");
+}
+
+.hook-tile-secondary() when not (@override-tile-secondary-gradient = ~'') and not (@override-tile-secondary-image = ~'') {
+    background-image: url("@{override-tile-secondary-image}"), @override-tile-secondary-gradient;
+}

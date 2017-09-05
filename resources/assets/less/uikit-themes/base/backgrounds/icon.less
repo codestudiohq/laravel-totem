@@ -1,0 +1,30 @@
+@override-icon-button-gradient: ''                ;
+@override-icon-button-hover-gradient: ''          ;
+@override-icon-button-active-gradient: ''         ;
+
+.hook-icon-button() when not (@override-icon-button-gradient = ~'') {
+    background-image: @override-icon-button-gradient;
+}
+
+.hook-icon-button-hover() when not (@override-icon-button-hover-gradient = ~'') {
+    background-image: @override-icon-button-hover-gradient;
+}
+
+.hook-icon-button-hover() when (@override-icon-button-hover-gradient = ~'') and not (@override-icon-button-gradient = ~'') {
+    background-image: none;
+}
+
+.hook-icon-button-active() when not (@override-icon-button-active-gradient = ~'') {
+    background-image: @override-icon-button-active-gradient;
+}
+
+.hook-icon-button-active() when (@override-icon-button-active-gradient = ~'') and not (@override-icon-button-gradient = ~''),
+                                   (@override-icon-button-active-gradient = ~'') and not (@override-icon-button-hover-gradient = ~'') {
+    background-image: none;
+}
+
+.hook-inverse-icon-button() when not (@override-button-default-gradient = ~''),
+                                 not (@override-button-default-hover-gradient = ~''),
+                                 not (@override-button-default-active-gradient = ~'') {
+    background-image: none;
+}
