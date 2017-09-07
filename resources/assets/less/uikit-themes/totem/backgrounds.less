@@ -1,0 +1,498 @@
+// button
+@override-button-default-gradient:              ;
+@override-button-default-hover-gradient:        ;
+@override-button-default-active-gradient:       ;
+
+@override-button-primary-gradient:              ;
+@override-button-primary-hover-gradient:        ;
+@override-button-primary-active-gradient:       ;
+
+@override-button-secondary-gradient:            ;
+@override-button-secondary-hover-gradient:      ;
+@override-button-secondary-active-gradient:     ;
+
+@override-button-danger-gradient:               ;
+@override-button-danger-hover-gradient:         ;
+@override-button-danger-active-gradient:        ;
+
+.hook-button() { background-origin: border-box; }
+
+.hook-button-default() when not (@override-button-default-gradient = ~'') {
+  background-image: @override-button-default-gradient;
+}
+
+.hook-button-default-hover() when not (@override-button-default-hover-gradient = ~'') {
+  background-image: @override-button-default-hover-gradient;
+}
+
+.hook-button-default-hover() when (@override-button-default-hover-gradient = ~'') and not (@override-button-default-gradient = ~'') {
+  background-image: none;
+}
+
+.hook-button-default-active() when not (@override-button-default-active-gradient = ~'') {
+  background-image: @override-button-default-active-gradient;
+}
+
+.hook-button-default-active() when (@override-button-default-active-gradient = ~'') and not (@override-button-default-gradient = ~''),
+  (@override-button-default-active-gradient = ~'') and not (@override-button-default-hover-gradient = ~'') {
+  background-image: none;
+}
+
+.hook-button-primary() when not (@override-button-primary-gradient = ~'') {
+  background-image: @override-button-primary-gradient;
+}
+
+.hook-button-primary-hover() when not (@override-button-primary-hover-gradient = ~'') {
+  background-image: @override-button-primary-hover-gradient;
+}
+
+.hook-button-primary-hover() when (@override-button-primary-hover-gradient = ~'') and not (@override-button-primary-gradient = ~'') {
+  background-image: none;
+}
+
+.hook-button-primary-active() when not (@override-button-primary-active-gradient = ~'') {
+  background-image: @override-button-primary-active-gradient;
+}
+
+.hook-button-primary-active() when (@override-button-primary-active-gradient = ~'') and not (@override-button-primary-gradient = ~''),
+  (@override-button-primary-active-gradient = ~'') and not (@override-button-primary-hover-gradient = ~'') {
+  background-image: none;
+}
+
+.hook-button-secondary() when not (@override-button-secondary-gradient = ~'') {
+  background-image: @override-button-secondary-gradient;
+}
+
+.hook-button-secondary-hover() when not (@override-button-secondary-hover-gradient = ~'') {
+  background-image: @override-button-secondary-hover-gradient;
+}
+
+.hook-button-secondary-hover() when (@override-button-secondary-hover-gradient = ~'') and not (@override-button-secondary-gradient = ~'') {
+  background-image: none;
+}
+
+.hook-button-secondary-active() when not (@override-button-secondary-active-gradient = ~'') {
+  background-image: @override-button-secondary-active-gradient;
+}
+
+.hook-button-secondary-active() when (@override-button-secondary-active-gradient = ~'') and not (@override-button-secondary-gradient = ~''),
+  (@override-button-secondary-active-gradient = ~'') and not (@override-button-secondary-hover-gradient = ~'') {
+  background-image: none;
+}
+
+.hook-button-danger() when not (@override-button-danger-gradient = ~'') {
+  background-image: @override-button-danger-gradient;
+}
+
+.hook-button-danger-hover() when not (@override-button-danger-hover-gradient = ~'') {
+  background-image: @override-button-danger-hover-gradient;
+}
+
+.hook-button-danger-hover() when (@override-button-danger-hover-gradient = ~'') and not (@override-button-danger-gradient = ~'') {
+  background-image: none;
+}
+
+.hook-button-danger-active() when not (@override-button-danger-active-gradient = ~'') {
+  background-image: @override-button-danger-active-gradient;
+}
+
+.hook-button-danger-active() when (@override-button-danger-active-gradient = ~'') and not (@override-button-danger-gradient = ~''),
+  (@override-button-danger-active-gradient = ~'') and not (@override-button-danger-hover-gradient = ~'') {
+  background-image: none;
+}
+
+.hook-button-disabled() { background-image: none; }
+
+.hook-inverse-button-default() when not (@override-button-default-gradient = ~''),
+not (@override-button-default-hover-gradient = ~''),
+not (@override-button-default-active-gradient = ~'') {
+  background-image: none;
+}
+
+.hook-inverse-button-primary() when not (@override-button-primary-gradient = ~''),
+not (@override-button-primary-hover-gradient = ~''),
+not (@override-button-primary-active-gradient = ~'') {
+  background-image: none;
+}
+
+.hook-inverse-button-secondary() when not (@override-button-secondary-gradient = ~''),
+not (@override-button-secondary-hover-gradient = ~''),
+not (@override-button-secondary-active-gradient = ~'') {
+  background-image: none;
+}
+
+// Card
+
+@override-card-default-gradient: ''              ;
+@override-card-default-hover-gradient: ''        ;
+
+@override-card-primary-gradient: ''              ;
+@override-card-primary-hover-gradient: ''        ;
+
+@override-card-secondary-gradient: ''            ;
+@override-card-secondary-hover-gradient: ''      ;
+
+.hook-card-default() when not (@override-card-default-gradient = ~'') {
+  background-image: @override-card-default-gradient;
+}
+
+.hook-card-default-hover() when not (@override-card-default-hover-gradient = ~'') {
+  background-image: @override-card-default-hover-gradient;
+}
+
+.hook-card-primary() when not (@override-card-primary-gradient = ~'') {
+  background-image: @override-card-primary-gradient;
+}
+
+.hook-card-primary-hover() when not (@override-card-primary-hover-gradient = ~'') {
+  background-image: @override-card-primary-hover-gradient;
+}
+
+.hook-card-secondary() when not (@override-card-secondary-gradient = ~'') {
+  background-image: @override-card-secondary-gradient;
+}
+
+.hook-card-secondary-hover() when not (@override-card-secondary-hover-gradient = ~'') {
+  background-image: @override-card-secondary-hover-gradient;
+}
+
+// divider
+@override-divider-small-border-gradient: ''      ;
+
+.hook-divider-small() when not (@override-divider-small-border-gradient = ~'') {
+  border-image: @override-divider-small-border-gradient;
+  border-image-slice: 1;
+}
+
+.hook-inverse-divider-small() when not (@override-divider-small-border-gradient = ~'') {
+  border-image: none;
+}
+
+// icon
+@override-icon-button-gradient: ''                ;
+@override-icon-button-hover-gradient: ''          ;
+@override-icon-button-active-gradient: ''         ;
+
+.hook-icon-button() when not (@override-icon-button-gradient = ~'') {
+  background-image: @override-icon-button-gradient;
+}
+
+.hook-icon-button-hover() when not (@override-icon-button-hover-gradient = ~'') {
+  background-image: @override-icon-button-hover-gradient;
+}
+
+.hook-icon-button-hover() when (@override-icon-button-hover-gradient = ~'') and not (@override-icon-button-gradient = ~'') {
+  background-image: none;
+}
+
+.hook-icon-button-active() when not (@override-icon-button-active-gradient = ~'') {
+  background-image: @override-icon-button-active-gradient;
+}
+
+.hook-icon-button-active() when (@override-icon-button-active-gradient = ~'') and not (@override-icon-button-gradient = ~''),
+  (@override-icon-button-active-gradient = ~'') and not (@override-icon-button-hover-gradient = ~'') {
+  background-image: none;
+}
+
+.hook-inverse-icon-button() when not (@override-button-default-gradient = ~''),
+not (@override-button-default-hover-gradient = ~''),
+not (@override-button-default-active-gradient = ~'') {
+  background-image: none;
+}
+
+// navbar
+
+@override-navbar-gradient: ''                    ;
+@override-navbar-nav-item-line-gradient: ''      ;
+
+.hook-navbar-container() when not (@override-navbar-gradient = ~'') {
+  background-image: @override-navbar-gradient;
+}
+
+.hook-navbar-nav-item-line() when not (@override-navbar-nav-item-line-gradient = ~'') {
+  background-image: @override-navbar-nav-item-line-gradient;
+}
+
+// Overlay
+
+@override-overlay-default-gradient: ''           ;
+@override-overlay-primary-gradient: ''           ;
+
+.hook-overlay-default() when not (@override-overlay-default-gradient = ~'') {
+  background-image: @override-overlay-default-gradient;
+}
+
+.hook-overlay-primary() when not (@override-overlay-primary-gradient = ~'') {
+  background-image: @override-overlay-primary-gradient;
+}
+
+// progress
+@override-progress-bar-gradient:               ;
+
+.hook-progress-bar() when not (@override-progress-bar-gradient = ~'') {
+  background-image: @override-progress-bar-gradient;
+}
+
+// section
+@override-section-default-gradient:                 ;
+@override-section-muted-gradient:                   ;
+@override-section-primary-gradient:                 ;
+@override-section-secondary-gradient:               ;
+
+@override-section-default-image:                    ;
+@override-section-muted-image:                      ;
+@override-section-primary-image:                    ;
+@override-section-secondary-image:                  ;
+
+@override-section-default-mode:                     none; // none, blend
+@override-section-muted-mode:                       none; // none, blend
+@override-section-primary-mode:                     none; // none, blend
+@override-section-secondary-mode:                   none; // none, blend
+
+@override-section-default-overlap-image:            ;
+@override-section-muted-overlap-image:              ;
+@override-section-primary-overlap-image:            ;
+@override-section-secondary-overlap-image:          ;
+@override-section-overlap-height:                   0;
+
+.hook-section-default() when not (@override-section-default-gradient = ~'') and (@override-section-default-image = ~'') {
+  background-image: @override-section-default-gradient;
+}
+
+.hook-section-default() when not (@override-section-default-image = ~'') and (@override-section-default-gradient = ~'') {
+  background-image: url("@{override-section-default-image}");
+  background-position-x: 50%;
+}
+
+.hook-section-default() when not (@override-section-default-gradient = ~'') and not (@override-section-default-image = ~'') and not (@override-section-default-mode = blend) {
+  background-image: url("@{override-section-default-image}"), @override-section-default-gradient;
+  background-position-x: 50%, 0;
+}
+
+.hook-section-default() when not (@override-section-default-gradient = ~'') and not (@override-section-default-image = ~'') and (@override-section-default-mode = blend) {
+
+  @supports (background-blend-mode: soft-light) {
+    & {
+      background-image: @override-section-default-gradient, url("@{override-section-default-image}");
+      background-blend-mode: soft-light;
+      background-position-x: 0, 50%;
+      background-color: transparent;
+    }
+  }
+
+}
+
+.hook-section-muted() when not (@override-section-muted-gradient = ~'') and (@override-section-muted-image = ~'') {
+  background-image: @override-section-muted-gradient;
+}
+
+.hook-section-muted() when not (@override-section-muted-image = ~'') and (@override-section-muted-gradient = ~'') {
+  background-image: url("@{override-section-muted-image}");
+  background-position-x: 50%;
+}
+
+.hook-section-muted() when not (@override-section-muted-gradient = ~'') and not (@override-section-muted-image = ~'') and not (@override-section-muted-mode = blend) {
+  background-image: url("@{override-section-muted-image}"), @override-section-muted-gradient;
+  background-position-x: 50%, 0;
+}
+
+.hook-section-muted() when not (@override-section-muted-gradient = ~'') and not (@override-section-muted-image = ~'') and (@override-section-muted-mode = blend) {
+
+  @supports (background-blend-mode: soft-light) {
+    & {
+      background-image: @override-section-muted-gradient, url("@{override-section-muted-image}");
+      background-blend-mode: soft-light;
+      background-position-x: 0, 50%;
+      background-color: transparent;
+    }
+  }
+
+}
+
+.hook-section-primary() when not (@override-section-primary-gradient = ~'') and (@override-section-primary-image = ~'') {
+  background-image: @override-section-primary-gradient;
+}
+
+.hook-section-primary() when not (@override-section-primary-image = ~'') and (@override-section-primary-gradient = ~'') {
+  background-image: url("@{override-section-primary-image}");
+  background-position-x: 50%;
+}
+
+.hook-section-primary() when not (@override-section-primary-gradient = ~'') and not (@override-section-primary-image = ~'') and not (@override-section-primary-mode = blend) {
+  background-image: url("@{override-section-primary-image}"), @override-section-primary-gradient;
+  background-position-x: 50%, 0;
+}
+
+.hook-section-primary() when not (@override-section-primary-gradient = ~'') and not (@override-section-primary-image = ~'') and (@override-section-primary-mode = blend) {
+
+  @supports (background-blend-mode: soft-light) {
+    & {
+      background-image: @override-section-primary-gradient, url("@{override-section-primary-image}");
+      background-blend-mode: soft-light;
+      background-position-x: 0, 50%;
+      background-color: transparent;
+    }
+  }
+
+}
+
+.hook-section-secondary() when not (@override-section-secondary-gradient = ~'') and (@override-section-secondary-image = ~'') {
+  background-image: @override-section-secondary-gradient;
+}
+
+.hook-section-secondary() when not (@override-section-secondary-image = ~'') and (@override-section-secondary-gradient = ~'') {
+  background-image: url("@{override-section-secondary-image}");
+  background-position-x: 50%;
+}
+
+.hook-section-secondary() when not (@override-section-secondary-gradient = ~'') and not (@override-section-secondary-image = ~'') and not (@override-section-secondary-mode = blend) {
+  background-image: url("@{override-section-secondary-image}"), @override-section-secondary-gradient;
+  background-position-x: 50%, 0;
+}
+
+.hook-section-secondary() when not (@override-section-secondary-gradient = ~'') and not (@override-section-secondary-image = ~'') and (@override-section-secondary-mode = blend) {
+
+  @supports (background-blend-mode: soft-light) {
+    & {
+      background-image: @override-section-secondary-gradient, url("@{override-section-secondary-image}");
+      background-blend-mode: soft-light;
+      background-position-x: 0, 50%;
+      background-color: transparent;
+    }
+  }
+
+}
+
+.hook-section-overlap() when not (@override-section-overlap-height = 0) {
+
+  &.uk-section::after,
+  & > .uk-section::after { height: @override-section-overlap-height; }
+
+  & + .uk-section { position: relative; }
+
+  & + .uk-section-default::before,
+  & + .uk-section-muted::before,
+  & + .uk-section-primary::before,
+  & + .uk-section-secondary::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -(@override-section-overlap-height);
+    left: 0;
+    right: 0;
+    height: @override-section-overlap-height;
+    background-repeat: repeat-x;
+  }
+
+}
+
+.hook-section-overlap() when not (@override-section-default-overlap-image = ~'') {
+
+  & + .uk-section-default::before {
+    .svg-fill(@override-section-default-overlap-image, "#000", @section-default-background);
+  }
+
+}
+
+.hook-section-overlap() when not (@override-section-muted-overlap-image = ~'') {
+
+  & + .uk-section-muted::before {
+    .svg-fill(@override-section-muted-overlap-image, "#000", @section-muted-background);
+  }
+
+}
+
+.hook-section-overlap() when not (@override-section-primary-overlap-image = ~'') {
+
+  & + .uk-section-primary::before {
+    .svg-fill(@override-section-primary-overlap-image, "#000", @section-primary-background);
+  }
+
+}
+
+.hook-section-overlap() when not (@override-section-secondary-overlap-image = ~'') {
+
+  & + .uk-section-secondary::before {
+    .svg-fill(@override-section-secondary-overlap-image, "#000", @section-secondary-background);
+  }
+
+}
+
+// subnav
+@override-subnav-pill-item-active-gradient:     ;
+
+.hook-subnav-pill-item-active() when not (@override-subnav-pill-item-active-gradient = ~'') {
+  background-image: @override-subnav-pill-item-active-gradient;
+}
+
+.hook-inverse-subnav-pill-item-active() when not (@override-subnav-pill-item-active-gradient = ~'') {
+  background-image: none;
+}
+
+
+// text
+@override-text-background-color-gradient:         ;
+
+.hook-text-background() when not (@override-text-background-color-gradient = ~'') {
+  background-image: @override-text-background-color-gradient;
+}
+
+
+// tile
+@override-tile-default-gradient:               ;
+@override-tile-muted-gradient:                 ;
+@override-tile-primary-gradient:               ;
+@override-tile-secondary-gradient:             ;
+
+@override-tile-default-image:                  ;
+@override-tile-muted-image:                    ;
+@override-tile-primary-image:                  ;
+@override-tile-secondary-image:                ;
+
+.hook-tile-default() when not (@override-tile-default-gradient = ~'') and (@override-tile-default-image = ~'') {
+  background-image: @override-tile-default-gradient;
+}
+
+.hook-tile-default() when not (@override-tile-default-image = ~'') and (@override-tile-default-gradient = ~'') {
+  background-image: url("@{override-tile-default-image}");
+}
+
+.hook-tile-default() when not (@override-tile-default-gradient = ~'') and not (@override-tile-default-image = ~'') {
+  background-image: url("@{override-tile-default-image}"), @override-tile-default-gradient;
+}
+
+.hook-tile-muted() when not (@override-tile-muted-gradient = ~'') and (@override-tile-muted-image = ~'') {
+  background-image: @override-tile-muted-gradient;
+}
+
+.hook-tile-muted() when not (@override-tile-muted-image = ~'') and (@override-tile-muted-gradient = ~'') {
+  background-image: url("@{override-tile-muted-image}");
+}
+
+.hook-tile-muted() when not (@override-tile-muted-gradient = ~'') and not (@override-tile-muted-image = ~'') {
+  background-image: url("@{override-tile-muted-image}"), @override-tile-muted-gradient;
+}
+
+.hook-tile-primary() when not (@override-tile-primary-gradient = ~'') and (@override-tile-primary-image = ~'') {
+  background-image: @override-tile-primary-gradient;
+}
+
+.hook-tile-primary() when not (@override-tile-primary-image = ~'') and (@override-tile-primary-gradient = ~'') {
+  background-image: url("@{override-tile-primary-image}");
+}
+
+.hook-tile-primary() when not (@override-tile-primary-gradient = ~'') and not (@override-tile-primary-image = ~'') {
+  background-image: url("@{override-tile-primary-image}"), @override-tile-primary-gradient;
+}
+
+.hook-tile-secondary() when not (@override-tile-secondary-gradient = ~'') and (@override-tile-secondary-image = ~'') {
+  background-image: @override-tile-secondary-gradient;
+}
+
+.hook-tile-secondary() when not (@override-tile-secondary-image = ~'') and (@override-tile-secondary-gradient = ~'') {
+  background-image: url("@{override-tile-secondary-image}");
+}
+
+.hook-tile-secondary() when not (@override-tile-secondary-gradient = ~'') and not (@override-tile-secondary-image = ~'') {
+  background-image: url("@{override-tile-secondary-image}"), @override-tile-secondary-gradient;
+}
