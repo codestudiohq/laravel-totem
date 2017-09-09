@@ -1,0 +1,86 @@
+@internal-text-background-color-gradient:         ;
+@text-meta-link-color:                          @text-meta-color;
+@text-meta-link-hover-color:                    @global-color;
+@text-lead-font-family:                         @global-primary-font-family;
+@text-lead-font-weight:                         @global-primary-font-weight;
+@text-lead-text-transform:                      @global-primary-text-transform;
+@text-lead-letter-spacing:                      @global-primary-letter-spacing;
+@text-lead-font-style:                          @global-primary-font-style;
+
+@text-meta-font-family:                         @global-secondary-font-family;
+@text-meta-font-weight:                         @global-secondary-font-weight;
+@text-meta-text-transform:                      @global-secondary-text-transform;
+@text-meta-letter-spacing:                      @global-secondary-letter-spacing;
+@text-meta-font-style:                          @global-secondary-font-style;
+
+@text-lead-line-height:                         1.4;
+
+@text-meta-font-size:                           14px;
+
+@text-large-font-size:                          20px;
+
+@text-lead-font-family:                         PT Serif;
+@text-lead-font-weight:                         normal;
+@text-lead-text-transform:                      none;
+@text-lead-letter-spacing:                      0;
+@text-lead-font-style:                          italic;
+
+@text-meta-font-family:                         PT Serif;
+@text-meta-font-weight:                         normal;
+@text-meta-text-transform:                      none;
+@text-meta-letter-spacing:                      0;
+@text-meta-font-style:                          italic;
+
+@internal-text-background-color-gradient:       linear-gradient(135deg, @global-primary-background, darken(spin(@global-primary-background, -14%), 18%));
+
+.hook-text-background() when not (@internal-text-background-color-gradient = ~'') {
+  background-image: @internal-text-background-color-gradient;
+}
+.hook-text-meta() {
+
+  a { color: @text-meta-link-color; }
+
+  a:hover {
+    color: @text-meta-link-hover-color;
+    text-decoration: none;
+  }
+
+}
+.hook-text-lead() when not (@text-lead-font-family = inherit) {
+  font-family: @text-lead-font-family;
+}
+
+.hook-text-lead() when not (@text-lead-font-weight = inherit) {
+  font-weight: @text-lead-font-weight;
+}
+
+.hook-text-lead() when not (@text-lead-text-transform = inherit) {
+  text-transform: @text-lead-text-transform;
+}
+
+.hook-text-lead() when not (@text-lead-letter-spacing = inherit) {
+  letter-spacing: @text-lead-letter-spacing;
+}
+
+.hook-text-lead() when not (@text-lead-font-style = inherit) {
+  font-style: @text-lead-font-style;
+}
+.hook-text-meta() when not (@text-meta-font-family = inherit) {
+  font-family: @text-meta-font-family;
+}
+
+.hook-text-meta() when not (@text-meta-font-weight = inherit) {
+  font-weight: @text-meta-font-weight;
+}
+
+.hook-text-meta() when not (@text-meta-text-transform = inherit) {
+  text-transform: @text-meta-text-transform;
+}
+
+.hook-text-meta() when not (@text-meta-letter-spacing = inherit) {
+  letter-spacing: @text-meta-letter-spacing;
+}
+
+.hook-text-meta() when not (@text-meta-font-style = inherit) {
+  font-style: @text-meta-font-style;
+}
