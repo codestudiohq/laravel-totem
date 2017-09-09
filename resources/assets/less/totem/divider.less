@@ -1,0 +1,18 @@
+@internal-divider-small-border-gradient: ''      ;
+@divider-icon-color:                            @global-primary-background;
+@divider-icon-width:                            70px;
+@divider-icon-height:                           20px;
+@divider-icon-line-border-width:                1px;
+@internal-divider-icon-image:                   "../../../totem/images/divider-icon.svg";
+
+@divider-small-width:                           45px;
+@divider-small-border-width:                    2px;
+@divider-small-border:                          @global-primary-background;
+
+.hook-divider-small() when not (@internal-divider-small-border-gradient = ~'') {
+  border-image: @internal-divider-small-border-gradient;
+  border-image-slice: 1;
+}
+.hook-inverse-divider-small() when not (@internal-divider-small-border-gradient = ~'') {
+  border-image: none;
+}

@@ -15,7 +15,7 @@ require('laravel-elixir-vue-2');
 
 elixir(mix => {
   mix
-    .less('app.less')
+    .less('totem.less', 'public/css/app.css')
     .webpack('app.js')
     .copy('resources/assets/img', 'public/img')
     .copy('node_modules/uikit/src/images', 'public/img')
