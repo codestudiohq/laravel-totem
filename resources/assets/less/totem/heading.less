@@ -1,0 +1,89 @@
+@internal-heading-hero-mode:                       none; // none, glitch
+@internal-heading-hero-glitch-color-1:             @global-primary-background;
+@internal-heading-hero-glitch-color-2:             @global-secondary-background;
+@internal-heading-hero-glitch-duration:            0.65s;
+@heading-primary-color:                         @global-emphasis-color;
+@heading-primary-font-family:                   @global-primary-font-family;
+@heading-primary-font-weight:                   @global-primary-font-weight;
+@heading-primary-text-transform:                @global-primary-text-transform;
+@heading-primary-letter-spacing:                @global-primary-letter-spacing;
+@heading-primary-font-style:                    @global-primary-font-style;
+
+@heading-primary-text-shadow:                   none;
+
+@heading-hero-color:                            @global-emphasis-color;
+@heading-hero-font-family:                      @global-primary-font-family;
+@heading-hero-font-weight:                      @global-primary-font-weight;
+@heading-hero-text-transform:                   @global-primary-text-transform;
+@heading-hero-letter-spacing:                   @global-primary-letter-spacing;
+@heading-hero-font-style:                       @global-primary-font-style;
+
+@heading-hero-text-shadow:                      none;
+@heading-primary-font-size-m:                   80px;
+@heading-primary-line-height-m:                 1.24;
+
+@heading-bullet-border-width:                   4px;
+@heading-bullet-border:                         @global-primary-background;
+@heading-primary-font-weight:                   700;
+@heading-primary-text-transform:                uppercase;
+@heading-primary-letter-spacing:                4px;
+
+@heading-hero-font-weight:                      700;
+@heading-hero-text-transform:                   uppercase;
+@heading-hero-letter-spacing:                   6px;
+
+.hook-heading-hero() when (@internal-heading-hero-mode = glitch) {
+  -webkit-animation: uk-text-shadow-glitch @internal-heading-hero-glitch-duration cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  animation: uk-text-shadow-glitch @internal-heading-hero-glitch-duration cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+}
+
+.hook-heading-primary() { color: @heading-primary-color; }
+
+.hook-heading-primary() when not (@heading-primary-font-family = inherit) {
+  font-family: @heading-primary-font-family;
+}
+
+.hook-heading-primary() when not (@heading-primary-font-weight = inherit) {
+  font-weight: @heading-primary-font-weight;
+}
+
+.hook-heading-primary() when not (@heading-primary-text-transform = inherit) {
+  text-transform: @heading-primary-text-transform;
+}
+
+.hook-heading-primary() when not (@heading-primary-letter-spacing = inherit) {
+  letter-spacing: @heading-primary-letter-spacing;
+}
+
+.hook-heading-primary() when not (@heading-primary-font-style = inherit) {
+  font-style: @heading-primary-font-style;
+}
+
+.hook-heading-primary() when not (@heading-primary-text-shadow = none) {
+  text-shadow: @heading-primary-text-shadow;
+}
+.hook-heading-hero() { color: @heading-hero-color; }
+
+.hook-heading-hero() when not (@heading-hero-font-family = inherit) {
+  font-family: @heading-hero-font-family;
+}
+
+.hook-heading-hero() when not (@heading-hero-font-weight = inherit) {
+  font-weight: @heading-hero-font-weight;
+}
+
+.hook-heading-hero() when not (@heading-hero-text-transform = inherit) {
+  text-transform: @heading-hero-text-transform;
+}
+
+.hook-heading-hero() when not (@heading-hero-letter-spacing = inherit) {
+  letter-spacing: @heading-hero-letter-spacing;
+}
+
+.hook-heading-hero() when not (@heading-hero-font-style = inherit) {
+  font-style: @heading-hero-font-style;
+}
+
+.hook-heading-hero() when not (@heading-hero-text-shadow = none) {
+  text-shadow: @heading-hero-text-shadow;
+}
