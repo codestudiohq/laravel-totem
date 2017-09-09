@@ -1,0 +1,172 @@
+@internal-section-default-gradient:                 ;
+@internal-section-muted-gradient:                   ;
+@internal-section-primary-gradient:                 ;
+@internal-section-secondary-gradient:               ;
+@internal-section-default-image:                    ;
+@internal-section-muted-image:                      ;
+@internal-section-primary-image:                    ;
+@internal-section-secondary-image:                  ;
+@internal-section-default-mode:                     none; // none, blend
+@internal-section-muted-mode:                       none; // none, blend
+@internal-section-primary-mode:                     none; // none, blend
+@internal-section-secondary-mode:                   none; // none, blend
+@internal-section-default-overlap-image:            ;
+@internal-section-muted-overlap-image:              ;
+@internal-section-primary-overlap-image:            ;
+@internal-section-secondary-overlap-image:          ;
+@internal-section-overlap-height:                   0;
+@section-muted-background:                          lighten(@global-muted-background, 3%);
+@internal-section-muted-image:                      "../../totem/images/section-background-image-noise.png";
+@internal-section-primary-image:                    "../../totem/images/section-background-image-noise.png";
+@internal-section-secondary-image:                  "../../totem/images/section-background-image-noise.png";
+
+@internal-section-default-overlap-image:            "../../../uikit-themes/totem/images/section-overlap-image-grunge-l-plain.svg";
+@internal-section-muted-overlap-image:              "../../../uikit-themes/totem/images/section-overlap-image-grunge-l-noise.svg";
+@internal-section-primary-overlap-image:            "../../../uikit-themes/totem/images/section-overlap-image-grunge-l-noise.svg";
+@internal-section-secondary-overlap-image:          "../../../uikit-themes/totem/images/section-overlap-image-grunge-l-noise.svg";
+@internal-section-overlap-height:                   14px;
+
+
+.hook-section-default() when not (@internal-section-default-gradient = ~'') and (@internal-section-default-image = ~'') {
+  background-image: @internal-section-default-gradient;
+}
+.hook-section-default() when not (@internal-section-default-image = ~'') and (@internal-section-default-gradient = ~'') {
+  background-image: url("@{internal-section-default-image}");
+  background-position-x: 50%;
+}
+.hook-section-default() when not (@internal-section-default-gradient = ~'') and not (@internal-section-default-image = ~'') and not (@internal-section-default-mode = blend) {
+  background-image: url("@{internal-section-default-image}"), @internal-section-default-gradient;
+  background-position-x: 50%, 0;
+}
+.hook-section-default() when not (@internal-section-default-gradient = ~'') and not (@internal-section-default-image = ~'') and (@internal-section-default-mode = blend) {
+
+  @supports (background-blend-mode: soft-light) {
+    & {
+      background-image: @internal-section-default-gradient, url("@{internal-section-default-image}");
+      background-blend-mode: soft-light;
+      background-position-x: 0, 50%;
+      background-color: transparent;
+    }
+  }
+
+}
+.hook-section-muted() when not (@internal-section-muted-gradient = ~'') and (@internal-section-muted-image = ~'') {
+  background-image: @internal-section-muted-gradient;
+}
+.hook-section-muted() when not (@internal-section-muted-image = ~'') and (@internal-section-muted-gradient = ~'') {
+  background-image: url("@{internal-section-muted-image}");
+  background-position-x: 50%;
+}
+.hook-section-muted() when not (@internal-section-muted-gradient = ~'') and not (@internal-section-muted-image = ~'') and not (@internal-section-muted-mode = blend) {
+  background-image: url("@{internal-section-muted-image}"), @internal-section-muted-gradient;
+  background-position-x: 50%, 0;
+}
+.hook-section-muted() when not (@internal-section-muted-gradient = ~'') and not (@internal-section-muted-image = ~'') and (@internal-section-muted-mode = blend) {
+
+  @supports (background-blend-mode: soft-light) {
+    & {
+      background-image: @internal-section-muted-gradient, url("@{internal-section-muted-image}");
+      background-blend-mode: soft-light;
+      background-position-x: 0, 50%;
+      background-color: transparent;
+    }
+  }
+
+}
+.hook-section-primary() when not (@internal-section-primary-gradient = ~'') and (@internal-section-primary-image = ~'') {
+  background-image: @internal-section-primary-gradient;
+}
+.hook-section-primary() when not (@internal-section-primary-image = ~'') and (@internal-section-primary-gradient = ~'') {
+  background-image: url("@{internal-section-primary-image}");
+  background-position-x: 50%;
+}
+.hook-section-primary() when not (@internal-section-primary-gradient = ~'') and not (@internal-section-primary-image = ~'') and (@internal-section-primary-mode = blend) {
+
+  @supports (background-blend-mode: soft-light) {
+    & {
+      background-image: @internal-section-primary-gradient, url("@{internal-section-primary-image}");
+      background-blend-mode: soft-light;
+      background-position-x: 0, 50%;
+      background-color: transparent;
+    }
+  }
+
+}
+.hook-section-secondary() when not (@internal-section-secondary-gradient = ~'') and (@internal-section-secondary-image = ~'') {
+  background-image: @internal-section-secondary-gradient;
+}
+.hook-section-secondary() when not (@internal-section-secondary-image = ~'') and (@internal-section-secondary-gradient = ~'') {
+  background-image: url("@{internal-section-secondary-image}");
+  background-position-x: 50%;
+}
+.hook-section-secondary() when not (@internal-section-secondary-gradient = ~'') and not (@internal-section-secondary-image = ~'') and not (@internal-section-secondary-mode = blend) {
+  background-image: url("@{internal-section-secondary-image}"), @internal-section-secondary-gradient;
+  background-position-x: 50%, 0;
+}
+.hook-section-secondary() when not (@internal-section-secondary-gradient = ~'') and not (@internal-section-secondary-image = ~'') and (@internal-section-secondary-mode = blend) {
+
+  @supports (background-blend-mode: soft-light) {
+    & {
+      background-image: @internal-section-secondary-gradient, url("@{internal-section-secondary-image}");
+      background-blend-mode: soft-light;
+      background-position-x: 0, 50%;
+      background-color: transparent;
+    }
+  }
+
+}
+
+.hook-section-overlap() when not (@internal-section-overlap-height = 0) {
+
+  &.uk-section::after,
+  & > .uk-section::after { height: @internal-section-overlap-height; }
+
+  & + .uk-section { position: relative; }
+
+  & + .uk-section-default::before,
+  & + .uk-section-muted::before,
+  & + .uk-section-primary::before,
+  & + .uk-section-secondary::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -(@internal-section-overlap-height);
+    left: 0;
+    right: 0;
+    height: @internal-section-overlap-height;
+    background-repeat: repeat-x;
+  }
+
+}
+
+.hook-section-overlap() when not (@internal-section-default-overlap-image = ~'') {
+
+  & + .uk-section-default::before {
+    .svg-fill(@internal-section-default-overlap-image, "#000", @section-default-background);
+  }
+
+}
+
+.hook-section-overlap() when not (@internal-section-muted-overlap-image = ~'') {
+
+  & + .uk-section-muted::before {
+    .svg-fill(@internal-section-muted-overlap-image, "#000", @section-muted-background);
+  }
+
+}
+
+.hook-section-overlap() when not (@internal-section-primary-overlap-image = ~'') {
+
+  & + .uk-section-primary::before {
+    .svg-fill(@internal-section-primary-overlap-image, "#000", @section-primary-background);
+  }
+
+}
+
+.hook-section-overlap() when not (@internal-section-secondary-overlap-image = ~'') {
+
+  & + .uk-section-secondary::before {
+    .svg-fill(@internal-section-secondary-overlap-image, "#000", @section-secondary-background);
+  }
+
+}

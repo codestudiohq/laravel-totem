@@ -1,0 +1,40 @@
+
+@table-header-cell-font-size:                   @global-small-font-size;
+@table-header-cell-font-weight:                 normal;
+@table-header-cell-color:                       @global-muted-color;
+@table-striped-border-width:                    0;
+@table-striped-border:                          transparent;
+@table-header-cell-font-family:                         inherit;
+@table-header-cell-text-transform:                      uppercase;
+@table-header-cell-letter-spacing:                      inherit;
+@table-header-cell-font-style:                          inherit;
+@table-striped-row-background:                  @global-muted-background;
+
+.hook-table-misc() {
+
+  .uk-table tbody tr {
+    -webkit-transition: background-color 0.1s linear;
+    transition: background-color 0.1s linear;
+  }
+
+}
+.hook-table-striped() when not (@table-striped-border-width = 0) {
+  border-top: @table-striped-border-width solid @table-striped-border;
+  border-bottom: @table-striped-border-width solid @table-striped-border;
+}
+
+.hook-table-header-cell() when not (@table-header-cell-font-family = inherit) {
+  font-family: @table-header-cell-font-family;
+}
+
+.hook-table-header-cell() when not (@table-header-cell-text-transform = inherit) {
+  text-transform: @table-header-cell-text-transform;
+}
+
+.hook-table-header-cell() when not (@table-header-cell-letter-spacing = inherit) {
+  letter-spacing: @table-header-cell-letter-spacing;
+}
+
+.hook-table-header-cell() when not (@table-header-cell-font-style = inherit) {
+  font-style: @table-header-cell-font-style;
+}
