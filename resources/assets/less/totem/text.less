@@ -1,4 +1,4 @@
-@internal-text-background-color-gradient:         ;
+@text-background-color-gradient:         ;
 @text-meta-link-color:                          @text-meta-color;
 @text-meta-link-hover-color:                    @global-color;
 @text-lead-font-family:                         @global-primary-font-family;
@@ -31,10 +31,10 @@
 @text-meta-letter-spacing:                      0;
 @text-meta-font-style:                          italic;
 
-@internal-text-background-color-gradient:       linear-gradient(135deg, @global-primary-background, darken(spin(@global-primary-background, -14%), 18%));
+@text-background-color-gradient:       linear-gradient(135deg, @global-primary-background, darken(spin(@global-primary-background, -14%), 18%));
 
-.hook-text-background() when not (@internal-text-background-color-gradient = ~'') {
-  background-image: @internal-text-background-color-gradient;
+.hook-text-background() when not (@text-background-color-gradient = ~'') {
+  background-image: @text-background-color-gradient;
 }
 .hook-text-meta() {
 
