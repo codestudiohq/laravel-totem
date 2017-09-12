@@ -5,6 +5,7 @@ namespace Studio\Totem\Console\Commands;
 use Carbon\Carbon;
 use Cron\CronExpression;
 use Illuminate\Console\Command;
+use Illuminate\Console\Scheduling\Event;
 use Illuminate\Console\Scheduling\Schedule;
 
 class ListSchedule extends Command
@@ -48,34 +49,49 @@ class ListSchedule extends Command
      */
     public function handle()
     {
-        if (count($this->schedule->events()) > 0) {
-            $events = collect($this->schedule->events())->map(function ($event) {
-                return [
-                    'description'   => $event->description ?: 'N/A',
-                    'command'       => ltrim(strtok(str_after($event->command, "'artisan'"), ' ')),
-                    'schedule'      => $event->expression,
-                    'upcoming'      => $this->upcoming($event),
-                    'timezone'      => $event->timezone ?: config('app.timezone'),
-                    'overlaps'      => $event->withoutOverlapping ? 'No' : 'Yes',
-                    'maintenance'   => $event->evenInMaintenanceMode ? 'Yes' : 'No',
-                ];
-            });
-
-            $this->table(
-                ['Description', 'Command', 'Schedule', 'Upcoming', 'Timezone', 'Overlaps?', 'In Maintenance?'],
-                $events
-            );
-        } else {
+        $events = collect($this->schedule->events());
+        if ($events->isEmpty()) {
             $this->info('No Scheduled Commands Found');
+
+            return;
         }
+
+        $events = $events->map(function (Event $event) {
+            return [
+                'description'   => $event->description ?: 'N/A',
+                'command'       => $this->prepareCommandToDisplay($event),
+                'schedule'      => $event->expression,
+                'upcoming'      => $this->getCommandNextRunTime($event)->format('Y-m-d H:i:s'),
+                'timezone'      => $event->timezone ?: config('app.timezone'),
+                'overlaps'      => $event->withoutOverlapping ? 'No' : 'Yes',
+                'maintenance'   => $event->evenInMaintenanceMode ? 'Execute' : 'Skip',
+            ];
+        });
+
+        $this->table(
+            ['Description', 'Command', 'Schedule', 'Upcoming', 'Timezone', 'Overlaps?', 'In Maintenance?'],
+            $events
+        );
     }
 
     /**
-     * Get Upcoming schedule.
+     * Possible change command text for simple view.
      *
-     * @return bool
+     * @param Event $event
+     * @return string
      */
-    protected function upcoming($event)
+    protected function prepareCommandToDisplay(Event $event)
+    {
+        return ltrim(strtok(str_after($event->command, "'artisan'"), ' '));
+    }
+
+    /**
+     * Get next time command run datetime.
+     *
+     * @param Event $event
+     * @return \DateTime
+     */
+    protected function getCommandNextRunTime(Event $event)
     {
         $date = Carbon::now();
 
@@ -83,6 +99,6 @@ class ListSchedule extends Command
             $date->setTimezone($event->timezone);
         }
 
-        return (CronExpression::factory($event->expression)->getNextRunDate($date->toDateTimeString()))->format('Y-m-d H:i:s');
+        return CronExpression::factory($event->getExpression())->getNextRunDate($date->toDateTimeString());
     }
 }
