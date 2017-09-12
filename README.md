@@ -3,7 +3,7 @@
 </p>
 <p align="center">
 <a href="https://travis-ci.org/codestudiohq/laravel-totem"><img src="https://travis-ci.org/codestudiohq/laravel-totem.svg" alt="Build Status"></a>
-<a href="https://styleci.io/repos/99050894"><img src="https://styleci.io/repos/99050894/shield?branch=master" alt="StyleCI"></a>
+<a href="https://styleci.io/repos/99050894"><img src="https://styleci.io/repos/99050894/shield?branch=2.0" alt="StyleCI"></a>
 <a href="https://packagist.org/packages/studio/laravel-totem"><img src="https://poser.pugx.org/studio/laravel-totem/license.svg" alt="License"></a>
 </p>
 
