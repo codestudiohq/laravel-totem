@@ -1,21 +1,21 @@
-@alert-close-opacity:                           0.4;
-@alert-close-hover-opacity:                     0.8;
-@alert-border-width:                            0;
-@alert-border:                                  transparent;
-@alert-primary-border:                          transparent;
-@alert-success-border:                          transparent;
-@alert-warning-border:                          transparent;
-@alert-danger-border:                           transparent;
-@alert-border-radius:                           0;
-@alert-box-shadow:                              none;
-@alert-background:                              @global-background;
-@alert-color:                                   @global-emphasis-color;
-@alert-primary-background:                      @alert-background;
-@alert-success-background:                      @alert-background;
-@alert-warning-background:                      @alert-background;
-@alert-danger-background:                       @alert-background;
-@alert-border-radius:                           @global-border-radius;
-@alert-box-shadow:                              @global-medium-box-shadow;
+@alert-close-opacity: 0.4;
+@alert-close-hover-opacity: 0.8;
+@alert-border-width: 0;
+@alert-border: transparent;
+@alert-primary-border: transparent;
+@alert-success-border: transparent;
+@alert-warning-border: transparent;
+@alert-danger-border: transparent;
+@alert-border-radius: 0;
+@alert-box-shadow: none;
+@alert-background: @global-background;
+@alert-color: @global-emphasis-color;
+@alert-primary-background: @alert-background;
+@alert-success-background: @alert-background;
+@alert-warning-background: @alert-background;
+@alert-danger-background: @alert-background;
+@alert-border-radius: @global-border-radius;
+@alert-box-shadow: @global-medium-box-shadow;
 
 .hook-alert-close() {
   color: inherit;
@@ -33,7 +33,9 @@
   .uk-alert h3,
   .uk-alert h4,
   .uk-alert h5,
-  .uk-alert h6 { color: inherit; }
+  .uk-alert h6 {
+    color: inherit;
+  }
 
   .uk-alert a:not([class]) {
     color: inherit;

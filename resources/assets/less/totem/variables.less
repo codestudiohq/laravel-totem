@@ -1,99 +1,55 @@
-@alert-background:                              @global-background;
-@alert-color:                                   @global-emphasis-color;
-@alert-primary-background:                      @alert-background;
-@alert-success-background:                      @alert-background;
-@alert-warning-background:                      @alert-background;
-@alert-danger-background:                       @alert-background;
-@alert-border-radius:                           @global-border-radius;
-@alert-box-shadow:                              @global-medium-box-shadow;
-@article-meta-font-size:                        14px;
-@article-meta-font-family:                      PT Serif;
-@article-meta-font-weight:                      normal;
-@article-meta-text-transform:                   none;
-@article-meta-letter-spacing:                   0;
-@article-meta-font-style:                       italic;
-@badge-font-weight:                             700;
-@base-body-font-weight:                         400;
-@base-small-font-size:                          90%;
-@base-h3-font-size:                             @global-medium-font-size;
-@base-h4-font-size:                             13px;
-@base-h5-font-size:                             12px;
-@base-code-color:                               #435DBA;
-@base-em-color:                                 @global-link-hover-color;
-@base-ins-background:                           #FBFFC9;
-@base-ins-color:                                #7B3715;
-@base-mark-background:                          @base-ins-background;
-@base-mark-color:                               @base-ins-color;
-@base-blockquote-font-size:                     @global-large-font-size;
-@base-blockquote-line-height:                   1.4;
-@base-blockquote-footer-margin-top:             @global-margin;
-@base-blockquote-footer-font-size:              18px;
-@base-blockquote-footer-line-height:            1.4;
-@base-selection-background:                     @global-primary-background;
-@base-heading-letter-spacing:                   0;
-@base-h2-font-weight:                           500;
-@base-h3-font-weight:                           500;
-@base-h4-color:                                 @global-primary-background;
-@base-code-padding-horizontal:                  6px;
-@base-code-padding-vertical:                    2px;
-@base-code-border-width:                        @global-border-width;
-@base-code-border:                              @global-border;
-@base-code-border-radius:                       3px;
-@base-pre-padding:                              10px;
-@base-pre-background:                           @global-background;
-@base-pre-border-width:                         @global-border-width;
-@base-pre-border:                               @global-border;
-@base-pre-border-radius:                        3px;
-@base-blockquote-text-transform:                none;
-@base-blockquote-letter-spacing:                0;
-@base-blockquote-footer-color:                  @global-emphasis-color;
-@base-blockquote-footer-font-family:            @global-primary-font-family;
-@base-blockquote-footer-font-weight:            500;
-@base-blockquote-footer-text-transform:         @global-primary-text-transform;
-@base-blockquote-footer-letter-spacing:         @global-primary-letter-spacing;
-@inverse-base-code-border:                      @inverse-global-border;
-@breadcrumb-divider-color:                      fade(@global-muted-color, 50%);
-@breadcrumb-item-active-color:                  @global-emphasis-color;
-@button-font-size:                              @global-small-font-size;
-@button-large-font-size:                        13px;
+@import 'https://fonts.googleapis.com/css?family=PT+Serif:400,400i|Montserrat:300,300i,400,400i,500,700';
 
-@button-padding-horizontal:                     (@global-medium-gutter - 10);
-@button-small-padding-horizontal:               @global-gutter;
-@button-large-padding-horizontal:               @global-medium-gutter;
+@global-border-radius: 0;
+@global-primary-font-family: inherit;
+@global-primary-font-weight: inherit;
+@global-primary-text-transform: inherit;
+@global-primary-letter-spacing: inherit;
+@global-primary-font-style: inherit;
+@global-secondary-font-family: inherit;
+@global-secondary-font-weight: inherit;
+@global-secondary-text-transform: inherit;
+@global-secondary-letter-spacing: inherit;
+@global-secondary-font-style: inherit;
+@global-font-family: Montserrat;
+@global-font-size: 15px;
+@global-line-height: 1.73;
+@global-xxlarge-font-size: 42px;
+@global-xlarge-font-size: 32px;
+@global-large-font-size: 24px;
+@global-medium-font-size: 16px;
+@global-small-font-size: 11px;
+@global-primary-font-family: Montserrat;
+@global-primary-font-weight: 300;
+@global-primary-text-transform: inherit;
+@global-primary-letter-spacing: inherit;
+@global-primary-font-style: inherit;
+@global-secondary-font-family: Montserrat;
+@global-secondary-font-weight: 400;
+@global-secondary-text-transform: uppercase;
+@global-secondary-letter-spacing: 1.8px;
+@global-secondary-font-style: inherit;
 
-@button-default-background:                     @global-background;
-@button-default-hover-background:               @button-default-background;
-@button-default-hover-color:                    @global-primary-background;
-@button-default-active-background:              @global-primary-background;
-@button-default-active-color:                   @global-inverse-color;
-
-@button-primary-hover-background:               darken(spin(@button-primary-background, -7%), 6%);
-@button-primary-active-background:              darken(spin(@button-primary-background, -7%), 17%);
-
-@button-secondary-background:                   transparent;
-@button-secondary-color:                        @global-primary-background;
-@button-secondary-hover-background:             transparent;
-@button-secondary-hover-color:                  darken(@button-secondary-color, 15%);
-@button-secondary-active-background:            @global-primary-background;
-@button-secondary-active-color:                 @global-inverse-color;
-
-@button-danger-background:                      transparent;
-@button-danger-color:                           @global-danger-background;
-@button-danger-hover-background:                transparent;
-@button-danger-hover-color:                     darken(@button-danger-color, 15%);
-@button-danger-active-background:               @global-danger-background;
-@button-danger-active-color:                    @global-inverse-color;
-
-@button-text-hover-color:                       @global-primary-background;
-
-@button-border-width:                           @global-border-width;
-@button-border-radius:                          500px;
-@button-small-border-radius:                    @button-border-radius;
-@button-large-border-radius:                    @button-border-radius;
-
-//
-// Global
-//
+@global-border: #EBEBED;
+@global-border-width: 1px;
+@global-border-radius: 2px;
+@global-small-box-shadow: 2px 6px 15px rgba(41, 44, 61, 0.1);
+@global-medium-box-shadow: 2px 15px 50px rgba(41, 44, 61, 0.1);
+@global-large-box-shadow: 2px 21px 50px rgba(41, 44, 61, 0.15);
+@global-xlarge-box-shadow: 2px 26px 60px rgba(41, 44, 61, 0.15);
+@global-margin: 20px;
+@global-small-margin: 10px;
+@global-medium-margin: 40px;
+@global-large-margin: 70px;
+@global-xlarge-margin: 140px;
+@global-gutter: 20px;
+@global-small-gutter: 10px;
+@global-medium-gutter: 40px;
+@global-large-gutter: 70px;
+@global-control-height: 40px;
+@global-control-small-height: 30px;
+@global-control-large-height: 55px;
+@global-z-index: 1000;
 
 @global-color: #4f5a80;
 @global-emphasis-color: #314483;
@@ -108,134 +64,32 @@
 @global-secondary-background: #37466c;
 @global-success-background: #4bc78f;
 @global-warning-background: #f7c77d;
+
 @global-border: #dee6ed;
 @global-large-box-shadow: 0 21px 50px 0 rgba(85, 95, 109, 0.15);
 @global-medium-box-shadow: 0 15px 50px 0 rgba(85, 95, 109, 0.1);
 @global-small-box-shadow: 0 6px 15px 0 rgba(85, 95, 109, 0.1);
 @global-xlarge-box-shadow: 0 26px 60px 0 rgba(85, 95, 109, 0.15);
-
 @alert-background: @global-inverse-color;
 @button-default-background: @global-inverse-color;
 @button-primary-hover-background: #46659e;
 @button-primary-active-background: #405c90;
-@internal-button-primary-gradient: linear-gradient(135deg, #638fba, #46569e);
-@internal-button-primary-hover-gradient: linear-gradient(155deg, #638fba, #404e90);
-@internal-button-default-active-gradient: linear-gradient(135deg, #4972a5, @global-primary-background);
-@internal-button-primary-active-gradient: linear-gradient(185deg, #638fba, #404e90);
-@internal-button-secondary-active-gradient: linear-gradient(135deg, #4972a5, @global-primary-background);
-
-//
-// Card
-//
-
+@button-primary-gradient: linear-gradient(135deg, #638fba, #46569e);
+@button-primary-hover-gradient: linear-gradient(155deg, #638fba, #404e90);
+@button-default-active-gradient: linear-gradient(135deg, #4972a5, @global-primary-background);
+@button-primary-active-gradient: linear-gradient(185deg, #638fba, #404e90);
+@button-secondary-active-gradient: linear-gradient(135deg, #4972a5, @global-primary-background);
 @card-default-background: @global-inverse-color;
 @card-primary-hover-background: #46659e;
-@internal-card-default-gradient: linear-gradient(135deg, @global-inverse-color, @global-background);
-@internal-card-primary-gradient: linear-gradient(135deg, #638fba, #46569e);
-@internal-card-secondary-gradient: linear-gradient(135deg, @global-secondary-background, #28324e);
-@internal-card-primary-hover-gradient: linear-gradient(155deg, #638fba, #404e90);
-
-//
-// Dropdown
-//
-
+@card-default-gradient: linear-gradient(135deg, @global-inverse-color, @global-background);
+@card-primary-gradient: linear-gradient(135deg, #638fba, #46569e);
+@card-secondary-gradient: linear-gradient(135deg, @global-secondary-background, #28324e);
+@card-primary-hover-gradient: linear-gradient(155deg, #638fba, #404e90);
 @dropdown-background: @global-inverse-color;
-
-//
-// Form
-//
-
 @form-focus-background: @global-inverse-color;
-
-//
-// Icon
-//
-
 @icon-button-background: @global-inverse-color;
-
-//
-// Navbar
-//
-
 @navbar-dropdown-dropbar-margin-bottom: @navbar-dropdown-dropbar-margin-top;
 @navbar-dropdown-background: @global-inverse-color;
-
-//
-// Overlay
-//
-
-@internal-overlay-primary-gradient: linear-gradient(165deg, #46569e, #638fba);
-
-//
-// Pagination
-//
-
+@overlay-primary-gradient: linear-gradient(165deg, #46569e, #638fba);
 @pagination-item-hover-background: @global-inverse-color;
-
-//
-// Section
-//
-
-@section-muted-background: #e5edf4;
-@internal-section-default-overlap-image: "../images/section-overlap-image-grunge-s-plain.svg";
-@internal-section-muted-image: '';
-@internal-divider-icon-image: "../img/backgrounds/divider-icon.svg";
-@internal-form-select-image: '../img/backgrounds/form-select.svg';
-@internal-section-muted-overlap-image: "../images/section-overlap-image-grunge-s-plain.svg";
-@internal-section-overlap-height: 6px;
-@internal-section-primary-image: "../images/section-background-image-stripes.png";
-@internal-section-primary-overlap-image: "../images/section-overlap-image-grunge-s-stripes.svg";
-@internal-section-secondary-image: "../images/section-background-image-stripes.png";
-@internal-section-secondary-overlap-image: "../images/section-overlap-image-grunge-s-stripes.svg";
-
-//
-// Subnav
-//
-
 @subnav-pill-item-hover-background: @global-inverse-color;
-
-@import 'https://fonts.googleapis.com/css?family=PT+Serif:400,400i|Montserrat:300,300i,400,400i,500,700';
-
-@global-font-family:                            Montserrat;
-@global-font-size:                              15px;
-@global-line-height:                            1.73;
-
-@global-xxlarge-font-size:                      42px;
-@global-xlarge-font-size:                       32px;
-@global-large-font-size:                        24px;
-@global-medium-font-size:                       16px;
-@global-small-font-size:                        11px;
-
-@global-primary-font-family:                    Montserrat;
-@global-primary-font-weight:                    300;
-@global-primary-text-transform:                 inherit;
-@global-primary-letter-spacing:                 inherit;
-@global-primary-font-style:                     inherit;
-
-@global-secondary-font-family:                  Montserrat;
-@global-secondary-font-weight:                  400;
-@global-secondary-text-transform:               uppercase;
-@global-secondary-letter-spacing:               1.8px;
-@global-secondary-font-style:                   inherit;
-
-@global-color: #4f5a80;
-@global-emphasis-color: #314483;
-@global-inverse-color: #fff;
-@global-link-color: #5466c4;
-@global-muted-color: #8d9ab1;
-@global-link-hover-color: #7d9cec;
-@global-background: #eef6fa;
-@global-danger-background: #d95e60;
-@global-muted-background: #e5edf4;
-@global-primary-background: #5872b5;
-@global-secondary-background: #37466c;
-@global-success-background: #4bc78f;
-@global-warning-background: #f7c77d;
-
-@global-border: #dee6ed;
-@global-large-box-shadow: 0 21px 50px 0 rgba(85, 95, 109, 0.15);
-@global-medium-box-shadow: 0 15px 50px 0 rgba(85, 95, 109, 0.1);
-@global-small-box-shadow: 0 6px 15px 0 rgba(85, 95, 109, 0.1);
-@global-xlarge-box-shadow: 0 26px 60px 0 rgba(85, 95, 109, 0.15);
-
-@global-border-radius:                          0;

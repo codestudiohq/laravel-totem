@@ -1,0 +1,66 @@
+@pagination-item-min-width: 0;
+@pagination-item-padding-vertical: 0;
+@pagination-item-padding-horizontal: 0;
+@pagination-item-line-height: @global-line-height;
+@pagination-item-background: transparent;
+@pagination-item-hover-background: transparent;
+@pagination-item-active-background: transparent;
+@pagination-item-disabled-background: transparent;
+@pagination-item-mode: none;
+@pagination-item-border-radius: 0;
+@pagination-item-box-shadow: none;
+@pagination-item-hover-box-shadow: none;
+@pagination-margin-horizontal: 10px;
+@pagination-item-hover-color: @global-emphasis-color;
+@pagination-item-active-color: @global-primary-background;
+@pagination-item-min-width: 30px;
+@pagination-item-line-height: 25px;
+@pagination-item-font-size: @global-small-font-size;
+@pagination-item-letter-spacing: 0;
+@pagination-item-hover-background: @global-background;
+@pagination-item-border-radius: 500px;
+@pagination-item-hover-box-shadow: @global-small-box-shadow;
+@pagination-item-padding-vertical: 3px;
+@pagination-item-padding-horizontal: 6px;
+
+.hook-pagination-item() {
+  box-sizing: border-box;
+  min-width: @pagination-item-min-width;
+  padding: @pagination-item-padding-vertical @pagination-item-padding-horizontal;
+  background: @pagination-item-background;
+  line-height: @pagination-item-line-height;
+  text-align: center;
+  -webkit-transition: 0.1s ease-in-out;
+  transition: 0.1s ease-in-out;
+  -webkit-transition-property: color, background-color, border-color, box-shadow;
+  transition-property: color, background-color, border-color, box-shadow;
+}
+
+.hook-pagination-item-hover() {
+  background-color: @pagination-item-hover-background;
+}
+
+.hook-pagination-item-active() {
+  background-color: @pagination-item-active-background;
+}
+
+.hook-pagination-item-disabled() {
+  background-color: @pagination-item-disabled-background;
+}
+
+.hook-pagination-item-hover() when (@pagination-item-mode = flicker) {
+  -webkit-animation: uk-flicker 0.2s ease both;
+  animation: uk-flicker 0.2s ease both;
+}
+
+.hook-pagination-item() when not (@pagination-item-border-radius = 0) {
+  border-radius: @pagination-item-border-radius;
+}
+
+.hook-pagination-item() when not (@pagination-item-box-shadow = none) {
+  box-shadow: @pagination-item-box-shadow;
+}
+
+.hook-pagination-item-hover() when not (@pagination-item-hover-box-shadow = none) {
+  box-shadow: @pagination-item-hover-box-shadow;
+}

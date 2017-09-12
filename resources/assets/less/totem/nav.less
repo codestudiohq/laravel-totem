@@ -1,36 +1,33 @@
-@nav-parent-icon-margin-right:                  0;
+@nav-parent-icon-margin-right: 0;
+@nav-default-item-hover-background: transparent;
+@nav-default-item-active-background: transparent;
+@nav-primary-item-padding-vertical: @nav-item-padding-vertical;
+@nav-primary-item-padding-horizontal: @nav-item-padding-horizontal;
+@nav-primary-header-padding-vertical: @nav-header-padding-vertical;
+@nav-primary-header-padding-horizontal: @nav-header-padding-horizontal;
+@nav-default-item-border-radius: 0;
+@nav-default-item-hover-box-shadow: none;
+@nav-header-font-weight: inherit;
+@nav-header-letter-spacing: @global-secondary-letter-spacing;
+@nav-default-font-size: @global-font-size;
+@nav-default-font-family: @global-secondary-font-family;
+@nav-default-font-weight: @global-secondary-font-weight;
+@nav-default-text-transform: @global-secondary-text-transform;
+@nav-default-letter-spacing: @global-secondary-letter-spacing;
+@nav-default-font-style: @global-secondary-font-style;
+@nav-primary-font-family: @global-primary-font-family;
+@nav-primary-font-weight: @global-primary-font-weight;
+@nav-primary-text-transform: @global-primary-text-transform;
+@nav-primary-letter-spacing: @global-primary-letter-spacing;
+@nav-primary-font-style: @global-primary-font-style;
+@nav-default-item-hover-color: @global-primary-background;
+@nav-primary-item-hover-color: @global-primary-background;
+@nav-default-font-size: @global-small-font-size;
 
-@nav-default-item-hover-background:             transparent;
-@nav-default-item-active-background:            transparent;
+.hook-nav-parent-icon() {
+  margin-right: @nav-parent-icon-margin-right;
+}
 
-@nav-primary-item-padding-vertical:             @nav-item-padding-vertical;
-@nav-primary-item-padding-horizontal:           @nav-item-padding-horizontal;
-
-@nav-primary-header-padding-vertical:           @nav-header-padding-vertical;
-@nav-primary-header-padding-horizontal:         @nav-header-padding-horizontal;
-@nav-default-item-border-radius:                0;
-@nav-default-item-hover-box-shadow:             none;
-@nav-header-font-weight:                        inherit;
-@nav-header-letter-spacing:                     @global-secondary-letter-spacing;
-
-@nav-default-font-size:                         @global-font-size;
-@nav-default-font-family:                       @global-secondary-font-family;
-@nav-default-font-weight:                       @global-secondary-font-weight;
-@nav-default-text-transform:                    @global-secondary-text-transform;
-@nav-default-letter-spacing:                    @global-secondary-letter-spacing;
-@nav-default-font-style:                        @global-secondary-font-style;
-
-@nav-primary-font-family:                       @global-primary-font-family;
-@nav-primary-font-weight:                       @global-primary-font-weight;
-@nav-primary-text-transform:                    @global-primary-text-transform;
-@nav-primary-letter-spacing:                    @global-primary-letter-spacing;
-@nav-primary-font-style:                        @global-primary-font-style;
-@nav-default-item-hover-color:                  @global-primary-background;
-
-@nav-primary-item-hover-color:                  @global-primary-background;
-@nav-default-font-size:                         @global-small-font-size;
-
-.hook-nav-parent-icon() { margin-right: @nav-parent-icon-margin-right; }
 .hook-nav-default-item() {
   -webkit-transition: 0.1s ease-in-out;
   transition: 0.1s ease-in-out;
@@ -38,9 +35,14 @@
   transition-property: color, background-color, border-color, box-shadow;
 }
 
-.hook-nav-default-item-hover() { background-color: @nav-default-item-hover-background; }
+.hook-nav-default-item-hover() {
+  background-color: @nav-default-item-hover-background;
+}
 
-.hook-nav-default-item-active() { background-color: @nav-default-item-active-background; }
+.hook-nav-default-item-active() {
+  background-color: @nav-default-item-active-background;
+}
+
 .hook-nav-primary-item() {
   -webkit-transition: 0.1s ease-in-out;
   transition: 0.1s ease-in-out;
@@ -48,10 +50,15 @@
   transition-property: color, background-color, border-color, box-shadow;
   padding: @nav-primary-item-padding-vertical @nav-primary-item-padding-horizontal;
 }
-.hook-nav-primary-header() { padding: @nav-primary-header-padding-vertical @nav-primary-header-padding-horizontal; }
+
+.hook-nav-primary-header() {
+  padding: @nav-primary-header-padding-vertical @nav-primary-header-padding-horizontal;
+}
+
 .hook-nav-default-item() when not (@nav-default-item-border-radius = 0) {
   border-radius: @nav-default-item-border-radius;
 }
+
 .hook-nav-default-item-hover() when not (@nav-default-item-hover-box-shadow = none) {
   box-shadow: @nav-default-item-hover-box-shadow;
 }
@@ -64,7 +71,9 @@
   letter-spacing: @nav-header-letter-spacing;
 }
 
-.hook-nav-default() { font-size: @nav-default-font-size; }
+.hook-nav-default() {
+  font-size: @nav-default-font-size;
+}
 
 .hook-nav-default() when not (@nav-default-font-family = inherit) {
   font-family: @nav-default-font-family;
