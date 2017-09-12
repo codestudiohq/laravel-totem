@@ -1,25 +1,6 @@
-@button-default-gradient:;
-@button-default-hover-gradient:;
-@button-default-active-gradient:;
-
-@button-primary-gradient:;
-@button-primary-hover-gradient:;
-@button-primary-active-gradient:;
-
-@button-secondary-gradient:;
-@button-secondary-hover-gradient:;
-@button-secondary-active-gradient:;
-
-@button-danger-gradient:;
-@button-danger-hover-gradient:;
-@button-danger-active-gradient:;
-
 @button-text-color: @global-emphasis-color;
 @button-text-hover-color: @global-emphasis-color;
 @button-transition-duration: 0.1s;
-
-@button-mode:;
-
 @button-text-mode: line;
 @button-text-border-width: @global-border-width;
 @button-line-height: @global-control-height - (@button-border-width * 2);
@@ -29,63 +10,47 @@
 @button-text-arrow-padding: 5px;
 @button-text-arrow-width: 22px;
 @button-text-arrow-width-animation: 5px;
-
 @button-text-em-dash-padding: 8px;
 @button-text-em-dash-size: 20px;
 @button-line-height: @global-control-height - (@button-border-width * 2);
 @button-small-line-height: @global-control-small-height - (@button-border-width * 2);
 @button-large-line-height: @global-control-large-height - (@button-border-width * 2);
 @button-border-mode:;
-
 @button-border-width: 0;
-
 @button-default-border: transparent;
 @button-default-hover-border: transparent;
 @button-default-active-border: transparent;
-
 @button-primary-border: transparent;
 @button-primary-hover-border: transparent;
 @button-primary-active-border: transparent;
-
 @button-secondary-border: transparent;
 @button-secondary-hover-border: transparent;
 @button-secondary-active-border: transparent;
-
 @button-danger-border: transparent;
 @button-danger-hover-border: transparent;
 @button-danger-active-border: transparent;
-
 @button-disabled-border: transparent;
-
 @button-default-border-gradient:;
 @button-default-hover-border-gradient:;
 @button-default-active-border-gradient:;
-
 @button-primary-border-gradient:;
 @button-primary-hover-border-gradient:;
 @button-primary-active-border-gradient:;
-
 @button-secondary-border-gradient:;
 @button-secondary-hover-border-gradient:;
 @button-secondary-active-border-gradient:;
-
 @button-danger-border-gradient:;
 @button-danger-hover-border-gradient:;
 @button-danger-active-border-gradient:;
-
 @button-border-radius: 0;
-
 @button-small-border-radius: 0;
 @button-large-border-radius: 0;
 @button-default-box-shadow: none;
 @button-default-hover-box-shadow: none;
-
 @button-primary-box-shadow: none;
 @button-primary-hover-box-shadow: none;
-
 @button-secondary-box-shadow: none;
 @button-secondary-hover-box-shadow: none;
-
 @button-danger-box-shadow: none;
 @button-danger-hover-box-shadow: none;
 @button-font-family: @global-secondary-font-family;
@@ -93,61 +58,49 @@
 @button-text-transform: @global-secondary-text-transform;
 @button-letter-spacing: @global-secondary-letter-spacing;
 @button-font-style: @global-secondary-font-style;
-
 @button-font-size: @global-small-font-size;
 @button-large-font-size: 13px;
-
 @button-padding-horizontal: (@global-medium-gutter - 10);
 @button-small-padding-horizontal: @global-gutter;
 @button-large-padding-horizontal: @global-medium-gutter;
-
 @button-default-background: @global-background;
 @button-default-hover-background: @button-default-background;
 @button-default-hover-color: @global-primary-background;
 @button-default-active-background: @global-primary-background;
 @button-default-active-color: @global-inverse-color;
-
 @button-primary-hover-background: darken(spin(@button-primary-background, -7%), 6%);
 @button-primary-active-background: darken(spin(@button-primary-background, -7%), 17%);
-
 @button-secondary-background: transparent;
 @button-secondary-color: @global-primary-background;
 @button-secondary-hover-background: transparent;
 @button-secondary-hover-color: darken(@button-secondary-color, 15%);
 @button-secondary-active-background: @global-primary-background;
 @button-secondary-active-color: @global-inverse-color;
-
 @button-danger-background: transparent;
 @button-danger-color: @global-danger-background;
 @button-danger-hover-background: transparent;
 @button-danger-hover-color: darken(@button-danger-color, 15%);
 @button-danger-active-background: @global-danger-background;
 @button-danger-active-color: @global-inverse-color;
-
 @button-text-hover-color: @global-primary-background;
-
 @button-border-width: @global-border-width;
 @button-border-radius: 500px;
 @button-small-border-radius: @button-border-radius;
 @button-large-border-radius: @button-border-radius;
-
 @button-default-active-gradient: linear-gradient(90deg, darken(spin(@button-default-active-background, -10%), 6%), @button-default-active-background);
 @button-default-box-shadow: @global-medium-box-shadow;
 @button-default-hover-box-shadow: @global-small-box-shadow;
-
 @button-primary-gradient: linear-gradient(135deg, @button-primary-background, darken(spin(@button-primary-background, -14%), 18%));
 @button-primary-hover-gradient: linear-gradient(155deg, lighten(spin(@button-primary-background, 16%), 8%), darken(spin(@button-primary-background, -12%), 18%));
 @button-primary-active-gradient: linear-gradient(90deg, darken(spin(@button-primary-background, -10%), 6%), @button-primary-background);
 @button-primary-box-shadow: 2px 6px 15px fade(@button-primary-background, 35%);
 @button-primary-hover-box-shadow: 2px 4px 12px fade(@button-primary-background, 45%);
-
 @button-secondary-active-gradient: linear-gradient(90deg, darken(spin(@button-secondary-active-background, -10%), 6%), @button-secondary-active-background);
 @button-secondary-border: @global-primary-background;
 @button-secondary-hover-border: darken(@button-secondary-border, 10%);
 @button-secondary-active-border: @button-secondary-active-background;
 @button-secondary-box-shadow: inset 2px 2px 7px fade(@global-primary-background, 20%), 2px 2px 7px fade(@global-primary-background, 20%);
 @button-secondary-hover-box-shadow: inset 2px 4px 15px fade(@global-primary-background, 20%), 2px 4px 15px fade(@global-primary-background, 20%);
-
 @button-danger-active-gradient: linear-gradient(90deg, darken(spin(@button-danger-active-background, -10%), 20%), @button-danger-active-background);
 @button-danger-border: @global-danger-background;
 @button-danger-hover-border: darken(@button-danger-border, 10%);
@@ -157,27 +110,6 @@
 
 .hook-button() {
   background-origin: border-box;
-}
-
-.hook-button-default() when not (@button-default-gradient = ~'') {
-  background-image: @button-default-gradient;
-}
-
-.hook-button-default-hover() when not (@button-default-hover-gradient = ~'') {
-  background-image: @button-default-hover-gradient;
-}
-
-.hook-button-default-hover() when (@button-default-hover-gradient = ~'') and not (@button-default-gradient = ~'') {
-  background-image: none;
-}
-
-.hook-button-default-active() when not (@button-default-active-gradient = ~'') {
-  background-image: @button-default-active-gradient;
-}
-
-.hook-button-default-active() when (@button-default-active-gradient = ~'') and not (@button-default-gradient = ~''),
-  (@button-default-active-gradient = ~'') and not (@button-default-hover-gradient = ~'') {
-  background-image: none;
 }
 
 .hook-button-primary() when not (@button-primary-gradient = ~'') {
@@ -201,48 +133,6 @@
   background-image: none;
 }
 
-.hook-button-secondary() when not (@button-secondary-gradient = ~'') {
-  background-image: @button-secondary-gradient;
-}
-
-.hook-button-secondary-hover() when not (@button-secondary-hover-gradient = ~'') {
-  background-image: @button-secondary-hover-gradient;
-}
-
-.hook-button-secondary-hover() when (@button-secondary-hover-gradient = ~'') and not (@button-secondary-gradient = ~'') {
-  background-image: none;
-}
-
-.hook-button-secondary-active() when not (@button-secondary-active-gradient = ~'') {
-  background-image: @button-secondary-active-gradient;
-}
-
-.hook-button-secondary-active() when (@button-secondary-active-gradient = ~'') and not (@button-secondary-gradient = ~''),
-  (@button-secondary-active-gradient = ~'') and not (@button-secondary-hover-gradient = ~'') {
-  background-image: none;
-}
-
-.hook-button-danger() when not (@button-danger-gradient = ~'') {
-  background-image: @button-danger-gradient;
-}
-
-.hook-button-danger-hover() when not (@button-danger-hover-gradient = ~'') {
-  background-image: @button-danger-hover-gradient;
-}
-
-.hook-button-danger-hover() when (@button-danger-hover-gradient = ~'') and not (@button-danger-gradient = ~'') {
-  background-image: none;
-}
-
-.hook-button-danger-active() when not (@button-danger-active-gradient = ~'') {
-  background-image: @button-danger-active-gradient;
-}
-
-.hook-button-danger-active() when (@button-danger-active-gradient = ~'') and not (@button-danger-gradient = ~''),
-  (@button-danger-active-gradient = ~'') and not (@button-danger-hover-gradient = ~'') {
-  background-image: none;
-}
-
 .hook-button-disabled() {
   background-image: none;
 }
@@ -252,79 +142,6 @@
   transition: @button-transition-duration ease-in-out;
   -webkit-transition-property: color, background-color, background-position, border-color, box-shadow;
   transition-property: color, background-color, background-position, border-color, box-shadow;
-}
-
-.hook-button() when (@button-mode = slide-horizontal) {
-  background-size: 200%;
-  background-position-x: 100%;
-}
-
-.hook-button-hover() when (@button-mode = slide-horizontal) {
-  background-position-x: 0;
-}
-
-.hook-button-focus() when (@button-mode = slide-horizontal) {
-  background-position-x: 0;
-}
-
-.hook-button() when (@button-mode = strikethrough) {
-
-  position: relative;
-
-  &:not(.uk-button-text):not(.uk-button-link)::before {
-    content: "";
-    position: absolute;
-    top: ~'calc(50% - 1px)';
-    left: ~'calc(@{button-padding-horizontal} - 5px)';
-    right: ~'calc(100% + 3px - (@{button-padding-horizontal} - 5px))';
-    height: 1px;
-    background-color: currentColor;
-    -webkit-transition: right 0.2s ease;
-    transition: right 0.2s ease;
-  }
-
-}
-
-.hook-button-hover() when (@button-mode = strikethrough) {
-
-  &:not(.uk-button-text):not(.uk-button-link)::before {
-    right: ~'calc(@{button-padding-horizontal} - 5px)';
-  }
-
-}
-
-.hook-button-focus() when (@button-mode = strikethrough) {
-
-  &:not(.uk-button-text):not(.uk-button-link)::before {
-    right: ~'calc(@{button-padding-horizontal} - 5px)';
-  }
-
-}
-
-.hook-button-disabled() when (@button-mode = strikethrough) {
-
-  &::before {
-    display: none;
-  }
-
-}
-
-.hook-button-small() when (@button-mode = strikethrough) {
-
-  &::before {
-    left: ~'calc(@{button-small-padding-horizontal} - 3px)';
-    right: ~'calc(100% + 3px - (@{button-small-padding-horizontal} - 3px))';
-  }
-
-}
-
-.hook-button-large() when (@button-mode = strikethrough) {
-
-  &::before {
-    left: ~'calc(@{button-large-padding-horizontal} - 5px)';
-    right: ~'calc(100% + 3px - (@{button-large-padding-horizontal} - 5px))';
-  }
-
 }
 
 .hook-button-text() when (@button-text-mode = line) {
@@ -406,28 +223,6 @@
 
 }
 
-.hook-button-misc() when (@button-mode = strikethrough) {
-
-  .uk-button-small:hover,
-  .uk-button-small:focus {
-
-    &::before {
-      right: ~'calc(@{button-small-padding-horizontal} - 3px)';
-    }
-
-  }
-
-  .uk-button-large:hover,
-  .uk-button-large:focus {
-
-    &::before {
-      right: ~'calc(@{button-large-padding-horizontal} - 5px)';
-    }
-
-  }
-
-}
-
 .hook-button-default() when not (@button-border-width = 0) and not (@button-default-border-gradient = ~''),
   not (@button-border-width = 0) and not (@button-default-hover-border-gradient = ~''),
   not (@button-border-width = 0) and not (@button-default-active-border-gradient = ~'') {
@@ -462,18 +257,6 @@
   not (@button-border-width = 0) and not (@button-primary-hover-border-gradient = ~''),
   not (@button-border-width = 0) and not (@button-primary-active-border-gradient = ~'') {
   border-width: 0;
-}
-
-.hook-button-primary() when not (@button-border-width = 0) {
-  border@{button-border-mode}: @button-border-width solid @button-primary-border;
-}
-
-.hook-button-primary-hover() when not (@button-border-width = 0) {
-  border@{button-border-mode}-color: @button-primary-hover-border;
-}
-
-.hook-button-primary-active() when not (@button-border-width = 0) {
-  border@{button-border-mode}-color: @button-primary-active-border;
 }
 
 .hook-button-primary() when not (@button-border-width = 0) and not (@button-primary-border-gradient = ~'') {
@@ -554,24 +337,10 @@
 
 .hook-button-misc() when not (@button-border-width = 0) {
 
-  /* Group
-   ========================================================================== */
-
-  /*
-   * Collapse border
-   */
-
   .uk-button-group > .uk-button:nth-child(n+2),
   .uk-button-group > div:nth-child(n+2) .uk-button {
     margin-left: -@button-border-width;
   }
-
-  /*
-   * Create position context to superimpose the successor elements border
-   * Known issue: If you use an `a` element as button and an icon inside,
-   * the active state will not work if you click the icon inside the button
-   * Workaround: Just use a `button` or `input` element as button
-   */
 
   .uk-button-group .uk-button:hover,
   .uk-button-group .uk-button:focus,
@@ -596,13 +365,6 @@
 }
 
 .hook-button-misc() when not (@button-border-radius = 0) {
-
-  /* Group
-   ========================================================================== */
-
-  /*
-   * Reset border-radius
-   */
 
   .uk-button-group > .uk-button:not(:first-child):not(:last-child),
   .uk-button-group > div:not(:first-child):not(:last-child) .uk-button {

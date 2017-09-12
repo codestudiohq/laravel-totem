@@ -55,7 +55,7 @@
                         <span class="uk-float-right uk-hidden@s uk-text-muted">Next Run</span>
                     </td>
                     <td class="uk-text-center@m">
-                        <execute-button :data-task="{{$task}}" url="{{route('totem.task.execute', $task)}}" icon-name="cog" button-class="uk-button-link"></execute-button>
+                        <execute-button :data-task="{{$task}}" url="{{route('totem.task.execute', $task)}}" icon-name="play" button-class="uk-button-link"></execute-button>
                     </td>
                 </tr>
             @empty

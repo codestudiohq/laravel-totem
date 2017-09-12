@@ -3,11 +3,10 @@
 @divider-icon-width: 70px;
 @divider-icon-height: 20px;
 @divider-icon-line-border-width: 1px;
-@divider-icon-image: "../../../totem/images/divider-icon.svg";
-
 @divider-small-width: 45px;
 @divider-small-border-width: 2px;
 @divider-small-border: @global-primary-background;
+@internal-divider-icon-image: "../img/divider-icon.svg";
 
 .hook-divider-small() when not (@divider-small-border-gradient = ~'') {
   border-image: @divider-small-border-gradient;

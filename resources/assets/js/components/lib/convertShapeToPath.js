@@ -91,7 +91,7 @@ module.exports = function (node, type) {
       };
     case "polygon":
     case "polyline":
-      var points = (node.getAttribute("points").match(regNumber) || []).map(Number);
+      var points = (node.points.match(regNumber) || []).map(Number);
       if (points.length < 4) {
         return;
       }
