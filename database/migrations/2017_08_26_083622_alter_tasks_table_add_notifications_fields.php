@@ -28,6 +28,9 @@ class AlterTasksTableAddNotificationsFields extends Migration
     {
         Schema::table('tasks', function (Blueprint $table) {
             $table->dropColumn('notification_phone_number');
+        });
+
+        Schema::table('tasks', function (Blueprint $table) {
             $table->dropColumn('notification_slack_webhook');
         });
     }
