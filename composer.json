@@ -26,9 +26,9 @@
   },
   "require-dev": {
     "mockery/mockery": "~0.9",
-    "orchestra/database": "~3.0",
-    "orchestra/testbench" : "~3.0",
-    "phpunit/phpunit": "~6.0"
+    "orchestra/database": "~3.4",
+    "orchestra/testbench" : "~3.4",
+    "phpunit/phpunit": "~5.7"
   },
   "suggest": {
     "nexmo/client": "Required for sms notifications."

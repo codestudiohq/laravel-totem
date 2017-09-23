@@ -2,6 +2,7 @@
 
 namespace Studio\Totem\Tests\Feature;
 
+use Illuminate\Http\Request;
 use Studio\Totem\Totem;
 use Studio\Totem\Tests\TestCase;
 use Studio\Totem\Http\Middleware\Authenticate;
@@ -30,10 +31,9 @@ class AuthTest extends TestCase
         });
 
         $middleware = new Authenticate;
-
+        $object = new Request;
         $response = $middleware->handle(
-            new class {
-            },
+            $object,
             function ($value) {
                 return 'response';
             }
@@ -53,10 +53,9 @@ class AuthTest extends TestCase
         });
 
         $middleware = new Authenticate;
-
+        $object = new Request;
         $response = $middleware->handle(
-            new class {
-            },
+            $object,
             function ($value) {
                 return 'response';
             }

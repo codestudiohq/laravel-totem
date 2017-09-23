@@ -21,9 +21,10 @@ class Totem
      */
     public static function check($request)
     {
-        return (static::$authUsing ?: function () {
+        $callback = static::$authUsing ?: function () {
             return app()->environment('local');
-        })($request);
+        };
+        return $callback($request);
     }
 
     /**
