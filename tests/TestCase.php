@@ -77,10 +77,12 @@ class PassThroughHandler extends Handler
     public function __construct()
     {
     }
+
     public function report(Exception $e)
     {
         // no-op
     }
+
     public function render($request, Exception $e)
     {
         throw $e;
