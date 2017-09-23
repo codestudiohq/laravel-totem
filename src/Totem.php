@@ -24,6 +24,7 @@ class Totem
         $callback = static::$authUsing ?: function () {
             return app()->environment('local');
         };
+
         return $callback($request);
     }
 

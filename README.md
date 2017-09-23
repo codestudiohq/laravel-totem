@@ -128,8 +128,6 @@ php artisan schedule:list
 
 Important versions listed below. Refer to the [Changelog](CHANGELOG.md) for a full history of the project.
 
-- [1.0](CHANGELOG.md) - TBD
-
 ## Credits
 
 - [Roshan Gautam](https://twitter.com/@roshangautam)
