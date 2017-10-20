@@ -52,7 +52,7 @@ class TotemRouteServiceProvider extends RouteServiceProvider
     protected function mapWebRoutes()
     {
         Route::prefix('totem')
-            ->middleware(env('TOTEM_WEB_MIDDLEWARE', 'web'))
+            ->middleware(config('totem.web.middleware'))
             ->namespace($this->namespace)
             ->group(__DIR__.'/../../routes/web.php');
     }
@@ -67,7 +67,7 @@ class TotemRouteServiceProvider extends RouteServiceProvider
     protected function mapApiRoutes()
     {
         Route::prefix('api')
-            ->middleware(env('TOTEM_API_MIDDLEWARE', 'api'))
+            ->middleware(config('totem.web.middleware'))
             ->namespace($this->namespace)
             ->group(__DIR__.'/../../routes/api.php');
     }

@@ -83,6 +83,10 @@ Totem::auth(function($request) {
 
 By default Totem's dashboard only works in local environment. To view the dashboard point your browser to /totem of your app. For e.g. laravel.dev/totem.
 
+#### Middleware
+
+`Laravel Totem` uses the default web and api middleware but if customization is required the middleware can be changed by setting the appropriate `.env` value. These values can be found in `config/totem.php`.
+
 #### Making Commands available in `Laravel Totem`
 
 All artisan commands can be scheduled. If you want to hide a command from Totem make sure you have the `hidden` attribute set to true in your command. For e.g.
