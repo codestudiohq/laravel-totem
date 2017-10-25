@@ -77,7 +77,7 @@ class Task extends Model
 
                 return count($param) > 1 ?
                     ($console ? ((starts_with($param[0], '--') ? [$param[0] => $param[1]] : [$param[1]])) : [$param[0] => $param[1]])
-                    : (starts_with($param[0], '--') ? [$param[0] => true] : $param);
+                    : (starts_with($param[0], '--') && ! $console ? [$param[0] => true] : $param);
             })->toArray();
 
             return $parameters;
