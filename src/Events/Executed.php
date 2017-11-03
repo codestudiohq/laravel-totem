@@ -19,8 +19,8 @@ class Executed extends Event
 
         $time_elapsed_secs = microtime(true) - $started;
         
-        if(file_exists(storage_path($task->getMutexName()))) {
-           $output = file_get_contents(storage_path($task->getMutexName()));
+        if (file_exists(storage_path($task->getMutexName()))) {
+            $output = file_get_contents(storage_path($task->getMutexName()));
 
             $task->results()->create([
                 'duration'  => $time_elapsed_secs * 1000,
@@ -29,7 +29,7 @@ class Executed extends Event
 
             unlink(storage_path($task->getMutexName()));
 
-            $task->notify(new TaskCompleted($output)); 
+            $task->notify(new TaskCompleted($output));
         }
     }
 }
