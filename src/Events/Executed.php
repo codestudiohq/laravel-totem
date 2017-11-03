@@ -18,7 +18,7 @@ class Executed extends Event
         parent::__construct($task);
 
         $time_elapsed_secs = microtime(true) - $started;
-        
+
         if (file_exists(storage_path($task->getMutexName()))) {
             $output = file_get_contents(storage_path($task->getMutexName()));
 
