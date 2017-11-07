@@ -97,7 +97,7 @@ class Task extends Model
     }
 
     /**
-     * Returns the most recent result entry for this task
+     * Returns the most recent result entry for this task.
      *
      * @return Model|null
      */
@@ -111,7 +111,7 @@ class Task extends Model
      */
     public function getAverageRuntimeAttribute()
     {
-        return ($this->results()->avg('duration') ?? 0.00);
+        return $this->results()->avg('duration') ?? 0.00;
     }
 
     /**
