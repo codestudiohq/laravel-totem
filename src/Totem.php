@@ -67,6 +67,7 @@ class Totem
                         return true;
                     }
                 }
+
                 return false;
             });
         }
