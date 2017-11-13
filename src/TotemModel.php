@@ -13,4 +13,5 @@ class TotemModel extends Model
     {
         return config('totem.table_prefix').parent::getTable();
     }
+
 }
