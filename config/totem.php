@@ -224,5 +224,5 @@ return [
     ],
     'artisan' => [
         'command_filter' => [],
-    ]
+    ],
 ];
