@@ -3,11 +3,10 @@
 namespace Studio\Totem;
 
 use Cron\CronExpression;
-use Illuminate\Database\Eloquent\Model;
 use Studio\Totem\Traits\HasFrequencies;
 use Illuminate\Notifications\Notifiable;
 
-class Task extends Model
+class Task extends TotemModel
 {
     use Notifiable, HasFrequencies;
 

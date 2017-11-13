@@ -2,9 +2,7 @@
 
 namespace Studio\Totem;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Result extends Model
+class Result extends TotemModel
 {
     protected $table = 'task_results';
 
