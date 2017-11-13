@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: quentin
- * Date: 11/13/17
- * Time: 2:18 PM
- */
 
 namespace Studio\Totem;
 
@@ -17,6 +11,6 @@ class TotemModel extends Model
      */
     public function getTable()
     {
-        return config('totem.table_prefix') . parent::getTable();
+        return config('totem.table_prefix').parent::getTable();
     }
 }
