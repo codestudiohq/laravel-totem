@@ -75,7 +75,9 @@ class Task extends Model
             $parameters = collect($matches)->mapWithKeys(function ($parameter) use ($console) {
                 $param = explode('=', $parameter[0]);
 
-                return count($param) > 1 ? ($console ? ((starts_with($param[0], '--') ? [$param[0] => $param[1]] : [$param[1]])) : [$param[0] => $param[1]]) : $param;
+                return count($param) > 1 ?
+                    ($console ? ((starts_with($param[0], '--') ? [$param[0] => $param[1]] : [$param[1]])) : [$param[0] => $param[1]])
+                    : (starts_with($param[0], '--') && ! $console ? [$param[0] => true] : $param);
             })->toArray();
 
             return $parameters;
