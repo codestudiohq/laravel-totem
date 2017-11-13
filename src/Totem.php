@@ -61,7 +61,7 @@ class Totem
         $all_commands = collect(Artisan::all());
 
         if(! empty($command_filter)) {
-            $all_commands = $all_commands->filter( function($command) use ($command_filter) {
+            $all_commands = $all_commands->filter(function ($command) use ($command_filter) {
                 foreach ($command_filter as $filter) {
                     if (fnmatch($filter, $command->getName())) {
                         return true;
