@@ -222,4 +222,7 @@ return [
     'api' => [
         'middleware' => env('TOTEM_API_MIDDLEWARE', 'api'),
     ],
+    'artisan' => [
+        'command_filter' => [],
+    ],
 ];
