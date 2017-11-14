@@ -13,7 +13,7 @@ class AlterTasksTableAddNotificationsFields extends Migration
      */
     public function up()
     {
-        Schema::table('tasks', function (Blueprint $table) {
+        Schema::table(config('totem.table_prefix').'tasks', function (Blueprint $table) {
             $table->string('notification_phone_number')->nullable()->after('notification_email_address');
             $table->string('notification_slack_webhook')->nullable()->after('notification_phone_number');
         });
@@ -26,11 +26,11 @@ class AlterTasksTableAddNotificationsFields extends Migration
      */
     public function down()
     {
-        Schema::table('tasks', function (Blueprint $table) {
+        Schema::table(config('totem.table_prefix').'tasks', function (Blueprint $table) {
             $table->dropColumn('notification_phone_number');
         });
 
-        Schema::table('tasks', function (Blueprint $table) {
+        Schema::table(config('totem.table_prefix').'tasks', function (Blueprint $table) {
             $table->dropColumn('notification_slack_webhook');
         });
     }

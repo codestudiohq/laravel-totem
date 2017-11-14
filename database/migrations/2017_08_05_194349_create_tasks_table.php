@@ -13,7 +13,7 @@ class CreateTasksTable extends Migration
      */
     public function up()
     {
-        Schema::create('tasks', function (Blueprint $table) {
+        Schema::create(config('totem.table_prefix').'tasks', function (Blueprint $table) {
             $table->increments('id');
             $table->string('description');
             $table->string('command');
@@ -35,6 +35,6 @@ class CreateTasksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tasks');
+        Schema::dropIfExists(config('totem.table_prefix').'tasks');
     }
 }

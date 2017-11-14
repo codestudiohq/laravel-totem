@@ -50,6 +50,10 @@ php artisan migrate
 php artisan totem:assets
 ```
 
+##### Table Prefix
+
+Totems' tables use generic names which may conflict with existing tables in a project. To alleviate this the `.env` param `TOTEM_TABLE_PREFIX` can be set which will apply a prefix to all of Totems tables and their models.
+
 #### Updating
 
 Please republish totem assets after updating totem to a new version
