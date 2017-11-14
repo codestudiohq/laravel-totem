@@ -83,6 +83,22 @@ Totem::auth(function($request) {
 
 By default Totem's dashboard only works in local environment. To view the dashboard point your browser to /totem of your app. For e.g. laravel.dev/totem.
 
+##### Filter Commands Dropdown
+
+By default `Totem` outputs all Artisan commands on the Create/Edit tasks. To make this dropdown more concise there is a filter config feature that can be set in the `totem.php` config file.
+
+Example filters
+```php
+'artisan' => [
+    'command_filter' => [
+        'stats:*',
+        'email:daily-reports'
+    ],
+],
+```
+
+This feature uses [fnmatch](http://php.net/manual/en/function.fnmatch.php) syntax to filter displayed commands. `stats:*` will match all Artisan commands that start with `stats:` while `email:daily-reports` will only match the command named `email:daily-reports`.
+
 #### Middleware
 
 `Laravel Totem` uses the default web and api middleware but if customization is required the middleware can be changed by setting the appropriate `.env` value. These values can be found in `config/totem.php`.
