@@ -2,8 +2,8 @@
 
 namespace Studio\Totem\Tests\Feature;
 
-use Studio\Totem\Result;
 use Studio\Totem\Task;
+use Studio\Totem\Result;
 use Studio\Totem\Tests\TestCase;
 
 class ViewDashboardTest extends TestCase
@@ -69,7 +69,7 @@ class ViewDashboardTest extends TestCase
         $response = $this->get(route('totem.tasks.all', $tasks[0]));
         $response->assertStatus(200);
 
-        foreach($tasks AS $task) {
+        foreach ($tasks AS $task) {
             $this->assertNotEmpty($task->results);
             $this->assertGreaterThanOrEqual(0.0, $task->averageRuntime);
             $response->assertSee($task->description);
@@ -87,8 +87,8 @@ class ViewDashboardTest extends TestCase
     {
         return factory(Task::class, $task_count)
             ->create()
-            ->each(function($task) use ($result_count) {
-                for($i = 0; $i < $result_count; $i++) {
+            ->each(function ($task) use ($result_count) {
+                for ($i = 0; $i < $result_count; $i++) {
                     $task->results()->save(factory(Result::class)->make());
                 }
             });
