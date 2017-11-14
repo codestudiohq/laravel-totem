@@ -4,7 +4,6 @@ namespace Studio\Totem\Http\Controllers;
 
 use Studio\Totem\Task;
 use Studio\Totem\Totem;
-use Illuminate\Support\Facades\Artisan;
 use Studio\Totem\Contracts\TaskInterface;
 use Studio\Totem\Http\Requests\TaskRequest;
 
@@ -48,9 +47,7 @@ class TasksController extends Controller
     {
         return view('totem::tasks.form', [
             'task'          => new Task,
-            'commands'      => collect(Artisan::all())->sortBy(function ($command) {
-                return $command->getDescription();
-            }),
+            'commands'      => Totem::getCommands(),
             'timezones'     => timezone_identifiers_list(),
             'frequencies'   => Totem::frequencies(),
         ]);
@@ -94,9 +91,7 @@ class TasksController extends Controller
     {
         return view('totem::tasks.form', [
             'task'          => $task,
-            'commands'      => collect(Artisan::all())->sortBy(function ($command) {
-                return $command->getDescription();
-            }),
+            'commands'      => Totem::getCommands(),
             'timezones'     => timezone_identifiers_list(),
             'frequencies'   => Totem::frequencies(),
         ]);
