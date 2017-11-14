@@ -69,14 +69,12 @@ class ViewDashboardTest extends TestCase
         $response = $this->get(route('totem.tasks.all', $tasks[0]));
         $response->assertStatus(200);
 
-        foreach ($tasks AS $task) {
+        foreach ($tasks as $task) {
             $this->assertNotEmpty($task->results);
             $this->assertGreaterThanOrEqual(0.0, $task->averageRuntime);
             $response->assertSee($task->description);
         }
-
     }
-
 
     /**
      * @param int $task_count
