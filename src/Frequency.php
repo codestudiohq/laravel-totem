@@ -3,9 +3,8 @@
 namespace Studio\Totem;
 
 use Studio\Totem\Traits\HasParameters;
-use Illuminate\Database\Eloquent\Model;
 
-class Frequency extends Model
+class Frequency extends TotemModel
 {
     use HasParameters;
 

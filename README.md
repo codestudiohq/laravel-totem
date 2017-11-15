@@ -50,6 +50,10 @@ php artisan migrate
 php artisan totem:assets
 ```
 
+##### Table Prefix
+
+Totems' tables use generic names which may conflict with existing tables in a project. To alleviate this the `.env` param `TOTEM_TABLE_PREFIX` can be set which will apply a prefix to all of Totems tables and their models.
+
 #### Updating
 
 Please republish totem assets after updating totem to a new version
@@ -82,6 +86,22 @@ Totem::auth(function($request) {
 ```
 
 By default Totem's dashboard only works in local environment. To view the dashboard point your browser to /totem of your app. For e.g. laravel.dev/totem.
+
+##### Filter Commands Dropdown
+
+By default `Totem` outputs all Artisan commands on the Create/Edit tasks. To make this dropdown more concise there is a filter config feature that can be set in the `totem.php` config file.
+
+Example filters
+```php
+'artisan' => [
+    'command_filter' => [
+        'stats:*',
+        'email:daily-reports'
+    ],
+],
+```
+
+This feature uses [fnmatch](http://php.net/manual/en/function.fnmatch.php) syntax to filter displayed commands. `stats:*` will match all Artisan commands that start with `stats:` while `email:daily-reports` will only match the command named `email:daily-reports`.
 
 #### Middleware
 

@@ -3,11 +3,10 @@
 namespace Studio\Totem;
 
 use Cron\CronExpression;
-use Illuminate\Database\Eloquent\Model;
 use Studio\Totem\Traits\HasFrequencies;
 use Illuminate\Notifications\Notifiable;
 
-class Task extends Model
+class Task extends TotemModel
 {
     use Notifiable, HasFrequencies;
 
@@ -94,6 +93,24 @@ class Task extends Model
     public function results()
     {
         return $this->hasMany(Result::class, 'task_id', 'id');
+    }
+
+    /**
+     * Returns the most recent result entry for this task.
+     *
+     * @return Model|null
+     */
+    public function getLastResultAttribute()
+    {
+        return $this->results()->orderBy('id', 'desc')->first();
+    }
+
+    /**
+     * @return float
+     */
+    public function getAverageRuntimeAttribute()
+    {
+        return $this->results()->avg('duration') ?? 0.00;
     }
 
     /**

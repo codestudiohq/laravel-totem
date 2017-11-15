@@ -222,4 +222,8 @@ return [
     'api' => [
         'middleware' => env('TOTEM_API_MIDDLEWARE', 'api'),
     ],
+    'table_prefix' => env('TOTEM_TABLE_PREFIX', ''),
+    'artisan' => [
+        'command_filter' => [],
+    ],
 ];
