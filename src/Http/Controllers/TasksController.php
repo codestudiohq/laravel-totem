@@ -2,9 +2,9 @@
 
 namespace Studio\Totem\Http\Controllers;
 
-use Studio\Totem\Frequency;
 use Studio\Totem\Task;
 use Studio\Totem\Totem;
+use Studio\Totem\Frequency;
 use Studio\Totem\Contracts\TaskInterface;
 use Studio\Totem\Http\Requests\TaskRequest;
 
@@ -130,7 +130,7 @@ class TasksController extends Controller
     }
 
     /**
-     * JSON representation of tasks and their frequencies
+     * JSON representation of tasks and their frequencies.
      *
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
      */
@@ -151,7 +151,7 @@ class TasksController extends Controller
         $records_imported = 0;
         if (request()->hasFile('tasks')) {
             $file = request()->file('tasks');
-            if(ends_with($file->getClientOriginalName(), '.json')) {
+            if (ends_with($file->getClientOriginalName(), '.json')) {
                 try {
                     $data = json_decode(file_get_contents($file->getPathname()));
                     foreach ($data as $record) {
@@ -171,7 +171,7 @@ class TasksController extends Controller
                             'notification_slack_webhook' => $record->notification_slack_webhook,
                         ]);
 
-                        if (!empty($record->frequencies)) {
+                        if (! empty($record->frequencies)) {
                             foreach ($record->frequencies as $freq) {
                                 Frequency::updateOrCreate([
                                     'id' => $freq->id,
@@ -190,7 +190,7 @@ class TasksController extends Controller
             }
         }
 
-        if($records_imported == 0) {
+        if ($records_imported == 0) {
             $errors[] = 'Invalid data or no record selected.';
         }
 
