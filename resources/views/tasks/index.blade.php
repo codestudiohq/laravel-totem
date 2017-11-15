@@ -36,10 +36,10 @@
                         <span class="uk-float-right uk-hidden@s uk-text-muted">Command</span>
                     </td>
                     <td>
-                        {{  $task->results->count() > 0 ? number_format(  $task->results->sum('duration') / (1000 * $task->results->count()) , 2) : '0' }} seconds
+                        {{ number_format(  $task->averageRuntime / 1000 , 2 ) }} seconds
                         <span class="uk-float-right uk-hidden@s uk-text-muted">Avg. Runtime</span>
                     </td>
-                    @if($last = $task->results->last())
+                    @if($last = $task->lastResult)
                         <td>
                             {{$last->ran_at->toDateTimeString()}}
                             <span class="uk-float-right uk-hidden@s uk-text-muted">Last Run</span>

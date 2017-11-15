@@ -96,6 +96,24 @@ class Task extends TotemModel
     }
 
     /**
+     * Returns the most recent result entry for this task.
+     *
+     * @return Model|null
+     */
+    public function getLastResultAttribute()
+    {
+        return $this->results()->orderBy('id', 'desc')->first();
+    }
+
+    /**
+     * @return float
+     */
+    public function getAverageRuntimeAttribute()
+    {
+        return $this->results()->avg('duration') ?? 0.00;
+    }
+
+    /**
      * Route notifications for the mail channel.
      *
      * @return string

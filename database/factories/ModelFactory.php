@@ -32,3 +32,14 @@ $factory->define(Studio\Totem\Task::class, function (Faker\Generator $faker) {
         'expression'   => '* * * * *',
     ];
 });
+
+$factory->define(Studio\Totem\Result::class, function (Faker\Generator $faker) {
+    return [
+        'task_id'     => $faker->randomDigit,
+        'ran_at'      => $faker->dateTimeBetween('-1 hour'),
+        'duration'    => (string) $faker->randomFloat(11, 0, 8000000),
+        'result'      => $faker->sentence,
+        'created_at'  => $faker->dateTimeBetween('-1 year', '-6 months'),
+        'updated_at'  => $faker->dateTimeBetween('-6 months'),
+    ];
+});
