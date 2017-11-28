@@ -51,6 +51,18 @@
             <input class="uk-input" placeholder="e.g. --type=all for options or name=John for arguments" name="parameters" id="parameters" value="{{old('parameters', $task->parameters)}}" type="text">
         </div>
     </div>
+    <div class="uk-grid">
+        <div class="uk-width-1-1@s uk-width-1-3@m">
+            <label class="uk-form-label">Output (Optional)</label>
+            <div class="uk-text-meta">Relative storage path for log file to append output</div>
+        </div>
+        <div class="uk-width-1-1@s uk-width-2-3@m">
+            <input class="uk-input" placeholder="e.g. logs/process_name.log" name="logpath" id="logpath" value="{{old('logpath', $task->logpath)}}" type="text">
+            @if($errors->has('logpath'))
+                <p class="uk-text-danger">{{$errors->first('logpath')}}</p>
+            @endif
+        </div>
+    </div>
     <hr class="uk-divider-icon">
     <div class="uk-grid">
         <div class="uk-width-1-1@s uk-width-1-3@m">

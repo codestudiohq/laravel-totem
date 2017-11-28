@@ -42,6 +42,10 @@ class ConsoleServiceProvider extends ServiceProvider
                 })
                 ->after(function () use ($event, $task) {
                     Executed::dispatch($task, $event->start);
+                    if(! empty($task->logpath) && file_exists(storage_path($task->logpath))){
+                        file_put_contents(storage_path($task->logpath), $event->output);
+                    }
+
                 })
                 ->sendOutputTo(storage_path($task->getMutexName()));
             if ($task->dont_overlap) {

@@ -181,6 +181,9 @@ class EloquentTaskRepository implements TaskInterface
             Artisan::call($task->command, $task->compileParameters());
 
             file_put_contents(storage_path($task->getMutexName()), Artisan::output());
+            if(! empty($task->logpath) && file_exists(storage_path($task->logpath))){
+                file_put_contents(storage_path($task->logpath), Artisan::output());
+            }
         } catch (\Exception $e) {
             file_put_contents(storage_path($task->getMutexName()), $e->getMessage());
         }

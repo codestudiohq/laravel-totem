@@ -19,6 +19,7 @@ class Task extends TotemModel
         'description',
         'command',
         'parameters',
+        'logpath',
         'expression',
         'timezone',
         'is_active',

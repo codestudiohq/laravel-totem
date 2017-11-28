@@ -24,6 +24,10 @@
             <span class="uk-float-left">{{$task->parameters or 'N/A'}}</span>
         </li>
         <li>
+            <span class="uk-text-muted uk-float-right">Output</span>
+            <span class="uk-float-left">{{$task->logpath or 'N/A'}}</span>
+        </li>
+        <li>
             <span class="uk-text-muted uk-float-right">Cron Expression</span>
             <span class="uk-float-left">
                 <span>{{$task->getCronExpression()}}</span>
