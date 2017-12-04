@@ -30,7 +30,7 @@ class ConsoleServiceProvider extends ServiceProvider
     {
         $tasks = app('totem.tasks')->findAllActive();
 
-        $tasks->each(function ($task) use ($schedule) {
+        $tasks->each(function (\Studio\Totem\Task $task) use ($schedule) {
             $event = $schedule->command($task->command, $task->compileParameters(true));
 
             $event->cron($task->getCronExpression())
@@ -42,11 +42,14 @@ class ConsoleServiceProvider extends ServiceProvider
                 })
                 ->after(function () use ($event, $task) {
                     Executed::dispatch($task, $event->start);
-                    if (! empty($task->logpath)) {
-                        file_put_contents(storage_path($task->logpath), $event->output);
-                    }
-                })
-                ->sendOutputTo(storage_path($task->getMutexName()));
+                });
+
+            if (! empty($task->logpath)) {
+                $event->appendOutputTo(storage_path($task->logpath));
+            } else {
+                $event->sendOutputTo(storage_path($task->getMutexName()));
+            }
+
             if ($task->dont_overlap) {
                 $event->withoutOverlapping();
             }
