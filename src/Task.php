@@ -19,6 +19,7 @@ class Task extends TotemModel
         'description',
         'command',
         'parameters',
+        'logpath',
         'expression',
         'timezone',
         'is_active',
@@ -71,12 +72,12 @@ class Task extends TotemModel
             $regex = '/(?=\S)[^\'"\s]*(?:\'[^\']*\'[^\'"\s]*|"[^"]*"[^\'"\s]*)*/';
             preg_match_all($regex, $this->parameters, $matches, PREG_SET_ORDER, 0);
 
-            $parameters = collect($matches)->mapWithKeys(function ($parameter) use ($console) {
+            $argument_index = 0;
+            $parameters = collect($matches)->mapWithKeys(function ($parameter) use ($console, &$argument_index) {
                 $param = explode('=', $parameter[0]);
 
-                return count($param) > 1 ?
-                    ($console ? ((starts_with($param[0], '--') ? [$param[0] => $param[1]] : [$param[1]])) : [$param[0] => $param[1]])
-                    : (starts_with($param[0], '--') && ! $console ? [$param[0] => true] : $param);
+                return count($param) > 1 ? [$param[0] => $param[1]]
+                    : (starts_with($param[0], '--') && ! $console ? [$param[0] => true] : [$argument_index++ => $param[0]]);
             })->toArray();
 
             return $parameters;

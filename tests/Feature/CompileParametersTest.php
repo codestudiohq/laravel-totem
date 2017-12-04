@@ -7,8 +7,7 @@ use Studio\Totem\Tests\TestCase;
 
 class CompileParametersTest extends TestCase
 {
-    /** @test */
-    public function no_paramters()
+    public function test_no_paramters()
     {
         $task = factory(Task::class)->create();
         $parameters = $task->compileParameters();
@@ -16,8 +15,7 @@ class CompileParametersTest extends TestCase
         $this->assertEmpty($parameters);
     }
 
-    /** @test */
-    public function multiple_paramters()
+    public function test_multiple_paramters()
     {
         $task = factory(Task::class)->create();
         $task->parameters = '--parameter-1=value --parameter-2=value --parameter-3=value';
@@ -29,7 +27,7 @@ class CompileParametersTest extends TestCase
         $this->assertEquals('value', $parameters['--parameter-3']);
     }
 
-    public function flag_and_paramter()
+    public function test_flag_and_paramter()
     {
         $task = factory(Task::class)->create();
         $task->parameters = '--parameter-1=value --dry-run';
@@ -41,7 +39,7 @@ class CompileParametersTest extends TestCase
         $this->assertEquals('value', $parameters['--parameter-1']);
     }
 
-    public function multiple_flags()
+    public function test_multiple_flags()
     {
         $task = factory(Task::class)->create();
         $task->parameters = '--dry-run --debug --log-output';
@@ -54,5 +52,58 @@ class CompileParametersTest extends TestCase
         $this->assertTrue($parameters['--dry-run']);
         $this->assertTrue($parameters['--debug']);
         $this->assertTrue($parameters['--log-output']);
+    }
+
+    public function test_multiple_arguments()
+    {
+        $task = factory(Task::class)->create();
+        $task->parameters = 'arg1 arg2 arg3';
+        $parameters = $task->compileParameters();
+
+        $this->assertCount(3, $parameters);
+        $this->assertSame('arg1', $parameters[0]);
+        $this->assertSame('arg2', $parameters[1]);
+        $this->assertSame('arg3', $parameters[2]);
+    }
+
+    public function test_multiple_named_arguments()
+    {
+        $task = factory(Task::class)->create();
+        $task->parameters = 'arg1=name arg2=airport arg3=100';
+        $parameters = $task->compileParameters();
+
+        $this->assertCount(3, $parameters);
+        $this->assertSame('name', $parameters['arg1']);
+        $this->assertSame('airport', $parameters['arg2']);
+        $this->assertSame('100', $parameters['arg3']);
+    }
+
+    public function test_multiple_mixed_arguments()
+    {
+        $task = factory(Task::class)->create();
+        $task->parameters = 'arg1 arg2=test arg3=15 arg4';
+        $parameters = $task->compileParameters();
+
+        $this->assertCount(4, $parameters);
+        $this->assertSame('arg1', $parameters[0]);
+        $this->assertSame('test', $parameters['arg2']);
+        $this->assertSame('15', $parameters['arg3']);
+        $this->assertSame('arg4', $parameters[1]);
+    }
+
+    public function test_all_mixed_arguments()
+    {
+        $task = factory(Task::class)->create();
+        $task->parameters = 'arg1 arg2=test arg3=15 arg4 --flag --flag2 --option=yes --someplace=warm';
+        $parameters = $task->compileParameters();
+
+        $this->assertCount(8, $parameters);
+        $this->assertSame('arg1', $parameters[0]);
+        $this->assertSame('test', $parameters['arg2']);
+        $this->assertSame('15', $parameters['arg3']);
+        $this->assertSame('arg4', $parameters[1]);
+        $this->assertSame('warm', $parameters['--someplace']);
+        $this->assertTrue($parameters['--flag']);
+        $this->assertArrayHasKey('--flag', $parameters);
     }
 }
