@@ -71,5 +71,21 @@
 @stop
 @section('main-panel-footer')
     <a class="uk-button uk-button-primary uk-button-small" href="{{route('totem.task.create')}}">New Task</a>
+    <a class="uk-button uk-button-primary uk-button-small uk-float-right" href="{{route('totem.task.export')}}">Export</a>
     {{$tasks->links('totem::partials.pagination')}}
+@stop
+@section('main-panel-after')
+    <div class="uk-card uk-card-default">
+        <div class="uk-card-footer">
+            @if($errors->any())
+                <div class="uk-text-danger">
+                    {{$errors->first()}}
+                </div>
+            @endif
+            {!! Form::open(['route' => 'totem.task.import', 'enctype' => 'multipart/form-data']) !!}
+            {!! Form::file('tasks') !!}
+            {!! Form::submit('Upload', ['class' => 'uk-button uk-button-primary uk-button-small uk-float-right']) !!}
+            {!! Form::close() !!}
+        </div>
+    </div>
 @stop
