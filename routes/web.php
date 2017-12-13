@@ -15,6 +15,10 @@ Route::group(['prefix' => 'tasks'], function () {
     Route::get('create', 'TasksController@create')->name('totem.task.create');
     Route::post('create', 'TasksController@store');
 
+    Route::get('export', 'TasksController@export')->name('totem.task.export');
+
+    Route::get('import', 'TasksController@import')->name('totem.task.import');
+
     Route::get('{task}', 'TasksController@view')->name('totem.task.view');
 
     Route::get('{task}/edit', 'TasksController@edit')->name('totem.task.edit');

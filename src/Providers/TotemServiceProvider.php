@@ -3,6 +3,7 @@
 namespace Studio\Totem\Providers;
 
 use Cron\CronExpression;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Validator;
@@ -49,8 +50,13 @@ class TotemServiceProvider extends ServiceProvider
         $this->app->register(TotemRouteServiceProvider::class);
         $this->app->register(TotemEventServiceProvider::class);
 
-        if (Schema::hasTable('tasks')) {
-            $this->app->register(ConsoleServiceProvider::class);
+        try {
+            if (Schema::hasTable('tasks')) {
+                $this->app->register(ConsoleServiceProvider::class);
+            }
+        } catch (\PDOException $ex) {
+            // This will trigger if DB cannot be connected to
+            Log::error($ex->getMessage());
         }
 
         $this->mergeConfigFrom(
