@@ -87,14 +87,16 @@ Totem::auth(function($request) {
 
 By default Totem's dashboard only works in local environment. To view the dashboard point your browser to /totem of your app. For e.g. laravel.dev/totem.
 
-##### Filter Commands Dropdown
+##### Whitelist Commands Dropdown
 
-By default `Totem` outputs all Artisan commands on the Create/Edit tasks. To make this dropdown more concise there is a filter config feature that can be set in the `totem.php` config file.
+By default `Totem` outputs all Artisan commands on the Create/Edit tasks. To make this dropdown more concise there is a whitelist config feature that can be set in the `totem.php` config file.
 
-Example filters
+As its name suggests, a command has to match at least one of the whitelist filters to appear on the Totem dropdowns.
+
+Example whitelist
 ```php
 'artisan' => [
-    'command_filter' => [
+    'command_whitelist' => [
         'stats:*',
         'email:daily-reports'
     ],
