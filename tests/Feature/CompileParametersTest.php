@@ -103,7 +103,25 @@ class CompileParametersTest extends TestCase
         $this->assertSame('15', $parameters['arg3']);
         $this->assertSame('arg4', $parameters[1]);
         $this->assertSame('warm', $parameters['--someplace']);
-        $this->assertTrue($parameters['--flag']);
         $this->assertArrayHasKey('--flag', $parameters);
+        $this->assertSame(true, $parameters['--flag']);
+        $this->assertSame(true, $parameters['--flag2']);
+    }
+
+    public function test_all_mixed_arguments_console()
+    {
+        $task = factory(Task::class)->create();
+        $task->parameters = 'arg1 arg2=test arg3=15 arg4 --flag --flag2 --option=yes --someplace=warm';
+        $parameters = $task->compileParameters(true);
+
+        $this->assertCount(8, $parameters);
+        $this->assertSame('arg1', $parameters[0]);
+        $this->assertSame('test', $parameters[1]);
+        $this->assertSame('15', $parameters[2]);
+        $this->assertSame('arg4', $parameters[3]);
+        $this->assertSame('--flag', $parameters[4]);
+        $this->assertSame('--flag2', $parameters[5]);
+        $this->assertSame('yes', $parameters['--option']);
+        $this->assertSame('warm', $parameters['--someplace']);
     }
 }

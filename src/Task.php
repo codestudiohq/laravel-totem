@@ -75,7 +75,8 @@ class Task extends TotemModel
             $parameters = collect($matches)->mapWithKeys(function ($parameter) use ($console, &$argument_index) {
                 $param = explode('=', $parameter[0]);
 
-                return count($param) > 1 ? [$param[0] => $param[1]]
+                return count($param) > 1
+                    ? ($console ? (starts_with($param[0], '--') ? [$param[0] => $param[1]] : [$argument_index++ => $param[1]]) : [$param[0] => $param[1]])
                     : (starts_with($param[0], '--') && ! $console ? [$param[0] => true] : [$argument_index++ => $param[0]]);
             })->toArray();
 
