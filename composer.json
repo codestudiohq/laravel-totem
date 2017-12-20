@@ -22,7 +22,8 @@
     "illuminate/contracts": "~5.5.0",
     "illuminate/database":"~5.5.0",
     "illuminate/events": "~5.5.0",
-    "illuminate/notifications": "~5.5.0"
+    "illuminate/notifications": "~5.5.0",
+    "laravelcollective/html": "^5.4.0"
   },
   "require-dev": {
     "mockery/mockery": "~1.0",

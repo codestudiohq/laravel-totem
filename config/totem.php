@@ -224,6 +224,6 @@ return [
     ],
     'table_prefix' => env('TOTEM_TABLE_PREFIX', ''),
     'artisan' => [
-        'command_filter' => [],
+        'command_whitelist' => [],
     ],
 ];
