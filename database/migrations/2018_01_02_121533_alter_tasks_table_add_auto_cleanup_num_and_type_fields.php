@@ -14,8 +14,8 @@ class AlterTasksTableAddAutoCleanupNumAndTypeFields extends Migration
     public function up()
     {
         Schema::table(config('totem.table_prefix').'tasks', function (Blueprint $table) {
-            $table->string('auto_cleanup_num')->default(0);
-            $table->string('auto_cleanup_type')->nullable();
+            $table->integer('auto_cleanup_num')->default(0);
+            $table->string('auto_cleanup_type', 20)->nullable();
         });
     }
 
