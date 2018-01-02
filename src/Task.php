@@ -4,8 +4,8 @@ namespace Studio\Totem;
 
 use Carbon\Carbon;
 use Cron\CronExpression;
-use Illuminate\Notifications\Notifiable;
 use Studio\Totem\Traits\HasFrequencies;
+use Illuminate\Notifications\Notifiable;
 
 class Task extends TotemModel
 {
