@@ -2,6 +2,7 @@
 
 namespace Studio\Totem;
 
+use Carbon\Carbon;
 use Cron\CronExpression;
 use Studio\Totem\Traits\HasFrequencies;
 use Illuminate\Notifications\Notifiable;
@@ -27,6 +28,8 @@ class Task extends TotemModel
         'notification_email_address',
         'notification_phone_number',
         'notification_slack_webhook',
+        'auto_cleanup_type',
+        'auto_cleanup_num',
     ];
 
     /**
@@ -63,6 +66,7 @@ class Task extends TotemModel
      * Convert a string of command arguments and options to an array.
      *
      * @param bool $console if true will convert arguments to non associative array
+     *
      * @return array
      */
     public function compileParameters($console = false)
@@ -142,5 +146,28 @@ class Task extends TotemModel
     public function routeNotificationForSlack()
     {
         return $this->notification_slack_webhook;
+    }
+
+    /**
+     * Attempt to perform clean on task results.
+     */
+    public function autoCleanup()
+    {
+        if ($this->auto_cleanup_num > 0) {
+            if ($this->auto_cleanup_type === 'results') {
+                $oldest_id = self::results()
+                    ->orderBy('ran_at', 'desc')
+                    ->limit($this->auto_cleanup_num)
+                    ->get()
+                    ->min('id');
+                self::results()
+                    ->where('id', '<', $oldest_id)
+                    ->delete();
+            } else {
+                self::results()
+                    ->where('ran_at', '<', Carbon::now()->subDays($this->auto_cleanup_num - 1))
+                    ->delete();
+            }
+        }
     }
 }
