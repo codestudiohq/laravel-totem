@@ -30,6 +30,7 @@ class Executed extends Event
             unlink(storage_path($task->getMutexName()));
 
             $task->notify(new TaskCompleted($output));
+            $task->autoCleanup();
         }
     }
 }
