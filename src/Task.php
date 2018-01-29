@@ -72,16 +72,46 @@ class Task extends TotemModel
     public function compileParameters($console = false)
     {
         if ($this->parameters) {
+            // this regex matches pieces of text separated by spaces as long as they are not quoted
             $regex = '/(?=\S)[^\'"\s]*(?:\'[^\']*\'[^\'"\s]*|"[^"]*"[^\'"\s]*)*/';
             preg_match_all($regex, $this->parameters, $matches, PREG_SET_ORDER, 0);
 
-            $argument_index = 0;
-            $parameters = collect($matches)->mapWithKeys(function ($parameter) use ($console, &$argument_index) {
-                $param = explode('=', $parameter[0]);
-
-                return count($param) > 1
-                    ? ($console ? (starts_with($param[0], '--') ? [$param[0] => $param[1]] : [$argument_index++ => $param[1]]) : [$param[0] => $param[1]])
-                    : (starts_with($param[0], '--') && ! $console ? [$param[0] => true] : [$argument_index++ => $param[0]]);
+            $index = 0;
+            // flatten() because preg_match_all puts all matches inside their own array...
+            $parameters = collect($matches)->flatten()->mapToGroups(function ($parameter) use ($console, &$index) {
+                // handles quoted positional arguments
+                // TODO: this is fragile and doesn't handle all possible cases
+                if (starts_with($parameter, ['"', '\''])) {
+                    return [$index++ => $parameter];
+                }
+                [$key, $value] = array_pad(explode('=', $parameter, 2), 2, null);
+                $isOption = starts_with($key, '--');
+                $hasValue = isset($value);
+                if ($console) {
+                    // if it is an option use the whole parameter because we don't wanna throw away its key
+                    if ($isOption) {
+                        return [$index++ => $parameter];
+                    }
+                    if ($hasValue) {
+                        return [$index++ => $value];
+                    }
+                } else {
+                    // first check if it has a value because we don't wanna discard that
+                    if ($hasValue) {
+                        return [$key => $value];
+                    }
+                    if ($isOption) {
+                        return [$key => true];
+                    }
+                }
+                // positional arguments end up here (no value and not an option/flag)
+                // TODO: if we are not compiling for console this is technically wrong:
+                // in order to be able to use these parameters for Artisan::call we need the name
+                // of the parameter in question, should we just throw if this happens?
+                return [$index++ => $key];
+            })->map(function ($parameter) {
+                // if a parameter has only one value flatten it
+                return (($parameter->count() > 1) ? $parameter : $parameter->first());
             })->toArray();
 
             return $parameters;

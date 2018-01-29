@@ -121,7 +121,65 @@ class CompileParametersTest extends TestCase
         $this->assertSame('arg4', $parameters[3]);
         $this->assertSame('--flag', $parameters[4]);
         $this->assertSame('--flag2', $parameters[5]);
-        $this->assertSame('yes', $parameters['--option']);
-        $this->assertSame('warm', $parameters['--someplace']);
+        $this->assertSame('--option=yes', $parameters[6]);
+        $this->assertSame('--someplace=warm', $parameters[7]);
+    }
+
+    public function test_array_arguments()
+    {
+        $task = factory(Task::class)->create();
+        $task->parameters = 'arg1 arg2 arg3=test3.1 arg3=test3.2 --arg4=test4.1 --arg4=test4.2 --arg5=test5 --arg6';
+        $parameters = $task->compileParameters();
+
+        $this->assertCount(6, $parameters);
+        $this->assertSame('arg1', $parameters[0]);
+        $this->assertSame('arg2', $parameters[1]);
+        $this->assertSame(['test3.1', 'test3.2'], $parameters['arg3']);
+        $this->assertSame(['test4.1', 'test4.2'], $parameters['--arg4']);
+        $this->assertSame('test5', $parameters['--arg5']);
+        $this->assertSame(true, $parameters['--arg6']);
+    }
+
+    public function test_array_arguments_console()
+    {
+        $task = factory(Task::class)->create();
+        $task->parameters = 'arg1 arg2 arg3=test3.1 arg3=test3.2 --arg4=test4.1 --arg4=test4.2 --arg5=test5 --arg6';
+        $parameters = $task->compileParameters(true);
+        
+        $this->assertCount(8, $parameters);
+        $this->assertSame('arg1', $parameters[0]);
+        $this->assertSame('arg2', $parameters[1]);
+        $this->assertSame('test3.1', $parameters[2]);
+        $this->assertSame('test3.2', $parameters[3]);
+        $this->assertSame('--arg4=test4.1', $parameters[4]);
+        $this->assertSame('--arg4=test4.2', $parameters[5]);
+        $this->assertSame('--arg5=test5', $parameters[6]);
+        $this->assertSame('--arg6', $parameters[7]);
+    }
+
+    public function test_positional_quoted_arguments()
+    {
+        $task = factory(Task::class)->create();
+        $task->parameters = '"test" \'123\' "test=123" \'test = 123\'';
+        $parameters = $task->compileParameters();
+
+        $this->assertCount(4, $parameters);
+        $this->assertSame('"test"', $parameters[0]);
+        $this->assertSame('\'123\'', $parameters[1]);
+        $this->assertSame('"test=123"', $parameters[2]);
+        $this->assertSame('\'test = 123\'', $parameters[3]);
+    }
+
+    public function test_named_quoted_arguments()
+    {
+        $task = factory(Task::class)->create();
+        $task->parameters = 'arg1="test" --arg2=\'123\' arg3="test=123" --arg4=\'test = 123\'';
+        $parameters = $task->compileParameters();
+
+        $this->assertCount(4, $parameters);
+        $this->assertSame('"test"', $parameters['arg1']);
+        $this->assertSame('\'123\'', $parameters['--arg2']);
+        $this->assertSame('"test=123"', $parameters['arg3']);
+        $this->assertSame('\'test = 123\'', $parameters['--arg4']);
     }
 }
