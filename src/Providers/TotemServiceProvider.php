@@ -51,7 +51,7 @@ class TotemServiceProvider extends ServiceProvider
         $this->app->register(TotemEventServiceProvider::class);
 
         try {
-            if (Schema::hasTable('tasks')) {
+            if (Schema::hasTable(config('totem.table_prefix').'tasks')) {
                 $this->app->register(ConsoleServiceProvider::class);
             }
         } catch (\PDOException $ex) {
