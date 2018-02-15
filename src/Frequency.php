@@ -4,10 +4,11 @@ namespace Studio\Totem;
 
 use Studio\Totem\Traits\HasParameters;
 use Illuminate\Database\Eloquent\Model;
+use Studio\Totem\Traits\HasTablePrefix;
 
 class Frequency extends Model
 {
-    use HasParameters;
+    use HasParameters, HasTablePrefix;
 
     protected $table = 'task_frequencies';
 
