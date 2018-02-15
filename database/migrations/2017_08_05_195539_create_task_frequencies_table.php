@@ -13,7 +13,7 @@ class CreateTaskFrequenciesTable extends Migration
      */
     public function up()
     {
-        Schema::create('task_frequencies', function (Blueprint $table) {
+        Schema::create(config('totem.table_prefix').'task_frequencies', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('task_id');
             $table->string('label');
@@ -29,6 +29,6 @@ class CreateTaskFrequenciesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('task_frequencies');
+        Schema::dropIfExists(config('totem.table_prefix').'task_frequencies');
     }
 }

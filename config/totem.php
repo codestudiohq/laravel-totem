@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'table_prefix' => '',
+
     'frequencies'  => [
         [
             'label'             => 'Every Minute',
