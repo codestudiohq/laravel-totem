@@ -5,11 +5,12 @@ namespace Studio\Totem;
 use Cron\CronExpression;
 use Illuminate\Database\Eloquent\Model;
 use Studio\Totem\Traits\HasFrequencies;
+use Studio\Totem\Traits\HasTablePrefix;
 use Illuminate\Notifications\Notifiable;
 
 class Task extends Model
 {
-    use Notifiable, HasFrequencies;
+    use Notifiable, HasFrequencies, HasTablePrefix;
 
     /**
      * The attributes that are mass assignable.

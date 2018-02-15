@@ -3,9 +3,12 @@
 namespace Studio\Totem;
 
 use Illuminate\Database\Eloquent\Model;
+use Studio\Totem\Traits\HasTablePrefix;
 
 class Result extends Model
 {
+    use HasTablePrefix;
+
     protected $table = 'task_results';
 
     protected $fillable = [
