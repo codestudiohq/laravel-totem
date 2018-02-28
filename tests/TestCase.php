@@ -2,13 +2,13 @@
 
 namespace Studio\Totem\Tests;
 
-use Collective\Html\FormFacade;
-use Collective\Html\HtmlFacade;
-use Collective\Html\HtmlServiceProvider;
 use Exception;
 use Studio\Totem\User;
 use Studio\Totem\Totem;
+use Collective\Html\FormFacade;
+use Collective\Html\HtmlFacade;
 use Illuminate\Support\Facades\Auth;
+use Collective\Html\HtmlServiceProvider;
 use Orchestra\Testbench\Exceptions\Handler;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Studio\Totem\Providers\TotemServiceProvider;
@@ -25,15 +25,17 @@ class TestCase extends \Orchestra\Testbench\TestCase
 
         $this->loadLaravelMigrations(['--database' => 'testing']);
 
-        $this->withFactories(__DIR__.'/../database/factories/');
+        $this->withFactories(__DIR__ . '/../database/factories/');
 
         $auth = function () {
             switch (app()->environment()) {
                 case 'local':
                     return true;
+
                     break;
                 case 'testing':
                     return Auth::check();
+
                     break;
                 default:
                     return false;
@@ -46,8 +48,8 @@ class TestCase extends \Orchestra\Testbench\TestCase
     protected function getPackageAliases($app)
     {
         return [
-            'Form'      => FormFacade::class,
-            'Html'      => HtmlFacade::class,
+            'Form' => FormFacade::class,
+            'Html' => HtmlFacade::class,
         ];
     }
 
@@ -64,7 +66,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
      */
     protected function disableExceptionHandling()
     {
-        $this->app->instance(ExceptionHandler::class, new class extends Handler {
+        $this->app->instance(ExceptionHandler::class, new class() extends Handler {
             public function __construct()
             {
             }
