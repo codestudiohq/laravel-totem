@@ -25,7 +25,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
 
         $this->loadLaravelMigrations(['--database' => 'testing']);
 
-        $this->withFactories(__DIR__ . '/../database/factories/');
+        $this->withFactories(__DIR__.'/../database/factories/');
 
         $auth = function () {
             switch (app()->environment()) {
