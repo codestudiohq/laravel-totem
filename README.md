@@ -17,6 +17,7 @@ Manage your `Laravel Schedule` from a pretty dashboard. Schedule your `Laravel C
 
 |<span align="left">Laravel</span> |<span align="left">Totem</span>| 
 |:-------|----------:|
+|5.6     |     3.0   |
 |5.5     |     2.0   |
 |5.4     |     1.0   |
 
