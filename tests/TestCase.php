@@ -47,7 +47,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
             'Html' => HtmlFacade::class,
         ];
     }
-    
+
     protected function getPackageProviders($app)
     {
         return [
