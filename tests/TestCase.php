@@ -5,7 +5,10 @@ namespace Studio\Totem\Tests;
 use Exception;
 use Studio\Totem\User;
 use Studio\Totem\Totem;
+use Collective\Html\FormFacade;
+use Collective\Html\HtmlFacade;
 use Illuminate\Support\Facades\Auth;
+use Collective\Html\HtmlServiceProvider;
 use Orchestra\Testbench\Exceptions\Handler;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Studio\Totem\Providers\TotemServiceProvider;
@@ -28,9 +31,11 @@ class TestCase extends \Orchestra\Testbench\TestCase
             switch (app()->environment()) {
                 case 'local':
                     return true;
+
                     break;
                 case 'testing':
                     return Auth::check();
+
                     break;
                 default:
                     return false;
@@ -40,10 +45,19 @@ class TestCase extends \Orchestra\Testbench\TestCase
         Totem::auth($auth);
     }
 
+    protected function getPackageAliases($app)
+    {
+        return [
+            'Form' => FormFacade::class,
+            'Html' => HtmlFacade::class,
+        ];
+    }
+
     protected function getPackageProviders($app)
     {
         return [
             TotemServiceProvider::class,
+            HtmlServiceProvider::class,
         ];
     }
 
@@ -52,7 +66,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
      */
     protected function disableExceptionHandling()
     {
-        $this->app->instance(ExceptionHandler::class, new class extends Handler {
+        $this->app->instance(ExceptionHandler::class, new class() extends Handler {
             public function __construct()
             {
             }

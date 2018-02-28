@@ -94,7 +94,7 @@ trait HasFrequencies
     public function getCronExpression()
     {
         if (! $this->expression) {
-            $this->expression = '* * * * * *';
+            $this->expression = '* * * * *';
 
             foreach ($this->frequencies as $frequency) {
                 call_user_func_array([$this, $frequency->interval], $frequency->parameters->pluck('value')->toArray());
