@@ -2,6 +2,9 @@
 
 namespace Studio\Totem\Tests;
 
+use Collective\Html\FormFacade;
+use Collective\Html\HtmlFacade;
+use Collective\Html\HtmlServiceProvider;
 use Exception;
 use Studio\Totem\User;
 use Studio\Totem\Totem;
@@ -40,10 +43,19 @@ class TestCase extends \Orchestra\Testbench\TestCase
         Totem::auth($auth);
     }
 
+    protected function getPackageAliases($app)
+    {
+        return [
+            'Form'      => FormFacade::class,
+            'Html'      => HtmlFacade::class,
+        ];
+    }
+
     protected function getPackageProviders($app)
     {
         return [
             TotemServiceProvider::class,
+            HtmlServiceProvider::class,
         ];
     }
 
