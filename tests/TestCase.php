@@ -40,10 +40,19 @@ class TestCase extends \Orchestra\Testbench\TestCase
         Totem::auth($auth);
     }
 
+    protected function getPackageAliases($app)
+    {
+        return [
+            'Form' => FormFacade::class,
+            'Html' => HtmlFacade::class,
+        ];
+    }
+    
     protected function getPackageProviders($app)
     {
         return [
             TotemServiceProvider::class,
+            HtmlServiceProvider::class,
         ];
     }
 
