@@ -86,7 +86,7 @@ class Task extends TotemModel
                             [$param[0] => $value] :
                             [$argument_index++ => $value];
                     }
-                    
+
                     return [$param[0] => $value];
                 }
 
