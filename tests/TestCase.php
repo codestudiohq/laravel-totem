@@ -2,13 +2,13 @@
 
 namespace Studio\Totem\Tests;
 
-use Collective\Html\FormFacade;
-use Collective\Html\HtmlFacade;
-use Collective\Html\HtmlServiceProvider;
 use Exception;
 use Studio\Totem\User;
 use Studio\Totem\Totem;
+use Collective\Html\FormFacade;
+use Collective\Html\HtmlFacade;
 use Illuminate\Support\Facades\Auth;
+use Collective\Html\HtmlServiceProvider;
 use Orchestra\Testbench\Exceptions\Handler;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Studio\Totem\Providers\TotemServiceProvider;
