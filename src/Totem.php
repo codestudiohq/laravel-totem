@@ -4,6 +4,7 @@ namespace Studio\Totem;
 
 use Closure;
 use Illuminate\Support\Facades\Artisan;
+use Symfony\Component\Console\Command\Command;
 
 class Totem
 {
@@ -17,7 +18,8 @@ class Totem
     /**
      * Determine if the given request can access the Totem dashboard.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return bool
      */
     public static function check($request)
@@ -30,14 +32,15 @@ class Totem
     /**
      * Set the callback that should be used to authenticate Totem users.
      *
-     * @param  \Closure  $callback
+     * @param \Closure $callback
+     *
      * @return static
      */
     public static function auth(Closure $callback)
     {
         static::$authUsing = $callback;
 
-        return new static;
+        return new static();
     }
 
     /**
@@ -58,21 +61,22 @@ class Totem
     public static function getCommands()
     {
         $command_filter = config('totem.artisan.command_filter');
+        $whitelist = config('totem.artisan.whiltelist', true);
         $all_commands = collect(Artisan::all());
 
         if (! empty($command_filter)) {
-            $all_commands = $all_commands->filter(function ($command) use ($command_filter) {
+            $all_commands = $all_commands->filter(function (Command $command) use ($command_filter, $whitelist) {
                 foreach ($command_filter as $filter) {
                     if (fnmatch($filter, $command->getName())) {
-                        return true;
+                        return $whitelist;
                     }
                 }
 
-                return false;
+                return ! $whitelist;
             });
         }
 
-        return $all_commands->sortBy(function ($command) {
+        return $all_commands->sortBy(function (Command $command) {
             return $command->getDescription();
         });
     }
