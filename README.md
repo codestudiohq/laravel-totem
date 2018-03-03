@@ -104,6 +104,23 @@ Example filters
 
 This feature uses [fnmatch](http://php.net/manual/en/function.fnmatch.php) syntax to filter displayed commands. `stats:*` will match all Artisan commands that start with `stats:` while `email:daily-reports` will only match the command named `email:daily-reports`.
 
+This filter can be used as either a whitelist or a blacklist. By default it acts as a whitelist but an option flag can be set to instead act as a blacklist.
+
+```php
+'artisan' => [
+    'command_filter' => [
+        'stats:*',
+        'email:daily-reports'
+    ],
+    'whitelist' => true,
+],
+
+```
+
+If the value of whitelist is `false` then the filter acts as a blacklist.
+
+`'whitelist' => false`
+
 #### Middleware
 
 `Laravel Totem` uses the default web and api middleware but if customization is required the middleware can be changed by setting the appropriate `.env` value. These values can be found in `config/totem.php`.
