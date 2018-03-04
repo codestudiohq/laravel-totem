@@ -63,7 +63,6 @@ class TotemServiceProvider extends ServiceProvider
             // This will trigger if DB cannot be connected to
             Log::error($ex->getMessage());
         }
-
     }
 
     /**
