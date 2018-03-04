@@ -34,7 +34,11 @@
             <select id="command" name="command" class="uk-select" placeholder="Click here to select one of the available commands">
                 <option value="">Select a command</option>
                 @foreach ($commands as $command)
-                    <option value="{{$command->getName()}}" {{old('command', $task->command) == $command->getName() ? 'selected' : ''}}>{{ $command->getName() }} - {{ $command->getDescription() }}</option>
+                    <optgroup label="{{$command->getName()}}">
+                        <option value="{{$command->getName()}}" {{old('command', $task->command) == $command->getName() ? 'selected' : ''}}>
+                            {{$command->getDescription()}}
+                        </option>
+                    </optgroup>
                 @endforeach
             </select>
             @if($errors->has('command'))
