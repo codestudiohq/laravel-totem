@@ -50,6 +50,11 @@ class TotemServiceProvider extends ServiceProvider
         $this->app->register(TotemRouteServiceProvider::class);
         $this->app->register(TotemEventServiceProvider::class);
 
+        $this->mergeConfigFrom(
+            __DIR__.'/../../config/totem.php',
+            'totem'
+        );
+
         try {
             if (Schema::hasTable(config('totem.table_prefix').'tasks')) {
                 $this->app->register(ConsoleServiceProvider::class);
@@ -58,11 +63,6 @@ class TotemServiceProvider extends ServiceProvider
             // This will trigger if DB cannot be connected to
             Log::error($ex->getMessage());
         }
-
-        $this->mergeConfigFrom(
-            __DIR__.'/../../config/totem.php',
-            'totem'
-        );
     }
 
     /**
