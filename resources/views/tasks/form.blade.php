@@ -228,7 +228,7 @@
             <label class="uk-margin">
                 Auto Cleanup results after
                 <br>
-                <input type="number" name="auto_cleanup_num" id="auto_cleanup_num" value="{{ old('auto_cleanup_num', $task->auto_cleanup_num) }}" />
+                <input type="number" name="auto_cleanup_num" id="auto_cleanup_num" value="{{ old('auto_cleanup_num', $task->auto_cleanup_num) ?? 0 }}" />
                 <br>
                 <label>
                     <input type="radio" name="auto_cleanup_type" value="days" {{old('auto_cleanup_type', $task->auto_cleanup_type) !== 'results' ? '' : 'checked'}}> Days

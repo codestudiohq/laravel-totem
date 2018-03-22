@@ -4,12 +4,13 @@ namespace Studio\Totem;
 
 use Carbon\Carbon;
 use Cron\CronExpression;
+use Studio\Totem\Traits\FrontendSortable;
 use Studio\Totem\Traits\HasFrequencies;
 use Illuminate\Notifications\Notifiable;
 
 class Task extends TotemModel
 {
-    use Notifiable, HasFrequencies;
+    use Notifiable, HasFrequencies, FrontendSortable;
 
     /**
      * The attributes that are mass assignable.
