@@ -40,7 +40,7 @@ class TasksController extends Controller
                 ->sortableBy([
                     'description',
                 ], ['description'=>'asc'])
-                ->when(request('q'), function($query) {
+                ->when(request('q'), function ($query) {
                     $query->where('description', 'LIKE', '%'.request('q').'%');
                 })
                 ->paginate(20),

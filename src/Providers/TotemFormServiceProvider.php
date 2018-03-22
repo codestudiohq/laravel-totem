@@ -19,13 +19,13 @@ class TotemFormServiceProvider extends ServiceProvider
             if (request()->has('sort_by')) {
                 if (request()->input('sort_by') == $columnKey) {
                     $icon = ' <span class="fa fa-caret-'
-                        . (request()->input('sort_direction', 'asc') == 'asc' ? 'up' : 'down')
-                        . '"></span>';
+                        .(request()->input('sort_direction', 'asc') == 'asc' ? 'up' : 'down')
+                        .'"></span>';
                 }
             } elseif ($isDefault) {
                 $icon = ' <span class="fa fa-caret-'
-                    . (request()->input('sort_direction', 'asc') == 'asc' ? 'up' : 'down')
-                    . '"></span>';
+                    .(request()->input('sort_direction', 'asc') == 'asc' ? 'up' : 'down')
+                    .'"></span>';
             }
 
             $order = 'asc';
@@ -44,13 +44,12 @@ class TotemFormServiceProvider extends ServiceProvider
 
             return app('html')->toHtmlString(
                 '<a href="'
-                . $url
-                . '">'
-                . $label
-                . $icon
-                . '</a>'
+                .$url
+                .'">'
+                .$label
+                .$icon
+                .'</a>'
             );
         });
-
     }
 }
