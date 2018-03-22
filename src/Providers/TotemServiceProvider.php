@@ -49,6 +49,7 @@ class TotemServiceProvider extends ServiceProvider
         $this->app->alias('totem.tasks', TaskInterface::class);
         $this->app->register(TotemRouteServiceProvider::class);
         $this->app->register(TotemEventServiceProvider::class);
+        $this->app->register(TotemFormServiceProvider::class);
 
         $this->mergeConfigFrom(
             __DIR__.'/../../config/totem.php',

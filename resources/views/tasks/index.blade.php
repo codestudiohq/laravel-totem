@@ -6,20 +6,24 @@
 @section('title')
     <div class="uk-flex uk-flex-between uk-flex-middle">
         <h4 class="uk-card-title uk-margin-remove">Tasks</h4>
-        <form class="uk-display-inline uk-search uk-search-default">
-            <span class="uk-icon uk-search-icon">
+        {!! Form::open([
+            'id' => 'totem__search__form',
+            'url' => Request::fullUrl(),
+            'method' => 'GET',
+            'class' => 'uk-display-inline uk-search uk-search-default'
+        ]) !!}
+        <span class="uk-icon uk-search-icon" style="cursor: pointer; pointer-events: auto;" onclick="totem__search__form.submit()">
                 <icon name="search" :scale="100"></icon>
             </span>
-
-            <input class="uk-search-input" type="search" placeholder="Search...">
-        </form>
+        {!! Form::text('q', request('q'), ['class' => 'uk-search-input', 'placeholder' => 'Search...']) !!}
+        {!! Form::close() !!}
     </div>
 @stop
 @section('main-panel-content')
     <table class="uk-table uk-table-responsive" cellpadding="0" cellspacing="0" class="mb1">
         <thead>
             <tr>
-                <th>Description</th>
+                <th>{!! Html::columnSort('Description', 'description') !!}</th>
                 <th>Average Runtime</th>
                 <th>Last Run</th>
                 <th>Next Run</th>

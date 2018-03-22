@@ -35,7 +35,15 @@ class TasksController extends Controller
     public function index()
     {
         return view('totem::tasks.index', [
-            'tasks' => $this->tasks->builder()->orderBy('description')->paginate(20),
+            'tasks' => $this->tasks
+                ->builder()
+                ->sortableBy([
+                    'description',
+                ], ['description'=>'asc'])
+                ->when(request('q'), function ($query) {
+                    $query->where('description', 'LIKE', '%'.request('q').'%');
+                })
+                ->paginate(20),
         ]);
     }
 
