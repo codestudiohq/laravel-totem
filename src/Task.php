@@ -80,14 +80,14 @@ class Task extends TotemModel
                 $param = explode('=', $parameter[0]);
 
                 if (count($param) > 1) {
-                    $value = trim(trim($param[1], '"'), "'");
+                    $trimmed_param = trim(trim($param[1], '"'), "'");
                     if ($console) {
                         return starts_with($param[0], '--') ?
-                            [$param[0] => $value] :
-                            [$argument_index++ => $value];
+                            [$param[0] => $trimmed_param] :
+                            [$argument_index++ => $trimmed_param];
                     }
 
-                    return [$param[0] => $value];
+                    return [$param[0] => $trimmed_param];
                 }
 
                 return starts_with($param[0], '--') && ! $console ?
