@@ -63,7 +63,7 @@ class ListSchedule extends Command
             });
 
             $this->table(
-                ['Description', 'Command', 'Schedule', 'Upcoming', 'Timezone', 'Overlaps?', 'In Maintenance?','One Server?'],
+                ['Description', 'Command', 'Schedule', 'Upcoming', 'Timezone', 'Overlaps?', 'In Maintenance?', 'One Server?'],
                 $events
             );
         } else {
