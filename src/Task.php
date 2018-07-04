@@ -31,6 +31,7 @@ class Task extends TotemModel
         'notification_slack_webhook',
         'auto_cleanup_type',
         'auto_cleanup_num',
+        'run_on_one_server',
     ];
 
     /**
