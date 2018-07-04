@@ -71,6 +71,11 @@
                 <span class="uk-float-left">Runs in maintenance mode</span>
             </li>
         @endif
+        @if($task->run_on_one_server)
+            <li>
+                <span class="uk-float-left">Runs on a single server</span>
+            </li>
+        @endif
     </ul>
 @stop
 @section('main-panel-footer')
