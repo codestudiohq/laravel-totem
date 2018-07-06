@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlterTasksTableAddAutoCleanupNumAndTypeFields extends Migration
+class AddIndexesForTasks extends Migration
 {
     /**
      * Run the migrations.
