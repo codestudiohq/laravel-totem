@@ -17,13 +17,15 @@ class AddIndexesForTasks extends Migration
             $table->index('task_id', 'task_results_task_id_idx');
             $table->index('ran_at', 'task_results_ran_at_idx');
             $table->foreign('task_id', 'task_id_fk')
-                ->references('id')->on('tasks');
+                ->references('id')
+                ->on(config('totem.table_prefix').'tasks');
         });
 
         Schema::table(config('totem.table_prefix').'task_frequencies', function (Blueprint $table) {
             $table->index('task_id', 'task_frequencies_task_id_idx');
             $table->foreign('task_id', 'task_frequencies_task_id_fk')
-                ->references('id')->on('tasks');
+                ->references('id')
+                ->on(config('totem.table_prefix').'tasks');
         });
 
         Schema::table(config('totem.table_prefix').'tasks', function (Blueprint $table) {
