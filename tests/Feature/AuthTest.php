@@ -2,6 +2,7 @@
 
 namespace Studio\Totem\Tests\Feature;
 
+use Illuminate\Http\Request;
 use Studio\Totem\Totem;
 use Studio\Totem\Tests\TestCase;
 use Studio\Totem\Http\Middleware\Authenticate;
@@ -11,15 +12,19 @@ class AuthTest extends TestCase
     /** @test */
     public function auth_callback_works()
     {
-        $this->assertFalse(Totem::check('roshan'));
+        $request = new Request();
+        $request->replace(['user' => 'roshan']);
+        $this->assertFalse(Totem::check($request));
 
-        Totem::auth(function ($request) {
-            return $request === 'roshan';
+        Totem::auth(function (Request $request) {
+            return $request->input('user') === 'roshan';
         });
 
-        $this->assertTrue(Totem::check('roshan'));
-        $this->assertFalse(Totem::check('taylor'));
-        $this->assertFalse(Totem::check(null));
+        $this->assertTrue(Totem::check($request));
+        $request->replace(['user' => 'taylor']);
+        $this->assertFalse(Totem::check($request));
+        $request = new Request();
+        $this->assertFalse(Totem::check($request));
     }
 
     /** @test */
@@ -32,8 +37,7 @@ class AuthTest extends TestCase
         $middleware = new Authenticate;
 
         $response = $middleware->handle(
-            new class {
-            },
+            new Request,
             function ($value) {
                 return 'response';
             }
@@ -55,8 +59,7 @@ class AuthTest extends TestCase
         $middleware = new Authenticate;
 
         $response = $middleware->handle(
-            new class {
-            },
+            new Request,
             function ($value) {
                 return 'response';
             }

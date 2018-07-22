@@ -2,10 +2,12 @@
 
 namespace Studio\Totem\Providers;
 
+use Illuminate\Support\Collection;
 use Studio\Totem\Events\Executed;
 use Studio\Totem\Events\Executing;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Console\Scheduling\Schedule;
+use Studio\Totem\Task;
 
 class ConsoleServiceProvider extends ServiceProvider
 {
@@ -28,9 +30,11 @@ class ConsoleServiceProvider extends ServiceProvider
      */
     public function schedule(Schedule $schedule)
     {
+        /* @var Collection $tasks */
         $tasks = app('totem.tasks')->findAllActive();
 
-        $tasks->each(function ($task) use ($schedule) {
+        $tasks->each(function (Task $task) use ($schedule) {
+            /* @var \Illuminate\Console\Scheduling\Event $event */
             $event = $schedule->command($task->command, $task->compileParameters(true));
 
             $event->cron($task->getCronExpression())

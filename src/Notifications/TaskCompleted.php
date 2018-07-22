@@ -31,9 +31,10 @@ class TaskCompleted extends Notification implements ShouldQueue
      * Get the notification's delivery channels.
      *
      * @param  mixed  $notifiable
+     *
      * @return array
      */
-    public function via($notifiable)
+    public function via($notifiable) : array
     {
         $channels = [];
         if ($notifiable->notification_email_address) {
@@ -53,9 +54,10 @@ class TaskCompleted extends Notification implements ShouldQueue
      * Get the mail representation of the notification.
      *
      * @param  mixed  $notifiable
+     *
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
-    public function toMail($notifiable)
+    public function toMail($notifiable) : MailMessage
     {
         return (new MailMessage)
                     ->subject($notifiable->description)
@@ -68,9 +70,10 @@ class TaskCompleted extends Notification implements ShouldQueue
      * Get the Nexmo / SMS representation of the notification.
      *
      * @param  mixed  $notifiable
+     *
      * @return NexmoMessage
      */
-    public function toNexmo($notifiable)
+    public function toNexmo($notifiable) : NexmoMessage
     {
         return (new NexmoMessage)
             ->content($notifiable->description.' just finished running.');
@@ -80,9 +83,10 @@ class TaskCompleted extends Notification implements ShouldQueue
      * Get the Slack representation of the notification.
      *
      * @param  mixed  $notifiable
+     *
      * @return SlackMessage
      */
-    public function toSlack($notifiable)
+    public function toSlack($notifiable) : SlackMessage
     {
         return (new SlackMessage)
             ->content(config('app.name'))

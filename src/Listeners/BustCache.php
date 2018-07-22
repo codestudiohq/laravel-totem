@@ -9,7 +9,7 @@ class BustCache extends Listener
     /**
      * Handle the event.
      *
-     * @param  \Studio\Totem\Events\Event  $event
+     * @param Event $event
      */
     public function handle(Event $event)
     {
@@ -26,7 +26,7 @@ class BustCache extends Listener
     protected function clear(Event $event)
     {
         if ($event->task) {
-            $this->app['cache']->forget('totem.task.'.$event->task->id);
+            $this->app['cache']->forget('totem.task.' . $event->task->id);
         }
 
         $this->app['cache']->forget('totem.tasks.all');

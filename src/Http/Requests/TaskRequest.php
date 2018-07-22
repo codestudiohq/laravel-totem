@@ -11,7 +11,7 @@ class TaskRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize() : bool
     {
         return true;
     }
@@ -21,7 +21,7 @@ class TaskRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules() : array
     {
         return [
             'description'                => 'required',
@@ -39,7 +39,7 @@ class TaskRequest extends FormRequest
      *
      * @return array
      */
-    public function messages()
+    public function messages() : array
     {
         return [
             'description.required'                            => 'Task description is required',
@@ -59,7 +59,7 @@ class TaskRequest extends FormRequest
      *
      * @return array
      */
-    protected function validationData()
+    protected function validationData() : array
     {
         if ($this->input('type') == 'frequency') {
             $this->merge(['expression' => null]);

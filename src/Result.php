@@ -2,6 +2,8 @@
 
 namespace Studio\Totem;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 class Result extends TotemModel
 {
     protected $table = 'task_results';
@@ -15,7 +17,10 @@ class Result extends TotemModel
         'ran_at',
     ];
 
-    public function task()
+    /**
+     * @return BelongsTo
+     */
+    public function task() : BelongsTo
     {
         return $this->belongsTo(Task::class);
     }

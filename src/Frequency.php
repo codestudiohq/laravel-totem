@@ -2,6 +2,7 @@
 
 namespace Studio\Totem;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Studio\Totem\Traits\HasParameters;
 
 class Frequency extends TotemModel
@@ -16,9 +17,9 @@ class Frequency extends TotemModel
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
-    public function task()
+    public function task() : ?BelongsTo
     {
         return $this->belongsTo(Task::class);
     }

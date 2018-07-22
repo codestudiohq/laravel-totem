@@ -2,6 +2,7 @@
 
 namespace Studio\Totem\Repositories;
 
+use Illuminate\Support\Collection;
 use Studio\Totem\Task;
 use Studio\Totem\Events\Created;
 use Studio\Totem\Events\Deleted;
@@ -22,7 +23,7 @@ class EloquentTaskRepository implements TaskInterface
      *
      * @return Task
      */
-    public function builder()
+    public function builder() : Task
     {
         return new Task;
     }
@@ -31,9 +32,10 @@ class EloquentTaskRepository implements TaskInterface
      * Find a task by id.
      *
      * @param int|Task $id
-     * @return int|Task
+     *
+     * @return Task
      */
-    public function find($id)
+    public function find($id) : Task
     {
         if ($id instanceof Task) {
             return $id;
@@ -47,9 +49,9 @@ class EloquentTaskRepository implements TaskInterface
     /**
      * Find all tasks.
      *
-     * @return mixed
+     * @return Collection
      */
-    public function findAll()
+    public function findAll() : Collection
     {
         return Cache::rememberForever('totem.tasks.all', function () {
             return Task::all();
@@ -59,9 +61,9 @@ class EloquentTaskRepository implements TaskInterface
     /**
      * Find all active tasks.
      *
-     * @return mixed
+     * @return Collection
      */
-    public function findAllActive()
+    public function findAllActive() : Collection
     {
         return Cache::rememberForever('totem.tasks.active', function () {
             return $this->findAll()->filter(function ($task) {
@@ -74,6 +76,7 @@ class EloquentTaskRepository implements TaskInterface
      * Create a new task.
      *
      * @param array $input
+     *
      * @return bool|Task
      */
     public function store(array $input)
@@ -95,8 +98,9 @@ class EloquentTaskRepository implements TaskInterface
      * Update the given task.
      *
      * @param array $input
-     * @param Task $task
-     * @return bool|int|Task
+     * @param Task|int $task
+     *
+     * @return bool|Task
      */
     public function update(array $input, $task)
     {
@@ -117,9 +121,12 @@ class EloquentTaskRepository implements TaskInterface
      * Delete the given task.
      *
      * @param int|Task $id
+     *
      * @return bool
+     *
+     * @throws \Exception
      */
-    public function destroy($id)
+    public function destroy($id) : bool
     {
         $task = $this->find($id);
 
@@ -136,12 +143,13 @@ class EloquentTaskRepository implements TaskInterface
     /**
      * Activate the given task.
      *
-     * @param $input
-     * @return int|Task
+     * @param int|Task $id
+     *
+     * @return Task
      */
-    public function activate($input)
+    public function activate($id) : Task
     {
-        $task = $this->find($input['task_id']);
+        $task = $this->find($id);
 
         $task->fill(['is_active' => true])->save();
 
@@ -153,10 +161,11 @@ class EloquentTaskRepository implements TaskInterface
     /**
      * Deactive the given task.
      *
-     * @param $id
-     * @return int|Task
+     * @param int|Task $id
+     *
+     * @return Task
      */
-    public function deactivate($id)
+    public function deactivate($id) : Task
     {
         $task = $this->find($id);
 
@@ -170,10 +179,11 @@ class EloquentTaskRepository implements TaskInterface
     /**
      * Execute a given task.
      *
-     * @param $id
-     * @return int|Task
+     * @param int|Task $id
+     *
+     * @return Task
      */
-    public function execute($id)
+    public function execute($id) : task
     {
         $task = $this->find($id);
         $start = microtime(true);

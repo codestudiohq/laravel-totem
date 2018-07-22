@@ -2,27 +2,30 @@
 
 namespace Studio\Totem\Http\Controllers;
 
-use Studio\Totem\Contracts\TaskInterface;
+use Studio\Totem\Repositories\EloquentTaskRepository;
+use Studio\Totem\Task;
 
 class ExecuteTasksController extends Controller
 {
     /**
-     * @var TaskInterface
+     * @var EloquentTaskRepository
      */
     private $tasks;
 
     /**
-     * @param TaskInterface $tasks
+     * @param EloquentTaskRepository $tasks
      */
-    public function __construct(TaskInterface $tasks)
+    public function __construct(EloquentTaskRepository $tasks)
     {
+        parent::__construct();
+
         $this->tasks = $tasks;
     }
 
     /**
      * Execute a specific task.
      *
-     * @param $task
+     * @param int|Task $task
      * @return \Illuminate\Http\Response
      */
     public function index($task)

@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class TotemModel extends Model
 {
     /**
-     * @return mixed
+     * @return string
      */
-    public function getTable()
+    public function getTable() : string
     {
         return config('totem.table_prefix').parent::getTable();
     }

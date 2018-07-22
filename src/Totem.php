@@ -3,6 +3,8 @@
 namespace Studio\Totem;
 
 use Closure;
+use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Artisan;
 use Symfony\Component\Console\Command\Command;
 
@@ -22,7 +24,7 @@ class Totem
      *
      * @return bool
      */
-    public static function check($request)
+    public static function check(Request $request) : bool
     {
         return (static::$authUsing ?: function () {
             return app()->environment('local');
@@ -48,7 +50,7 @@ class Totem
      *
      * @return array
      */
-    public static function frequencies()
+    public static function frequencies() : array
     {
         return config('totem.frequencies');
     }
@@ -58,7 +60,7 @@ class Totem
      *
      * @return \Illuminate\Support\Collection
      */
-    public static function getCommands()
+    public static function getCommands() : Collection
     {
         $command_filter = config('totem.artisan.command_filter');
         $whitelist = config('totem.artisan.whiltelist', true);

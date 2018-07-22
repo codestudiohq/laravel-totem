@@ -11,9 +11,9 @@ class Executed extends Event
      * Executed constructor.
      *
      * @param Task $task
-     * @param string $started
+     * @param float $started
      */
-    public function __construct(Task $task, $started)
+    public function __construct(Task $task, float $started)
     {
         parent::__construct($task);
 

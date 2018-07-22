@@ -3,13 +3,13 @@
 namespace Studio\Totem\Listeners;
 
 use Illuminate\Container\Container;
-use Studio\Totem\Contracts\TaskInterface;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Studio\Totem\Repositories\EloquentTaskRepository;
 
 class Listener implements ShouldQueue
 {
     /**
-     * @var TaskInterface.
+     * @var EloquentTaskRepository.
      */
     protected $tasks;
 
@@ -21,10 +21,10 @@ class Listener implements ShouldQueue
     /**
      * Create the event listener.
      *
-     * @param Container $app
-     * @param TaskInterface $tasks
+     * @param Container              $app
+     * @param EloquentTaskRepository $tasks
      */
-    public function __construct(Container $app, TaskInterface $tasks)
+    public function __construct(Container $app, EloquentTaskRepository $tasks)
     {
         $this->tasks = $tasks;
         $this->app = $app;

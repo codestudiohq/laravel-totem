@@ -5,6 +5,7 @@ namespace Studio\Totem\Console\Commands;
 use Carbon\Carbon;
 use Cron\CronExpression;
 use Illuminate\Console\Command;
+use Illuminate\Console\Scheduling\Event;
 use Illuminate\Console\Scheduling\Schedule;
 
 class ListSchedule extends Command
@@ -32,6 +33,7 @@ class ListSchedule extends Command
      * Create a new command instance.
      *
      * @param Schedule $schedule
+     *
      * @return void
      */
     public function __construct(Schedule $schedule)
@@ -49,7 +51,7 @@ class ListSchedule extends Command
     public function handle()
     {
         if (count($this->schedule->events()) > 0) {
-            $events = collect($this->schedule->events())->map(function ($event) {
+            $events = collect($this->schedule->events())->map(function (Event $event) {
                 return [
                     'description'   => $event->description ?: 'N/A',
                     'command'       => ltrim(strtok(str_after($event->command, "'artisan'"), ' ')),
@@ -58,7 +60,7 @@ class ListSchedule extends Command
                     'timezone'      => $event->timezone ?: config('app.timezone'),
                     'overlaps'      => $event->withoutOverlapping ? 'No' : 'Yes',
                     'maintenance'   => $event->evenInMaintenanceMode ? 'Yes' : 'No',
-                    'one_server'   => $event->onOneServer ? 'Yes' : 'No',
+                    'one_server'    => $event->onOneServer ? 'Yes' : 'No',
                 ];
             });
 
@@ -73,10 +75,11 @@ class ListSchedule extends Command
 
     /**
      * Get Upcoming schedule.
+     * @param Event $event
      *
-     * @return bool
+     * @return string
      */
-    protected function upcoming($event)
+    protected function upcoming(Event $event) : bool
     {
         $date = Carbon::now();
 

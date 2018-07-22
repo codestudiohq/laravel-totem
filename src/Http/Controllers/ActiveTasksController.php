@@ -3,19 +3,19 @@
 namespace Studio\Totem\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Studio\Totem\Contracts\TaskInterface;
+use Studio\Totem\Repositories\EloquentTaskRepository;
 
 class ActiveTasksController extends Controller
 {
     /**
-     * @var TaskInterface
+     * @var EloquentTaskRepository
      */
     private $tasks;
 
     /**
-     * @param TaskInterface $tasks
+     * @param EloquentTaskRepository $tasks
      */
-    public function __construct(TaskInterface $tasks)
+    public function __construct(EloquentTaskRepository $tasks)
     {
         parent::__construct();
 
@@ -30,7 +30,7 @@ class ActiveTasksController extends Controller
      */
     public function store(Request $request)
     {
-        $task = $this->tasks->activate($request->all());
+        $task = $this->tasks->activate($request->input('task_id'));
 
         return response()->json($task, 200);
     }

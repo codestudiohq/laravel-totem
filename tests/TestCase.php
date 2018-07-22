@@ -45,7 +45,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
         Totem::auth($auth);
     }
 
-    protected function getPackageAliases($app)
+    protected function getPackageAliases($app) : array
     {
         return [
             'Form' => FormFacade::class,
@@ -53,7 +53,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
         ];
     }
 
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app) : array
     {
         return [
             TotemServiceProvider::class,

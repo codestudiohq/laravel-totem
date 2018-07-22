@@ -4,6 +4,7 @@ namespace Studio\Totem;
 
 use Carbon\Carbon;
 use Cron\CronExpression;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Studio\Totem\Traits\HasFrequencies;
 use Illuminate\Notifications\Notifiable;
 use Studio\Totem\Traits\FrontendSortable;
@@ -49,7 +50,7 @@ class Task extends TotemModel
      *
      * @return bool
      */
-    public function getActivatedAttribute()
+    public function getActivatedAttribute() : bool
     {
         return $this->is_active;
     }
@@ -59,7 +60,7 @@ class Task extends TotemModel
      *
      * @return string
      */
-    public function getUpcomingAttribute()
+    public function getUpcomingAttribute() : string
     {
         return CronExpression::factory($this->getCronExpression())->getNextRunDate()->format('Y-m-d H:i:s');
     }
@@ -67,11 +68,11 @@ class Task extends TotemModel
     /**
      * Convert a string of command arguments and options to an array.
      *
-     * @param bool $console if true will convert arguments to non associative array
+     * @param bool|null $console if true will convert arguments to non associative array
      *
      * @return array
      */
-    public function compileParameters($console = false)
+    public function compileParameters(?bool $console = false) : array
     {
         if ($this->parameters) {
             $regex = '/(?=\S)[^\'"\s]*(?:\'[^\']*\'[^\'"\s]*|"[^"]*"[^\'"\s]*)*/';
@@ -106,9 +107,9 @@ class Task extends TotemModel
     /**
      * Results Relation.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany|Result[]
      */
-    public function results()
+    public function results() : HasMany
     {
         return $this->hasMany(Result::class, 'task_id', 'id');
     }
@@ -116,9 +117,9 @@ class Task extends TotemModel
     /**
      * Returns the most recent result entry for this task.
      *
-     * @return Model|null
+     * @return Result|null
      */
-    public function getLastResultAttribute()
+    public function getLastResultAttribute() : ?Result
     {
         return $this->results()->orderBy('id', 'desc')->first();
     }
@@ -136,7 +137,7 @@ class Task extends TotemModel
      *
      * @return string
      */
-    public function routeNotificationForMail()
+    public function routeNotificationForMail() : string
     {
         return $this->notification_email_address;
     }
@@ -146,7 +147,7 @@ class Task extends TotemModel
      *
      * @return string
      */
-    public function routeNotificationForNexmo()
+    public function routeNotificationForNexmo() : string
     {
         return $this->notification_phone_number;
     }
@@ -156,7 +157,7 @@ class Task extends TotemModel
      *
      * @return string
      */
-    public function routeNotificationForSlack()
+    public function routeNotificationForSlack() : string
     {
         return $this->notification_slack_webhook;
     }

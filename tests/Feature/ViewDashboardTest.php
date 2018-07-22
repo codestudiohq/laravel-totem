@@ -81,11 +81,11 @@ class ViewDashboardTest extends TestCase
      * @param int $result_count
      * @return mixed
      */
-    private function _get_task_with_results($task_count = 1, $result_count = 1)
+    private function _get_task_with_results(?int $task_count = 1, ?int $result_count = 1)
     {
         return factory(Task::class, $task_count)
             ->create()
-            ->each(function ($task) use ($result_count) {
+            ->each(function (Task $task) use ($result_count) {
                 for ($i = 0; $i < $result_count; $i++) {
                     $task->results()->save(factory(Result::class)->make());
                 }
