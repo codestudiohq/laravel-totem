@@ -26,7 +26,7 @@ class BustCache extends Listener
     protected function clear(Event $event)
     {
         if ($event->task) {
-            $this->app['cache']->forget('totem.task.' . $event->task->id);
+            $this->app['cache']->forget('totem.task.'.$event->task->id);
         }
 
         $this->app['cache']->forget('totem.tasks.all');

@@ -2,8 +2,8 @@
 
 namespace Studio\Totem\Http\Controllers;
 
-use Studio\Totem\Repositories\EloquentTaskRepository;
 use Studio\Totem\Task;
+use Studio\Totem\Repositories\EloquentTaskRepository;
 
 class ExecuteTasksController extends Controller
 {

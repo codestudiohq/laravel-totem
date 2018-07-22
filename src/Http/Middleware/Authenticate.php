@@ -2,8 +2,8 @@
 
 namespace Studio\Totem\Http\Middleware;
 
-use Illuminate\Http\Request;
 use Studio\Totem\Totem;
+use Illuminate\Http\Request;
 
 class Authenticate
 {

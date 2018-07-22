@@ -2,7 +2,6 @@
 
 namespace Studio\Totem\Repositories;
 
-use Illuminate\Support\Collection;
 use Studio\Totem\Task;
 use Studio\Totem\Events\Created;
 use Studio\Totem\Events\Deleted;
@@ -10,6 +9,7 @@ use Studio\Totem\Events\Updated;
 use Studio\Totem\Events\Creating;
 use Studio\Totem\Events\Executed;
 use Studio\Totem\Events\Updating;
+use Illuminate\Support\Collection;
 use Studio\Totem\Events\Activated;
 use Studio\Totem\Events\Deactivated;
 use Illuminate\Support\Facades\Cache;

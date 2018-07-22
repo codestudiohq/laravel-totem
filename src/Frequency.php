@@ -2,8 +2,8 @@
 
 namespace Studio\Totem;
 
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Studio\Totem\Traits\HasParameters;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Frequency extends TotemModel
 {
