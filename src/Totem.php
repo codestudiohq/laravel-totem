@@ -61,7 +61,7 @@ class Totem
     public static function getCommands()
     {
         $command_filter = config('totem.artisan.command_filter');
-        $whitelist = config('totem.artisan.whiltelist', true);
+        $whitelist = config('totem.artisan.whitelist', true);
         $all_commands = collect(Artisan::all());
 
         if (! empty($command_filter)) {

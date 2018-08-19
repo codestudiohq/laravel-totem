@@ -2,5 +2,6 @@
 /node_modules
 composer.lock
 package-lock.json
+_ide_helper.php
 .DS_Store
 .idea

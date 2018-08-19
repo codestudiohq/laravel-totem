@@ -96,5 +96,9 @@ class TotemServiceProvider extends ServiceProvider
         $this->publishes([
             TOTEM_PATH.'/public/img' => public_path('vendor/totem/img'),
         ], 'totem-assets');
+
+        $this->publishes([
+            TOTEM_PATH.'/config' => config_path(),
+        ], 'totem-config');
     }
 }
