@@ -4,7 +4,6 @@ namespace Studio\Totem\Events;
 
 class Deleting extends Event
 {
-
     public $taskId;
 
     /**

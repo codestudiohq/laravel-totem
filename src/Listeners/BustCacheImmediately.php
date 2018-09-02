@@ -4,8 +4,8 @@
 namespace Studio\Totem\Listeners;
 
 
-use Illuminate\Container\Container;
 use Studio\Totem\Events\Event;
+use Illuminate\Container\Container;
 
 class BustCacheImmediately
 {
