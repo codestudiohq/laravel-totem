@@ -10,11 +10,10 @@
 Route::get('/', 'DashboardController@index')->name('totem.dashboard');
 
 Route::group(['prefix' => 'tasks'], function () {
-
     Route::get('/', 'TasksController@index')->name('totem.tasks.all');
 
     Route::get('create', 'TasksController@create')->name('totem.task.create');
-    Route::post('create', 'TasksController@store');;
+    Route::post('create', 'TasksController@store');
 
     Route::get('export', 'ExportTasksController@index')->name('totem.tasks.export');
     Route::post('import', 'ImportTasksController@index')->name('totem.tasks.import');

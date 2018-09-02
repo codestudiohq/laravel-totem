@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Studio\Totem\Listeners;
-
 
 use Studio\Totem\Events\Event;
 

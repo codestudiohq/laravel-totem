@@ -29,7 +29,7 @@ class TotemServiceProvider extends ServiceProvider
             return CronExpression::isValidExpression($value);
         });
 
-        Validator::extend('json_file', function($attribute,UploadedFile $value, $validator) {
+        Validator::extend('json_file', function ($attribute, UploadedFile $value, $validator) {
             return $value->getClientOriginalExtension() == 'json';
         });
     }
