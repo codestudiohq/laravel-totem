@@ -7,7 +7,7 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class BroadcastingEvent extends Event implements ShouldBroadcast
+class BroadcastingEvent extends TaskEvent implements ShouldBroadcast
 {
     use InteractsWithSockets;
 
@@ -29,7 +29,7 @@ class BroadcastingEvent extends Event implements ShouldBroadcast
     /**
      * Get the channels the event should broadcast on.
      *
-     * @return Channel|array
+     * @return \Illuminate\Broadcasting\Channel|\Illuminate\Broadcasting\Channel[]|PrivateChannel
      */
     public function broadcastOn()
     {

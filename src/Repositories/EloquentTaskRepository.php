@@ -124,7 +124,7 @@ class EloquentTaskRepository implements TaskInterface
     {
         $task = $this->find($id);
 
-        if (Deleting::dispatch($task) === false) {
+        if (Deleting::dispatch($task->id) === false) {
             return false;
         }
 
