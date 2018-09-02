@@ -6,7 +6,7 @@ use Studio\Totem\Task;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\PrivateChannel;
 
-class Updating extends Event
+class Updating extends BroadcastingEvent
 {
     /**
      * @var array

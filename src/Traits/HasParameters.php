@@ -22,7 +22,9 @@ trait HasParameters
 
     public function afterSave()
     {
-        $frequency = collect(request()->input('frequencies'))->filter(function ($frequency) {
+        $data = $this->processData();
+
+        $frequency = collect($data['frequencies'])->filter(function ($frequency) {
             return $frequency['interval'] == $this->interval;
         })->first();
 
@@ -44,5 +46,40 @@ trait HasParameters
     public function parameters()
     {
         return $this->hasMany(Parameter::class);
+    }
+
+    /**
+     * Process input data. If its an import action we must find out if the imported json has frequencies or not and
+     * prepare data accordingly
+     *
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     */
+    private function processData()
+    {
+        $data = request()->all();
+
+        if (!request()->hasFile("tasks")) {
+            return $data;
+        }
+
+        $task = collect(json_decode(request()->file("tasks")->get()))
+            ->filter(function ($task) {
+                return $task->id === $this->task->id;
+            })
+            ->first();
+
+        if ($task && $task->frequencies) {
+            $data["frequencies"] = collect($task->frequencies)
+                ->map(function ($frequency) {
+                    $frequency->parameters = collect($frequency->parameters)
+                        ->map( function ($parameter) {
+                            return (array) $parameter;
+                        });
+                    return (array) $frequency;
+                })
+                ->toArray();
+        }
+
+        return $data;
     }
 }

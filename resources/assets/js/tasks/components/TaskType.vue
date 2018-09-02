@@ -1,10 +1,8 @@
 <script>
     import UIKitModal from '../../components/UIKitModal.vue'
-    import Icon from '../../components/Icon.vue'
     export default {
         components: {
-            'uikit-modal':UIKitModal,
-            'icon'  : Icon
+            'uikit-modal':UIKitModal
         },
         props: {
             current: {
@@ -38,21 +36,21 @@
                 return this.selected.interval
             },
             isCron: function () {
-                return this.type == 'expression'
+                return this.type === 'expression'
             },
             managesFrequencies: function () {
-                return this.type == 'frequency'
+                return this.type === 'frequency'
             }
         },
         methods: {
             addFrequency() {
                 if(this.isValid) {
-                    this.frequencies.push(this.selected)
+                    this.frequencies.push(this.selected);
                     this.closeModal()
                 }
             },
             closeModal() {
-                this.selected = this.placeholder
+                this.selected = this.placeholder;
                 this.showModal = false
             },
             remove(index) {

@@ -3,6 +3,7 @@
 namespace Studio\Totem\Providers;
 
 use Cron\CronExpression;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
@@ -26,6 +27,10 @@ class TotemServiceProvider extends ServiceProvider
 
         Validator::extend('cron_expression', function ($attribute, $value, $parameters, $validator) {
             return CronExpression::isValidExpression($value);
+        });
+
+        Validator::extend('json_file', function($attribute,UploadedFile $value, $validator) {
+            return $value->getClientOriginalExtension() == 'json';
         });
     }
 

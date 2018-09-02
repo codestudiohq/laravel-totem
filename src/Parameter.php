@@ -7,6 +7,7 @@ class Parameter extends TotemModel
     protected $table = 'frequency_parameters';
 
     protected $fillable = [
+        'id',
         'name',
         'value',
     ];

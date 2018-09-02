@@ -2,6 +2,6 @@
 
 namespace Studio\Totem\Events;
 
-class Updated extends Event
+class Updated extends BroadcastingEvent
 {
 }

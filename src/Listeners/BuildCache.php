@@ -1,10 +1,12 @@
 <?php
 
+
 namespace Studio\Totem\Listeners;
+
 
 use Studio\Totem\Events\Event;
 
-class BustCache extends Listener
+class BuildCache extends Listener
 {
     /**
      * Handle the event.
@@ -13,21 +15,18 @@ class BustCache extends Listener
      */
     public function handle(Event $event)
     {
-        $this->clear($event);
+        $this->build($event);
     }
 
     /**
-     * Clear Cache.
+     * Rebuild Cache.
      *
      * @param Event $event
      */
-    protected function clear(Event $event)
+    protected function build(Event $event)
     {
         if ($event->task) {
-            $this->app['cache']->forget('totem.task.'.$event->task->id);
+            $this->tasks->find($event->task->id);
         }
-
-        $this->app['cache']->forget('totem.tasks.all');
-        $this->app['cache']->forget('totem.tasks.active');
     }
 }

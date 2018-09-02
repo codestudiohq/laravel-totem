@@ -4,14 +4,11 @@ namespace Studio\Totem\Events;
 
 use Studio\Totem\Task;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Foundation\Events\Dispatchable;
-use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class Event implements ShouldBroadcast
+class Event
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+    use Dispatchable, SerializesModels;
 
     /**
      * @var Task
@@ -26,15 +23,5 @@ class Event implements ShouldBroadcast
     public function __construct(Task $task)
     {
         $this->task = $task;
-    }
-
-    /**
-     * Get the channels the event should broadcast on.
-     *
-     * @return Channel|array
-     */
-    public function broadcastOn()
-    {
-        return new PrivateChannel('task.events');
     }
 }

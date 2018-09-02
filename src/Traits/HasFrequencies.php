@@ -3,8 +3,11 @@
 namespace Studio\Totem\Traits;
 
 use Closure;
+use function json_decode;
+use function request;
 use Studio\Totem\Frequency;
 use Illuminate\Console\Scheduling\ManagesFrequencies;
+use Studio\Totem\Task;
 
 trait HasFrequencies
 {
@@ -39,11 +42,13 @@ trait HasFrequencies
     }
 
     /**
-     * Task Updated.
+     * When task is updated or created, we grab the input. If the type is set to frequency in input we try to either
+     * update or create the frequencies included in input else delete the frequency. If the type is not frequency and
+     * the task in question has frequencies saved in databased, delete them all
      */
     public function afterSave()
     {
-        $input = request()->all();
+        $input = $this->processData();
 
         if (isset($input['type'])) {
             if ($input['type'] == 'frequency') {
@@ -166,5 +171,33 @@ trait HasFrequencies
     public function between($startTime, $endTime)
     {
         return $this->when($this->inTimeInterval($startTime, $endTime));
+    }
+
+    /**
+     * Process input data. If its an import action we must find out if the imported json has frequencies or not and
+     * prepare data accordingly
+     *
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     */
+    private function processData()
+    {
+        $data = request()->all();
+
+        if (!request()->hasFile("tasks")) {
+            return $data;
+        }
+
+        $task = collect(json_decode(request()->file("tasks")->get()))
+            ->filter(function ($task) {
+                return $task->id === $this->id;
+            })
+            ->first();
+
+        if ($task && $task->frequencies) {
+            $data["type"] = "frequency";
+            $data["frequencies"] = collect($task->frequencies)->map(function ($frequency) { return (array)$frequency;})->toArray();
+        }
+
+        return $data;
     }
 }

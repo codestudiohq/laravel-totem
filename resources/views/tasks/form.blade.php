@@ -138,7 +138,7 @@
                                 </td>
                                 <td>
                                     <a class="uk-button uk-button-link" @click="remove(index)">
-                                        <icon name="close" :scale="100"></icon>
+                                        <span uk-icon="icon: close"></span>
                                     </a>
                                 </td>
                             </tr>
@@ -236,7 +236,7 @@
             <label class="uk-margin">
                 Auto Cleanup results after
                 <br>
-                <input type="number" name="auto_cleanup_num" id="auto_cleanup_num" value="{{ old('auto_cleanup_num', $task->auto_cleanup_num) ?? 0 }}" />
+                <input class="uk-input" type="number" name="auto_cleanup_num" id="auto_cleanup_num" value="{{ old('auto_cleanup_num', $task->auto_cleanup_num) ?? 0 }}" />
                 <br>
                 <label>
                     <input type="radio" name="auto_cleanup_type" value="days" {{old('auto_cleanup_type', $task->auto_cleanup_type) !== 'results' ? '' : 'checked'}}> Days
