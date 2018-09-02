@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Studio\Totem\Http\Controllers;
 
 use Studio\Totem\Contracts\TaskInterface;
@@ -25,7 +24,7 @@ class ImportTasksController extends Controller
     }
 
     /**
-     * Import tasks from a json file
+     * Import tasks from a json file.
      * @param \Studio\Totem\Http\Requests\ImportRequest $request
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */

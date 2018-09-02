@@ -1,12 +1,10 @@
 <?php
 
-
 namespace Studio\Totem\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Http\UploadedFile;
 use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class ImportRequest extends FormRequest
 {
@@ -19,6 +17,7 @@ class ImportRequest extends FormRequest
     {
         return true;
     }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -28,7 +27,7 @@ class ImportRequest extends FormRequest
     {
         return [
             'tasks' => 'required|file|jsonFile',
-            'content' => 'json'
+            'content' => 'json',
         ];
     }
 
@@ -43,7 +42,7 @@ class ImportRequest extends FormRequest
             'tasks.required'    => 'Please select a file to import',
             'tasks.file'    => 'Please select a file to import',
             'tasks.json_file'    => 'Please select a json file',
-            'content' => 'File does not contain valid json'
+            'content' => 'File does not contain valid json',
         ];
     }
 
@@ -56,7 +55,7 @@ class ImportRequest extends FormRequest
      */
     public function all($keys = null)
     {
-        $content = "";
+        $content = '';
 
         if ($jsonFile = $this->file('tasks')) {
             $content = $jsonFile->get();
@@ -73,7 +72,7 @@ class ImportRequest extends FormRequest
      */
     public function validated()
     {
-        $content = "";
+        $content = '';
 
         if ($jsonFile = $this->file('tasks')) {
             $content = $jsonFile->get();
@@ -81,7 +80,6 @@ class ImportRequest extends FormRequest
 
         return array_merge(parent::validated(), compact('content'));
     }
-
 
     /**
      * * Handle a failed validation attempt.

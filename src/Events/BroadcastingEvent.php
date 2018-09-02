@@ -1,13 +1,11 @@
 <?php
 
-
 namespace Studio\Totem\Events;
 
-
-use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Studio\Totem\Task;
+use Illuminate\Broadcasting\PrivateChannel;
+use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
 class BroadcastingEvent extends Event implements ShouldBroadcast
 {

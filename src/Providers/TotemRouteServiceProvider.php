@@ -25,8 +25,8 @@ class TotemRouteServiceProvider extends RouteServiceProvider
     public function boot()
     {
         parent::boot();
-        Route::bind('task', function($value) {
-            return cache()->rememberForever('totem.task.' . $value, function () use ($value) {
+        Route::bind('task', function ($value) {
+            return cache()->rememberForever('totem.task.'.$value, function () use ($value) {
                 return Task::find($value) ?? abort(404);
             });
         });
