@@ -42,7 +42,7 @@ class BustCacheImmediately
     protected function clear(Event $event)
     {
         if ($event->taskId) {
-            $this->app['cache']->forget('totem.task.' . $event->taskId);
+            $this->app['cache']->forget('totem.task.'.$event->taskId);
         }
 
         $this->app['cache']->forget('totem.tasks.all');
