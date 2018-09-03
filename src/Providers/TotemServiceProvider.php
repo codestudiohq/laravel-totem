@@ -97,7 +97,7 @@ class TotemServiceProvider extends ServiceProvider
         ], 'totem-assets');
 
         $this->publishes([
-            TOTEM_PATH.'/config' => config_path()
+            TOTEM_PATH.'/config' => config_path(),
         ], 'totem-config');
     }
 }
