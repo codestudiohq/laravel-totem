@@ -2,7 +2,6 @@
   <transition mode="out-in">
     <button v-if="task.activated" type="button" class="uk-button uk-button-small" :class="{ 'uk-button-primary': !hovering && !working, 'uk-button-danger': hovering && !working, 'uk-spinner uk-icon uk-button-secondary': working}" key="enabled" @mouseenter="hovering = true" @mouseleave="hovering = false" @click="deactivate" :disabled="working">
       <span v-if="!working">{{ activeStatusText }}</span>
-      <span uk-icon="icon: check; ratio: 1"></span>
       <div v-if="working" uk-spinner="ratio: 1"></div>
     </button>
     <button v-if="existsAndIsInActive" type="button" class="uk-button uk-button-small" :class="{'uk-button-danger': !hovering && !working, 'uk-button-primary': hovering && !working, 'uk-spinner uk-icon uk-button-secondary': working}" key="disabled" @mouseenter="hovering = true" @mouseleave="hovering = false" @click="activate" :disabled="working">
