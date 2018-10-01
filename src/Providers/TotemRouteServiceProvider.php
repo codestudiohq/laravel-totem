@@ -70,7 +70,7 @@ class TotemRouteServiceProvider extends RouteServiceProvider
     protected function mapApiRoutes()
     {
         Route::group([
-            'prefix' => config('totem.uri', 'totem').'/api',
+            'prefix' => config('totem.uri', 'totem').'/'.config('totem.api_prefix', 'api'),
             'namespace' => $this->namespace,
             'middleware' => config('totem.api.middleware', 'api'),
         ], function () {
