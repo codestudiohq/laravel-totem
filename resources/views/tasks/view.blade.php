@@ -68,8 +68,12 @@
         @endif
         @if($task->run_in_maintenance)
             <li>
-                <span class="uk-float-left">Runs in maintenance mode</span>
+                <span class="uk-float-left">Task <b>WILL</b> still run when in maintenance mode</span>
             </li>
+        @else
+            <li>
+                <span class="uk-float-left">Task will <b>NOT</b> run when in maintenance mode</span>
+            </li>        
         @endif
     </ul>
 @stop
