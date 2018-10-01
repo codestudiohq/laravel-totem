@@ -12,9 +12,7 @@
             'method' => 'GET',
             'class' => 'uk-display-inline uk-search uk-search-default'
         ]) !!}
-        <span class="uk-icon uk-search-icon" style="cursor: pointer; pointer-events: auto;" onclick="totem__search__form.submit()">
-                <icon name="search" :scale="100"></icon>
-            </span>
+        <span uk-search-icon></span>
         {!! Form::text('q', request('q'), ['class' => 'uk-search-input', 'placeholder' => 'Search...']) !!}
         {!! Form::close() !!}
     </div>
@@ -74,22 +72,17 @@
     </table>
 @stop
 @section('main-panel-footer')
-    <a class="uk-button uk-button-primary uk-button-small" href="{{route('totem.task.create')}}">New Task</a>
-    <a class="uk-button uk-button-primary uk-button-small uk-float-right" href="{{route('totem.task.export')}}">Export</a>
-    {{$tasks->links('totem::partials.pagination')}}
-@stop
-@section('main-panel-after')
-    <div class="uk-card uk-card-default">
-        <div class="uk-card-footer">
-            @if($errors->any())
-                <div class="uk-text-danger">
-                    {{$errors->first()}}
-                </div>
-            @endif
-            {!! Form::open(['route' => 'totem.task.import', 'enctype' => 'multipart/form-data']) !!}
-            {!! Form::file('tasks') !!}
-            {!! Form::submit('Upload', ['class' => 'uk-button uk-button-primary uk-button-small uk-float-right']) !!}
-            {!! Form::close() !!}
-        </div>
+    <div class="uk-flex uk-flex-between">
+        <span>
+            <a class="uk-icon-button uk-button-primary uk-hidden@m" uk-icon="icon: plus" href="{{route('totem.task.create')}}"></a>
+            <a class="uk-button uk-button-primary uk-button-small uk-visible@m" href="{{route('totem.task.create')}}">New Task</a>
+        </span>
+
+        <span>
+            <import-button url="{{route('totem.tasks.import')}}"></import-button>
+            <a class="uk-icon-button uk-button-primary uk-hidden@m" uk-icon="icon: cloud-download"  href="{{route('totem.tasks.export')}}"></a>
+            <a class="uk-button uk-button-primary uk-button-small uk-visible@m" href="{{route('totem.tasks.export')}}">Export</a>
+        </span>
     </div>
+    {{$tasks->links('totem::partials.pagination')}}
 @stop

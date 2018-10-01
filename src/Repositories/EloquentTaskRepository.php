@@ -7,6 +7,7 @@ use Studio\Totem\Events\Created;
 use Studio\Totem\Events\Deleted;
 use Studio\Totem\Events\Updated;
 use Studio\Totem\Events\Creating;
+use Studio\Totem\Events\Deleting;
 use Studio\Totem\Events\Executed;
 use Studio\Totem\Events\Updating;
 use Illuminate\Support\Collection;
@@ -130,14 +131,15 @@ class EloquentTaskRepository implements TaskInterface
     {
         $task = $this->find($id);
 
-        if ($task) {
-            Deleted::dispatch($task);
-            $task->delete();
-
-            return true;
+        if (Deleting::dispatch($task->id) === false) {
+            return false;
         }
 
-        return false;
+        $task->delete();
+
+        Deleted::dispatch();
+
+        return true;
     }
 
     /**
@@ -198,5 +200,27 @@ class EloquentTaskRepository implements TaskInterface
         Executed::dispatch($task, $start);
 
         return $task;
+    }
+
+    /**
+     * Import tasks.
+     *
+     * @param $input
+     * @return bool|int|Task|void
+     */
+    public function import($input)
+    {
+        collect(json_decode(array_get($input, 'content')))
+            ->each(function ($data) {
+                $task = $this->find($data->id);
+
+                if (is_null($task)) {
+                    $this->store((array) $data);
+
+                    return;
+                }
+
+                $this->update((array) $data, $task);
+            });
     }
 }

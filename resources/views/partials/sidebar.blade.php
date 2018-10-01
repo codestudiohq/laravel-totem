@@ -7,7 +7,7 @@
     <ul class="uk-nav uk-nav-default">
         <li class="{{ str_contains(url()->current(), 'tasks') ? 'uk-active' : '' }}">
             <a href="{{route('totem.tasks.all')}}" class="uk-flex uk-flex-middle">
-                <icon name="clock" :scale="100" class="uk-visible@m uk-margin-small-right uk-icon"></icon>
+                <span uk-icon="icon: clock; ratio: 1" class="uk-visible@m uk-margin-small-right"></span>
                 <span class="uk-vertical-align-middle">Tasks</span>
             </a>
         </li>

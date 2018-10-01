@@ -13,3 +13,8 @@ phpunit.xml.dist export-ignore
 *.css linguist-vendored
 *.js linguist-vendored
 
+public/js/**/*.js -diff
+public/js/**/*.js.map -diff
+public/css/**/*.css -diff
+public/css/**/*.css.map -diff
+

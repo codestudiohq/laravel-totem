@@ -2,6 +2,6 @@
 
 namespace Studio\Totem\Events;
 
-class Deactivated extends Event
+class Deactivated extends BroadcastingEvent
 {
 }

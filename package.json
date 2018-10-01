@@ -9,12 +9,12 @@
     "es6-promise": "^4.0.5",
     "gulp": "^3.9.1",
     "laravel-elixir": "^6.0.0-14",
-    "laravel-elixir-vue-2": "^0.2.0",
+    "laravel-elixir-vue-2": "^0.3.0",
     "laravel-elixir-webpack-official": "^1.0.2",
     "lodash": "^4.16.2",
     "moment": "^2.10.6",
     "phpunserialize": "1.*",
-    "uikit": "^3.0.0-beta.30",
+    "uikit": "^3.0.0-rc.11",
     "vue": "^2.2.0",
     "xml-loader": "1.1.0"
   }

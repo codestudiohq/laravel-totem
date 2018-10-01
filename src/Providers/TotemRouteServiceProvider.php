@@ -25,7 +25,12 @@ class TotemRouteServiceProvider extends RouteServiceProvider
     public function boot()
     {
         parent::boot();
-        Route::model('task', Task::class);
+
+        Route::bind('task', function ($value) {
+            return cache()->rememberForever('totem.task.'.$value, function () use ($value) {
+                return Task::find($value) ?? abort(404);
+            });
+        });
     }
 
     /**
@@ -38,8 +43,6 @@ class TotemRouteServiceProvider extends RouteServiceProvider
         $this->mapApiRoutes();
 
         $this->mapWebRoutes();
-
-        //
     }
 
     /**

@@ -1,7 +1,7 @@
 <template>
     <span>
         <button class="uk-button uk-button-link" @click="showModal = true">
-            <icon name="more" :scale="100"></icon>
+            <span uk-icon="icon: more"></span>
         </button>
         <uikit-modal :show="showModal" @close="showModal = false">
             <div class="uk-modal-header">
@@ -20,12 +20,10 @@
 </template>
 <script>
     import UIKitModal from '../../components/UIKitModal.vue'
-    import Icon from '../../components/Icon.vue'
     export default {
         name: 'TaskOutput',
         components: {
-            'uikit-modal':UIKitModal,
-            'icon'  : Icon
+            'uikit-modal':UIKitModal
         },
         props: {
             output: {

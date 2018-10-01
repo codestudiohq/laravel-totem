@@ -20,5 +20,4 @@ elixir(mix => {
     .copy('resources/assets/img', 'public/img')
     .copy('resources/assets/less/img', 'public/img')
     .copy('public', '../../../public/vendor/totem');
-    // .copy('public', '../app/public/vendor/horizon');
 });

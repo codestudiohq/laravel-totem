@@ -3,13 +3,29 @@
 namespace Studio\Totem\Listeners;
 
 use Studio\Totem\Events\Event;
+use Illuminate\Container\Container;
 
-class BustCache extends Listener
+class BustCacheImmediately
 {
+    /**
+     * @var Container
+     */
+    protected $app;
+
+    /**
+     * Create the event listener.
+     *
+     * @param Container $app
+     */
+    public function __construct(Container $app)
+    {
+        $this->app = $app;
+    }
+
     /**
      * Handle the event.
      *
-     * @param Event $event
+     * @param  \Studio\Totem\Events\Event  $event
      */
     public function handle(Event $event)
     {
@@ -23,8 +39,8 @@ class BustCache extends Listener
      */
     protected function clear(Event $event)
     {
-        if ($event->task) {
-            $this->app['cache']->forget('totem.task.'.$event->task->id);
+        if ($event->taskId) {
+            $this->app['cache']->forget('totem.task.'.$event->taskId);
         }
 
         $this->app['cache']->forget('totem.tasks.all');

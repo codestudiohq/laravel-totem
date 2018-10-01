@@ -2,6 +2,6 @@
 
 namespace Studio\Totem\Events;
 
-class Executing extends Event
+class Executing extends BroadcastingEvent
 {
 }
