@@ -9,8 +9,7 @@ use Studio\Totem\Http\Middleware\Authenticate;
 
 class AuthTest extends TestCase
 {
-    /** @test */
-    public function auth_callback_works()
+    public function test_auth_callback_works()
     {
         $request = new Request();
         $request->replace(['user' => 'roshan']);
@@ -27,8 +26,7 @@ class AuthTest extends TestCase
         $this->assertFalse(Totem::check($request));
     }
 
-    /** @test */
-    public function auth_middleware_works()
+    public function test_auth_middleware_works()
     {
         Totem::auth(function () {
             return true;
@@ -47,10 +45,9 @@ class AuthTest extends TestCase
     }
 
     /**
-     * @test
      * @expectedException \Symfony\Component\HttpKernel\Exception\HttpException
      */
-    public function auth_middleware_responds_with_403_on_failure()
+    public function test_auth_middleware_responds_with_403_on_failure()
     {
         Totem::auth(function () {
             return false;

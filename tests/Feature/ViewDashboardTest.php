@@ -8,23 +8,20 @@ use Studio\Totem\Tests\TestCase;
 
 class ViewDashboardTest extends TestCase
 {
-    /** @test */
-    public function user_can_view_dashboard()
+    public function test_user_can_view_dashboard()
     {
         $this->signIn();
         $response = $this->get(route('totem.dashboard'));
         $response->assertStatus(302);
     }
 
-    /** @test */
-    public function guest_can_not_view_dashboard()
+    public function test_guest_can_not_view_dashboard()
     {
         $response = $this->get(route('totem.dashboard'));
         $response->assertStatus(403);
     }
 
-    /** @test */
-    public function view_dashboard_single_task_no_results()
+    public function test_view_dashboard_single_task_no_results()
     {
         $this->signIn();
         $task = factory(Task::class)->create();
@@ -35,8 +32,7 @@ class ViewDashboardTest extends TestCase
         $response->assertSee($task->description);
     }
 
-    /** @test */
-    public function view_dashboard_single_task_with_results()
+    public function test_view_dashboard_single_task_with_results()
     {
         $this->signIn();
         $tasks = $this->_get_task_with_results();
@@ -48,8 +44,7 @@ class ViewDashboardTest extends TestCase
         $response->assertSee($tasks[0]->description);
     }
 
-    /** @test */
-    public function view_dashboard_single_task_with_multiple_results()
+    public function test_view_dashboard_single_task_with_multiple_results()
     {
         $this->signIn();
         $tasks = $this->_get_task_with_results(1, 9);
@@ -61,8 +56,7 @@ class ViewDashboardTest extends TestCase
         $response->assertSee($tasks[0]->description);
     }
 
-    /** @test */
-    public function view_dashboard_multiple_tasks_with_multiple_results()
+    public function test_view_dashboard_multiple_tasks_with_multiple_results()
     {
         $this->signIn();
         $tasks = $this->_get_task_with_results(4, 5);
