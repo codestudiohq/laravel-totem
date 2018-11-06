@@ -56,7 +56,7 @@ class AddIndexesForTasks extends Migration
         Schema::table(config('totem.table_prefix').'task_frequencies', function (Blueprint $table) {
             $table->dropForeign('task_frequencies_task_id_fk');
         });
-        
+
         Schema::table(config('totem.table_prefix').'task_frequencies', function (Blueprint $table) {
             $table->dropIndex('task_frequencies_task_id_idx');
         });
