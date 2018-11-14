@@ -227,4 +227,7 @@ return [
         'command_filter' => [],
         'whitelist' => true,
     ],
+    'cache' => [
+        'enabled' => env('TOTEM_CACHE_ENABLED', true),
+    ]
 ];

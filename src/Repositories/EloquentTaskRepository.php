@@ -40,9 +40,13 @@ class EloquentTaskRepository implements TaskInterface
             return $id;
         }
 
-        return Cache::rememberForever('totem.task.'.$id, function () use ($id) {
+        if (config('totem.cache.enabled')) {
+            return Cache::rememberForever('totem.task.'.$id, function () use ($id) {
+                return Task::find($id);
+            });
+        } else {
             return Task::find($id);
-        });
+        }
     }
 
     /**
@@ -52,9 +56,13 @@ class EloquentTaskRepository implements TaskInterface
      */
     public function findAll()
     {
-        return Cache::rememberForever('totem.tasks.all', function () {
+        if (config('totem.cache.enabled')) {
+            return Cache::rememberForever('totem.tasks.all', function () {
+                return Task::all();
+            });
+        } else {
             return Task::all();
-        });
+        }
     }
 
     /**
@@ -64,11 +72,17 @@ class EloquentTaskRepository implements TaskInterface
      */
     public function findAllActive()
     {
-        return Cache::rememberForever('totem.tasks.active', function () {
+        if (config('totem.cache.enabled')) {
+            return Cache::rememberForever('totem.tasks.active', function () {
+                return $this->findAll()->filter(function ($task) {
+                    return $task->is_active;
+                });
+            });
+        } else {
             return $this->findAll()->filter(function ($task) {
                 return $task->is_active;
             });
-        });
+        }
     }
 
     /**
