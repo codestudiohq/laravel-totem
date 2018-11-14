@@ -58,9 +58,9 @@ class ListSchedule extends Command
                     'timezone'      => $event->timezone ?: config('app.timezone'),
                     'overlaps'      => $event->withoutOverlapping ? 'No' : 'Yes',
                     'maintenance'   => $event->evenInMaintenanceMode ? 'Yes' : 'No',
-                    'one_server'   => $event->onOneServer ? 'Yes' : 'No',
+                    'one_server'    => $event->onOneServer ? 'Yes' : 'No',
                 ];
-            });
+            })->sortBy(['description']);
 
             $this->table(
                 ['Description', 'Command', 'Schedule', 'Upcoming', 'Timezone', 'Overlaps?', 'In Maintenance?', 'One Server?'],
