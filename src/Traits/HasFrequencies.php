@@ -122,7 +122,7 @@ trait HasFrequencies
      */
     public function getMutexName()
     {
-        return 'logs'.DIRECTORY_SEPARATOR.'schedule-'.sha1($this->expression.$this->command);
+        return 'logs'.DIRECTORY_SEPARATOR.'schedule-'.sha1($this->expression.$this->command.$this->parameters);
     }
 
     /**
