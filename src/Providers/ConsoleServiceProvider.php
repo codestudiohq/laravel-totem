@@ -45,7 +45,7 @@ class ConsoleServiceProvider extends ServiceProvider
                 })
                 ->sendOutputTo(storage_path($task->getMutexName()));
             if ($task->dont_overlap) {
-                $event->withoutOverlapping();
+                $event->withoutOverlapping(config('totem.overlapping.mutex_expiry'));
             }
             if ($task->run_in_maintenance) {
                 $event->evenInMaintenanceMode();

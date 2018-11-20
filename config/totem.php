@@ -229,5 +229,8 @@ return [
     ],
     'cache' => [
         'enabled' => env('TOTEM_CACHE_ENABLED', true),
-    ]
+    ],
+    'overlapping' => [
+        'mutex_expiry' => env('TOTEM_OVERLAPPING_MUTEX_EXPIRY', 1440), // in minutes
+    ],
 ];
