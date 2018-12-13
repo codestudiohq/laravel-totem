@@ -63,11 +63,11 @@ class TotemServiceProvider extends ServiceProvider
         );
 
         try {
-            $exists = Cache::get('totem.table.' . config('totem.table_prefix') . 'tasks', false);
+            $exists = Cache::get('totem.table.'.config('totem.table_prefix').'tasks', false);
             if (! $exists) {
                 $exists = Schema::hasTable(config('totem.table_prefix').'tasks');
                 if ($exists) {
-                    Cache::forever('totem.table.' . config('totem.table_prefix') . 'tasks', $exists);
+                    Cache::forever('totem.table.'.config('totem.table_prefix').'tasks', $exists);
                 }
             }
             if ($exists) {
