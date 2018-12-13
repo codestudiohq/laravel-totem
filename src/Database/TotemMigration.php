@@ -19,6 +19,7 @@ abstract class TotemMigration extends Migration
             // Catch if an empty name was passed in
             $totem_connection_name = Schema::getConnection()->getName();
         }
+
         return $totem_connection_name;
     }
 }
