@@ -5,6 +5,7 @@ namespace Studio\Totem\Providers;
 use Cron\CronExpression;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Validator;
@@ -62,7 +63,14 @@ class TotemServiceProvider extends ServiceProvider
         );
 
         try {
-            if (Schema::hasTable(config('totem.table_prefix').'tasks')) {
+            $exists = Cache::get('totem.table.' . config('totem.table_prefix') . 'tasks', false);
+            if (! $exists) {
+                $exists = Schema::hasTable(config('totem.table_prefix').'tasks');
+                if ($exists) {
+                    Cache::forever('totem.table.' . config('totem.table_prefix') . 'tasks', $exists);
+                }
+            }
+            if ($exists) {
                 $this->app->register(ConsoleServiceProvider::class);
             }
         } catch (\PDOException $ex) {
