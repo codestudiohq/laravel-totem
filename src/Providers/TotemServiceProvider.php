@@ -12,6 +12,7 @@ use Studio\Totem\Contracts\TaskInterface;
 use Studio\Totem\Console\Commands\ListSchedule;
 use Studio\Totem\Console\Commands\PublishAssets;
 use Studio\Totem\Repositories\EloquentTaskRepository;
+use Studio\Totem\TotemModel;
 
 class TotemServiceProvider extends ServiceProvider
 {
@@ -62,7 +63,9 @@ class TotemServiceProvider extends ServiceProvider
         );
 
         try {
-            if (Schema::hasTable(config('totem.table_prefix').'tasks')) {
+            if (Schema::connection((new TotemModel)->getConnectionName() ?? Schema::getConnection()->getName())
+                    ->hasTable(config('totem.table_prefix').'tasks')
+            ) {
                 $this->app->register(ConsoleServiceProvider::class);
             }
         } catch (\PDOException $ex) {
