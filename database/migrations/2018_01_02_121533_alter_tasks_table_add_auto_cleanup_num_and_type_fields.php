@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
+use \Studio\Totem\Database\TotemMigration;
 
-class AlterTasksTableAddAutoCleanupNumAndTypeFields extends Migration
+class AlterTasksTableAddAutoCleanupNumAndTypeFields extends TotemMigration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class AlterTasksTableAddAutoCleanupNumAndTypeFields extends Migration
      */
     public function up()
     {
-        Schema::table(config('totem.table_prefix').'tasks', function (Blueprint $table) {
-            $table->integer('auto_cleanup_num')->default(0);
-            $table->string('auto_cleanup_type', 20)->nullable();
-        });
+        Schema::connection($this->getConnection())
+            ->table(config('totem.table_prefix').'tasks', function (Blueprint $table) {
+                $table->integer('auto_cleanup_num')->default(0);
+                $table->string('auto_cleanup_type', 20)->nullable();
+            });
     }
 
     /**
@@ -26,12 +27,14 @@ class AlterTasksTableAddAutoCleanupNumAndTypeFields extends Migration
      */
     public function down()
     {
-        Schema::table(config('totem.table_prefix').'tasks', function (Blueprint $table) {
-            $table->dropColumn('auto_cleanup_num');
-        });
+        Schema::connection($this->getConnection())
+            ->table(config('totem.table_prefix').'tasks', function (Blueprint $table) {
+                $table->dropColumn('auto_cleanup_num');
+            });
 
-        Schema::table(config('totem.table_prefix').'tasks', function (Blueprint $table) {
-            $table->dropColumn('auto_cleanup_type');
-        });
+        Schema::connection($this->getConnection())
+            ->table(config('totem.table_prefix').'tasks', function (Blueprint $table) {
+                $table->dropColumn('auto_cleanup_type');
+            });
     }
 }
