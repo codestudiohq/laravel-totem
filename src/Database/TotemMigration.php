@@ -2,8 +2,8 @@
 
 namespace Studio\Totem\Database;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Migrations\Migration;
 
 abstract class TotemMigration extends Migration
 {

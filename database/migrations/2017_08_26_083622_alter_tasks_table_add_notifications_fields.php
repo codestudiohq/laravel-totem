@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
-use \Studio\Totem\Database\TotemMigration;
+use Studio\Totem\Database\TotemMigration;
 
 class AlterTasksTableAddNotificationsFields extends TotemMigration
 {

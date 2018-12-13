@@ -31,6 +31,7 @@ class TotemModel extends Model
             // Catch if an empty name was passed in
             $totem_connection_name = $this->connection;
         }
+
         return $totem_connection_name;
     }
 }
