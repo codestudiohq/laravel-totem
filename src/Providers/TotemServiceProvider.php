@@ -2,8 +2,8 @@
 
 namespace Studio\Totem\Providers;
 
-use Cron\CronExpression;
 use Studio\Totem\Totem;
+use Cron\CronExpression;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
