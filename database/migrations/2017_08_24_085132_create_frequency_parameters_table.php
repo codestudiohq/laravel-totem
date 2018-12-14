@@ -14,7 +14,7 @@ class CreateFrequencyParametersTable extends TotemMigration
     public function up()
     {
         Schema::connection($this->getConnection())
-            ->create(config('totem.table_prefix').'frequency_parameters', function (Blueprint $table) {
+            ->create(TOTEM_TABLE_PREFIX.'frequency_parameters', function (Blueprint $table) {
                 $table->increments('id');
                 $table->unsignedInteger('frequency_id');
                 $table->string('name');
@@ -31,6 +31,6 @@ class CreateFrequencyParametersTable extends TotemMigration
     public function down()
     {
         Schema::connection($this->getConnection())
-            ->dropIfExists(config('totem.table_prefix').'frequency_parameters');
+            ->dropIfExists(TOTEM_TABLE_PREFIX.'frequency_parameters');
     }
 }

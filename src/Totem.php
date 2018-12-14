@@ -3,6 +3,7 @@
 namespace Studio\Totem;
 
 use Closure;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Artisan;
 use Symfony\Component\Console\Command\Command;
 
@@ -79,5 +80,13 @@ class Totem
         return $all_commands->sortBy(function (Command $command) {
             return $command->getDescription();
         });
+    }
+
+    /**
+     * @return bool
+     */
+    public static function baseTableExists() : bool
+    {
+        return Schema::connection(TOTEM_DATABASE_CONNECTION)->hasTable(TOTEM_TABLE_PREFIX.'tasks');
     }
 }

@@ -14,7 +14,7 @@ class CreateTaskFrequenciesTable extends TotemMigration
     public function up()
     {
         Schema::connection($this->getConnection())
-            ->create(config('totem.table_prefix').'task_frequencies', function (Blueprint $table) {
+            ->create(TOTEM_TABLE_PREFIX.'task_frequencies', function (Blueprint $table) {
                 $table->increments('id');
                 $table->unsignedInteger('task_id');
                 $table->string('label');
@@ -31,6 +31,6 @@ class CreateTaskFrequenciesTable extends TotemMigration
     public function down()
     {
         Schema::connection($this->getConnection())
-            ->dropIfExists(config('totem.table_prefix').'task_frequencies');
+            ->dropIfExists(TOTEM_TABLE_PREFIX.'task_frequencies');
     }
 }

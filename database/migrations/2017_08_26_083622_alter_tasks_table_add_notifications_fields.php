@@ -14,7 +14,7 @@ class AlterTasksTableAddNotificationsFields extends TotemMigration
     public function up()
     {
         Schema::connection($this->getConnection())
-            ->table(config('totem.table_prefix').'tasks', function (Blueprint $table) {
+            ->table(TOTEM_TABLE_PREFIX.'tasks', function (Blueprint $table) {
                 $table->string('notification_phone_number')->nullable()->after('notification_email_address');
                 $table->string('notification_slack_webhook')->nullable()->after('notification_phone_number');
             });
@@ -28,12 +28,12 @@ class AlterTasksTableAddNotificationsFields extends TotemMigration
     public function down()
     {
         Schema::connection($this->getConnection())
-            ->table(config('totem.table_prefix').'tasks', function (Blueprint $table) {
+            ->table(TOTEM_TABLE_PREFIX.'tasks', function (Blueprint $table) {
                 $table->dropColumn('notification_phone_number');
             });
 
         Schema::connection($this->getConnection())
-            ->table(config('totem.table_prefix').'tasks', function (Blueprint $table) {
+            ->table(TOTEM_TABLE_PREFIX.'tasks', function (Blueprint $table) {
                 $table->dropColumn('notification_slack_webhook');
             });
     }
