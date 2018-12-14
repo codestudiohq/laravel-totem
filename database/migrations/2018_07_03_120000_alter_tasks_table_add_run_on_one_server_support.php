@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
+use Studio\Totem\Database\TotemMigration;
 
-class AlterTasksTableAddRunOnOneServerSupport extends Migration
+class AlterTasksTableAddRunOnOneServerSupport extends TotemMigration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class AlterTasksTableAddRunOnOneServerSupport extends Migration
      */
     public function up()
     {
-        Schema::table(config('totem.table_prefix').'tasks', function (Blueprint $table) {
-            $table->boolean('run_on_one_server')->default(false);
-        });
+        Schema::connection(TOTEM_DATABASE_CONNECTION)
+            ->table(TOTEM_TABLE_PREFIX.'tasks', function (Blueprint $table) {
+                $table->boolean('run_on_one_server')->default(false);
+            });
     }
 
     /**
@@ -25,8 +26,9 @@ class AlterTasksTableAddRunOnOneServerSupport extends Migration
      */
     public function down()
     {
-        Schema::table(config('totem.table_prefix').'tasks', function (Blueprint $table) {
-            $table->dropColumn('run_on_one_server');
-        });
+        Schema::connection(TOTEM_DATABASE_CONNECTION)
+            ->table(TOTEM_TABLE_PREFIX.'tasks', function (Blueprint $table) {
+                $table->dropColumn('run_on_one_server');
+            });
     }
 }

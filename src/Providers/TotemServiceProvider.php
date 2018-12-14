@@ -2,10 +2,10 @@
 
 namespace Studio\Totem\Providers;
 
+use Studio\Totem\Totem;
 use Cron\CronExpression;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Validator;
@@ -42,8 +42,21 @@ class TotemServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->mergeConfigFrom(
+            __DIR__.'/../../config/totem.php',
+            'totem'
+        );
+
         if (! defined('TOTEM_PATH')) {
             define('TOTEM_PATH', realpath(__DIR__.'/../../'));
+        }
+
+        if (! defined('TOTEM_TABLE_PREFIX')) {
+            define('TOTEM_TABLE_PREFIX', config('totem.table_prefix'));
+        }
+
+        if (! defined('TOTEM_DATABASE_CONNECTION')) {
+            define('TOTEM_DATABASE_CONNECTION', config('totem.database_connection'), Schema::getConnection()->getName());
         }
 
         $this->commands([
@@ -57,20 +70,8 @@ class TotemServiceProvider extends ServiceProvider
         $this->app->register(TotemEventServiceProvider::class);
         $this->app->register(TotemFormServiceProvider::class);
 
-        $this->mergeConfigFrom(
-            __DIR__.'/../../config/totem.php',
-            'totem'
-        );
-
         try {
-            $exists = Cache::get('totem.table.'.config('totem.table_prefix').'tasks', false);
-            if (! $exists) {
-                $exists = Schema::hasTable(config('totem.table_prefix').'tasks');
-                if ($exists) {
-                    Cache::forever('totem.table.'.config('totem.table_prefix').'tasks', $exists);
-                }
-            }
-            if ($exists) {
+            if (Totem::baseTableExists()) {
                 $this->app->register(ConsoleServiceProvider::class);
             }
         } catch (\PDOException $ex) {

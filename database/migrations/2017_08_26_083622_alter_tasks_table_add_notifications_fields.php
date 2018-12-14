@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
+use Studio\Totem\Database\TotemMigration;
 
-class AlterTasksTableAddNotificationsFields extends Migration
+class AlterTasksTableAddNotificationsFields extends TotemMigration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class AlterTasksTableAddNotificationsFields extends Migration
      */
     public function up()
     {
-        Schema::table(config('totem.table_prefix').'tasks', function (Blueprint $table) {
-            $table->string('notification_phone_number')->nullable()->after('notification_email_address');
-            $table->string('notification_slack_webhook')->nullable()->after('notification_phone_number');
-        });
+        Schema::connection(TOTEM_DATABASE_CONNECTION)
+            ->table(TOTEM_TABLE_PREFIX.'tasks', function (Blueprint $table) {
+                $table->string('notification_phone_number')->nullable()->after('notification_email_address');
+                $table->string('notification_slack_webhook')->nullable()->after('notification_phone_number');
+            });
     }
 
     /**
@@ -26,12 +27,14 @@ class AlterTasksTableAddNotificationsFields extends Migration
      */
     public function down()
     {
-        Schema::table(config('totem.table_prefix').'tasks', function (Blueprint $table) {
-            $table->dropColumn('notification_phone_number');
-        });
+        Schema::connection(TOTEM_DATABASE_CONNECTION)
+            ->table(TOTEM_TABLE_PREFIX.'tasks', function (Blueprint $table) {
+                $table->dropColumn('notification_phone_number');
+            });
 
-        Schema::table(config('totem.table_prefix').'tasks', function (Blueprint $table) {
-            $table->dropColumn('notification_slack_webhook');
-        });
+        Schema::connection(TOTEM_DATABASE_CONNECTION)
+            ->table(TOTEM_TABLE_PREFIX.'tasks', function (Blueprint $table) {
+                $table->dropColumn('notification_slack_webhook');
+            });
     }
 }
