@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
+use Studio\Totem\Database\TotemMigration;
 
-class CreateTaskResultsTable extends Migration
+class CreateTaskResultsTable extends TotemMigration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateTaskResultsTable extends Migration
      */
     public function up()
     {
-        Schema::create(config('totem.table_prefix').'task_results', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('task_id');
-            $table->timestamp('ran_at')->useCurrent();
-            $table->string('duration');
-            $table->longText('result');
-            $table->timestamps();
-        });
+        Schema::connection(TOTEM_DATABASE_CONNECTION)
+            ->create(TOTEM_TABLE_PREFIX.'task_results', function (Blueprint $table) {
+                $table->increments('id');
+                $table->unsignedInteger('task_id');
+                $table->timestamp('ran_at')->useCurrent();
+                $table->string('duration');
+                $table->longText('result');
+                $table->timestamps();
+            });
     }
 
     /**
@@ -30,6 +31,7 @@ class CreateTaskResultsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(config('totem.table_prefix').'task_results');
+        Schema::connection(TOTEM_DATABASE_CONNECTION)
+            ->dropIfExists(TOTEM_TABLE_PREFIX.'task_results');
     }
 }

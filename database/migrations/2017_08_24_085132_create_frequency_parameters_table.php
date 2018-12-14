@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
+use Studio\Totem\Database\TotemMigration;
 
-class CreateFrequencyParametersTable extends Migration
+class CreateFrequencyParametersTable extends TotemMigration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateFrequencyParametersTable extends Migration
      */
     public function up()
     {
-        Schema::create(config('totem.table_prefix').'frequency_parameters', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('frequency_id');
-            $table->string('name');
-            $table->string('value');
-            $table->timestamps();
-        });
+        Schema::connection(TOTEM_DATABASE_CONNECTION)
+            ->create(TOTEM_TABLE_PREFIX.'frequency_parameters', function (Blueprint $table) {
+                $table->increments('id');
+                $table->unsignedInteger('frequency_id');
+                $table->string('name');
+                $table->string('value');
+                $table->timestamps();
+            });
     }
 
     /**
@@ -29,6 +30,7 @@ class CreateFrequencyParametersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(config('totem.table_prefix').'frequency_parameters');
+        Schema::connection(TOTEM_DATABASE_CONNECTION)
+            ->dropIfExists(TOTEM_TABLE_PREFIX.'frequency_parameters');
     }
 }
