@@ -94,6 +94,7 @@ class Totem
 
         if (Schema::hasTable(TOTEM_TABLE_PREFIX.'tasks')) {
             Cache::forever('totem.table.'.TOTEM_TABLE_PREFIX.'tasks', true);
+
             return true;
         }
 
