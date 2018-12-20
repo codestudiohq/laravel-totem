@@ -3,6 +3,7 @@
 namespace Studio\Totem;
 
 use Closure;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Artisan;
 use Symfony\Component\Console\Command\Command;
@@ -87,6 +88,16 @@ class Totem
      */
     public static function baseTableExists() : bool
     {
-        return Schema::connection(TOTEM_DATABASE_CONNECTION)->hasTable(TOTEM_TABLE_PREFIX.'tasks');
+        if (Cache::get('totem.table.'.TOTEM_TABLE_PREFIX.'tasks')) {
+            return true;
+        }
+
+        if (Schema::hasTable(TOTEM_TABLE_PREFIX.'tasks')) {
+            Cache::forever('totem.table.'.TOTEM_TABLE_PREFIX.'tasks', true);
+
+            return true;
+        }
+
+        return false;
     }
 }
