@@ -5,9 +5,9 @@ namespace Studio\Totem\Events;
 use Studio\Totem\Task;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 
-class BroadcastingEvent extends TaskEvent implements ShouldBroadcast
+class BroadcastingEvent extends TaskEvent implements ShouldBroadcastNow
 {
     use InteractsWithSockets;
 
