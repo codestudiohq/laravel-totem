@@ -4,7 +4,7 @@ This page contains guidelines for contributing to the Code Studio packages. Plea
 
 ## Which Branch?
 
-**ALL** bug fixes should be made to the branch which they belong. Bug fixes should never be sent to the `master` branch unless they fix features that exist only in the upcoming release.
+**ALL** bug fixes should be made to the branch which they belong.
 
 ## Pull Requests
 
