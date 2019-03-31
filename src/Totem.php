@@ -79,7 +79,12 @@ class Totem
         }
 
         return $all_commands->sortBy(function (Command $command) {
-            return $command->getDescription();
+            $name = $command->getName();
+            if (mb_strpos($name, ':') === false) {
+                $name = ':'.$name;
+            }
+
+            return $name;
         });
     }
 
