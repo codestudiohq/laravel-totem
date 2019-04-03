@@ -47,6 +47,7 @@
             .then(response => {
               this.task = response.data;
               this.running = false;
+              this.$emit('taskExecuted', this.task);
             })
       }
     },

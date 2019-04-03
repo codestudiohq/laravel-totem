@@ -4,6 +4,7 @@ import moment from 'moment';
 import UIkit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';
 import UIKitAlert from './components/UiKitAlert.vue';
+import TaskRow from './tasks/components/TaskRow.vue';
 import TaskType from './tasks/components/TaskType.vue';
 import TaskOutput from './tasks/components/TaskOutput.vue';
 import StatusButton from './tasks/components/StatusButton.vue';
@@ -50,7 +51,8 @@ new Vue({
     'execute-button': ExecuteButton,
     'import-button': ImportButton,
     'task-type' : TaskType,
-    'task-output' : TaskOutput
+    'task-output' : TaskOutput,
+    'task-row': TaskRow,
   },
   mounted() {
     UIkit.use(Icons);
