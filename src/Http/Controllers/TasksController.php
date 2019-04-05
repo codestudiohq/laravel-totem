@@ -38,6 +38,8 @@ class TasksController extends Controller
                 ->builder()
                 ->sortableBy([
                     'description',
+                    'last_ran_at',
+                    'average_runtime',
                 ], ['description'=>'asc'])
                 ->when(request('q'), function ($query) {
                     $query->where('description', 'LIKE', '%'.request('q').'%');

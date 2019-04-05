@@ -22,8 +22,8 @@
         <thead>
             <tr>
                 <th>{!! Html::columnSort('Description', 'description') !!}</th>
-                <th>Average Runtime</th>
-                <th>Last Run</th>
+                <th>{!! Html::columnSort('Average Runtime', 'average_runtime') !!}</th>
+                <th>{!! Html::columnSort('Last Run', 'last_ran_at') !!}</th>
                 <th>Next Run</th>
                 <th class="uk-text-center">Execute</th>
             </tr>
