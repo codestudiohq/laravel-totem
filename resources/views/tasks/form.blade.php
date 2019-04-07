@@ -34,9 +34,9 @@
             <select id="command" name="command" class="uk-select" placeholder="Click here to select one of the available commands">
                 <option value="">Select a command</option>
                 @foreach ($commands as $command)
-                    <optgroup label="{{$command->getName()}}">
+                    <optgroup label="{{$command->getDescription()}}">
                         <option value="{{$command->getName()}}" {{old('command', $task->command) == $command->getName() ? 'selected' : ''}}>
-                            {{$command->getDescription()}}
+                            {{$command->getName()}}
                         </option>
                     </optgroup>
                 @endforeach
