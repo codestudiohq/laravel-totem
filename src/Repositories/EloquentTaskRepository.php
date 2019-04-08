@@ -2,6 +2,7 @@
 
 namespace Studio\Totem\Repositories;
 
+use Illuminate\Database\Eloquent\Builder;
 use Studio\Totem\Result;
 use Studio\Totem\Task;
 use Studio\Totem\Events\Created;
@@ -24,7 +25,7 @@ class EloquentTaskRepository implements TaskInterface
      *
      * @return Task
      */
-    public function builder() : Task
+    public function builder() : Builder
     {
         $result = new Result;
 
