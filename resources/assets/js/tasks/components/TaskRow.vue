@@ -1,5 +1,5 @@
 <template>
-    <tr :class="task.is_active ? task.is_active : 'uk-text-danger'">
+    <tr :class="task.is_active ? '' : 'uk-text-danger'">
         <td>
             <a :href="showHref">
                 {{ description }}
@@ -7,7 +7,7 @@
             <span class="uk-float-right uk-hidden@s uk-text-muted">Command</span>
         </td>
         <td>
-            {{ seconds }} seconds
+            {{ task.average_runtime ? averageDurationInSeconds : 0 }} seconds
             <span class="uk-float-right uk-hidden@s uk-text-muted">Avg. Runtime</span>
         </td>
         <td>
@@ -54,8 +54,8 @@
                 return this.task.description.substring(0,29);
             },
 
-            seconds() {
-                return (this.task.average_runtime / 1000).toFixed(2);
+            averageDurationInSeconds() {
+                return this.task.average_runtime > 0 ? (this.task.average_runtime / 1000).toFixed(2) : 0;
             },
 
             lastRunDate() {
