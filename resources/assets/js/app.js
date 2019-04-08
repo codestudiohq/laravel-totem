@@ -10,6 +10,8 @@ import TaskOutput from './tasks/components/TaskOutput.vue';
 import StatusButton from './tasks/components/StatusButton.vue';
 import ExecuteButton from './tasks/components/ExecuteButton.vue';
 import ImportButton from './tasks/components/ImportButton'
+import CommandList from './tasks/components/CommandList'
+import ClickToClose from "./components/ClickToClose";
 
 Promise.delay = function (time) {
   return new Promise((resolve, reject) => {
@@ -53,6 +55,8 @@ new Vue({
     'task-type' : TaskType,
     'task-output' : TaskOutput,
     'task-row': TaskRow,
+    'click-to-close' : ClickToClose,
+    'command-list' : CommandList
   },
   mounted() {
     UIkit.use(Icons);
