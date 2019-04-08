@@ -27,12 +27,16 @@ class EloquentTaskRepository implements TaskInterface
     public function builder()
     {
         $result = new Result;
-        $lastRun = $result->getLastRun();
-        $runTime = $result->getAverageRunTime();
 
         return (new Task)->select('tasks.*')
-            ->selectSub($lastRun, 'last_ran_at')
-            ->selectSub($runTime, 'average_runtime');
+            ->selectSub(
+                $result->getLastRun(),
+                'last_ran_at'
+            )
+            ->selectSub(
+                $result->getAverageRunTime(),
+                'average_runtime'
+            );
     }
 
     /**
