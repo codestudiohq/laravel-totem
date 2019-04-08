@@ -24,7 +24,7 @@ class EloquentTaskRepository implements TaskInterface
      *
      * @return Task
      */
-    public function builder()
+    public function builder() : Task
     {
         $result = new Result;
 
