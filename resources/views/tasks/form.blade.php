@@ -31,16 +31,7 @@
             <div class="uk-text-meta">Select an artisan command to schedule</div>
         </div>
         <div class="uk-width-1-1@s uk-width-2-3@m">
-            <select id="command" name="command" class="uk-select" placeholder="Click here to select one of the available commands">
-                <option value="">Select a command</option>
-                @foreach ($commands as $command)
-                    <optgroup label="{{$command->getDescription()}}">
-                        <option value="{{$command->getName()}}" {{old('command', $task->command) == $command->getName() ? 'selected' : ''}}>
-                            {{$command->getName()}}
-                        </option>
-                    </optgroup>
-                @endforeach
-            </select>
+            <command-list command="{{ $task->command }}" :commands="{{ json_encode($commands) }}"></command-list>
             @if($errors->has('command'))
                 <p class="uk-text-danger">{{$errors->first('command')}}</p>
             @endif
