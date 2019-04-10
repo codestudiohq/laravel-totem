@@ -44,7 +44,7 @@ class Task extends TotemModel
         'activated',
         'upcoming',
         'last_result',
-        'average_runtime'
+        'average_runtime',
     ];
 
     /**
