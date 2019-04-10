@@ -3,6 +3,7 @@
 namespace Studio\Totem\Repositories;
 
 use Studio\Totem\Task;
+use Studio\Totem\Result;
 use Studio\Totem\Events\Created;
 use Studio\Totem\Events\Deleted;
 use Studio\Totem\Events\Updated;
@@ -14,6 +15,7 @@ use Studio\Totem\Events\Activated;
 use Studio\Totem\Events\Deactivated;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Database\Eloquent\Builder;
 use Studio\Totem\Contracts\TaskInterface;
 
 class EloquentTaskRepository implements TaskInterface
@@ -23,9 +25,19 @@ class EloquentTaskRepository implements TaskInterface
      *
      * @return Task
      */
-    public function builder()
+    public function builder() : Builder
     {
-        return new Task;
+        $result = new Result;
+
+        return (new Task)->select('tasks.*')
+            ->selectSub(
+                $result->getLastRun(),
+                'last_ran_at'
+            )
+            ->selectSub(
+                $result->getAverageRunTime(),
+                'average_runtime'
+            );
     }
 
     /**
