@@ -2,9 +2,8 @@
 
 namespace Studio\Totem\Repositories;
 
-use Illuminate\Database\Eloquent\Builder;
-use Studio\Totem\Result;
 use Studio\Totem\Task;
+use Studio\Totem\Result;
 use Studio\Totem\Events\Created;
 use Studio\Totem\Events\Deleted;
 use Studio\Totem\Events\Updated;
@@ -16,6 +15,7 @@ use Studio\Totem\Events\Activated;
 use Studio\Totem\Events\Deactivated;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Database\Eloquent\Builder;
 use Studio\Totem\Contracts\TaskInterface;
 
 class EloquentTaskRepository implements TaskInterface
