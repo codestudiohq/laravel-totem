@@ -55,9 +55,13 @@ class TasksController extends Controller
      */
     public function create()
     {
+        $commands = Totem::getCommands()->map(function ($command) {
+            return ['name' => $command->getName(), 'description' => $command->getDescription()];
+        });
+
         return view('totem::tasks.form', [
             'task'          => new Task,
-            'commands'      => Totem::getCommands(),
+            'commands'      => $commands,
             'timezones'     => timezone_identifiers_list(),
             'frequencies'   => Totem::frequencies(),
         ]);
