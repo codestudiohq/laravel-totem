@@ -85,6 +85,11 @@ class Totem
             }
 
             return $name;
+        })->map(function($command){
+            return [
+                'name' => $command->getName(),
+                'description' => $command->getDescription()
+            ];
         });
     }
 
