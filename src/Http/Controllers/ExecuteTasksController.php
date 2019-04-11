@@ -2,6 +2,7 @@
 
 namespace Studio\Totem\Http\Controllers;
 
+use Studio\Totem\Task;
 use Studio\Totem\Contracts\TaskInterface;
 
 class ExecuteTasksController extends Controller
@@ -29,6 +30,6 @@ class ExecuteTasksController extends Controller
     {
         $this->tasks->execute($task);
 
-        return redirect()->back();
+        return Task::find($task->id);
     }
 }

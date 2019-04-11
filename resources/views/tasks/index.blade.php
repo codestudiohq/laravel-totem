@@ -30,35 +30,10 @@
         </thead>
         <tbody>
             @forelse($tasks as $task)
-                <tr class="{{$task->is_active ?: 'uk-text-danger'}}">
-                    <td>
-                        <a href="{{route('totem.task.view', $task)}}">
-                            {{str_limit($task->description, 30)}}
-                        </a>
-                        <span class="uk-float-right uk-hidden@s uk-text-muted">Command</span>
-                    </td>
-                    <td>
-                        {{ number_format(  $task->averageRuntime / 1000 , 2 ) }} seconds
-                        <span class="uk-float-right uk-hidden@s uk-text-muted">Avg. Runtime</span>
-                    </td>
-                    @if($last = $task->lastResult)
-                        <td>
-                            {{$last->ran_at->toDateTimeString()}}
-                            <span class="uk-float-right uk-hidden@s uk-text-muted">Last Run</span>
-                        </td>
-                    @else
-                        <td>
-                            N/A
-                            <span class="uk-float-right uk-hidden@s uk-text-muted">Last Run</span>
-                        </td>
-                    @endif
-                    <td>
-                        {{$task->upcoming}}
-                        <span class="uk-float-right uk-hidden@s uk-text-muted">Next Run</span>
-                    </td>
-                    <td class="uk-text-center@m">
-                        <execute-button :data-task="{{$task}}" url="{{route('totem.task.execute', $task)}}" icon-name="play" button-class="uk-button-link"></execute-button>
-                    </td>
+                <tr is="task-row"
+                    :data-task="{{$task}}"
+                    showHref="{{route('totem.task.view', $task)}}"
+                    executeHref="{{route('totem.task.execute', $task)}}">
                 </tr>
             @empty
                 <tr>

@@ -43,6 +43,8 @@ class Task extends TotemModel
     protected $appends = [
         'activated',
         'upcoming',
+        'last_result',
+        'average_runtime',
     ];
 
     /**
