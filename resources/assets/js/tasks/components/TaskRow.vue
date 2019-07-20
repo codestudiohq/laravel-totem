@@ -59,7 +59,7 @@
             },
 
             lastRunDate() {
-                return moment(this.task.last_result.ran_at).format('YYYY-MM-DD hh:mm:ss');
+                return moment(this.task.last_result.ran_at).format('YYYY-MM-DD HH:mm:ss');
             },
 
             showHref() {
