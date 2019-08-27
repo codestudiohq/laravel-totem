@@ -9,6 +9,7 @@ class Result extends TotemModel
     protected $fillable = [
         'duration',
         'result',
+        'ran_at'
     ];
 
     protected $dates = [

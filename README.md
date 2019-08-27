@@ -152,6 +152,11 @@ In addition to the dashboard, Totem provides an artisan command to view a list o
 php artisan schedule:list
 ```
 
+If you find that your changes do not apply, run the command below to empty and rebuild the cache
+```
+php artisan queue:work --queue=queue_default
+```
+
 ### Screenshots
 
 ##### Task List

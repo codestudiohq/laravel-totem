@@ -25,6 +25,7 @@ class Executed extends Event
             $task->results()->create([
                 'duration'  => $time_elapsed_secs * 1000,
                 'result'    => $output,
+                'ran_at'    => now()
             ]);
 
             unlink(storage_path($task->getMutexName()));
