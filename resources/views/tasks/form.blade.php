@@ -4,7 +4,7 @@
     - {{ $task->exists ? 'Update' : 'Create'}} Task
 @stop
 @section('main-panel-before')
-    <form action="{{ request()->fullUrl() }}" method="POST">
+    <form method="POST">
         {{csrf_field()}}
 @stop
 @section('title')
