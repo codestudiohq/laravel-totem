@@ -17,7 +17,7 @@ class BroadcastingEvent extends TaskEvent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel(config('totem.broadcasting.queue'));
+        return new PrivateChannel(config('totem.broadcasting.channel'));
     }
 
     /**
