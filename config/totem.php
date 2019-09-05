@@ -228,4 +228,9 @@ return [
         'whitelist' => true,
     ],
     'database_connection' => env('TOTEM_DATABASE_CONNECTION'),
+
+    'broadcasting' => [
+        'enabled' => env('TOTEM_BROADCASTING_ENABLED', true),
+        'channel' => env('TOTEM_BROADCASTING_CHANNEL', 'task.events'),
+    ],
 ];
