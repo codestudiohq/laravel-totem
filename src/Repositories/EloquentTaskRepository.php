@@ -2,6 +2,7 @@
 
 namespace Studio\Totem\Repositories;
 
+use Illuminate\Support\Arr;
 use Studio\Totem\Task;
 use Studio\Totem\Result;
 use Studio\Totem\Events\Created;
@@ -97,7 +98,7 @@ class EloquentTaskRepository implements TaskInterface
             return false;
         }
 
-        $task->fill(array_only($input, $task->getFillable()))->save();
+        $task->fill(Arr::only($input, $task->getFillable()))->save();
 
         Created::dispatch($task);
 
@@ -119,7 +120,7 @@ class EloquentTaskRepository implements TaskInterface
             return false;
         }
 
-        $task->fill(array_only($input, $task->getFillable()))->save();
+        $task->fill(Arr::only($input, $task->getFillable()))->save();
 
         Updated::dispatch($task);
 

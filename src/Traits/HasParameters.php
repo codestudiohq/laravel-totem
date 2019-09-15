@@ -2,6 +2,7 @@
 
 namespace Studio\Totem\Traits;
 
+use Illuminate\Support\Arr;
 use Studio\Totem\Parameter;
 
 trait HasParameters
@@ -30,7 +31,7 @@ trait HasParameters
 
         if (isset($frequency['parameters'])) {
             foreach ($frequency['parameters'] as $parameter) {
-                $this->parameters()->updateOrCreate(array_only($parameter, 'name'), $parameter);
+                $this->parameters()->updateOrCreate(Arr::only($parameter, 'name'), $parameter);
             }
         }
     }
