@@ -59,7 +59,7 @@ class TaskRequest extends FormRequest
      *
      * @return array
      */
-    protected function validationData()
+    public function validationData()
     {
         if ($this->input('type') == 'frequency') {
             $this->merge(['expression' => null]);
