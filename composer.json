@@ -16,7 +16,7 @@
     }
   ],
   "require": {
-    "php": ">=7.1",
+    "php": ">=7.2",
     "illuminate/bus": "~6.0.0",
     "illuminate/console": "~6.0.0",
     "illuminate/contracts": "~6.0.0",
