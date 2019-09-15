@@ -2,9 +2,9 @@
 
 namespace Studio\Totem\Repositories;
 
-use Illuminate\Support\Arr;
 use Studio\Totem\Task;
 use Studio\Totem\Result;
+use Illuminate\Support\Arr;
 use Studio\Totem\Events\Created;
 use Studio\Totem\Events\Deleted;
 use Studio\Totem\Events\Updated;
