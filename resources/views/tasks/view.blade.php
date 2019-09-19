@@ -13,7 +13,7 @@
     <ul class="uk-list uk-list-striped">
         <li>
             <span class="uk-text-muted uk-float-right">Description</span>
-            <span class="uk-float-left">{{str_limit($task->description, 80)}}</span>
+            <span class="uk-float-left">{{Str::limit($task->description, 80)}}</span>
         </li>
         <li>
             <span class="uk-text-muted uk-float-right">Command</span>
