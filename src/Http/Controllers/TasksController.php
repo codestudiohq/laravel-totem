@@ -2,9 +2,9 @@
 
 namespace Studio\Totem\Http\Controllers;
 
-use Illuminate\Database\Eloquent\Builder;
 use Studio\Totem\Task;
 use Studio\Totem\Totem;
+use Illuminate\Database\Eloquent\Builder;
 use Studio\Totem\Contracts\TaskInterface;
 use Studio\Totem\Http\Requests\TaskRequest;
 
