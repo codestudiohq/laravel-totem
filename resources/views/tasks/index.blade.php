@@ -59,5 +59,5 @@
             <a class="uk-button uk-button-primary uk-button-small uk-visible@m" href="{{route('totem.tasks.export')}}">Export</a>
         </span>
     </div>
-    {{$tasks->links('totem::partials.pagination')}}
+    {{$tasks->links('totem::partials.pagination', ['params' => '&' . http_build_query(array_filter(request()->except('page')))])}}
 @stop
