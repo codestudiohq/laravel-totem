@@ -4,6 +4,7 @@ namespace Studio\Totem\Http\Controllers;
 
 use Studio\Totem\Task;
 use Studio\Totem\Totem;
+use Illuminate\Database\Eloquent\Builder;
 use Studio\Totem\Contracts\TaskInterface;
 use Studio\Totem\Http\Requests\TaskRequest;
 
@@ -41,7 +42,7 @@ class TasksController extends Controller
                     'last_ran_at',
                     'average_runtime',
                 ], ['description'=>'asc'])
-                ->when(request('q'), function ($query) {
+                ->when(request('q'), function (Builder $query) {
                     $query->where('description', 'LIKE', '%'.request('q').'%');
                 })
                 ->paginate(20),
