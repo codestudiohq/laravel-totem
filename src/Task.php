@@ -95,7 +95,7 @@ class Task extends TotemModel
                     return [$param[0] => $trimmed_param];
                 }
 
-                return starts_with($param[0],  ['--', '-']) && ! $console ?
+                return starts_with($param[0], ['--', '-']) && ! $console ?
                     [$param[0] => true] :
                     [$argument_index++ => $param[0]];
             })->toArray();
