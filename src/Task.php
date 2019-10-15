@@ -88,10 +88,10 @@ class Task extends TotemModel
                     $trimmed_param = trim(trim($param[1], '"'), "'");
                     if ($console) {
                         if (starts_with($param[0], ['--', '-'])) {
-                            if (!isset($carry[$param[0]])) {
+                            if (! isset($carry[$param[0]])) {
                                 $carry[$param[0]] = $trimmed_param;
                             } else {
-                                if (!is_array($carry[$param[0]])) {
+                                if (! is_array($carry[$param[0]])) {
                                     $carry[$param[0]] = [$carry[$param[0]]];
                                 }
                                 $carry[$param[0]][] = $trimmed_param;
