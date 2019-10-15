@@ -100,6 +100,7 @@ class Task extends TotemModel
                         } else {
                             $carry[$argument_index++] = $trimmed_param;
                         }
+
                         return $carry;
                     }
 
@@ -110,7 +111,6 @@ class Task extends TotemModel
                     $carry[$param[0]] = true :
                     $carry[$argument_index++] = $param[0];
             }, []);
-
         }
 
         return [];
