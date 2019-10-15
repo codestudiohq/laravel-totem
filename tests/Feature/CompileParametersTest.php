@@ -132,6 +132,6 @@ class CompileParametersTest extends TestCase
         $parameters = $task->compileParameters(true);
 
         $this->assertCount(1, $parameters);
-        $this->assertSame(true, $parameters['-osTeSt']);
+        $this->assertSame('-osTeSt', $parameters[0]);
     }
 }
