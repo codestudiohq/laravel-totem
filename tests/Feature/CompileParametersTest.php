@@ -145,6 +145,5 @@ class CompileParametersTest extends TestCase
         $this->assertIsArray($parameters['--id']);
         $this->assertSame('1', $parameters['--id'][0]);
         $this->assertSame('2', $parameters['--id'][1]);
-
     }
 }
