@@ -124,4 +124,26 @@ class CompileParametersTest extends TestCase
         $this->assertSame('yes', $parameters['--option']);
         $this->assertSame('warm', $parameters['--someplace']);
     }
+
+    public function test_single_dash()
+    {
+        $task = factory(Task::class)->create();
+        $task->parameters = '-osTeSt';
+        $parameters = $task->compileParameters(true);
+
+        $this->assertCount(1, $parameters);
+        $this->assertSame('-osTeSt', $parameters[0]);
+    }
+
+    public function test_array_argument()
+    {
+        $task = factory(Task::class)->create();
+        $task->parameters = '--id=1 --id=2';
+        $parameters = $task->compileParameters(true);
+
+        $this->assertCount(1, $parameters);
+        $this->assertIsArray($parameters['--id']);
+        $this->assertSame('1', $parameters['--id'][0]);
+        $this->assertSame('2', $parameters['--id'][1]);
+    }
 }
