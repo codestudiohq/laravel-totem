@@ -81,26 +81,44 @@ class Task extends TotemModel
             preg_match_all($regex, $this->parameters, $matches, PREG_SET_ORDER, 0);
 
             $argument_index = 0;
-            $parameters = collect($matches)->mapWithKeys(function ($parameter) use ($console, &$argument_index) {
+
+            $duplicate_parameter_index = function (array $carry, array $param, string $trimmed_param) {
+                if (! isset($carry[$param[0]])) {
+                    $carry[$param[0]] = $trimmed_param;
+                } else {
+                    if (! is_array($carry[$param[0]])) {
+                        $carry[$param[0]] = [$carry[$param[0]]];
+                    }
+                    $carry[$param[0]][] = $trimmed_param;
+                }
+
+                return $carry;
+            };
+
+            return collect($matches)->reduce(function ($carry, $parameter) use ($console, &$argument_index, $duplicate_parameter_index) {
                 $param = explode('=', $parameter[0]);
 
                 if (count($param) > 1) {
                     $trimmed_param = trim(trim($param[1], '"'), "'");
                     if ($console) {
-                        return starts_with($param[0], '--') ?
-                            [$param[0] => $trimmed_param] :
-                            [$argument_index++ => $trimmed_param];
+                        if (starts_with($param[0], ['--', '-'])) {
+                            $carry = $duplicate_parameter_index($carry, $param, $trimmed_param);
+                        } else {
+                            $carry[$argument_index++] = $trimmed_param;
+                        }
+
+                        return $carry;
                     }
 
-                    return [$param[0] => $trimmed_param];
+                    return $duplicate_parameter_index($carry, $param, $trimmed_param);
                 }
 
-                return starts_with($param[0], '--') && ! $console ?
-                    [$param[0] => true] :
-                    [$argument_index++ => $param[0]];
-            })->toArray();
+                starts_with($param[0], ['--', '-']) && ! $console ?
+                    $carry[$param[0]] = true :
+                    $carry[$argument_index++] = $param[0];
 
-            return $parameters;
+                return $carry;
+            }, []);
         }
 
         return [];
