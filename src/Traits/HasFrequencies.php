@@ -6,6 +6,7 @@ use Closure;
 use function request;
 use Studio\Totem\Task;
 use function json_decode;
+use Illuminate\Support\Arr;
 use Studio\Totem\Frequency;
 use Illuminate\Console\Scheduling\ManagesFrequencies;
 
@@ -59,7 +60,7 @@ trait HasFrequencies
                 }
 
                 foreach ($input['frequencies'] as $_frequency) {
-                    $this->frequencies()->updateOrCreate(array_only($_frequency, ['task_id', 'label', 'interval']));
+                    $this->frequencies()->updateOrCreate(Arr::only($_frequency, ['task_id', 'label', 'interval']));
                 }
             } else {
                 $this->frequencies->each(function ($frequency) {

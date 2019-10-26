@@ -16,21 +16,21 @@
     }
   ],
   "require": {
-    "php": ">=7.1",
+    "php": ">=7.2",
     "doctrine/dbal": "^2.9",
-    "illuminate/bus": "~5.8.0",
-    "illuminate/console": "~5.8.0",
-    "illuminate/contracts": "~5.8.0",
-    "illuminate/database": "~5.8.0",
-    "illuminate/events": "~5.8.0",
-    "illuminate/notifications": "~5.8.0",
-    "laravelcollective/html": "^5.8"
+    "illuminate/bus": "~6.0.0",
+    "illuminate/console": "~6.0.0",
+    "illuminate/contracts": "~6.0.0",
+    "illuminate/database": "~6.0.0",
+    "illuminate/events": "~6.0.0",
+    "illuminate/notifications": "~6.0.0",
+    "laravelcollective/html": "^6.0"
   },
   "require-dev": {
     "mockery/mockery": "^1.0",
-    "orchestra/database": "^3.7",
-    "orchestra/testbench" : "^3.8",
-    "phpunit/phpunit": "^7.5"
+    "orchestra/database": "^4.0",
+    "orchestra/testbench" : "^4.0",
+    "phpunit/phpunit": "^8.3"
   },
   "suggest": {
     "nexmo/client": "Required for sms notifications."

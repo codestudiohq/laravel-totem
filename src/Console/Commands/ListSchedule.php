@@ -4,6 +4,7 @@ namespace Studio\Totem\Console\Commands;
 
 use Carbon\Carbon;
 use Cron\CronExpression;
+use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use Illuminate\Console\Scheduling\Schedule;
 
@@ -52,7 +53,7 @@ class ListSchedule extends Command
             $events = collect($this->schedule->events())->map(function ($event) {
                 return [
                     'description'   => $event->description ?: 'N/A',
-                    'command'       => ltrim(strtok(str_after($event->command, "'artisan'"), ' ')),
+                    'command'       => ltrim(strtok(Str::after($event->command, "'artisan'"), ' ')),
                     'schedule'      => $event->expression,
                     'upcoming'      => $this->upcoming($event),
                     'timezone'      => $event->timezone ?: config('app.timezone'),

@@ -2,6 +2,7 @@
 
 namespace Studio\Totem;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 
 class TotemModel extends Model
@@ -13,7 +14,7 @@ class TotemModel extends Model
      */
     public function getTable()
     {
-        if (str_contains(parent::getTable(), TOTEM_TABLE_PREFIX)) {
+        if (Str::contains(parent::getTable(), TOTEM_TABLE_PREFIX)) {
             return parent::getTable();
         }
 
