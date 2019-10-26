@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="https://github.com/codestudiohq/laravel-totem/blob/1.0/resources/assets/img/totem.png?raw=true" alt="Laravel Totem"/>
+  <img src="https://github.com/codestudiohq/laravel-totem/blob/6.0/resources/assets/img/totem.png?raw=true" alt="Laravel Totem"/>
 </p>
 <p align="center">
-<a href="https://travis-ci.org/codestudiohq/laravel-totem"><img src="https://travis-ci.org/codestudiohq/laravel-totem.svg?branch=3.0" alt="Build Status"></a>
-<a href="https://styleci.io/repos/99050894"><img src="https://styleci.io/repos/99050894/shield?branch=3.0" alt="StyleCI"></a>
+<a href="https://travis-ci.org/codestudiohq/laravel-totem"><img src="https://travis-ci.org/codestudiohq/laravel-totem.svg?branch=6.0" alt="Build Status"></a>
+<a href="https://styleci.io/repos/99050894"><img src="https://styleci.io/repos/99050894/shield?branch=6.0" alt="StyleCI"></a>
 <a href="https://packagist.org/packages/studio/laravel-totem"><img src="https://poser.pugx.org/studio/laravel-totem/license.svg" alt="License"></a>
 </p>
 
@@ -17,8 +17,9 @@ Manage your `Laravel Schedule` from a pretty dashboard. Schedule your `Laravel C
 
 #### Compatiblity Matrix
 
-|<span align="left">Laravel</span> |<span align="left">Totem</span>| 
+|<span align="left">Laravel</span> |<span align="left">Totem</span>|
 |:-------|----------:|
+|6.x     |     6.x   |
 |5.8     |     5.x   |
 |5.7     |     4.x   |
 |5.6     |     3.x   |
@@ -41,7 +42,7 @@ Add `TotemServiceProvider` to the `providers` array of your Laravel v5.4 applica
 Studio\Totem\Providers\TotemServiceProvider::class,
 ```
 
-Once `Laravel Totem` is installed & registered, 
+Once `Laravel Totem` is installed & registered,
 
 - Run the migration
 
@@ -51,7 +52,7 @@ php artisan migrate
 
 - Publish `Totem` assets to your public folder using the following command
 
-```    
+```
 php artisan totem:assets
 ```
 
@@ -63,7 +64,7 @@ Totems' tables use generic names which may conflict with existing tables in a pr
 
 Please republish totem assets after updating totem to a new version
 
-```    
+```
 php artisan totem:assets
 ```
 
@@ -77,9 +78,9 @@ This package assumes that you have a good understanding of [Laravel's Task Sched
 * * * * * php /path-to-your-project/artisan schedule:run >> /dev/null 2>&1
 ```
 
-##### Web Dashboard 
+##### Web Dashboard
 
-`Laravel Totem`'s  dashboard is inspired by `Laravel Horizon`. Just like Horizon you can configure authentication to `Totem`'s dashboard. Add the following to the boot method of your AppServiceProvider or wherever you might seem fit.   
+`Laravel Totem`'s  dashboard is inspired by `Laravel Horizon`. Just like Horizon you can configure authentication to `Totem`'s dashboard. Add the following to the boot method of your AppServiceProvider or wherever you might seem fit.
 
 ```php
 use Studio\Totem\Totem;
@@ -152,7 +153,7 @@ In the example above, name is an argument while greetings is an option
 
 In addition to the dashboard, Totem provides an artisan command to view a list of scheduled task.
 
-```    
+```
 php artisan schedule:list
 ```
 
@@ -169,7 +170,7 @@ php artisan schedule:list
 
 ##### Artisan Command to view scheduled tasks
 <img src="https://github.com/codestudiohq/laravel-totem/blob/1.0/public/img/screenshots/artisan.png?raw=true" alt="Task List"/>
- 
+
 ## Changelog
 
 Important versions listed below. Refer to the [Changelog](CHANGELOG.md) for a full history of the project.
@@ -191,4 +192,4 @@ Bug reports, feature requests, and pull requests can be submitted by following o
 
 This software is released under the [MIT](LICENSE) License.
 
- © 2017 Roshan Gautam, All rights reserved.
+ © 2019 Roshan Gautam, All rights reserved.

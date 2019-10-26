@@ -3,6 +3,10 @@
 This project follows [Semantic Versioning](CONTRIBUTING.md).
 
 ---
+### v6.0.0 - 10/26/2019
+- Add Laravel 6.x Support
+- Update Change Log
+
 ### v5.0.0 - 03/03/2019
 - Add Laravel 5.8 Support
 - Update Change Log
