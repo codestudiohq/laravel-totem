@@ -216,7 +216,7 @@ class EloquentTaskRepository implements TaskInterface
         Cache::forget('totem.tasks.all');
         Cache::forget('totem.tasks.active');
 
-        collect(json_decode(array_get($input, 'content')))
+        collect(json_decode(Arr::get($input, 'content')))
             ->each(function ($data) {
                 Cache::forget('totem.task.'.$data->id);
 
