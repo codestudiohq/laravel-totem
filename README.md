@@ -2,8 +2,7 @@
   <img src="https://github.com/codestudiohq/laravel-totem/blob/6.0/resources/assets/img/totem.png?raw=true" alt="Laravel Totem"/>
 </p>
 <p align="center">
-<a href="https://travis-ci.org/codestudiohq/laravel-totem"><img src="https://travis-ci.org/codestudiohq/laravel-totem.svg?branch=6.0" alt="Build Status"></a>
-<a href="https://styleci.io/repos/99050894"><img src="https://styleci.io/repos/99050894/shield?branch=6.0" alt="StyleCI"></a>
+<img src="https://github.com/codestudiohq/laravel-totem/workflows/Laravel/badge.svg?branch=6.0" alt="Build Status">
 <a href="https://packagist.org/packages/studio/laravel-totem"><img src="https://poser.pugx.org/studio/laravel-totem/license.svg" alt="License"></a>
 </p>
 
