@@ -102,7 +102,7 @@ class Task extends TotemModel
                 if (count($param) > 1) {
                     $trimmed_param = trim(trim($param[1], '"'), "'");
                     if ($console) {
-                        if (starts_with($param[0], ['--', '-'])) {
+                        if (Str::startsWith($param[0], ['--', '-'])) {
                             $carry = $duplicate_parameter_index($carry, $param, $trimmed_param);
                         } else {
                             $carry[$argument_index++] = $trimmed_param;
@@ -114,7 +114,7 @@ class Task extends TotemModel
                     return $duplicate_parameter_index($carry, $param, $trimmed_param);
                 }
 
-                starts_with($param[0], ['--', '-']) && ! $console ?
+                Str::startsWith($param[0], ['--', '-']) && ! $console ?
                     $carry[$param[0]] = true :
                     $carry[$argument_index++] = $param[0];
 
