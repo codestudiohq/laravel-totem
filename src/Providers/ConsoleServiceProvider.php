@@ -16,6 +16,9 @@ class ConsoleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if ($this->app->env == 'testing'){
+          return;
+        }
         $this->app->resolving(Schedule::class, function ($schedule) {
             $this->schedule($schedule);
         });
