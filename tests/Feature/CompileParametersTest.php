@@ -146,4 +146,15 @@ class CompileParametersTest extends TestCase
         $this->assertSame('1', $parameters['--id'][0]);
         $this->assertSame('2', $parameters['--id'][1]);
     }
+
+    public function test_escaped_equals()
+    {
+        $task = factory(Task::class)->create();
+        $task->parameters = 'arg1=a\=b --option=c\=d';
+        $parameters = $task->compileParameters(true);
+
+        $this->assertCount(2, $parameters);
+        $this->assertSame('a=b', $parameters[0]);
+        $this->assertSame('c=d', $parameters['--option']);
+    }
 }

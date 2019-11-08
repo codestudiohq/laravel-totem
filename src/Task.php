@@ -97,10 +97,11 @@ class Task extends TotemModel
             };
 
             return collect($matches)->reduce(function ($carry, $parameter) use ($console, &$argument_index, $duplicate_parameter_index) {
-                $param = explode('=', $parameter[0]);
+                $param = preg_split("/(?<!\\\\)=/", $parameter[0]);
 
                 if (count($param) > 1) {
-                    $trimmed_param = trim(trim($param[1], '"'), "'");
+                    $escaped_param = str_replace('\\=', '=', $param[1]);
+                    $trimmed_param = trim(trim($escaped_param, '"'), "'");
                     if ($console) {
                         if (Str::startsWith($param[0], ['--', '-'])) {
                             $carry = $duplicate_parameter_index($carry, $param, $trimmed_param);
