@@ -23,14 +23,6 @@ class TotemServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        try {
-            if (Totem::baseTableExists()) {
-                $this->app->register(ConsoleServiceProvider::class);
-            }
-        } catch (\PDOException $ex) {
-            // This will trigger if DB cannot be connected to
-            Log::error($ex->getMessage());
-        }
         $this->registerResources();
         $this->defineAssetPublishing();
 
@@ -74,6 +66,7 @@ class TotemServiceProvider extends ServiceProvider
 
         $this->app->bindIf('totem.tasks', EloquentTaskRepository::class, true);
         $this->app->alias('totem.tasks', TaskInterface::class);
+        $this->app->register(ConsoleServiceProvider::class);
         $this->app->register(TotemRouteServiceProvider::class);
         $this->app->register(TotemEventServiceProvider::class);
         $this->app->register(TotemFormServiceProvider::class);
