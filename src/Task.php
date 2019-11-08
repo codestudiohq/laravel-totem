@@ -4,10 +4,10 @@ namespace Studio\Totem;
 
 use Carbon\Carbon;
 use Cron\CronExpression;
-use Illuminate\Support\Str;
-use Studio\Totem\Traits\HasFrequencies;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 use Studio\Totem\Traits\FrontendSortable;
+use Studio\Totem\Traits\HasFrequencies;
 
 class Task extends TotemModel
 {
@@ -97,7 +97,7 @@ class Task extends TotemModel
             };
 
             return collect($matches)->reduce(function ($carry, $parameter) use ($console, &$argument_index, $duplicate_parameter_index) {
-                $param = preg_split("/(?<!\\\\)=/", $parameter[0]);
+                $param = preg_split('/(?<!\\\\)=/', $parameter[0]);
 
                 if (count($param) > 1) {
                     $escaped_param = str_replace('\\=', '=', $param[1]);
