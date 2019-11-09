@@ -11,6 +11,13 @@ class BroadcastingEvent extends TaskEvent implements ShouldBroadcast
     use InteractsWithSockets;
 
     /**
+     * The name of the queue on which to place the event.
+     *
+     * @var string
+     */
+    public $broadcastQueue = config('totem.broadcasting.queue');
+
+    /**
      * Get the channels the event should broadcast on.
      *
      * @return \Illuminate\Broadcasting\Channel|\Illuminate\Broadcasting\Channel[]|PrivateChannel

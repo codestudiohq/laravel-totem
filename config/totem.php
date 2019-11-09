@@ -232,5 +232,6 @@ return [
     'broadcasting' => [
         'enabled' => env('TOTEM_BROADCASTING_ENABLED', true),
         'channel' => env('TOTEM_BROADCASTING_CHANNEL', 'task.events'),
+        'queue' => env('TOTEM_BROADCASTING_QUEUE', 'default'),
     ],
 ];
