@@ -2,17 +2,16 @@
 
 namespace Studio\Totem\Providers;
 
-use Studio\Totem\Totem;
 use Cron\CronExpression;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Validator;
-use Studio\Totem\Contracts\TaskInterface;
+use Illuminate\Support\ServiceProvider;
 use Studio\Totem\Console\Commands\ListSchedule;
 use Studio\Totem\Console\Commands\PublishAssets;
+use Studio\Totem\Contracts\TaskInterface;
 use Studio\Totem\Repositories\EloquentTaskRepository;
+use Studio\Totem\Totem;
 
 class TotemServiceProvider extends ServiceProvider
 {

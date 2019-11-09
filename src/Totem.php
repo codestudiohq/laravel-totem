@@ -3,8 +3,6 @@
 namespace Studio\Totem;
 
 use Closure;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Artisan;
 use Symfony\Component\Console\Command\Command;
 

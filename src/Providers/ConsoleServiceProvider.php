@@ -2,10 +2,10 @@
 
 namespace Studio\Totem\Providers;
 
+use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Support\ServiceProvider;
 use Studio\Totem\Events\Executed;
 use Studio\Totem\Events\Executing;
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Console\Scheduling\Schedule;
 
 class ConsoleServiceProvider extends ServiceProvider
 {
@@ -16,8 +16,8 @@ class ConsoleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if ($this->app->env == 'testing'){
-          return;
+        if ($this->app->env == 'testing') {
+            return;
         }
         $this->app->resolving(Schedule::class, function ($schedule) {
             $this->schedule($schedule);
