@@ -19,6 +19,7 @@ class ConsoleServiceProvider extends ServiceProvider
         if ($this->app->env == 'testing') {
             return;
         }
+        
         $this->app->resolving(Schedule::class, function ($schedule) {
             $this->schedule($schedule);
         });
