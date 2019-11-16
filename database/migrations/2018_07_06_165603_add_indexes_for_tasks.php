@@ -17,7 +17,7 @@ class AddIndexesForTasks extends TotemMigration
             ->table(TOTEM_TABLE_PREFIX.'task_results', function (Blueprint $table) {
                 $table->index('task_id', 'task_results_task_id_idx');
                 $table->index('ran_at', 'task_results_ran_at_idx');
-                $table->foreign('task_id', 'task_id_fk')
+                $table->foreign('task_id', 'task_results_task_id_fk')
                     ->references('id')
                     ->on(TOTEM_TABLE_PREFIX.'tasks');
             });
