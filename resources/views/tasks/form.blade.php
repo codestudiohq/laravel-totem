@@ -173,7 +173,7 @@
     <div class="uk-grid">
         <div class="uk-width-1-1@s uk-width-1-3@m">
             <label class="uk-form-label">Slack Notification (optional)</label>
-            <div class="uk-text-meta">Add a slack web hook url to recieve slack notifications. Phone numbers should include country code and are digits only. Leave empty if you do not wish to receive slack notifications</div>
+            <div class="uk-text-meta">Add a slack web hook url to recieve slack notifications. Leave empty if you do not wish to receive slack notifications</div>
         </div>
         <div class="uk-width-1-1@s uk-width-2-3@m">
             <input type="text" id="slack" name="notification_slack_webhook" value="{{old('notification_slack_webhook', $task->notification_slack_webhook)}}" class="uk-input" placeholder="e.g. https://hooks.slack.com/TXXXXX/BXXXXX/XXXXXXXXXX">
