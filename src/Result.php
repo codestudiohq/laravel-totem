@@ -2,8 +2,8 @@
 
 namespace Studio\Totem;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Facades\DB;
 
 class Result extends TotemModel
 {

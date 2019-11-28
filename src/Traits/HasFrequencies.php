@@ -3,12 +3,12 @@
 namespace Studio\Totem\Traits;
 
 use Closure;
-use function request;
-use Studio\Totem\Task;
-use function json_decode;
-use Illuminate\Support\Arr;
-use Studio\Totem\Frequency;
 use Illuminate\Console\Scheduling\ManagesFrequencies;
+use Illuminate\Support\Arr;
+use function json_decode;
+use function request;
+use Studio\Totem\Frequency;
+use Studio\Totem\Task;
 
 trait HasFrequencies
 {

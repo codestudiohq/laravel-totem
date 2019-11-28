@@ -2,8 +2,8 @@
 
 namespace Studio\Totem\Events;
 
-use Studio\Totem\Task;
 use Studio\Totem\Notifications\TaskCompleted;
+use Studio\Totem\Task;
 
 class Executed extends BroadcastingEvent
 {

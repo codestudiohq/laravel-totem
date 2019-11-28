@@ -4,9 +4,9 @@ namespace Studio\Totem\Console\Commands;
 
 use Carbon\Carbon;
 use Cron\CronExpression;
-use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Support\Str;
 
 class ListSchedule extends Command
 {

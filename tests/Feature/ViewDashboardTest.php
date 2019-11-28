@@ -2,8 +2,8 @@
 
 namespace Studio\Totem\Tests\Feature;
 
-use Studio\Totem\Task;
 use Studio\Totem\Result;
+use Studio\Totem\Task;
 use Studio\Totem\Tests\TestCase;
 
 class ViewDashboardTest extends TestCase

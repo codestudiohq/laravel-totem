@@ -2,16 +2,16 @@
 
 namespace Studio\Totem\Tests;
 
-use Exception;
-use Studio\Totem\User;
-use Studio\Totem\Totem;
 use Collective\Html\FormFacade;
 use Collective\Html\HtmlFacade;
-use Illuminate\Support\Facades\Auth;
 use Collective\Html\HtmlServiceProvider;
-use Orchestra\Testbench\Exceptions\Handler;
+use Exception;
 use Illuminate\Contracts\Debug\ExceptionHandler;
+use Illuminate\Support\Facades\Auth;
+use Orchestra\Testbench\Exceptions\Handler;
 use Studio\Totem\Providers\TotemServiceProvider;
+use Studio\Totem\Totem;
+use Studio\Totem\User;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
