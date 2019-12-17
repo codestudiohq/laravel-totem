@@ -15,7 +15,7 @@ class UpdateTaskResultsDurationType extends TotemMigration
     {
         Schema::connection(TOTEM_DATABASE_CONNECTION)
             ->table(TOTEM_TABLE_PREFIX.'task_results', function (Blueprint $table) {
-                $table->decimal('duration', 24, 14)->change();
+                $table->decimal('duration', 24, 14)->charset('')->collation('')->change();
             });
     }
 
