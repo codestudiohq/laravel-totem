@@ -2,8 +2,8 @@
 
 namespace Studio\Totem;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Facades\DB;
 
 class Result extends TotemModel
 {
@@ -26,7 +26,7 @@ class Result extends TotemModel
     /**
      * @return Builder
      */
-    public function getLastRun() : Builder
+    public function getLastRun(): Builder
     {
         return $this->select('ran_at')
             ->whereColumn('task_id', TOTEM_TABLE_PREFIX.'tasks.id')
@@ -38,7 +38,7 @@ class Result extends TotemModel
     /**
      * @return Builder
      */
-    public function getAverageRunTime() : Builder
+    public function getAverageRunTime(): Builder
     {
         return $this->select(DB::raw('avg(duration)'))
             ->whereColumn('task_id', TOTEM_TABLE_PREFIX.'tasks.id')

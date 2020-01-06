@@ -3,8 +3,8 @@
 namespace Studio\Totem\Listeners;
 
 use Illuminate\Container\Container;
-use Studio\Totem\Contracts\TaskInterface;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Studio\Totem\Contracts\TaskInterface;
 
 class Listener implements ShouldQueue
 {

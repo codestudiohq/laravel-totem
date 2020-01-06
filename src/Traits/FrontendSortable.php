@@ -13,7 +13,7 @@ trait FrontendSortable
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeSortableBy(Builder $builder, array $sortableColumns, array $defaultSort = ['name' => 'asc']) : Builder
+    public function scopeSortableBy(Builder $builder, array $sortableColumns, array $defaultSort = ['name' => 'asc']): Builder
     {
         $request = request();
         $sorted = $request->has('sort_by') && in_array($request->input('sort_by'), $sortableColumns);

@@ -2,8 +2,8 @@
 
 namespace Studio\Totem;
 
-use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class TotemModel extends Model
 {

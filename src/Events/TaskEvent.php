@@ -2,9 +2,9 @@
 
 namespace Studio\Totem\Events;
 
-use Studio\Totem\Task;
-use Illuminate\Queue\SerializesModels;
 use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Queue\SerializesModels;
+use Studio\Totem\Task;
 
 class TaskEvent extends Event
 {
