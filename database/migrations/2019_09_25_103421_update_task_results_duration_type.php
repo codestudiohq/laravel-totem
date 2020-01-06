@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use Studio\Totem\Database\TotemMigration;
 
 class UpdateTaskResultsDurationType extends TotemMigration
@@ -15,7 +15,7 @@ class UpdateTaskResultsDurationType extends TotemMigration
     {
         Schema::connection(TOTEM_DATABASE_CONNECTION)
             ->table(TOTEM_TABLE_PREFIX.'task_results', function (Blueprint $table) {
-                $table->decimal('duration', 24, 14)->change();
+                $table->decimal('duration', 24, 14)->charset('')->collation('')->change();
             });
     }
 
