@@ -2,8 +2,8 @@
 
 namespace Studio\Totem\Http\Controllers;
 
-use Studio\Totem\Task;
 use Studio\Totem\Contracts\TaskInterface;
+use Studio\Totem\Task;
 
 class ExecuteTasksController extends Controller
 {

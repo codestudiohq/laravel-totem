@@ -4,10 +4,10 @@ namespace Studio\Totem;
 
 use Carbon\Carbon;
 use Cron\CronExpression;
-use Illuminate\Support\Str;
-use Studio\Totem\Traits\HasFrequencies;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 use Studio\Totem\Traits\FrontendSortable;
+use Studio\Totem\Traits\HasFrequencies;
 
 class Task extends TotemModel
 {

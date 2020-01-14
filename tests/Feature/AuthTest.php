@@ -2,9 +2,9 @@
 
 namespace Studio\Totem\Tests\Feature;
 
-use Studio\Totem\Totem;
-use Studio\Totem\Tests\TestCase;
 use Studio\Totem\Http\Middleware\Authenticate;
+use Studio\Totem\Tests\TestCase;
+use Studio\Totem\Totem;
 
 class AuthTest extends TestCase
 {

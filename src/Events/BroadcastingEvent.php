@@ -2,8 +2,8 @@
 
 namespace Studio\Totem\Events;
 
-use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
 class BroadcastingEvent extends TaskEvent implements ShouldBroadcast
