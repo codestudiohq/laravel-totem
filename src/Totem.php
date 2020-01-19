@@ -3,9 +3,9 @@
 namespace Studio\Totem;
 
 use Closure;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\Artisan;
 use Symfony\Component\Console\Command\Command;
 
 class Totem
@@ -91,7 +91,7 @@ class Totem
     /**
      * @return bool
      */
-    public static function baseTableExists() : bool
+    public static function baseTableExists(): bool
     {
         if (Cache::get('totem.table.'.TOTEM_TABLE_PREFIX.'tasks')) {
             return true;

@@ -2,21 +2,21 @@
 
 namespace Studio\Totem\Repositories;
 
-use Studio\Totem\Task;
-use Studio\Totem\Result;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Cache;
+use Studio\Totem\Contracts\TaskInterface;
+use Studio\Totem\Events\Activated;
 use Studio\Totem\Events\Created;
-use Studio\Totem\Events\Deleted;
-use Studio\Totem\Events\Updated;
 use Studio\Totem\Events\Creating;
+use Studio\Totem\Events\Deactivated;
+use Studio\Totem\Events\Deleted;
 use Studio\Totem\Events\Deleting;
 use Studio\Totem\Events\Executed;
+use Studio\Totem\Events\Updated;
 use Studio\Totem\Events\Updating;
-use Studio\Totem\Events\Activated;
-use Studio\Totem\Events\Deactivated;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Database\Eloquent\Builder;
-use Studio\Totem\Contracts\TaskInterface;
+use Studio\Totem\Result;
+use Studio\Totem\Task;
 
 class EloquentTaskRepository implements TaskInterface
 {
@@ -25,7 +25,7 @@ class EloquentTaskRepository implements TaskInterface
      *
      * @return Task
      */
-    public function builder() : Builder
+    public function builder(): Builder
     {
         $result = new Result;
 

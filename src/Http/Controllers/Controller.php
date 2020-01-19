@@ -2,8 +2,8 @@
 
 namespace Studio\Totem\Http\Controllers;
 
-use Studio\Totem\Http\Middleware\Authenticate;
 use Illuminate\Routing\Controller as BaseController;
+use Studio\Totem\Http\Middleware\Authenticate;
 
 class Controller extends BaseController
 {
