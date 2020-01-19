@@ -2,9 +2,9 @@
 
 namespace Studio\Totem\Events;
 
-use Studio\Totem\Task;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\PrivateChannel;
+use Studio\Totem\Task;
 
 class Updating extends BroadcastingEvent
 {
