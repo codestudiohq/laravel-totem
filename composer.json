@@ -18,19 +18,19 @@
   "require": {
     "php": ">=7.2",
     "doctrine/dbal": "^2.9",
-    "illuminate/bus": "^6.0",
-    "illuminate/console": "^6.0",
-    "illuminate/contracts": "^6.0",
-    "illuminate/database": "^6.0",
-    "illuminate/events": "^6.0",
-    "illuminate/notifications": "^6.0",
+    "illuminate/bus": "^7.0",
+    "illuminate/console": "^7.0",
+    "illuminate/contracts": "^7.0",
+    "illuminate/database": "^7.0",
+    "illuminate/events": "^7.0",
+    "illuminate/notifications": "^7.0",
     "laravelcollective/html": "^6.0"
   },
   "require-dev": {
     "mockery/mockery": "^1.0",
-    "orchestra/database": "^4.0",
-    "orchestra/testbench" : "^4.0",
-    "phpunit/phpunit": "^8.3"
+    "orchestra/database": "^5.0",
+    "orchestra/testbench" : "^5.0",
+    "phpunit/phpunit": "^9.0"
   },
   "suggest": {
     "nexmo/client": "Required for sms notifications."
@@ -44,7 +44,7 @@
   "extra": {
     "component": "package",
     "branch-alias": {
-      "dev-6.0": "6.0.x-dev"
+      "dev-7.0": "7.0.x-dev"
     },
     "laravel": {
       "providers": [

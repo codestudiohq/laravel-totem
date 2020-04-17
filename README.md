@@ -18,6 +18,7 @@ Manage your `Laravel Schedule` from a pretty dashboard. Schedule your `Laravel C
 
 |<span align="left">Laravel</span> |<span align="left">Totem</span>|
 |:-------|----------:|
+|7.x     |     7.x   |
 |6.x     |     6.x   |
 |5.8     |     5.x   |
 |5.7     |     4.x   |
@@ -191,4 +192,4 @@ Bug reports, feature requests, and pull requests can be submitted by following o
 
 This software is released under the [MIT](LICENSE) License.
 
- © 2019 Roshan Gautam, All rights reserved.
+ © 2020 Roshan Gautam, All rights reserved.
