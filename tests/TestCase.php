@@ -5,6 +5,7 @@ namespace Studio\Totem\Tests;
 use Collective\Html\FormFacade;
 use Collective\Html\HtmlFacade;
 use Collective\Html\HtmlServiceProvider;
+use Throwable;
 use Exception;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Support\Facades\Auth;
@@ -45,6 +46,16 @@ class TestCase extends \Orchestra\Testbench\TestCase
         Totem::auth($auth);
     }
 
+    protected function getEnvironmentSetUp($app)
+    {
+        $app['config']->set('database.default', 'testing');
+        $app['config']->set('database.connections.testing', [
+            'driver'   => 'sqlite',
+            'database' => ':memory:',
+            'prefix'   => '',
+        ]);
+    }
+
     protected function getPackageAliases($app)
     {
         return [
@@ -71,11 +82,11 @@ class TestCase extends \Orchestra\Testbench\TestCase
             {
             }
 
-            public function report(Exception $e)
+            public function report(Throwable $e)
             {
             }
 
-            public function render($request, Exception $e)
+            public function render($request, Throwable $e)
             {
                 throw $e;
             }
