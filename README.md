@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="https://github.com/codestudiohq/laravel-totem/blob/6.0/resources/assets/img/totem.png?raw=true" alt="Laravel Totem"/>
+  <img src="https://github.com/codestudiohq/laravel-totem/blob/7.0/resources/assets/img/totem.png?raw=true" alt="Laravel Totem"/>
 </p>
 <p align="center">
-<img src="https://github.com/codestudiohq/laravel-totem/workflows/Laravel/badge.svg?branch=6.0" alt="Build Status">
+<img src="https://github.com/codestudiohq/laravel-totem/workflows/Laravel/badge.svg?branch=7.0" alt="Build Status">
 <a href="https://packagist.org/packages/studio/laravel-totem"><img src="https://poser.pugx.org/studio/laravel-totem/license.svg" alt="License"></a>
 </p>
 
