@@ -18,7 +18,7 @@ class CreateTaskResultsTable extends TotemMigration
                 $table->increments('id');
                 $table->unsignedInteger('task_id');
                 $table->timestamp('ran_at')->useCurrent();
-                $table->string('duration');
+                $table->decimal('duration', 24, 14);
                 $table->longText('result');
                 $table->timestamps();
             });
