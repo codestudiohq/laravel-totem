@@ -93,6 +93,9 @@ Totem::auth(function($request) {
 
 By default Totem's dashboard only works in local environment. To view the dashboard point your browser to /totem of your app. For e.g. laravel.dev/totem.
 
+You can also change the route to which totem points to by changing `'totem.web.prefix`
+in the `config/totem.php` file 
+
 ##### Filter Commands Dropdown
 
 By default `Totem` outputs all Artisan commands on the Create/Edit tasks. To make this dropdown more concise there is a filter config feature that can be set in the `totem.php` config file.
