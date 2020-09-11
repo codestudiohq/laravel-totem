@@ -13,10 +13,11 @@ class UpdateTaskResultsDurationType extends TotemMigration
      */
     public function up()
     {
-        Schema::connection(TOTEM_DATABASE_CONNECTION)
+        /*Schema::connection(TOTEM_DATABASE_CONNECTION)
             ->table(TOTEM_TABLE_PREFIX.'task_results', function (Blueprint $table) {
                 $table->decimal('duration', 24, 14)->charset('')->collation('')->change();
-            });
+            });*/
+        \DB::connection(TOTEM_DATABASE_CONNECTION)->statement(" ALTER TABLE ". TOTEM_TABLE_PREFIX . "task_results ALTER duration TYPE NUMERIC(24, 14) USING duration::numeric(24,14) ");
     }
 
     /**
