@@ -1,9 +1,9 @@
 <?php
 
+use DB;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Studio\Totem\Database\TotemMigration;
-use DB;
 
 class UpdateTaskResultsDurationType extends TotemMigration
 {
