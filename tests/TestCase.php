@@ -5,7 +5,6 @@ namespace Studio\Totem\Tests;
 use Collective\Html\FormFacade;
 use Collective\Html\HtmlFacade;
 use Collective\Html\HtmlServiceProvider;
-use Exception;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Support\Facades\Auth;
 use Orchestra\Testbench\Exceptions\Handler;
@@ -25,8 +24,6 @@ class TestCase extends \Orchestra\Testbench\TestCase
         $this->artisan('totem:assets');
 
         $this->loadLaravelMigrations(['--database' => 'testing']);
-
-        $this->withFactories(__DIR__.'/../database/factories/');
 
         $auth = function () {
             switch (app()->environment()) {
@@ -102,7 +99,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
      */
     public function signIn()
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
 
         $this->actingAs($user);
 

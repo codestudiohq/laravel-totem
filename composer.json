@@ -16,20 +16,20 @@
     }
   ],
   "require": {
-    "php": ">=7.2",
+    "php": ">=7.3",
     "doctrine/dbal": "^2.9",
-    "illuminate/bus": "^7.0",
-    "illuminate/console": "^7.0",
-    "illuminate/contracts": "^7.0",
-    "illuminate/database": "^7.0",
-    "illuminate/events": "^7.0",
-    "illuminate/notifications": "^7.0",
+    "illuminate/bus": "^8.11",
+    "illuminate/console": "^8.11",
+    "illuminate/contracts": "^8.11",
+    "illuminate/database": "^8.11",
+    "illuminate/events": "^8.11",
+    "illuminate/notifications": "^8.11",
     "laravelcollective/html": "^6.0"
   },
   "require-dev": {
     "mockery/mockery": "^1.0",
-    "orchestra/database": "^5.0",
-    "orchestra/testbench" : "^5.0",
+    "orchestra/database": "^6.0",
+    "orchestra/testbench" : "^6.0",
     "phpunit/phpunit": "^9.0"
   },
   "suggest": {
@@ -38,13 +38,14 @@
   "autoload": {
     "psr-4": {
       "Studio\\Totem\\": "src/",
-      "Studio\\Totem\\Tests\\": "tests/"
+      "Studio\\Totem\\Tests\\": "tests/",
+      "Database\\Factories\\": "database/factories/"
     }
   },
   "extra": {
     "component": "package",
     "branch-alias": {
-      "dev-7.0": "7.0.x-dev"
+      "dev-8.0": "8.0.x-dev"
     },
     "laravel": {
       "providers": [

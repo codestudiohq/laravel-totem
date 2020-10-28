@@ -11,7 +11,7 @@ class ViewTaskTest extends TestCase
     public function user_can_view_task()
     {
         $this->signIn();
-        $task = factory(Task::class)->create();
+        $task = Task::factory()->create();
         $response = $this->get(route('totem.task.view', $task));
         $response->assertStatus(200);
         $response->assertSee($task->description);
@@ -22,7 +22,7 @@ class ViewTaskTest extends TestCase
     /** @test */
     public function guest_can_not_view_task()
     {
-        $task = factory(Task::class)->create();
+        $task = Task::factory()->create();
         $response = $this->get(route('totem.task.view', $task));
         $response->assertStatus(403);
     }

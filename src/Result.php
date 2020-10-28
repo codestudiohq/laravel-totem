@@ -2,11 +2,15 @@
 
 namespace Studio\Totem;
 
+use Database\Factories\ResultFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 
 class Result extends TotemModel
 {
+    use HasFactory;
+
     protected $table = 'task_results';
 
     protected $fillable = [
@@ -44,4 +48,15 @@ class Result extends TotemModel
             ->whereColumn('task_id', TOTEM_TABLE_PREFIX.'tasks.id')
             ->getQuery();
     }
+
+    /**
+     * Create a new factory instance for the model.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    protected static function newFactory()
+    {
+        return ResultFactory::new();
+    }
+
 }

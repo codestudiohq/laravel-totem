@@ -9,7 +9,7 @@ class CompileParametersTest extends TestCase
 {
     public function test_no_paramters()
     {
-        $task = factory(Task::class)->create();
+        $task = Task::factory()->create();
         $parameters = $task->compileParameters();
 
         $this->assertEmpty($parameters);
@@ -17,7 +17,7 @@ class CompileParametersTest extends TestCase
 
     public function test_multiple_paramters()
     {
-        $task = factory(Task::class)->create();
+        $task = Task::factory()->create();
         $task->parameters = '--parameter-1=value --parameter-2=value --parameter-3=value';
         $parameters = $task->compileParameters();
 
@@ -29,7 +29,7 @@ class CompileParametersTest extends TestCase
 
     public function test_flag_and_paramter()
     {
-        $task = factory(Task::class)->create();
+        $task = Task::factory()->create();
         $task->parameters = '--parameter-1=value --dry-run';
         $parameters = $task->compileParameters();
 
@@ -41,7 +41,7 @@ class CompileParametersTest extends TestCase
 
     public function test_multiple_flags()
     {
-        $task = factory(Task::class)->create();
+        $task = Task::factory()->create();
         $task->parameters = '--dry-run --debug --log-output';
         $parameters = $task->compileParameters();
 
@@ -56,7 +56,7 @@ class CompileParametersTest extends TestCase
 
     public function test_multiple_arguments()
     {
-        $task = factory(Task::class)->create();
+        $task = Task::factory()->create();
         $task->parameters = 'arg1 arg2 arg3';
         $parameters = $task->compileParameters();
 
@@ -68,7 +68,7 @@ class CompileParametersTest extends TestCase
 
     public function test_multiple_named_arguments()
     {
-        $task = factory(Task::class)->create();
+        $task = Task::factory()->create();
         $task->parameters = 'arg1=name arg2=airport arg3=100';
         $parameters = $task->compileParameters();
 
@@ -80,7 +80,7 @@ class CompileParametersTest extends TestCase
 
     public function test_multiple_mixed_arguments()
     {
-        $task = factory(Task::class)->create();
+        $task = Task::factory()->create();
         $task->parameters = 'arg1 arg2=test arg3=15 arg4';
         $parameters = $task->compileParameters();
 
@@ -93,7 +93,7 @@ class CompileParametersTest extends TestCase
 
     public function test_all_mixed_arguments()
     {
-        $task = factory(Task::class)->create();
+        $task = Task::factory()->create();
         $task->parameters = 'arg1 arg2=test arg3=15 arg4 --flag --flag2 --option=yes --someplace=warm';
         $parameters = $task->compileParameters();
 
@@ -110,7 +110,7 @@ class CompileParametersTest extends TestCase
 
     public function test_all_mixed_arguments_console()
     {
-        $task = factory(Task::class)->create();
+        $task = Task::factory()->create();
         $task->parameters = 'arg1 arg2=test arg3=15 arg4 --flag --flag2 --option=yes --someplace=warm';
         $parameters = $task->compileParameters(true);
 
@@ -127,7 +127,7 @@ class CompileParametersTest extends TestCase
 
     public function test_single_dash()
     {
-        $task = factory(Task::class)->create();
+        $task = Task::factory()->create();
         $task->parameters = '-osTeSt';
         $parameters = $task->compileParameters(true);
 
@@ -137,7 +137,7 @@ class CompileParametersTest extends TestCase
 
     public function test_array_argument()
     {
-        $task = factory(Task::class)->create();
+        $task = Task::factory()->create();
         $task->parameters = '--id=1 --id=2';
         $parameters = $task->compileParameters(true);
 

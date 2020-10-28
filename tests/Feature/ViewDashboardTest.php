@@ -27,7 +27,7 @@ class ViewDashboardTest extends TestCase
     public function view_dashboard_single_task_no_results()
     {
         $this->signIn();
-        $task = factory(Task::class)->create();
+        $task = Task::factory()->create();
         $response = $this->get(route('totem.tasks.all', $task));
         $response->assertStatus(200);
         $this->assertEmpty($task->results);
@@ -83,11 +83,11 @@ class ViewDashboardTest extends TestCase
      */
     private function _get_task_with_results($task_count = 1, $result_count = 1)
     {
-        return factory(Task::class, $task_count)
+        return Task::factory()->times($task_count)
             ->create()
             ->each(function ($task) use ($result_count) {
                 for ($i = 0; $i < $result_count; $i++) {
-                    $task->results()->save(factory(Result::class)->make());
+                    $task->results()->save(Result::factory()->make());
                 }
             });
     }
