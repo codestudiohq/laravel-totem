@@ -217,5 +217,4 @@ class Task extends TotemModel
     {
         return TaskFactory::new();
     }
-
 }

@@ -38,5 +38,4 @@ class User extends Authenticatable
     {
         return UserFactory::new();
     }
-
 }

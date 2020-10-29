@@ -7,7 +7,6 @@ use Studio\Totem\Task;
 
 class TaskFactory extends Factory
 {
-
     protected $model = Task::class;
 
     public function definition()
@@ -18,5 +17,4 @@ class TaskFactory extends Factory
             'expression'   => '* * * * *',
         ];
     }
-
 }

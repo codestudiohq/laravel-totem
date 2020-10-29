@@ -8,7 +8,6 @@ use Studio\Totem\User;
 
 class UserFactory extends Factory
 {
-
     protected $model = User::class;
 
     public function definition()
@@ -22,5 +21,4 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
         ];
     }
-
 }

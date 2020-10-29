@@ -58,5 +58,4 @@ class Result extends TotemModel
     {
         return ResultFactory::new();
     }
-
 }

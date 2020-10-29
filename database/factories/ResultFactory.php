@@ -7,7 +7,6 @@ use Studio\Totem\Result;
 
 class ResultFactory extends Factory
 {
-
     protected $model = Result::class;
 
     public function definition()
@@ -21,5 +20,4 @@ class ResultFactory extends Factory
             'updated_at'  => $this->faker->dateTimeBetween('-6 months'),
         ];
     }
-
 }
