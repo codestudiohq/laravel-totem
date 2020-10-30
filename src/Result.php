@@ -2,7 +2,7 @@
 
 namespace Studio\Totem;
 
-use Database\Factories\ResultFactory;
+use Database\Factories\TotemResultFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
@@ -56,6 +56,6 @@ class Result extends TotemModel
      */
     protected static function newFactory()
     {
-        return ResultFactory::new();
+        return TotemResultFactory::new();
     }
 }

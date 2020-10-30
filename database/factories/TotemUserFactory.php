@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use Studio\Totem\User;
 
-class UserFactory extends Factory
+class TotemUserFactory extends Factory
 {
     protected $model = User::class;
 

@@ -4,7 +4,7 @@ namespace Studio\Totem;
 
 use Carbon\Carbon;
 use Cron\CronExpression;
-use Database\Factories\TaskFactory;
+use Database\Factories\TotemTaskFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
@@ -215,6 +215,6 @@ class Task extends TotemModel
      */
     protected static function newFactory()
     {
-        return TaskFactory::new();
+        return TotemTaskFactory::new();
     }
 }

@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Studio\Totem\Task;
 
-class TaskFactory extends Factory
+class TotemTaskFactory extends Factory
 {
     protected $model = Task::class;
 
