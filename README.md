@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="https://github.com/codestudiohq/laravel-totem/blob/7.0/resources/assets/img/totem.png?raw=true" alt="Laravel Totem"/>
+  <img src="https://github.com/codestudiohq/laravel-totem/blob/8.0/resources/assets/img/totem.png?raw=true" alt="Laravel Totem"/>
 </p>
 <p align="center">
-<img src="https://github.com/codestudiohq/laravel-totem/workflows/Laravel/badge.svg?branch=7.0" alt="Build Status">
+<img src="https://github.com/codestudiohq/laravel-totem/workflows/Laravel/badge.svg?branch=8.0" alt="Build Status">
 <a href="https://packagist.org/packages/studio/laravel-totem"><img src="https://poser.pugx.org/studio/laravel-totem/license.svg" alt="License"></a>
 </p>
 
@@ -18,6 +18,7 @@ Manage your `Laravel Schedule` from a pretty dashboard. Schedule your `Laravel C
 
 | <span align="left">Laravel</span> | <span align="left">Totem</span> |
 | :-------------------------------- | ------------------------------: |
+| 8.x                               |                             8.x |
 | 7.x                               |                             7.x |
 | 6.x                               |                             6.x |
 | 5.8                               |                             5.x |
