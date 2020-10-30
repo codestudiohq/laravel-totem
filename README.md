@@ -16,15 +16,15 @@ Manage your `Laravel Schedule` from a pretty dashboard. Schedule your `Laravel C
 
 #### Compatiblity Matrix
 
-|<span align="left">Laravel</span> |<span align="left">Totem</span>|
-|:-------|----------:|
-|7.x     |     7.x   |
-|6.x     |     6.x   |
-|5.8     |     5.x   |
-|5.7     |     4.x   |
-|5.6     |     3.x   |
-|5.5     |     2.x   |
-|5.4     |     1.x   |
+| <span align="left">Laravel</span> | <span align="left">Totem</span> |
+| :-------------------------------- | ------------------------------: |
+| 7.x                               |                             7.x |
+| 6.x                               |                             6.x |
+| 5.8                               |                             5.x |
+| 5.7                               |                             4.x |
+| 5.6                               |                             3.x |
+| 5.5                               |                             2.x |
+| 5.4                               |                             1.x |
 
 #### Installing
 
@@ -80,7 +80,7 @@ This package assumes that you have a good understanding of [Laravel's Task Sched
 
 ##### Web Dashboard
 
-`Laravel Totem`'s  dashboard is inspired by `Laravel Horizon`. Just like Horizon you can configure authentication to `Totem`'s dashboard. Add the following to the boot method of your AppServiceProvider or wherever you might seem fit.
+`Laravel Totem`'s dashboard is inspired by `Laravel Horizon`. Just like Horizon you can configure authentication to `Totem`'s dashboard. Add the following to the boot method of your AppServiceProvider or wherever you might seem fit.
 
 ```php
 use Studio\Totem\Totem;
@@ -98,6 +98,7 @@ By default Totem's dashboard only works in local environment. To view the dashbo
 By default `Totem` outputs all Artisan commands on the Create/Edit tasks. To make this dropdown more concise there is a filter config feature that can be set in the `totem.php` config file.
 
 Example filters
+
 ```php
 'artisan' => [
     'command_filter' => [
@@ -147,6 +148,7 @@ If your command requires arguments or options please use the optional command pa
 ```text
 name=john.doe --greetings='Welcome to the new world'
 ```
+
 In the example above, name is an argument while greetings is an option
 
 #### Console Command
@@ -160,15 +162,19 @@ php artisan schedule:list
 ### Screenshots
 
 ##### Task List
+
 <img src="https://github.com/codestudiohq/laravel-totem/blob/1.0/public/img/screenshots/tasks.png?raw=true" alt="Task List"/>
 
 ##### Task Details
+
 <img src="https://github.com/codestudiohq/laravel-totem/blob/1.0/public/img/screenshots/task-details.png?raw=true" alt="Task List"/>
 
 ##### Edit Task
+
 <img src="https://github.com/codestudiohq/laravel-totem/blob/1.0/public/img/screenshots/edit-task.png?raw=true" alt="Task List"/>
 
 ##### Artisan Command to view scheduled tasks
+
 <img src="https://github.com/codestudiohq/laravel-totem/blob/1.0/public/img/screenshots/artisan.png?raw=true" alt="Task List"/>
 
 ## Changelog
@@ -192,4 +198,4 @@ Bug reports, feature requests, and pull requests can be submitted by following o
 
 This software is released under the [MIT](LICENSE) License.
 
- © 2020 Roshan Gautam, All rights reserved.
+© 2020 Roshan Gautam, All rights reserved.
