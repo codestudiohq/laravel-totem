@@ -9,7 +9,6 @@ use Studio\Totem\Tests\TestCase;
 
 class ViewDashboardTest extends TestCase
 {
-
     use RefreshDatabase;
 
     /** @test */
