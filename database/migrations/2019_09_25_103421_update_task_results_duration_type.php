@@ -42,7 +42,7 @@ class UpdateTaskResultsDurationType extends TotemMigration
             ->table(TOTEM_TABLE_PREFIX.'task_results', function (Blueprint $table) use ($toFloat) {
                 // Create new decimal column
                 if ($toFloat) {
-                    $table->decimal('duration', 24, 14)->default(0.0)->charset('')->collation('');
+                    $table->decimal('duration', 24, 14)->default(0.0);
                 } else {
                     $table->string('duration')->default('');
                 }
