@@ -2,12 +2,15 @@
 
 namespace Studio\Totem\Tests\Feature;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Studio\Totem\Result;
 use Studio\Totem\Task;
 use Studio\Totem\Tests\TestCase;
 
 class ViewDashboardTest extends TestCase
 {
+    use RefreshDatabase;
+
     /** @test */
     public function user_can_view_dashboard()
     {
