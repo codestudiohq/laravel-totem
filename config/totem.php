@@ -228,6 +228,8 @@ return [
         'whitelist' => true,
     ],
     'database_connection' => env('TOTEM_DATABASE_CONNECTION'),
+        
+    'run_in_background' => env('TOTEM_RUN_IN_BACKGROUND', false),
 
     'broadcasting' => [
         'enabled' => env('TOTEM_BROADCASTING_ENABLED', true),
