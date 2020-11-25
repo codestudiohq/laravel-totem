@@ -44,14 +44,21 @@ class ConsoleServiceProvider extends ServiceProvider
                     Executed::dispatch($task, $event->start);
                 })
                 ->sendOutputTo(storage_path($task->getMutexName()));
+            
             if ($task->dont_overlap) {
                 $event->withoutOverlapping();
             }
+            
             if ($task->run_in_maintenance) {
                 $event->evenInMaintenanceMode();
             }
+            
             if ($task->run_on_one_server && in_array(config('cache.default'), ['memcached', 'redis'])) {
                 $event->onOneServer();
+            }
+            
+            if (config('totem.run_in_background', false)) {
+                $event->runInBackground();
             }
         });
     }
