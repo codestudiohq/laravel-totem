@@ -190,6 +190,7 @@
                 <li class="uk-text-meta">Decide whether multiple instances of same task should overlap each other or not.</li>
                 <li class="uk-text-meta">Decide whether the task should be executed while the app is in maintenance mode.</li>
                 <li class="uk-text-meta">Decide whether the task should be executed on a single server.</li>
+                <li class="uk-text-meta">Decide whether the task should be executed in the background.</li>
             </ul>
         </div>
         <div class="uk-width-1-1@s uk-width-2-3@m uk-form-controls-text">
@@ -211,6 +212,13 @@
                     <input type="hidden" name="run_on_one_server" id="run_on_one_server" value="0" {{old('run_on_one_server', $task->run_on_one_server) ? '' : 'checked'}}>
                     <input type="checkbox" name="run_on_one_server" id="run_on_one_server" value="1" {{old('run_on_one_server', $task->run_on_one_server) ? 'checked' : ''}}>
                     Run on a single server
+                </label>
+            </div>
+            <div class="uk-margin">
+                <label class="uk-margin">
+                    <input type="hidden" name="run_in_background" id="run_in_background" value="0" {{old('run_in_background', $task->run_in_background) ? '' : 'checked'}}>
+                    <input type="checkbox" name="run_in_background" id="run_in_background" value="1" {{old('run_in_background', $task->run_in_background) ? 'checked' : ''}}>
+                    Run in the background
                 </label>
             </div>
         </div>
