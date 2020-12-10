@@ -190,6 +190,7 @@
                 <li class="uk-text-meta">Decide whether multiple instances of same task should overlap each other or not.</li>
                 <li class="uk-text-meta">Decide whether the task should be executed while the app is in maintenance mode.</li>
                 <li class="uk-text-meta">Decide whether the task should be executed on a single server.</li>
+                <li class="uk-text-meta">Decide whether the task should be executed in the background.</li>
             </ul>
         </div>
         <div class="uk-width-1-1@s uk-width-2-3@m uk-form-controls-text">
