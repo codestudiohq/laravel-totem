@@ -213,6 +213,13 @@
                     Run on a single server
                 </label>
             </div>
+            <div class="uk-margin">
+                <label class="uk-margin">
+                    <input type="hidden" name="run_in_background" id="run_in_background" value="0" {{old('run_in_background', $task->run_in_background) ? '' : 'checked'}}>
+                    <input type="checkbox" name="run_in_background" id="run_in_background" value="1" {{old('run_in_background', $task->run_in_background) ? 'checked' : ''}}>
+                    Run in the background
+                </label>
+            </div>
         </div>
     </div>
     <hr class="uk-divider-icon">

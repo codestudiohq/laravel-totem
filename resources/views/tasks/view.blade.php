@@ -76,6 +76,11 @@
                 <span class="uk-float-left">Runs on a single server</span>
             </li>
         @endif
+        @if($task->run_in_background)
+            <li>
+                <span class="uk-float-left">Runs in the background</span>
+            </li>
+        @endif
     </ul>
 @stop
 @section('main-panel-footer')

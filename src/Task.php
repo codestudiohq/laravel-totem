@@ -36,6 +36,7 @@ class Task extends TotemModel
         'auto_cleanup_type',
         'auto_cleanup_num',
         'run_on_one_server',
+        'run_in_background',
     ];
 
     /**

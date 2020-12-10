@@ -60,11 +60,12 @@ class ListSchedule extends Command
                     'overlaps'      => $event->withoutOverlapping ? 'No' : 'Yes',
                     'maintenance'   => $event->evenInMaintenanceMode ? 'Yes' : 'No',
                     'one_server'   => $event->onOneServer ? 'Yes' : 'No',
+                    'in_background'   => $event->runInBackground ? 'Yes' : 'No',
                 ];
             });
 
             $this->table(
-                ['Description', 'Command', 'Schedule', 'Upcoming', 'Timezone', 'Overlaps?', 'In Maintenance?', 'One Server?'],
+                ['Description', 'Command', 'Schedule', 'Upcoming', 'Timezone', 'Overlaps?', 'In Maintenance?', 'One Server?', 'In Background?'],
                 $events
             );
         } else {
