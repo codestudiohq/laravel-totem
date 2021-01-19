@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Storage;
 use Studio\Totem\Contracts\TaskInterface;
 use Studio\Totem\Events\Activated;
 use Studio\Totem\Events\Created;
@@ -195,9 +196,9 @@ class EloquentTaskRepository implements TaskInterface
         try {
             Artisan::call($task->command, $task->compileParameters());
 
-            file_put_contents(storage_path($task->getMutexName()), Artisan::output());
+            Storage::put(storage_path($task->getMutexName()), Artisan::output());
         } catch (\Exception $e) {
-            file_put_contents(storage_path($task->getMutexName()), $e->getMessage());
+            Storage::put(storage_path($task->getMutexName()), $e->getMessage());
         }
 
         Executed::dispatch($task, $start);
