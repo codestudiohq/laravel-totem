@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Storage;
 use Studio\Totem\Contracts\TaskInterface;
 use Studio\Totem\Events\Activated;
 use Studio\Totem\Events\Created;
@@ -18,7 +19,6 @@ use Studio\Totem\Events\Updated;
 use Studio\Totem\Events\Updating;
 use Studio\Totem\Result;
 use Studio\Totem\Task;
-use Illuminate\Support\Facades\Storage;
 
 class EloquentTaskRepository implements TaskInterface
 {
