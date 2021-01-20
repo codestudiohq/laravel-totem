@@ -41,7 +41,7 @@ class ConsoleServiceProvider extends ServiceProvider
                     Executing::dispatch($task);
                 })
                 ->after(function () use ($event, $task) {
-                    Executed::dispatch($task, $event->start);
+                    Executed::dispatch($task, $event->start ?? microtime(true));
                 })
                 ->sendOutputTo(storage_path($task->getMutexName()));
             if ($task->dont_overlap) {
