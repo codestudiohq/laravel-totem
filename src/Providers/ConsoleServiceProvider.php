@@ -50,7 +50,7 @@ class ConsoleServiceProvider extends ServiceProvider
             if ($task->run_in_maintenance) {
                 $event->evenInMaintenanceMode();
             }
-            if ($task->run_on_one_server && in_array(config('cache.default'), ['memcached', 'redis'])) {
+            if ($task->run_on_one_server && in_array(config('cache.default'), ['memcached', 'redis', 'database', 'dynamodb'])) {
                 $event->onOneServer();
             }
             if ($task->run_in_background) {
