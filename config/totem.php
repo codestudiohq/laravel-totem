@@ -218,7 +218,7 @@ return [
     ],
     'web' => [
         'middleware' => env('TOTEM_WEB_MIDDLEWARE', 'web'),
-        'route_prefix' => env('TOTEM_WEB_ROUTE_PREFIX', 'totem')
+        'route_prefix' => env('TOTEM_WEB_ROUTE_PREFIX', 'totem'),
     ],
     'api' => [
         'middleware' => env('TOTEM_API_MIDDLEWARE', 'api'),
