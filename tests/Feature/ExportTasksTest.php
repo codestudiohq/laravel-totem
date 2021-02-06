@@ -23,7 +23,7 @@ class ExportTasksTest extends TestCase
 
         $this->assertCount($tasks->count(), $exportedTasks);
 
-        collect($exportedTasks)->each(function ($exportedTask) use ($tasks) {
+        collect($exportedTasks)->each(function ($exportedTask) {
             $task = Task::find($exportedTask->id);
 
             $this->assertEquals($task->description, $exportedTask->description);

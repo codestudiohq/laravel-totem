@@ -33,7 +33,7 @@ class ConsoleServiceProvider extends ServiceProvider
 
         Storage::makeDirectory(config('totem.log_folder'));
 
-        Storage::put(config('totem.log_folder') . '/test.txt', 'abcdegf');
+        Storage::put(config('totem.log_folder').'/test.txt', 'abcdegf');
 
         $tasks->each(function ($task) use ($schedule) {
             $event = $schedule->command($task->command, $task->compileParameters(true));

@@ -234,5 +234,5 @@ return [
         'channel' => env('TOTEM_BROADCASTING_CHANNEL', 'task.events'),
     ],
 
-    'log_folder' => env('TOTEM_LOG_FOLDER', 'totem')
+    'log_folder' => env('TOTEM_LOG_FOLDER', 'totem'),
 ];

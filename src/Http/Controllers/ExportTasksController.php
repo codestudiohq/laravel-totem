@@ -30,10 +30,10 @@ class ExportTasksController extends Controller
     public function index()
     {
         $headers = [
-            "Content-Type" => "text/json",
-            "Pragma" => "no-cache",
-            "Cache-Control" => "must-revalidate, post-check=0, pre-check=0",
-            "Expires" => "0",
+            'Content-Type' => 'text/json',
+            'Pragma' => 'no-cache',
+            'Cache-Control' => 'must-revalidate, post-check=0, pre-check=0',
+            'Expires' => '0',
         ];
 
         return response()

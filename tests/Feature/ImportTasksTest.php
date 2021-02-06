@@ -20,12 +20,12 @@ class ImportTasksTest extends TestCase
 
         $this->signIn()
             ->post(route('totem.tasks.import'), [
-                'tasks' => new UploadedFile(realpath(__DIR__ . '/../Fixtures/tasks.json'), 'tasks.json', 'json', false, true),
+                'tasks' => new UploadedFile(realpath(__DIR__.'/../Fixtures/tasks.json'), 'tasks.json', 'json', false, true),
             ])->assertSuccessful();
 
         $this->assertEquals(5, Task::count());
 
-        collect(json_decode(file_get_contents(realpath(__DIR__ . '/../Fixtures/tasks.json'))))
+        collect(json_decode(file_get_contents(realpath(__DIR__.'/../Fixtures/tasks.json'))))
             ->each(function ($jsonTask) {
                 $task = Task::find($jsonTask->id);
 
