@@ -20,15 +20,15 @@ class Executed extends BroadcastingEvent
 
         $time_elapsed_secs = microtime(true) - $started;
 
-        if (Storage::exists(storage_path($task->getMutexName()))) {
-            $output = Storage::get(storage_path($task->getMutexName()));
+        if (Storage::exists($task->getMutexName())) {
+            $output = Storage::get($task->getMutexName());
 
             $task->results()->create([
                 'duration'  => $time_elapsed_secs * 1000,
                 'result'    => $output,
             ]);
 
-            Storage::delete(storage_path($task->getMutexName()));
+            Storage::delete($task->getMutexName());
 
             $task->notify(new TaskCompleted($output));
             $task->autoCleanup();

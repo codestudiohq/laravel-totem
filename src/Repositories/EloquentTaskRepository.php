@@ -196,9 +196,9 @@ class EloquentTaskRepository implements TaskInterface
         try {
             Artisan::call($task->command, $task->compileParameters());
 
-            Storage::put(storage_path($task->getMutexName()), Artisan::output());
+            Storage::put($task->getMutexName(), Artisan::output());
         } catch (\Exception $e) {
-            Storage::put(storage_path($task->getMutexName()), $e->getMessage());
+            Storage::put($task->getMutexName(), $e->getMessage());
         }
 
         Executed::dispatch($task, $start);
