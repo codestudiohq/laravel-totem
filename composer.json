@@ -24,7 +24,8 @@
     "illuminate/database": "^8.11",
     "illuminate/events": "^8.11",
     "illuminate/notifications": "^8.11",
-    "laravelcollective/html": "^6.0"
+    "laravelcollective/html": "^6.0",
+    "ext-json": "*"
   },
   "require-dev": {
     "mockery/mockery": "^1.0",

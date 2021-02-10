@@ -123,7 +123,7 @@ trait HasFrequencies
      */
     public function getMutexName()
     {
-        return 'logs'.DIRECTORY_SEPARATOR.'schedule-'.sha1($this->expression.$this->command.$this->parameters);
+        return config('totem.log_folder').DIRECTORY_SEPARATOR.'schedule-'.sha1($this->expression.$this->command.$this->parameters);
     }
 
     /**
@@ -194,7 +194,7 @@ trait HasFrequencies
             })
             ->first();
 
-        if ($task && $task->frequencies) {
+        if ($task && ($task->frequencies ?? false)) {
             $data['type'] = 'frequency';
             $data['frequencies'] = collect($task->frequencies)->map(function ($frequency) {
                 return (array) $frequency;

@@ -2,8 +2,6 @@
 
 namespace Studio\Totem\Http\Controllers;
 
-use File;
-use function storage_path;
 use Studio\Totem\Contracts\TaskInterface;
 
 class ExportTasksController extends Controller
@@ -27,14 +25,21 @@ class ExportTasksController extends Controller
     /**
      * Export all tasks to a json file.
      *
-     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     * @return \Symfony\Component\HttpFoundation\StreamedResponse
      */
     public function index()
     {
-        File::put(storage_path('tasks.json'), $this->tasks->findAll()->toJson());
+        $headers = [
+            'Content-Type' => 'text/json',
+            'Pragma' => 'no-cache',
+            'Cache-Control' => 'must-revalidate, post-check=0, pre-check=0',
+            'Expires' => '0',
+        ];
 
         return response()
-            ->download(storage_path('tasks.json'), 'tasks.json')
-            ->deleteFileAfterSend(true);
+            ->streamDownload(function () {
+                echo $this->tasks->findAll()->toJson();
+            }, 'tasks.json',
+            $headers);
     }
 }
