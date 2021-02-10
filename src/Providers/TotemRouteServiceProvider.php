@@ -54,7 +54,7 @@ class TotemRouteServiceProvider extends RouteServiceProvider
      */
     protected function mapWebRoutes()
     {
-        Route::prefix('totem')
+        Route::prefix(config('totem.web.route_prefix'))
             ->middleware(config('totem.web.middleware'))
             ->namespace($this->namespace)
             ->group(__DIR__.'/../../routes/web.php');
