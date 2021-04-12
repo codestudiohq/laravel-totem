@@ -100,7 +100,7 @@ class Task extends TotemModel
             };
 
             return collect($matches)->reduce(function ($carry, $parameter) use ($console, &$argument_index, $duplicate_parameter_index) {
-                $param = explode('=', $parameter[0]);
+                $param = explode('=', $parameter[0], 2);
 
                 if (count($param) > 1) {
                     $trimmed_param = trim(trim($param[1], '"'), "'");
