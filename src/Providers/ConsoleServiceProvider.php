@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
 use Studio\Totem\Events\Executed;
 use Studio\Totem\Events\Executing;
+use Studio\Totem\Totem;
 
 class ConsoleServiceProvider extends ServiceProvider
 {
@@ -17,9 +18,11 @@ class ConsoleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->resolving(Schedule::class, function ($schedule) {
-            $this->schedule($schedule);
-        });
+        if (Totem::baseTableExists()) {
+            $this->app->resolving(Schedule::class, function ($schedule) {
+                $this->schedule($schedule);
+            });
+        }
     }
 
     /**
