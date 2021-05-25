@@ -94,10 +94,10 @@ class CompileParametersTest extends TestCase
     public function test_all_mixed_arguments()
     {
         $task = Task::factory()->create();
-        $task->parameters = 'arg1 arg2=test arg3=15 arg4 --flag --flag2 --option=yes --someplace=warm';
+        $task->parameters = 'arg1 arg2=test arg3=15 arg4 --flag --flag2 --option=yes --someplace=warm  --equals="a=1 and b=2"';
         $parameters = $task->compileParameters();
 
-        $this->assertCount(8, $parameters);
+        $this->assertCount(9, $parameters);
         $this->assertSame('arg1', $parameters[0]);
         $this->assertSame('test', $parameters['arg2']);
         $this->assertSame('15', $parameters['arg3']);
@@ -106,6 +106,7 @@ class CompileParametersTest extends TestCase
         $this->assertArrayHasKey('--flag', $parameters);
         $this->assertSame(true, $parameters['--flag']);
         $this->assertSame(true, $parameters['--flag2']);
+        $this->assertSame('a=1 and b=2', $parameters['--equals']);
     }
 
     public function test_all_mixed_arguments_console()
@@ -145,5 +146,17 @@ class CompileParametersTest extends TestCase
         $this->assertIsArray($parameters['--id']);
         $this->assertSame('1', $parameters['--id'][0]);
         $this->assertSame('2', $parameters['--id'][1]);
+    }
+
+    public function test_equals_value_not_breaks()
+    {
+        $task = Task::factory()->create();
+        $task->parameters = 'arg1="a=b" --option="c=d" --option="a=1 and b=2"';
+        $parameters = $task->compileParameters(true);
+
+        $this->assertCount(2, $parameters);
+        $this->assertSame('a=b', $parameters[0]);
+        $this->assertSame('c=d', $parameters['--option'][0]);
+        $this->assertSame('a=1 and b=2', $parameters['--option'][1]);
     }
 }
