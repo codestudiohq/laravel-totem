@@ -32,7 +32,8 @@ class AuthTest extends TestCase
         $middleware = new Authenticate;
 
         $response = $middleware->handle(
-            new class {
+            new class
+            {
             },
             function ($value) {
                 return 'response';
@@ -55,7 +56,8 @@ class AuthTest extends TestCase
         $middleware = new Authenticate;
 
         $response = $middleware->handle(
-            new class {
+            new class
+            {
             },
             function ($value) {
                 return 'response';
