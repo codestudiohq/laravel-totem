@@ -4,7 +4,6 @@ namespace Studio\Totem\Providers;
 
 use Cron\CronExpression;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
@@ -12,7 +11,6 @@ use Studio\Totem\Console\Commands\ListSchedule;
 use Studio\Totem\Console\Commands\PublishAssets;
 use Studio\Totem\Contracts\TaskInterface;
 use Studio\Totem\Repositories\EloquentTaskRepository;
-use Studio\Totem\Totem;
 
 class TotemServiceProvider extends ServiceProvider
 {
@@ -23,14 +21,6 @@ class TotemServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        try {
-            if (Totem::baseTableExists()) {
-                $this->app->register(ConsoleServiceProvider::class);
-            }
-        } catch (\PDOException $ex) {
-            // This will trigger if DB cannot be connected to
-            Log::error($ex->getMessage());
-        }
         $this->registerResources();
         $this->defineAssetPublishing();
 
@@ -77,6 +67,7 @@ class TotemServiceProvider extends ServiceProvider
         $this->app->register(TotemRouteServiceProvider::class);
         $this->app->register(TotemEventServiceProvider::class);
         $this->app->register(TotemFormServiceProvider::class);
+        $this->app->register(ConsoleServiceProvider::class);
     }
 
     /**
