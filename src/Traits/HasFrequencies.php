@@ -117,16 +117,6 @@ trait HasFrequencies
     }
 
     /**
-     * Get the mutex name for the scheduled task.
-     *
-     * @return string
-     */
-    public function getMutexName()
-    {
-        return config('totem.log_folder').DIRECTORY_SEPARATOR.'schedule-'.sha1($this->expression.$this->command.$this->parameters);
-    }
-
-    /**
      * Determine if the filters pass for the event.
      *
      * @param  \Illuminate\Contracts\Foundation\Application  $app
