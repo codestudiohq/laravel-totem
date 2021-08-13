@@ -237,5 +237,5 @@ return [
 
     'log_folder' => env('TOTEM_LOG_FOLDER', 'totem'),
 
-    'schedule_enabled' => env('TOTEM_SCHEDULE_ENABLED', true)
+    'schedule_enabled' => env('TOTEM_SCHEDULE_ENABLED', true),
 ];
