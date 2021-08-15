@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Schema;
 use Symfony\Component\Console\Command\Command;
+use Throwable;
 
 class Totem
 {
@@ -91,16 +92,20 @@ class Totem
     /**
      * @return bool
      */
-    public static function baseTableExists(): bool
+    public static function isEnabled(): bool
     {
-        if (Cache::get('totem.table.'.TOTEM_TABLE_PREFIX.'tasks')) {
-            return true;
-        }
+        try {
+            if (Cache::get('totem.table.'.TOTEM_TABLE_PREFIX.'tasks')) {
+                return true;
+            }
 
-        if (Schema::hasTable(TOTEM_TABLE_PREFIX.'tasks')) {
-            Cache::forever('totem.table.'.TOTEM_TABLE_PREFIX.'tasks', true);
+            if (Schema::hasTable(TOTEM_TABLE_PREFIX.'tasks')) {
+                Cache::forever('totem.table.'.TOTEM_TABLE_PREFIX.'tasks', true);
 
-            return true;
+                return true;
+            }
+        } catch (Throwable $e) {
+            return false;
         }
 
         return false;

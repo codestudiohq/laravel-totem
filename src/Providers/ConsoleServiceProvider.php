@@ -17,7 +17,7 @@ class ConsoleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (Totem::baseTableExists()) {
+        if (Totem::isEnabled()) {
             $this->app->resolving(Schedule::class, function ($schedule) {
                 $this->schedule($schedule);
             });
