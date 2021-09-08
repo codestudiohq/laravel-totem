@@ -17,17 +17,17 @@ class ConsoleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (Totem::baseTableExists()) {
-            $this->app->resolving(Schedule::class, function ($schedule) {
+        $this->app->resolving(Schedule::class, function ($schedule) {
+            if (Totem::isEnabled()) {
                 $this->schedule($schedule);
-            });
-        }
+            }
+        });
     }
 
     /**
      * Prepare schedule from tasks.
      *
-     * @param Schedule $schedule
+     * @param  Schedule  $schedule
      */
     public function schedule(Schedule $schedule)
     {
