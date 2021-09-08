@@ -54,7 +54,7 @@ class EloquentTaskRepository implements TaskInterface
         }
 
         return Cache::rememberForever('totem.task.'.$id, function () use ($id) {
-            return Task::find($id);
+            return Task::query()->with('frequencies')->find($id);
         });
     }
 
@@ -66,7 +66,7 @@ class EloquentTaskRepository implements TaskInterface
     public function findAll()
     {
         return Cache::rememberForever('totem.tasks.all', function () {
-            return Task::all();
+            return Task::query()->with('frequencies')->get();
         });
     }
 
