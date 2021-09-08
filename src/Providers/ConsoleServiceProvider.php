@@ -27,7 +27,7 @@ class ConsoleServiceProvider extends ServiceProvider
     /**
      * Prepare schedule from tasks.
      *
-     * @param Schedule $schedule
+     * @param  Schedule  $schedule
      */
     public function schedule(Schedule $schedule)
     {

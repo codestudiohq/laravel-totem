@@ -21,7 +21,7 @@ class Totem
     /**
      * Determine if the given request can access the Totem dashboard.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      *
      * @return bool
      */
@@ -35,7 +35,7 @@ class Totem
     /**
      * Set the callback that should be used to authenticate Totem users.
      *
-     * @param \Closure $callback
+     * @param  \Closure  $callback
      *
      * @return static
      */
