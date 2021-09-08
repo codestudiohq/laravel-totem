@@ -2,7 +2,6 @@
 
 namespace Studio\Totem\Events;
 
-use Illuminate\Support\Facades\Storage;
 use Studio\Totem\Notifications\TaskCompleted;
 use Studio\Totem\Task;
 
@@ -14,24 +13,18 @@ class Executed extends BroadcastingEvent
      * @param Task $task
      * @param string $started
      */
-    public function __construct(Task $task, $started)
+    public function __construct(Task $task, $started, $output)
     {
         parent::__construct($task);
 
         $time_elapsed_secs = microtime(true) - $started;
 
-        if (Storage::exists($task->getMutexName())) {
-            $output = Storage::get($task->getMutexName());
+        $task->results()->create([
+            'duration'  => $time_elapsed_secs * 1000,
+            'result'    => $output,
+        ]);
 
-            $task->results()->create([
-                'duration'  => $time_elapsed_secs * 1000,
-                'result'    => $output,
-            ]);
-
-            Storage::delete($task->getMutexName());
-
-            $task->notify(new TaskCompleted($output));
-            $task->autoCleanup();
-        }
+        $task->notify(new TaskCompleted($output));
+        $task->autoCleanup();
     }
 }
