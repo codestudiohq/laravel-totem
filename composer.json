@@ -17,15 +17,15 @@
   ],
   "require": {
     "php": ">=7.3",
-    "doctrine/dbal": "^2.9",
+    "ext-json": "*",
+    "doctrine/dbal": "^3.1",
     "illuminate/bus": "^8.11",
     "illuminate/console": "^8.11",
     "illuminate/contracts": "^8.11",
     "illuminate/database": "^8.11",
     "illuminate/events": "^8.11",
     "illuminate/notifications": "^8.11",
-    "laravelcollective/html": "^6.0",
-    "ext-json": "*"
+    "laravelcollective/html": "^6.0"
   },
   "require-dev": {
     "mockery/mockery": "^1.0",

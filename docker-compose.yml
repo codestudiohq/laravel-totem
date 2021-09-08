@@ -1,0 +1,32 @@
+version: "3.7"
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: ./docker/Dockerfile
+    image: totem
+    container_name: totem-app
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www:delegated
+    networks:
+      - totem
+
+  db:
+    image: mysql:8.0.20
+    container_name: totem-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - ./docker/mysql:/docker-entrypoint-initdb.d:delegated
+    networks:
+      - totem
+
+networks:
+  totem:
+    driver: bridge
