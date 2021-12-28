@@ -5,12 +5,13 @@ namespace Studio\Totem\Providers;
 use Cron\CronExpression;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Validator;
+use Studio\Totem\Contracts\TaskInterface;
 use Studio\Totem\Console\Commands\ListSchedule;
 use Studio\Totem\Console\Commands\PublishAssets;
-use Studio\Totem\Contracts\TaskInterface;
 use Studio\Totem\Repositories\EloquentTaskRepository;
+use Studio\Totem\SqlSrv\SqlSrvEloquentTaskRepository;
 
 class TotemServiceProvider extends ServiceProvider
 {
@@ -62,12 +63,29 @@ class TotemServiceProvider extends ServiceProvider
             PublishAssets::class,
         ]);
 
-        $this->app->bindIf('totem.tasks', EloquentTaskRepository::class, true);
+        $this->app->bindIf('totem.tasks', $this->getEloquentDriver(), true);
         $this->app->alias('totem.tasks', TaskInterface::class);
         $this->app->register(TotemRouteServiceProvider::class);
         $this->app->register(TotemEventServiceProvider::class);
         $this->app->register(TotemFormServiceProvider::class);
         $this->app->register(ConsoleServiceProvider::class);
+    }
+
+    /**
+     * Get of the Repository driver.
+     *
+     * @return void
+     */
+    protected function getEloquentDriver() {
+        $connection = config('database.default');
+
+        $driver = config("database.connections.{$connection}.driver");
+        
+        if($driver == 'sqlsrv') {
+            return SqlSrvEloquentTaskRepository::class;
+        }
+
+        return EloquentTaskRepository::class;
     }
 
     /**
