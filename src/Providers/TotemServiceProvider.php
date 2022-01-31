@@ -54,7 +54,7 @@ class TotemServiceProvider extends ServiceProvider
         }
 
         if (! defined('TOTEM_DATABASE_CONNECTION')) {
-            define('TOTEM_DATABASE_CONNECTION', config('totem.database_connection', Schema::getConnection()->getName()));
+            define('TOTEM_DATABASE_CONNECTION', config('totem.database_connection', config('database.default')));
         }
 
         $this->commands([
