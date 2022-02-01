@@ -4,7 +4,6 @@ namespace Studio\Totem\Providers;
 
 use Cron\CronExpression;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Studio\Totem\Console\Commands\ListSchedule;
