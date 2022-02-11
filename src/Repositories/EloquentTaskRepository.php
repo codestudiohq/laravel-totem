@@ -47,7 +47,7 @@ class EloquentTaskRepository implements TaskInterface
      * @param int|Task $id
      * @return int|Task
      */
-    public function find($id)
+    public function find(Task|int $id)
     {
         if ($id instanceof Task) {
             return $id;
@@ -133,7 +133,7 @@ class EloquentTaskRepository implements TaskInterface
      * @param int|Task $id
      * @return bool
      */
-    public function destroy($id)
+    public function destroy(Task|int $id)
     {
         $task = $this->find($id);
 
@@ -185,10 +185,10 @@ class EloquentTaskRepository implements TaskInterface
     /**
      * Execute a given task.
      *
-     * @param $id
+     * @param int|Task $id
      * @return int|Task
      */
-    public function execute($id)
+    public function execute(Task|int $id)
     {
         $task = $this->find($id);
         $start = microtime(true);

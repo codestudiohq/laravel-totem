@@ -3,6 +3,8 @@
 namespace Studio\Totem;
 
 use Closure;
+use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Schema;
@@ -14,18 +16,18 @@ class Totem
     /**
      * The callback that should be used to authenticate Totem users.
      *
-     * @var \Closure
+     * @var Closure
      */
-    public static $authUsing;
+    public static Closure $authUsing;
 
     /**
      * Determine if the given request can access the Totem dashboard.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      *
      * @return bool
      */
-    public static function check($request)
+    public static function check(Request $request): bool
     {
         return (static::$authUsing ?: function () {
             return app()->environment('local');
@@ -35,7 +37,7 @@ class Totem
     /**
      * Set the callback that should be used to authenticate Totem users.
      *
-     * @param  \Closure  $callback
+     * @param Closure $callback
      *
      * @return static
      */
@@ -51,7 +53,7 @@ class Totem
      *
      * @return array
      */
-    public static function frequencies()
+    public static function frequencies(): array
     {
         return config('totem.frequencies');
     }
@@ -59,9 +61,9 @@ class Totem
     /**
      * Return collection of Artisan commands filtered if needed.
      *
-     * @return \Illuminate\Support\Collection
+     * @return Collection
      */
-    public static function getCommands()
+    public static function getCommands(): Collection
     {
         $command_filter = config('totem.artisan.command_filter');
         $whitelist = config('totem.artisan.whitelist', true);

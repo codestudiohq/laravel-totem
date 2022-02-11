@@ -2,7 +2,6 @@
 
 namespace Studio\Totem\Events;
 
-use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\PrivateChannel;
 use Studio\Totem\Task;
 
@@ -11,7 +10,7 @@ class Updating extends BroadcastingEvent
     /**
      * @var array
      */
-    private $input;
+    private array $input;
 
     /**
      * Create a new event instance.
@@ -28,9 +27,9 @@ class Updating extends BroadcastingEvent
     /**
      * Get the channels the event should broadcast on.
      *
-     * @return Channel|array
+     * @return PrivateChannel
      */
-    public function broadcastOn()
+    public function broadcastOn(): PrivateChannel
     {
         return new PrivateChannel('channel-name');
     }

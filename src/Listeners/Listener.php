@@ -11,12 +11,12 @@ class Listener implements ShouldQueue
     /**
      * @var TaskInterface.
      */
-    protected $tasks;
+    protected TaskInterface $tasks;
 
     /**
      * @var Container
      */
-    protected $app;
+    protected Container $app;
 
     /**
      * Create the event listener.

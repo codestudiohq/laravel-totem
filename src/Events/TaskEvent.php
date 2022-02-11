@@ -13,7 +13,7 @@ class TaskEvent extends Event
     /**
      * @var Task
      */
-    public $task;
+    public Task $task;
 
     /**
      * Constructor.

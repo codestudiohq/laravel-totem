@@ -5,7 +5,9 @@ namespace Studio\Totem;
 use Carbon\Carbon;
 use Cron\CronExpression;
 use Database\Factories\TotemTaskFactory;
+use Exception;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 use Studio\Totem\Traits\FrontendSortable;
@@ -56,7 +58,7 @@ class Task extends TotemModel
      *
      * @return bool
      */
-    public function getActivatedAttribute()
+    public function getActivatedAttribute(): bool
     {
         return $this->is_active;
     }
@@ -65,8 +67,9 @@ class Task extends TotemModel
      * Upcoming Accessor.
      *
      * @return string
+     * @throws Exception
      */
-    public function getUpcomingAttribute()
+    public function getUpcomingAttribute(): string
     {
         return CronExpression::factory($this->getCronExpression())->getNextRunDate()->format('Y-m-d H:i:s');
     }
@@ -78,7 +81,7 @@ class Task extends TotemModel
      *
      * @return array
      */
-    public function compileParameters($console = false)
+    public function compileParameters(bool $console = false): array
     {
         if ($this->parameters) {
             $regex = '/(?=\S)[^\'"\s]*(?:\'[^\']*\'[^\'"\s]*|"[^"]*"[^\'"\s]*)*/';
@@ -131,9 +134,9 @@ class Task extends TotemModel
     /**
      * Results Relation.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
-    public function results()
+    public function results(): HasMany
     {
         return $this->hasMany(Result::class, 'task_id', 'id');
     }
@@ -141,9 +144,9 @@ class Task extends TotemModel
     /**
      * Returns the most recent result entry for this task.
      *
-     * @return Model|null
+     * @return Result|null
      */
-    public function getLastResultAttribute()
+    public function getLastResultAttribute(): Result|null
     {
         return $this->results()->orderBy('id', 'desc')->first();
     }
@@ -151,7 +154,7 @@ class Task extends TotemModel
     /**
      * @return float
      */
-    public function getAverageRuntimeAttribute()
+    public function getAverageRuntimeAttribute(): float
     {
         return $this->results()->avg('duration') ?? 0.00;
     }
@@ -161,7 +164,7 @@ class Task extends TotemModel
      *
      * @return string
      */
-    public function routeNotificationForMail()
+    public function routeNotificationForMail(): string
     {
         return $this->notification_email_address;
     }
@@ -171,7 +174,7 @@ class Task extends TotemModel
      *
      * @return string
      */
-    public function routeNotificationForNexmo()
+    public function routeNotificationForNexmo(): string
     {
         return $this->notification_phone_number;
     }
@@ -181,7 +184,7 @@ class Task extends TotemModel
      *
      * @return string
      */
-    public function routeNotificationForSlack()
+    public function routeNotificationForSlack(): string
     {
         return $this->notification_slack_webhook;
     }
@@ -212,9 +215,9 @@ class Task extends TotemModel
     /**
      * Create a new factory instance for the model.
      *
-     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     * @return TotemTaskFactory
      */
-    protected static function newFactory()
+    protected static function newFactory(): TotemTaskFactory
     {
         return TotemTaskFactory::new();
     }
