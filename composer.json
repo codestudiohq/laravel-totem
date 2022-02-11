@@ -16,7 +16,7 @@
     }
   ],
   "require": {
-    "php": ">=7.3",
+    "php": "^8.0.0|^8.1.0",
     "ext-json": "*",
     "doctrine/dbal": "^3.1",
     "illuminate/bus": "^8.11",
