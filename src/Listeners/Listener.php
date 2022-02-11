@@ -21,8 +21,8 @@ class Listener implements ShouldQueue
     /**
      * Create the event listener.
      *
-     * @param Container $app
-     * @param TaskInterface $tasks
+     * @param  Container  $app
+     * @param  TaskInterface  $tasks
      */
     public function __construct(Container $app, TaskInterface $tasks)
     {

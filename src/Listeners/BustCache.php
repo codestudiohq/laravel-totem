@@ -9,7 +9,7 @@ class BustCache extends Listener
     /**
      * Handle the event.
      *
-     * @param Event $event
+     * @param  Event  $event
      */
     public function handle(Event $event)
     {
@@ -19,7 +19,7 @@ class BustCache extends Listener
     /**
      * Clear Cache.
      *
-     * @param Event $event
+     * @param  Event  $event
      */
     protected function clear(Event $event)
     {

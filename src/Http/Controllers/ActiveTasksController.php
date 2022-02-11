@@ -14,7 +14,7 @@ class ActiveTasksController extends Controller
     private TaskInterface $tasks;
 
     /**
-     * @param TaskInterface $tasks
+     * @param  TaskInterface  $tasks
      */
     public function __construct(TaskInterface $tasks)
     {
@@ -26,7 +26,7 @@ class ActiveTasksController extends Controller
     /**
      * Store a newly active task in storage.
      *
-     * @param Request $request
+     * @param  Request  $request
      * @return JsonResponse
      */
     public function store(Request $request): JsonResponse

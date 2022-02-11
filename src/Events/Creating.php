@@ -20,7 +20,7 @@ class Creating implements ShouldBroadcast
     /**
      * Create a new event instance.
      *
-     * @param array $input
+     * @param  array  $input
      */
     public function __construct(array $input)
     {

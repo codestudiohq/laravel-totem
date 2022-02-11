@@ -15,7 +15,7 @@ class BustCacheImmediately
     /**
      * Create the event listener.
      *
-     * @param Container $app
+     * @param  Container  $app
      */
     public function __construct(Container $app)
     {
@@ -25,7 +25,7 @@ class BustCacheImmediately
     /**
      * Handle the event.
      *
-     * @param Event $event
+     * @param  Event  $event
      */
     public function handle(Event $event)
     {
@@ -35,7 +35,7 @@ class BustCacheImmediately
     /**
      * Clear Cache.
      *
-     * @param Event $event
+     * @param  Event  $event
      */
     protected function clear(Event $event)
     {

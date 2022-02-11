@@ -15,7 +15,7 @@ class ImportTasksController extends Controller
 
     /**
      * ImportTasksController constructor.
-     * @param TaskInterface $tasks
+     * @param  TaskInterface  $tasks
      */
     public function __construct(TaskInterface $tasks)
     {
@@ -26,7 +26,9 @@ class ImportTasksController extends Controller
 
     /**
      * Import tasks from a json file.
-     * @param ImportRequest $request
+     *
+     * @param  ImportRequest  $request
+     *
      * @throws FileNotFoundException
      */
     public function index(ImportRequest $request)

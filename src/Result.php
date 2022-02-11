@@ -3,7 +3,6 @@
 namespace Studio\Totem;
 
 use Database\Factories\TotemResultFactory;
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Query\Builder;

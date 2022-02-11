@@ -21,7 +21,7 @@ class TasksController extends Controller
     /**
      * TasksController constructor.
      *
-     * @param TaskInterface $tasks
+     * @param  TaskInterface  $tasks
      */
     public function __construct(TaskInterface $tasks)
     {
@@ -35,7 +35,7 @@ class TasksController extends Controller
      *
      * @return View
      */
-    public function index() : View
+    public function index(): View
     {
         return view('totem::tasks.index', [
             'tasks' => $this->tasks
@@ -89,7 +89,7 @@ class TasksController extends Controller
     /**
      * Display the specified task.
      *
-     * @param Task $task
+     * @param  Task  $task
      * @return Factory|View
      */
     public function view(Task $task)
@@ -102,7 +102,7 @@ class TasksController extends Controller
     /**
      * Show the form for editing the specified task.
      *
-     * @param Task $task
+     * @param  Task  $task
      * @return View
      */
     public function edit(Task $task): View
@@ -122,8 +122,8 @@ class TasksController extends Controller
     /**
      * Update the specified task in storage.
      *
-     * @param TaskRequest $request
-     * @param Task $task
+     * @param  TaskRequest  $request
+     * @param  Task  $task
      * @return RedirectResponse
      */
     public function update(TaskRequest $request, Task $task): RedirectResponse
@@ -138,7 +138,7 @@ class TasksController extends Controller
     /**
      * Remove the specified task from storage.
      *
-     * @param Task $task
+     * @param  Task  $task
      * @return RedirectResponse
      */
     public function destroy(Task $task)

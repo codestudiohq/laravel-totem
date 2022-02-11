@@ -18,13 +18,14 @@ interface TaskInterface
     /**
      * Returns a task by its primary key.
      *
-     * @param int|Task $id
+     * @param  int|Task  $id
      * @return Task
      */
     public function find(Task|int $id): Task;
 
     /**
      * Returns all tasks.
+     *
      * @return Collection
      */
     public function findAll(): Collection;
@@ -40,9 +41,9 @@ interface TaskInterface
      * Creates a new task with the given data.
      *
      * @param  array  $input
-     * @return Task
+     * @return Task|bool
      */
-    public function store(array $input);
+    public function store(array $input): Task|bool;
 
     /**
      * Updates the given task with the given data.
@@ -56,7 +57,7 @@ interface TaskInterface
     /**
      * Deletes the given task.
      *
-     * @param int|Task $id
+     * @param  int|Task  $id
      * @return bool
      */
     public function destroy(Task|int $id): bool;
@@ -64,8 +65,8 @@ interface TaskInterface
     /**
      * Executes the given task.
      *
-     * @param int|Task $id
-     * @return bool
+     * @param  int|Task  $id
+     * @return Task
      */
-    public function execute(Task|int $id): bool;
+    public function execute(Task|int $id): Task;
 }

@@ -14,7 +14,7 @@ class ExportTasksController extends Controller
 
     /**
      * ExportTasksController constructor.
-     * @param TaskInterface $tasks
+     * @param  TaskInterface  $tasks
      */
     public function __construct(TaskInterface $tasks)
     {
@@ -28,7 +28,7 @@ class ExportTasksController extends Controller
      *
      * @return StreamedResponse
      */
-    public function index() : StreamedResponse
+    public function index(): StreamedResponse
     {
         $headers = [
             'Content-Type' => 'text/json',
