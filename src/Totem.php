@@ -23,8 +23,7 @@ class Totem
     /**
      * Determine if the given request can access the Totem dashboard.
      *
-     * @param Request $request
-     *
+     * @param  Request  $request
      * @return bool
      */
     public static function check(Request $request): bool

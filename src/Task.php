@@ -67,6 +67,7 @@ class Task extends TotemModel
      * Upcoming Accessor.
      *
      * @return string
+     *
      * @throws Exception
      */
     public function getUpcomingAttribute(): string
@@ -77,8 +78,7 @@ class Task extends TotemModel
     /**
      * Convert a string of command arguments and options to an array.
      *
-     * @param bool $console if true will convert arguments to non associative array
-     *
+     * @param  bool  $console  if true will convert arguments to non associative array
      * @return array
      */
     public function compileParameters(bool $console = false): array
