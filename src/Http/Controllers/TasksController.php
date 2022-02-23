@@ -45,6 +45,7 @@ class TasksController extends Controller
                 ->when(request('q'), function (Builder $query) {
                     $query->where('description', 'LIKE', '%'.request('q').'%');
                 })
+                ->with('frequencies')
                 ->paginate(20),
         ]);
     }
