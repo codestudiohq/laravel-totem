@@ -18,7 +18,7 @@ class TasksController extends Controller
     /**
      * TasksController constructor.
      *
-     * @param TaskInterface $tasks
+     * @param  TaskInterface  $tasks
      */
     public function __construct(TaskInterface $tasks)
     {
@@ -72,7 +72,7 @@ class TasksController extends Controller
     /**
      * Store a newly created task in storage.
      *
-     * @param TaskRequest $request
+     * @param  TaskRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(TaskRequest $request)
@@ -120,7 +120,7 @@ class TasksController extends Controller
     /**
      * Update the specified task in storage.
      *
-     * @param TaskRequest $request
+     * @param  TaskRequest  $request
      * @param $task
      * @return \Illuminate\Http\RedirectResponse
      */
