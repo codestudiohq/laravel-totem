@@ -43,8 +43,6 @@ class TaskExecutionTest extends TestCase
 
         Event::fake();
 
-        $this->withoutExceptionHandling();
-
         $this->signIn()
             ->get(route('totem.task.execute', $task->id))
             ->assertSuccessful();
