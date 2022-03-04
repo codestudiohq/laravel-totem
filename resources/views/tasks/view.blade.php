@@ -55,7 +55,7 @@
         </li>
         <li>
             <span class="uk-text-muted uk-float-right">Average Run Time</span>
-            <span class="uk-float-left">{{$task->results->count() > 0 ? number_format(  $task->results->sum('duration') / (1000 * $task->results->count()) , 2) : '0'}} seconds</span>
+            <span class="uk-float-left">{{$task->results()->count() > 0 ? number_format(  $task->results()->sum('duration') / (1000 * $task->results()->count()) , 2) : '0'}} seconds</span>
         </li>
         <li>
             <span class="uk-text-muted uk-float-right">Next Run Schedule</span>
