@@ -198,17 +198,22 @@ class Task extends TotemModel
                     ->limit($this->auto_cleanup_num)
                     ->get()
                     ->min('id');
-                self::results()
-                    ->where('id', '<', $oldest_id)
-                    ->chunkById(500, function ($results) {
-                        $results->each->delete();
-                    });
+                
+                do {
+                    $rowsDeleted = self::results()
+                        ->where('id', '<', $oldest_id)
+                        ->limit(500)
+                        ->getQuery()
+                        ->delete();
+                } while ($rowsDeleted > 0); 
             } else {
-                self::results()
-                    ->where('ran_at', '<', Carbon::now()->subDays($this->auto_cleanup_num - 1))
-                    ->chunkById(500, function ($results) {
-                        $results->each->delete();
-                    });
+                do {
+                    $rowsDeleted = self::results()
+                        ->where('ran_at', '<', Carbon::now()->subDays($this->auto_cleanup_num - 1))
+                        ->limit(500)
+                        ->getQuery()
+                        ->delete();
+                } while ($rowsDeleted > 0);
             }
         }
     }
