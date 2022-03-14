@@ -201,13 +201,13 @@ class Task extends TotemModel
                 self::results()
                     ->where('id', '<', $oldest_id)
                     ->chunkById(500, function ($results) {
-                        $results->delete();
+                        $results->each->delete();
                     });
             } else {
                 self::results()
                     ->where('ran_at', '<', Carbon::now()->subDays($this->auto_cleanup_num - 1))
                     ->chunkById(500, function ($results) {
-                        $results->delete();
+                        $results->each->delete();
                     });
             }
         }
