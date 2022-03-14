@@ -74,7 +74,7 @@ class Task extends TotemModel
     /**
      * Convert a string of command arguments and options to an array.
      *
-     * @param bool $console if true will convert arguments to non associative array
+     * @param  bool  $console  if true will convert arguments to non associative array
      * @return array
      */
     public function compileParameters($console = false)
