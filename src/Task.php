@@ -75,7 +75,6 @@ class Task extends TotemModel
      * Convert a string of command arguments and options to an array.
      *
      * @param bool $console if true will convert arguments to non associative array
-     *
      * @return array
      */
     public function compileParameters($console = false)
@@ -198,14 +197,13 @@ class Task extends TotemModel
                     ->limit($this->auto_cleanup_num)
                     ->get()
                     ->min('id');
-                
                 do {
                     $rowsDeleted = self::results()
                         ->where('id', '<', $oldest_id)
                         ->limit(500)
                         ->getQuery()
                         ->delete();
-                } while ($rowsDeleted > 0); 
+                } while ($rowsDeleted > 0);
             } else {
                 do {
                     $rowsDeleted = self::results()
