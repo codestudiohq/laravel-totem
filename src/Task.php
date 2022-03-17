@@ -208,7 +208,6 @@ class Task extends TotemModel
                     Result::query()
                         ->whereIn('id', $rowsToDelete)
                         ->delete();
-
                 } while ($rowsToDelete > 0);
             } else {
                 do {
@@ -222,7 +221,6 @@ class Task extends TotemModel
                     Result::query()
                         ->whereIn('id', $rowsToDelete)
                         ->delete();
-
                 } while ($rowsToDelete > 0);
             }
         }
