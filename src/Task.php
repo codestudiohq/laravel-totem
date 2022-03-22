@@ -192,26 +192,36 @@ class Task extends TotemModel
     {
         if ($this->auto_cleanup_num > 0) {
             if ($this->auto_cleanup_type === 'results') {
-                $oldest_id = self::results()
+                $oldest_id = $this->results()
                     ->orderBy('ran_at', 'desc')
                     ->limit($this->auto_cleanup_num)
                     ->get()
                     ->min('id');
                 do {
-                    $rowsDeleted = self::results()
+                    $rowsToDelete = $this->results()
                         ->where('id', '<', $oldest_id)
-                        ->limit(500)
+                        ->limit(50)
                         ->getQuery()
+                        ->select('id')
+                        ->pluck('id');
+
+                    Result::query()
+                        ->whereIn('id', $rowsToDelete)
                         ->delete();
-                } while ($rowsDeleted > 0);
+                } while ($rowsToDelete > 0);
             } else {
                 do {
-                    $rowsDeleted = self::results()
+                    $rowsToDelete = $this->results()
                         ->where('ran_at', '<', Carbon::now()->subDays($this->auto_cleanup_num - 1))
-                        ->limit(500)
+                        ->limit(50)
                         ->getQuery()
+                        ->select('id')
+                        ->pluck('id');
+
+                    Result::query()
+                        ->whereIn('id', $rowsToDelete)
                         ->delete();
-                } while ($rowsDeleted > 0);
+                } while ($rowsToDelete > 0);
             }
         }
     }
