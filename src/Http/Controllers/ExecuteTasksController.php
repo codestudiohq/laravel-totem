@@ -13,7 +13,7 @@ class ExecuteTasksController extends Controller
     private $tasks;
 
     /**
-     * @param TaskInterface $tasks
+     * @param  TaskInterface  $tasks
      */
     public function __construct(TaskInterface $tasks)
     {

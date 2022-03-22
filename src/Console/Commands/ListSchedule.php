@@ -32,7 +32,7 @@ class ListSchedule extends Command
     /**
      * Create a new command instance.
      *
-     * @param Schedule $schedule
+     * @param  Schedule  $schedule
      * @return void
      */
     public function __construct(Schedule $schedule)
