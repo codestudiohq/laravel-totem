@@ -48,6 +48,7 @@ class TasksController extends Controller
                 ->when(request('q'), function (Builder $query) {
                     $query->where('description', 'LIKE', '%'.request('q').'%');
                 })
+                ->with('frequencies')
                 ->paginate(20),
         ]);
     }
@@ -74,7 +75,7 @@ class TasksController extends Controller
     /**
      * Store a newly created task in storage.
      *
-     * @param TaskRequest $request
+     * @param  TaskRequest  $request
      * @return RedirectResponse
      */
     public function store(TaskRequest $request): RedirectResponse
@@ -123,7 +124,7 @@ class TasksController extends Controller
      * Update the specified task in storage.
      *
      * @param  TaskRequest  $request
-     * @param  Task  $task
+     * @param $task
      * @return RedirectResponse
      */
     public function update(TaskRequest $request, Task $task): RedirectResponse
