@@ -19,7 +19,7 @@ class BuildCache extends Listener
     /**
      * Rebuild Cache.
      *
-     * @param Event $event
+     * @param  Event  $event
      */
     protected function build(Event $event)
     {

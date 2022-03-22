@@ -44,7 +44,7 @@ class EloquentTaskRepository implements TaskInterface
     /**
      * Find a task by id.
      *
-     * @param int|Task $id
+     * @param  int|Task  $id
      * @return int|Task
      */
     public function find($id)
@@ -87,7 +87,7 @@ class EloquentTaskRepository implements TaskInterface
     /**
      * Create a new task.
      *
-     * @param array $input
+     * @param  array  $input
      * @return bool|Task
      */
     public function store(array $input)
@@ -108,8 +108,8 @@ class EloquentTaskRepository implements TaskInterface
     /**
      * Update the given task.
      *
-     * @param array $input
-     * @param Task $task
+     * @param  array  $input
+     * @param  Task  $task
      * @return bool|int|Task
      */
     public function update(array $input, $task)
@@ -130,7 +130,7 @@ class EloquentTaskRepository implements TaskInterface
     /**
      * Delete the given task.
      *
-     * @param int|Task $id
+     * @param  int|Task  $id
      * @return bool
      */
     public function destroy($id)
