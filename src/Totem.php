@@ -22,7 +22,6 @@ class Totem
      * Determine if the given request can access the Totem dashboard.
      *
      * @param  \Illuminate\Http\Request  $request
-     *
      * @return bool
      */
     public static function check($request)

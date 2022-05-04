@@ -19,7 +19,7 @@ class BustCache extends Listener
     /**
      * Clear Cache.
      *
-     * @param Event $event
+     * @param  Event  $event
      */
     protected function clear(Event $event)
     {

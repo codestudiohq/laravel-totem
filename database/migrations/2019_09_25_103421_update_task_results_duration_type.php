@@ -28,7 +28,7 @@ class UpdateTaskResultsDurationType extends TotemMigration
     }
 
     /**
-     * @param bool $toFloat
+     * @param  bool  $toFloat
      */
     private function migrateDurationValues(bool $toFloat = true)
     {

@@ -51,7 +51,7 @@ class ImportRequest extends FormRequest
      *
      * @param  array|mixed  $keys
      * @return array
-     * 
+     *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function all($keys = null)

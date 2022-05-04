@@ -21,12 +21,14 @@ interface TaskInterface
 
     /**
      * Returns all tasks.
+     *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function findAll();
 
     /**
      * Returns all active tasks.
+     *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function findAllActive();
@@ -34,7 +36,7 @@ interface TaskInterface
     /**
      * Creates a new task with the given data.
      *
-     * @param  array $input
+     * @param  array  $input
      * @return \Studio\Totem\Task
      */
     public function store(array $input);
@@ -42,7 +44,7 @@ interface TaskInterface
     /**
      * Updates the given task with the given data.
      *
-     * @param  array $input
+     * @param  array  $input
      * @param  \Studio\Totem\Task  $task
      * @return \Studio\Totem\Task
      */

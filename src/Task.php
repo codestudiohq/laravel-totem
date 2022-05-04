@@ -74,8 +74,7 @@ class Task extends TotemModel
     /**
      * Convert a string of command arguments and options to an array.
      *
-     * @param bool $console if true will convert arguments to non associative array
-     *
+     * @param  bool  $console  if true will convert arguments to non associative array
      * @return array
      */
     public function compileParameters($console = false)
@@ -193,18 +192,36 @@ class Task extends TotemModel
     {
         if ($this->auto_cleanup_num > 0) {
             if ($this->auto_cleanup_type === 'results') {
-                $oldest_id = self::results()
+                $oldest_id = $this->results()
                     ->orderBy('ran_at', 'desc')
                     ->limit($this->auto_cleanup_num)
                     ->get()
                     ->min('id');
-                self::results()
-                    ->where('id', '<', $oldest_id)
-                    ->delete();
+                do {
+                    $rowsToDelete = $this->results()
+                        ->where('id', '<', $oldest_id)
+                        ->limit(50)
+                        ->getQuery()
+                        ->select('id')
+                        ->pluck('id');
+
+                    Result::query()
+                        ->whereIn('id', $rowsToDelete)
+                        ->delete();
+                } while ($rowsToDelete->count() > 0);
             } else {
-                self::results()
-                    ->where('ran_at', '<', Carbon::now()->subDays($this->auto_cleanup_num - 1))
-                    ->delete();
+                do {
+                    $rowsToDelete = $this->results()
+                        ->where('ran_at', '<', Carbon::now()->subDays($this->auto_cleanup_num - 1))
+                        ->limit(50)
+                        ->getQuery()
+                        ->select('id')
+                        ->pluck('id');
+
+                    Result::query()
+                        ->whereIn('id', $rowsToDelete)
+                        ->delete();
+                } while ($rowsToDelete->count() > 0);
             }
         }
     }
