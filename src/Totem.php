@@ -35,7 +35,7 @@ class Totem
     /**
      * Set the callback that should be used to authenticate Totem users.
      *
-     * @param  \Closure  $callback
+     * @param  Closure  $callback
      *
      * @return static
      */
