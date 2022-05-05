@@ -51,7 +51,7 @@ class ImportRequest extends FormRequest
      *
      * @param  array|mixed  $keys
      * @return array
-     * 
+     *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function all($keys = null)
@@ -69,7 +69,7 @@ class ImportRequest extends FormRequest
      * Get the validated data from the request.
      *
      * @return array
-     * 
+     *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function validated($key = null, $default = null)
