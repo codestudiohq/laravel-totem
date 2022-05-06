@@ -48,7 +48,7 @@ class EloquentTaskRepository implements TaskInterface
      * @param  int|Task  $id
      * @return Task
      */
-    public function find(Task|int $id): Task
+    public function find(Task|int $id)
     {
         if ($id instanceof Task) {
             return $id;
