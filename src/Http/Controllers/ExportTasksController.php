@@ -14,6 +14,7 @@ class ExportTasksController extends Controller
 
     /**
      * ExportTasksController constructor.
+     *
      * @param  TaskInterface  $tasks
      */
     public function __construct(TaskInterface $tasks)

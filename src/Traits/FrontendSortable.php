@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Builder;
 trait FrontendSortable
 {
     /**
-     * @param Builder $builder
-     * @param array                                 $sortableColumns
-     * @param array                                 $defaultSort
+     * @param  Builder  $builder
+     * @param  array  $sortableColumns
+     * @param  array  $defaultSort                            $defaultSort
      *
      * @return Builder
      */
