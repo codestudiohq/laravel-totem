@@ -122,7 +122,7 @@ trait HasFrequencies
     /**
      * Determine if the filters pass for the event.
      *
-     * @param Application $app
+     * @param  Application  $app
      * @return bool
      */
     public function filtersPass(Application $app): bool
@@ -145,7 +145,7 @@ trait HasFrequencies
     /**
      * Register a callback to further filter the schedule.
      *
-     * @param Closure $callback
+     * @param  Closure  $callback
      * @return $this
      */
     public function when(Closure $callback): static

@@ -74,7 +74,7 @@ class TasksController extends Controller
     /**
      * Store a newly created task in storage.
      *
-     * @param TaskRequest $request
+     * @param  TaskRequest  $request
      * @return RedirectResponse
      */
     public function store(TaskRequest $request): RedirectResponse
