@@ -9,7 +9,7 @@ trait FrontendSortable
     /**
      * @param  Builder  $builder
      * @param  array  $sortableColumns
-     * @param  array  $defaultSort                            $defaultSort
+     * @param  array  $defaultSort
      *
      * @return Builder
      */
