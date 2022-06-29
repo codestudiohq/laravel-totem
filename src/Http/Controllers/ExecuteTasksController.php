@@ -10,13 +10,15 @@ class ExecuteTasksController extends Controller
     /**
      * @var TaskInterface
      */
-    private $tasks;
+    private TaskInterface $tasks;
 
     /**
      * @param  TaskInterface  $tasks
      */
     public function __construct(TaskInterface $tasks)
     {
+        parent::__construct();
+
         $this->tasks = $tasks;
     }
 

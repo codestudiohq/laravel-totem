@@ -2,6 +2,8 @@
 
 namespace Studio\Totem\Traits;
 
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Arr;
 use Studio\Totem\Parameter;
 
@@ -21,6 +23,9 @@ trait HasParameters
         });
     }
 
+    /**
+     * @throws FileNotFoundException
+     */
     public function afterSave()
     {
         $data = $this->processData();
@@ -42,9 +47,9 @@ trait HasParameters
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
-    public function parameters()
+    public function parameters(): HasMany
     {
         return $this->hasMany(Parameter::class);
     }
@@ -53,9 +58,9 @@ trait HasParameters
      * Process input data. If its an import action we must find out if the imported json has frequencies or not and
      * prepare data accordingly.
      *
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws FileNotFoundException
      */
-    private function processData()
+    private function processData(): array
     {
         $data = request()->all();
 

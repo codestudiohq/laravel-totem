@@ -2,7 +2,6 @@
 
 namespace Studio\Totem\Events;
 
-use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
@@ -16,7 +15,7 @@ class Creating implements ShouldBroadcast
     /**
      * @var array
      */
-    private $input;
+    private array $input;
 
     /**
      * Create a new event instance.
@@ -31,9 +30,9 @@ class Creating implements ShouldBroadcast
     /**
      * Get the channels the event should broadcast on.
      *
-     * @return Channel|array
+     * @return PrivateChannel
      */
-    public function broadcastOn()
+    public function broadcastOn(): PrivateChannel
     {
         return new PrivateChannel('channel-name');
     }

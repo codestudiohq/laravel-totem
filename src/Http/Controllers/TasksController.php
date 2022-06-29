@@ -2,7 +2,10 @@
 
 namespace Studio\Totem\Http\Controllers;
 
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 use Studio\Totem\Contracts\TaskInterface;
 use Studio\Totem\Http\Requests\TaskRequest;
 use Studio\Totem\Task;
@@ -13,7 +16,7 @@ class TasksController extends Controller
     /**
      * @var TaskInterface
      */
-    private $tasks;
+    private TaskInterface $tasks;
 
     /**
      * TasksController constructor.
@@ -30,9 +33,9 @@ class TasksController extends Controller
     /**
      * Display a listing of the tasks.
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return View
      */
-    public function index()
+    public function index(): View
     {
         return view('totem::tasks.index', [
             'tasks' => $this->tasks
@@ -53,9 +56,9 @@ class TasksController extends Controller
     /**
      * Show the form for creating a new task.
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return View
      */
-    public function create()
+    public function create(): View
     {
         $commands = Totem::getCommands()->map(function ($command) {
             return ['name' => $command->getName(), 'description' => $command->getDescription()];
@@ -73,9 +76,9 @@ class TasksController extends Controller
      * Store a newly created task in storage.
      *
      * @param  TaskRequest  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
-    public function store(TaskRequest $request)
+    public function store(TaskRequest $request): RedirectResponse
     {
         $this->tasks->store($request->all());
 
@@ -87,8 +90,8 @@ class TasksController extends Controller
     /**
      * Display the specified task.
      *
-     * @param $task
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @param  Task  $task
+     * @return Factory|View
      */
     public function view(Task $task)
     {
@@ -100,10 +103,10 @@ class TasksController extends Controller
     /**
      * Show the form for editing the specified task.
      *
-     * @param $task
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @param  Task  $task
+     * @return View
      */
-    public function edit(Task $task)
+    public function edit(Task $task): View
     {
         $commands = Totem::getCommands()->map(function ($command) {
             return ['name' => $command->getName(), 'description' => $command->getDescription()];
@@ -122,9 +125,9 @@ class TasksController extends Controller
      *
      * @param  TaskRequest  $request
      * @param $task
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
-    public function update(TaskRequest $request, Task $task)
+    public function update(TaskRequest $request, Task $task): RedirectResponse
     {
         $task = $this->tasks->update($request->all(), $task);
 
@@ -136,8 +139,8 @@ class TasksController extends Controller
     /**
      * Remove the specified task from storage.
      *
-     * @param $task
-     * @return \Illuminate\Http\RedirectResponse
+     * @param  Task  $task
+     * @return RedirectResponse
      */
     public function destroy(Task $task)
     {

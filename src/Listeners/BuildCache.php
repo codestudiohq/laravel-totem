@@ -9,7 +9,7 @@ class BuildCache extends Listener
     /**
      * Handle the event.
      *
-     * @param  \Studio\Totem\Events\Event  $event
+     * @param  Event  $event
      */
     public function handle(Event $event)
     {

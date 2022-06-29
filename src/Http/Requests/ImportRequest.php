@@ -72,7 +72,7 @@ class ImportRequest extends FormRequest
      *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
-    public function validated()
+    public function validated($key = null, $default = null)
     {
         $content = '';
 

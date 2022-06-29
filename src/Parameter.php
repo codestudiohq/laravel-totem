@@ -2,6 +2,8 @@
 
 namespace Studio\Totem;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 class Parameter extends TotemModel
 {
     protected $table = 'frequency_parameters';
@@ -12,7 +14,7 @@ class Parameter extends TotemModel
         'value',
     ];
 
-    public function task()
+    public function task(): BelongsTo
     {
         return $this->belongsTo(Frequency::class);
     }

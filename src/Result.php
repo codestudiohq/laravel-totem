@@ -4,6 +4,7 @@ namespace Studio\Totem;
 
 use Database\Factories\TotemResultFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 
@@ -18,11 +19,11 @@ class Result extends TotemModel
         'result',
     ];
 
-    protected $dates = [
-        'ran_at',
+    protected $casts = [
+        'ran_at' => 'datetime',
     ];
 
-    public function task()
+    public function task(): BelongsTo
     {
         return $this->belongsTo(Task::class);
     }
@@ -50,11 +51,9 @@ class Result extends TotemModel
     }
 
     /**
-     * Create a new factory instance for the model.
-     *
-     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     * @return TotemResultFactory
      */
-    protected static function newFactory()
+    protected static function newFactory(): TotemResultFactory
     {
         return TotemResultFactory::new();
     }
