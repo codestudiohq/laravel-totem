@@ -60,7 +60,7 @@ class Task extends TotemModel
      */
     public function getActivatedAttribute(): bool
     {
-        return $this->is_active;
+        return $this->is_active ?? true;
     }
 
     /**
