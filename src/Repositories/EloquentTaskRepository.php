@@ -46,7 +46,7 @@ class EloquentTaskRepository implements TaskInterface
      * Find a task by id.
      *
      * @param  int|Task  $id
-     * @return Task
+     * @return Task|null
      */
     public function find(Task|int $id)
     {

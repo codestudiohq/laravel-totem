@@ -212,7 +212,7 @@ class Task extends TotemModel
                     Result::query()
                         ->whereIn('id', $rowsToDelete)
                         ->delete();
-                } while ($rowsToDelete > 0);
+                } while ($rowsToDelete->count() > 0);
             } else {
                 do {
                     $rowsToDelete = $this->results()
@@ -225,7 +225,7 @@ class Task extends TotemModel
                     Result::query()
                         ->whereIn('id', $rowsToDelete)
                         ->delete();
-                } while ($rowsToDelete > 0);
+                } while ($rowsToDelete->count() > 0);
             }
         }
     }
