@@ -15,6 +15,7 @@ class ImportTasksController extends Controller
 
     /**
      * ImportTasksController constructor.
+     *
      * @param  TaskInterface  $tasks
      */
     public function __construct(TaskInterface $tasks)

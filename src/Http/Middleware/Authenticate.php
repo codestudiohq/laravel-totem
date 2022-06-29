@@ -16,7 +16,7 @@ class Authenticate
      * @param  Closure  $next
      * @return Response
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle($request, $next)
     {
         return Totem::check($request) ? $next($request) : abort(403);
     }
