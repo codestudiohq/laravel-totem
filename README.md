@@ -61,6 +61,10 @@ php artisan totem:assets
 
 Totems' tables use generic names which may conflict with existing tables in a project. To alleviate this the `.env` param `TOTEM_TABLE_PREFIX` can be set which will apply a prefix to all of Totems tables and their models.
 
+##### Environments
+
+By default, totem will set all scheduled tasks to run in the 'production' environment. This could be an issue if you have the artisan scheduler running on multiple servers with different environments. If you wish to override and specify which environments totem scheduled tasks run in you can add them to the .env param `TOTEM_ENVIRONMENTS`. This parameter accepts a comma separated list e.g. `production,staging`.
+
 #### Updating
 
 Please republish totem assets after updating totem to a new version

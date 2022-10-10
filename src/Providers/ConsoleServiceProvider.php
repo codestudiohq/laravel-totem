@@ -34,7 +34,9 @@ class ConsoleServiceProvider extends ServiceProvider
         $tasks = app('totem.tasks')->findAllActive();
 
         $tasks->each(function ($task) use ($schedule) {
-            $event = $schedule->command($task->command, $task->compileParameters(true));
+            $event = $schedule
+                ->command($task->command, $task->compileParameters(true))
+                ->environments(config('totem.environments'));
 
             $event->cron($task->getCronExpression())
                 ->name($task->description)

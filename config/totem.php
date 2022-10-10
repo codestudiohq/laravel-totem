@@ -229,7 +229,7 @@ return [
         'whitelist' => true,
     ],
     'database_connection' => env('TOTEM_DATABASE_CONNECTION'),
-
+    'environments' => implode(',', env('TOTEM_ENVIRONMENTS', 'production')),
     'broadcasting' => [
         'enabled' => env('TOTEM_BROADCASTING_ENABLED', true),
         'channel' => env('TOTEM_BROADCASTING_CHANNEL', 'task.events'),
