@@ -38,6 +38,7 @@ class ConsoleServiceProvider extends ServiceProvider
                 ->command($task->command, $task->compileParameters(true))
                 ->environments(config('totem.environments'));
 
+
             $event->cron($task->getCronExpression())
                 ->name($task->description)
                 ->timezone($task->timezone)
@@ -59,6 +60,9 @@ class ConsoleServiceProvider extends ServiceProvider
             }
             if ($task->run_in_background) {
                 $event->runInBackground();
+            }
+            if($task->ping_on_success_url && strstr($task->ping_on_success_url, 'http')) {
+                $event->pingOnSuccess($task->ping_on_success_url);
             }
         });
     }

@@ -61,6 +61,10 @@
             <span class="uk-text-muted uk-float-right">Next Run Schedule</span>
             <span class="uk-float-left">{{$task->upcoming }}</span>
         </li>
+        <li>
+            <span class="uk-text-muted uk-float-right">Ping On Success URL</span>
+            <span class="uk-float-left">{{$task->ping_on_success_url }}</span>
+        </li>
         @if($task->dont_overlap)
             <li>
                 <span class="uk-float-left">Doesn't Overlap with another instance of this task</span>
@@ -81,6 +85,7 @@
                 <span class="uk-float-left">Runs in the background</span>
             </li>
         @endif
+
     </ul>
 @stop
 @section('main-panel-footer')

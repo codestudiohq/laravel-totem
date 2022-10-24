@@ -182,6 +182,18 @@
             @endif
         </div>
     </div>
+    <div class="uk-grid">
+        <div class="uk-width-1-1@s uk-width-1-3@m">
+            <label class="uk-form-label">Ping on Success (optional)</label>
+            <div class="uk-text-meta">Add a web hook url to be fired on successful execution of the task. Leave empty if you do not wish to configure this.</div>
+        </div>
+        <div class="uk-width-1-1@s uk-width-2-3@m">
+            <input type="text" id="ping_on_success_url" name="ping_on_success_url" value="{{old('ping_on_success_url', $task->ping_on_success_url)}}" class="uk-input" placeholder="e.g. https://ping.ohdear.app/XXXXXXXXXX">
+            @if($errors->has('ping_on_success_url'))
+                <p class="uk-text-danger">{{$errors->first('ping_on_success_url')}}</p>
+            @endif
+        </div>
+    </div>
     <hr class="uk-divider-icon">
     <div class="uk-grid">
         <div class="uk-width-1-1@s uk-width-1-3@m">
