@@ -32,9 +32,9 @@ class User extends Authenticatable
     /**
      * Create a new factory instance for the model.
      *
-     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     * @return TotemUserFactory
      */
-    protected static function newFactory()
+    protected static function newFactory(): TotemUserFactory
     {
         return TotemUserFactory::new();
     }

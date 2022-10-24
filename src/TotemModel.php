@@ -10,9 +10,9 @@ class TotemModel extends Model
     protected $connection = TOTEM_DATABASE_CONNECTION;
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getTable()
+    public function getTable(): string
     {
         if (Str::contains(parent::getTable(), TOTEM_TABLE_PREFIX)) {
             return parent::getTable();

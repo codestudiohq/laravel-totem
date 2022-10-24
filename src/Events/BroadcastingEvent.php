@@ -13,9 +13,9 @@ class BroadcastingEvent extends TaskEvent implements ShouldBroadcast
     /**
      * Get the channels the event should broadcast on.
      *
-     * @return \Illuminate\Broadcasting\Channel|\Illuminate\Broadcasting\Channel[]|PrivateChannel
+     * @return PrivateChannel
      */
-    public function broadcastOn()
+    public function broadcastOn(): PrivateChannel
     {
         return new PrivateChannel(config('totem.broadcasting.channel'));
     }
@@ -25,7 +25,7 @@ class BroadcastingEvent extends TaskEvent implements ShouldBroadcast
      *
      * @return bool
      */
-    public function broadcastWhen()
+    public function broadcastWhen(): bool
     {
         return config('totem.broadcasting.enabled');
     }

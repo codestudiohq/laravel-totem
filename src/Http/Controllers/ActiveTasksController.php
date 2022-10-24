@@ -2,6 +2,7 @@
 
 namespace Studio\Totem\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Studio\Totem\Contracts\TaskInterface;
 
@@ -10,7 +11,7 @@ class ActiveTasksController extends Controller
     /**
      * @var TaskInterface
      */
-    private $tasks;
+    private TaskInterface $tasks;
 
     /**
      * @param  TaskInterface  $tasks
@@ -25,10 +26,10 @@ class ActiveTasksController extends Controller
     /**
      * Store a newly active task in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @return JsonResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
         $task = $this->tasks->activate($request->all());
 
@@ -39,9 +40,9 @@ class ActiveTasksController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return JsonResponse
      */
-    public function destroy($id)
+    public function destroy(int $id): JsonResponse
     {
         $task = $this->tasks->deactivate($id);
 

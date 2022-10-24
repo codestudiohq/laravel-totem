@@ -10,7 +10,7 @@ class BustCacheImmediately
     /**
      * @var Container
      */
-    protected $app;
+    protected Container $app;
 
     /**
      * Create the event listener.
@@ -25,7 +25,7 @@ class BustCacheImmediately
     /**
      * Handle the event.
      *
-     * @param  \Studio\Totem\Events\Event  $event
+     * @param  Event  $event
      */
     public function handle(Event $event)
     {

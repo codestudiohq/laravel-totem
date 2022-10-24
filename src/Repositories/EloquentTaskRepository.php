@@ -3,6 +3,7 @@
 namespace Studio\Totem\Repositories;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Cache;
@@ -24,7 +25,7 @@ class EloquentTaskRepository implements TaskInterface
     /**
      * Return task eloquent builder.
      *
-     * @return Task
+     * @return Builder
      */
     public function builder(): Builder
     {
@@ -45,9 +46,9 @@ class EloquentTaskRepository implements TaskInterface
      * Find a task by id.
      *
      * @param  int|Task  $id
-     * @return int|Task
+     * @return Task|null
      */
-    public function find($id)
+    public function find(Task|int $id)
     {
         if ($id instanceof Task) {
             return $id;
@@ -61,9 +62,9 @@ class EloquentTaskRepository implements TaskInterface
     /**
      * Find all tasks.
      *
-     * @return mixed
+     * @return Collection
      */
-    public function findAll()
+    public function findAll(): Collection
     {
         return Cache::rememberForever('totem.tasks.all', function () {
             return Task::query()->with('frequencies')->get();
@@ -73,9 +74,9 @@ class EloquentTaskRepository implements TaskInterface
     /**
      * Find all active tasks.
      *
-     * @return mixed
+     * @return Collection
      */
-    public function findAllActive()
+    public function findAllActive(): Collection
     {
         return Cache::rememberForever('totem.tasks.active', function () {
             return $this->findAll()->filter(function ($task) {
@@ -90,13 +91,11 @@ class EloquentTaskRepository implements TaskInterface
      * @param  array  $input
      * @return bool|Task
      */
-    public function store(array $input)
+    public function store(array $input): bool|Task
     {
         $task = new Task;
 
-        if (Creating::dispatch($input) === false) {
-            return false;
-        }
+        Creating::dispatch($input);
 
         $task->fill(Arr::only($input, $task->getFillable()))->save();
 
@@ -110,15 +109,13 @@ class EloquentTaskRepository implements TaskInterface
      *
      * @param  array  $input
      * @param  Task  $task
-     * @return bool|int|Task
+     * @return Task
      */
-    public function update(array $input, $task)
+    public function update(array $input, $task): Task
     {
         $task = $this->find($task);
 
-        if (Updating::dispatch($input, $task) === false) {
-            return false;
-        }
+        Updating::dispatch($input, $task);
 
         $task->fill(Arr::only($input, $task->getFillable()))->save();
 
@@ -133,7 +130,7 @@ class EloquentTaskRepository implements TaskInterface
      * @param  int|Task  $id
      * @return bool
      */
-    public function destroy($id)
+    public function destroy(Task|int $id): bool
     {
         $task = $this->find($id);
 
@@ -152,9 +149,9 @@ class EloquentTaskRepository implements TaskInterface
      * Activate the given task.
      *
      * @param $input
-     * @return int|Task
+     * @return Task
      */
-    public function activate($input)
+    public function activate($input): Task
     {
         $task = $this->find($input['task_id']);
 
@@ -166,12 +163,12 @@ class EloquentTaskRepository implements TaskInterface
     }
 
     /**
-     * Deactive the given task.
+     * Deactivate the given task.
      *
      * @param $id
-     * @return int|Task
+     * @return Task
      */
-    public function deactivate($id)
+    public function deactivate($id): Task
     {
         $task = $this->find($id);
 
@@ -185,10 +182,10 @@ class EloquentTaskRepository implements TaskInterface
     /**
      * Execute a given task.
      *
-     * @param $id
-     * @return int|Task
+     * @param  int|Task  $id
+     * @return Task
      */
-    public function execute($id)
+    public function execute(Task|int $id): Task
     {
         $task = $this->find($id);
         $start = microtime(true);
@@ -208,9 +205,9 @@ class EloquentTaskRepository implements TaskInterface
      * Import tasks.
      *
      * @param $input
-     * @return bool|int|Task|void
+     * @return void
      */
-    public function import($input)
+    public function import($input): void
     {
         Cache::forget('totem.tasks.all');
         Cache::forget('totem.tasks.active');

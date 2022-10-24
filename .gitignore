@@ -6,3 +6,4 @@ _ide_helper.php
 .DS_Store
 .idea
 *.sketch
+.phpunit.result.cache

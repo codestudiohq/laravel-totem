@@ -4,6 +4,9 @@ namespace Studio\Totem\Traits;
 
 use Closure;
 use Illuminate\Console\Scheduling\ManagesFrequencies;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Arr;
 use function json_decode;
 use function request;
@@ -19,14 +22,14 @@ trait HasFrequencies
      *
      * @var array
      */
-    protected $filters = [];
+    protected array $filters = [];
 
     /**
      * The array of reject callbacks.
      *
      * @var array
      */
-    protected $rejects = [];
+    protected array $rejects = [];
 
     /**
      * Boot HasFrequencies Trait.
@@ -85,9 +88,9 @@ trait HasFrequencies
     /**
      * Frequencies Relation.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
-    public function frequencies()
+    public function frequencies(): HasMany
     {
         return $this->hasMany(Frequency::class, 'task_id', 'id')->with('parameters');
     }
@@ -97,7 +100,7 @@ trait HasFrequencies
      *
      * @return string
      */
-    public function getCronExpression()
+    public function getCronExpression(): string
     {
         if (! $this->expression) {
             $this->expression = '* * * * *';
@@ -119,10 +122,10 @@ trait HasFrequencies
     /**
      * Determine if the filters pass for the event.
      *
-     * @param  \Illuminate\Contracts\Foundation\Application  $app
+     * @param  Application  $app
      * @return bool
      */
-    public function filtersPass($app)
+    public function filtersPass(Application $app): bool
     {
         foreach ($this->filters as $callback) {
             if (! $app->call($callback)) {
@@ -142,10 +145,10 @@ trait HasFrequencies
     /**
      * Register a callback to further filter the schedule.
      *
-     * @param  \Closure  $callback
+     * @param  Closure  $callback
      * @return $this
      */
-    public function when(Closure $callback)
+    public function when(Closure $callback): static
     {
         $this->filters[] = $callback;
 
@@ -159,7 +162,7 @@ trait HasFrequencies
      * @param  string  $endTime
      * @return $this
      */
-    public function between($startTime, $endTime)
+    public function between($startTime, $endTime): static
     {
         return $this->when($this->inTimeInterval($startTime, $endTime));
     }
@@ -168,9 +171,9 @@ trait HasFrequencies
      * Process input data. If its an import action we must find out if the imported json has frequencies or not and
      * prepare data accordingly.
      *
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws FileNotFoundException
      */
-    private function processData()
+    private function processData(): array
     {
         $data = request()->all();
 

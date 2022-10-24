@@ -4,9 +4,27 @@ on: [push, pull_request]
 
 jobs:
   laravel-tests:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [ ubuntu-latest ]
+        php: [ 8.0, 8.1 ]
+        laravel: [ 9.* ]
+        stability: [ prefer-stable ]
+        include:
+          - laravel: 9.*
+            testbench: ^7.0
+    name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
+
     steps:
     - uses: actions/checkout@v2
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php }}
+        extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
+        coverage: none
     - name: Cache dependencies
       uses: actions/cache@v2
       with:
@@ -14,7 +32,9 @@ jobs:
         key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
         restore-keys: |
           ${{ runner.os }}-composer-
-    - name: Install Dependencies
-      run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+    - name: Install dependencies
+      run: |
+        composer require "laravel/framework:${{ matrix.laravel }}" --no-interaction --no-update
+        composer update --${{ matrix.stability }} --prefer-dist --no-interaction
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       run: vendor/bin/phpunit
