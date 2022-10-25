@@ -18,22 +18,6 @@ class TotemRouteServiceProvider extends RouteServiceProvider
     protected $namespace = 'Studio\Totem\Http\Controllers';
 
     /**
-     * Define your route model bindings, pattern filters, etc.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        parent::boot();
-
-        Route::bind('task', function ($value) {
-            return cache()->rememberForever('totem.task.'.$value, function () use ($value) {
-                return Task::find($value) ?? abort(404);
-            });
-        });
-    }
-
-    /**
      * Define the routes for the application.
      *
      * @return void
