@@ -4,7 +4,6 @@ namespace Studio\Totem\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Route;
-use Studio\Totem\Task;
 
 class TotemRouteServiceProvider extends RouteServiceProvider
 {
