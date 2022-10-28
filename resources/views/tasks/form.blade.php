@@ -249,6 +249,11 @@
 @stop
 @section('main-panel-footer')
     <button class="uk-button uk-button-primary uk-button-small" type="submit">Save</button>
+    @if($task->exists)
+        <a href="{{ route('totem.task.view', $task) }}" class="uk-button uk-button-secondary uk-button-small">Cancel</a>
+    @else
+        <a href="{{ route('totem.tasks.all') }}" class="uk-button uk-button-secondary uk-button-small">Cancel</a>
+    @endif
 @stop
 @section('main-panel-after')
     </form>

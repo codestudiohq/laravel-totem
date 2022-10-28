@@ -92,6 +92,7 @@
                 {{ method_field('delete') }}
                 <button type="submit" class="uk-button uk-button-danger uk-button-small">Delete</button>
             </form>
+            <a href="{{ route('totem.tasks.all') }}" class="uk-button uk-button-secondary uk-button-small">Cancel</a>
         </span>
         <execute-button :data-task="{{ $task }}" url="{{route('totem.task.execute', $task)}}" button-class="uk-button-small uk-button-primary"></execute-button>
     </div>
