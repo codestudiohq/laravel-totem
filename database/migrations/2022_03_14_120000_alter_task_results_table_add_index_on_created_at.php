@@ -28,7 +28,7 @@ class AlterTaskResultsTableAddIndexOnCreatedAt extends TotemMigration
     {
         Schema::connection(TOTEM_DATABASE_CONNECTION)
             ->table(TOTEM_TABLE_PREFIX.'task_results', function (Blueprint $table) {
-                $table->dropIndex('task_results_created_at_index');
+                $table->dropIndex(TOTEM_TABLE_PREFIX.'task_results_created_at_index');
             });
     }
 }
