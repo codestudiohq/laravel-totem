@@ -7,6 +7,8 @@ use Studio\Totem\Database\TotemMigration;
 class AddIndexesForTasks extends TotemMigration
 {
     /**
+     * Run the migration
+     *
      * @return void
      */
     public function up()
