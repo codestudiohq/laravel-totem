@@ -28,7 +28,7 @@ class ExecuteTasksController extends Controller
      * @param $task
      * @return \Illuminate\Http\Response
      */
-    public function index($task)
+    public function index(Task $task)
     {
         $this->tasks->execute($task);
 
