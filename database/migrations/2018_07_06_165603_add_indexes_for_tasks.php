@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use Studio\Totem\Database\TotemMigration;
 
 class AddIndexesForTasks extends TotemMigration
@@ -50,7 +50,7 @@ class AddIndexesForTasks extends TotemMigration
     {
         Schema::connection(TOTEM_DATABASE_CONNECTION)
             ->table(TOTEM_TABLE_PREFIX.'task_results', function (Blueprint $table) {
-                $table->dropForeign('task_results_task_id_fk');
+                $table->dropForeign('task_id_fk');
             });
         Schema::connection(TOTEM_DATABASE_CONNECTION)
             ->table(TOTEM_TABLE_PREFIX.'task_results', function (Blueprint $table) {
