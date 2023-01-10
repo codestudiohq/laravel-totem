@@ -18,7 +18,7 @@ class Totem
      *
      * @var Closure
      */
-    public static Closure $authUsing;
+    public static ?Closure $authUsing = null;
 
     /**
      * Determine if the given request can access the Totem dashboard.
