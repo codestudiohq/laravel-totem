@@ -9,22 +9,24 @@ use Illuminate\Notifications\Messages\NexmoMessage;
 use Illuminate\Notifications\Messages\SlackAttachment;
 use Illuminate\Notifications\Messages\SlackMessage;
 use Illuminate\Notifications\Notification;
+use Illuminate\Queue\SerializesModels;
+use Studio\Totem\Result;
 
 class TaskCompleted extends Notification implements ShouldQueue
 {
     use Queueable;
 
     /**
-     * @var
+     * @var Result
      */
-    private $output;
+    private $result;
 
     /**
      * Create a new notification instance.
      */
-    public function __construct($output)
+    public function __construct($result)
     {
-        $this->output = $output;
+        $this->result = $result;
     }
 
     /**
@@ -61,7 +63,7 @@ class TaskCompleted extends Notification implements ShouldQueue
                     ->subject($notifiable->description)
                     ->greeting('Hi,')
                     ->line("{$notifiable->description} just finished running.")
-                    ->line($this->output);
+                    ->line($this->result->result);
     }
 
     /**
