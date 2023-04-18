@@ -228,6 +228,7 @@ return [
         'command_filter' => [],
         'whitelist' => true,
     ],
+    'should_register_schedule' => env('TOTEM_SHOULD_REGISTER_SCHEDULE', true),
     'database_connection' => env('TOTEM_DATABASE_CONNECTION'),
 
     'broadcasting' => [
