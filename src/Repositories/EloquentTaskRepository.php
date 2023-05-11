@@ -101,6 +101,8 @@ class EloquentTaskRepository implements TaskInterface
 
         Created::dispatch($task);
 
+        $this->taskHasChanged($task);
+
         return $task;
     }
 
@@ -120,6 +122,8 @@ class EloquentTaskRepository implements TaskInterface
         $task->fill(Arr::only($input, $task->getFillable()))->save();
 
         Updated::dispatch($task);
+
+        $this->taskHasChanged($task);
 
         return $task;
     }
@@ -142,6 +146,8 @@ class EloquentTaskRepository implements TaskInterface
 
         Deleted::dispatch();
 
+        $this->taskHasChanged($task);
+
         return true;
     }
 
@@ -159,6 +165,8 @@ class EloquentTaskRepository implements TaskInterface
 
         Activated::dispatch($task);
 
+        $this->taskHasChanged($task);
+
         return $task;
     }
 
@@ -175,6 +183,8 @@ class EloquentTaskRepository implements TaskInterface
         $task->fill(['is_active' => false])->save();
 
         Deactivated::dispatch($task);
+
+        $this->taskHasChanged($task);
 
         return $task;
     }
@@ -226,5 +236,12 @@ class EloquentTaskRepository implements TaskInterface
 
                 $this->update((array) $data, $task);
             });
+    }
+
+    private function taskHasChanged(Task $task)
+    {
+        Cache::forget('totem.tasks.all');
+        Cache::forget('totem.tasks.active');
+        Cache::forget('totem.task.' . $task->id);
     }
 }
