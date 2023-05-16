@@ -100,6 +100,15 @@ class TasksController extends Controller
         ]);
     }
 
+    public function clearCache(Task $task): RedirectResponse
+    {
+        $this->tasks->clearCache($task);
+
+        return redirect()
+            ->route('totem.task.view', $task)
+            ->with('success', trans('totem::messages.success.clear-cache'));
+    }
+
     /**
      * Show the form for editing the specified task.
      *

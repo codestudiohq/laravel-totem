@@ -227,4 +227,19 @@ class EloquentTaskRepository implements TaskInterface
                 $this->update((array) $data, $task);
             });
     }
+
+    /**
+     * Clear the task-specific cache and the search caches.
+     *
+     * @param  Task  $task
+     * @return void
+     */
+    public function clearCache(Task $task): void
+    {
+        // This code is here because BustCache doesn't always seem to work, hence why this code that clears the cache
+        // is separate from the code in BustCache.
+        Cache::forget('totem.task.'.$task->id);
+        Cache::forget('totem.tasks.all');
+        Cache::forget('totem.tasks.active');
+    }
 }

@@ -92,6 +92,7 @@
     <div class="uk-flex uk-flex-between uk-flex-middle">
         <span>
             <a href="{{ route('totem.task.edit', $task) }}" class="uk-button uk-button-primary uk-button-small">Edit</a>
+            <a href="{{ route('totem.task.clear-cache', $task) }}" class="uk-button uk-button-primary uk-button-small">Clear Cache</a>
             <form class="uk-display-inline" action="{{route('totem.task.delete', $task)}}" method="post">
                 {{ csrf_field() }}
                 {{ method_field('delete') }}

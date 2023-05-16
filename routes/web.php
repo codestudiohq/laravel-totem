@@ -20,6 +20,8 @@ Route::group(['prefix' => 'tasks'], function () {
 
     Route::get('{task}', 'TasksController@view')->name('totem.task.view');
 
+    Route::get('{task}/clear-cache', 'TasksController@clearCache')->name('totem.task.clear-cache');
+
     Route::get('{task}/edit', 'TasksController@edit')->name('totem.task.edit');
     Route::post('{task}/edit', 'TasksController@update');
 
