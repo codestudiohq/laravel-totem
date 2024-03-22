@@ -6,24 +6,29 @@
 @section('title')
     <div class="uk-flex uk-flex-between uk-flex-middle">
         <h4 class="uk-card-title uk-margin-remove">Tasks</h4>
-        {!! Form::open([
-            'id' => 'totem__search__form',
-            'url' => Request::fullUrl(),
-            'method' => 'GET',
-            'class' => 'uk-display-inline uk-search uk-search-default'
-        ]) !!}
-        <span uk-search-icon></span>
-        {!! Form::text('q', request('q'), ['class' => 'uk-search-input', 'placeholder' => 'Search...']) !!}
-        {!! Form::close() !!}
+        <form
+            accept-charset="UTF-8"
+            method="GET"
+            action="{{ request()->fullUrl() }}"
+            id="totem__search__form"
+            class="uk-display-inline uk-search uk-search-default">
+            <span uk-search-icon></span>
+            <input
+                value="{{ request('q') }}"
+                placeholder="Search..."
+                name="q"
+                type="text"
+                class="uk-search-input">
+        </form>
     </div>
 @stop
 @section('main-panel-content')
     <table class="uk-table uk-table-responsive" cellpadding="0" cellspacing="0" class="mb1">
         <thead>
             <tr>
-                <th>{!! Html::columnSort('Description', 'description') !!}</th>
-                <th>{!! Html::columnSort('Average Runtime', 'average_runtime') !!}</th>
-                <th>{!! Html::columnSort('Last Run', 'last_ran_at') !!}</th>
+                <th>{!! \Studio\Totem\Helpers\columnSort('Description', 'description') !!}</th>
+                <th>{!! \Studio\Totem\Helpers\columnSort('Average Runtime', 'average_runtime') !!}</th>
+                <th>{!! \Studio\Totem\Helpers\columnSort('Last Run', 'last_ran_at') !!}</th>
                 <th>Next Run</th>
                 <th class="uk-text-center">Execute</th>
             </tr>
