@@ -28,7 +28,7 @@ class PublishAssets extends Command
     public function handle()
     {
         $this->call('vendor:publish', [
-            '--tag'   => 'totem-assets',
+            '--tag' => 'totem-assets',
             '--force' => true,
         ]);
     }

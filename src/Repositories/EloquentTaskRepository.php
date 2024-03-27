@@ -148,7 +148,7 @@ class EloquentTaskRepository implements TaskInterface
     /**
      * Activate the given task.
      *
-     * @param $input
+     * @param  $input
      * @return Task
      */
     public function activate($input): Task
@@ -165,7 +165,7 @@ class EloquentTaskRepository implements TaskInterface
     /**
      * Deactivate the given task.
      *
-     * @param $id
+     * @param  $id
      * @return Task
      */
     public function deactivate($id): Task
@@ -204,7 +204,7 @@ class EloquentTaskRepository implements TaskInterface
     /**
      * Import tasks.
      *
-     * @param $input
+     * @param  $input
      * @return void
      */
     public function import($input): void

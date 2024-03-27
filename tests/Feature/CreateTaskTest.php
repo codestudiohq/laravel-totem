@@ -30,10 +30,10 @@ class CreateTaskTest extends TestCase
         $this->disableExceptionHandling()->signIn();
 
         $response = $this->post(route('totem.task.create'), [
-            'description'   => 'List All Scheduled Commands',
-            'command'       => 'Studio\Totem\Console\Commands\ListSchedule',
-            'type'          => 'cron',
-            'cron'          => '* * * * *',
+            'description' => 'List All Scheduled Commands',
+            'command' => 'Studio\Totem\Console\Commands\ListSchedule',
+            'type' => 'cron',
+            'cron' => '* * * * *',
         ]);
 
         $response->assertRedirect(route('totem.tasks.all'));
@@ -45,16 +45,16 @@ class CreateTaskTest extends TestCase
         $this->disableExceptionHandling()->signIn();
 
         $response = $this->post(route('totem.task.create'), [
-            'description'   => 'List All Scheduled Commands',
-            'command'       => 'Studio\Totem\Console\Commands\ListSchedule',
-            'type'          => 'frequency',
-            'frequencies'   => [
+            'description' => 'List All Scheduled Commands',
+            'command' => 'Studio\Totem\Console\Commands\ListSchedule',
+            'type' => 'frequency',
+            'frequencies' => [
                 [
-                    'interval'   => 'dailyAt',
-                    'label'      => 'Daily',
+                    'interval' => 'dailyAt',
+                    'label' => 'Daily',
                     'parameters' => [
                         [
-                            'name'  => 'at',
+                            'name' => 'at',
                             'value' => '22:30',
                         ],
                     ],

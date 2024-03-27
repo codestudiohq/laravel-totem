@@ -12,9 +12,9 @@ class TotemTaskFactory extends Factory
     public function definition()
     {
         return [
-            'description'  => $this->faker->sentence,
-            'command'      => 'Studio\Totem\Console\Commands\ListSchedule',
-            'expression'   => '* * * * *',
+            'description' => $this->faker->sentence,
+            'command' => 'Studio\Totem\Console\Commands\ListSchedule',
+            'expression' => '* * * * *',
         ];
     }
 }

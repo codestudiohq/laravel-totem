@@ -32,10 +32,10 @@ class EditTaskTest extends TestCase
         $this->disableExceptionHandling()->signIn();
         $task = Task::factory()->create();
         $response = $this->post(route('totem.task.edit', $task), [
-            'description'         => 'List All Scheduled Commands',
-            'command'             => 'Studio\Totem\Console\Commands\ListSchedule',
-            'type'                => 'cron',
-            'expression'          => '5 * * * *',
+            'description' => 'List All Scheduled Commands',
+            'command' => 'Studio\Totem\Console\Commands\ListSchedule',
+            'type' => 'cron',
+            'expression' => '5 * * * *',
         ]);
 
         $response->assertSessionHas('task');
