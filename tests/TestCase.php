@@ -2,9 +2,6 @@
 
 namespace Studio\Totem\Tests;
 
-use Collective\Html\FormFacade;
-use Collective\Html\HtmlFacade;
-use Collective\Html\HtmlServiceProvider;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Support\Facades\Auth;
 use Orchestra\Testbench\Exceptions\Handler;
@@ -47,25 +44,16 @@ class TestCase extends \Orchestra\Testbench\TestCase
     {
         $app['config']->set('database.default', 'testing');
         $app['config']->set('database.connections.testing', [
-            'driver'   => 'sqlite',
+            'driver' => 'sqlite',
             'database' => ':memory:',
-            'prefix'   => '',
+            'prefix' => '',
         ]);
-    }
-
-    protected function getPackageAliases($app)
-    {
-        return [
-            'Form' => FormFacade::class,
-            'Html' => HtmlFacade::class,
-        ];
     }
 
     protected function getPackageProviders($app)
     {
         return [
             TotemServiceProvider::class,
-            HtmlServiceProvider::class,
         ];
     }
 

@@ -55,7 +55,7 @@ class UpdateTaskResultsDurationType extends TotemMigration
             ->chunkById(100, function ($rows) use ($toFloat) {
                 foreach ($rows as $row) {
                     DB::connection(TOTEM_DATABASE_CONNECTION)
-                        ->table(TOTEM_TABLE_PREFIX)
+                        ->table(TOTEM_TABLE_PREFIX.'task_results')
                         ->where('id', $row->id)
                         ->update([
                             'duration' => $toFloat ? floatval($row->duration_old) : (string) $row->duration_old,
