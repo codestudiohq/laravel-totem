@@ -4,6 +4,21 @@ This project follows [Semantic Versioning](CONTRIBUTING.md).
 
 ---
 
+## v11.0.0 - 03/27/2024
+
+- Add Laravel 11.x Support
+- Update Change Log
+
+## v10.0.0 - 03/17/2023
+
+- Add Laravel 10.x Support
+- Update Change Log
+
+## v9.0.0 - 06/29/2022
+
+- Add Laravel 9.x Support
+- Update Change Log
+
 ## v8.0.0 - 10/30/2020
 
 - Add Laravel 8.x Support

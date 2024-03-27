@@ -20,7 +20,7 @@ trait FrontendSortable
         return $builder->when($sorted, function (Builder $query) use ($request) {
             $query->orderBy(
                 $request->input('sort_by'),
-                (($request->input('sort_direction', 'asc') == 'desc') ? 'desc' : 'asc')
+                ($request->input('sort_direction', 'asc') == 'desc') ? 'desc' : 'asc'
             );
         }, function (Builder $query) use ($defaultSort) {
             foreach ($defaultSort as $key => $direction) {

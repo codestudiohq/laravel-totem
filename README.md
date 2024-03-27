@@ -18,6 +18,8 @@ Manage your `Laravel Schedule` from a pretty dashboard. Schedule your `Laravel C
 
 | <span align="left">Laravel</span> | <span align="left">Totem</span> |
 | :-------------------------------- | ------------------------------: |
+| 11.x                              |                            11.x |
+| 10.x                              |                            10.x |
 | 9.x                               |                             9.x |
 | 8.x                               |                             8.x |
 | 7.x                               |                             7.x |

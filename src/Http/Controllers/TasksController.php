@@ -44,7 +44,7 @@ class TasksController extends Controller
                     'description',
                     'last_ran_at',
                     'average_runtime',
-                ], ['description'=>'asc'])
+                ], ['description' => 'asc'])
                 ->when(request('q'), function (Builder $query) {
                     $query->where('description', 'LIKE', '%'.request('q').'%');
                 })
@@ -65,10 +65,10 @@ class TasksController extends Controller
         });
 
         return view('totem::tasks.form', [
-            'task'          => new Task,
-            'commands'      => $commands,
-            'timezones'     => timezone_identifiers_list(),
-            'frequencies'   => Totem::frequencies(),
+            'task' => new Task,
+            'commands' => $commands,
+            'timezones' => timezone_identifiers_list(),
+            'frequencies' => Totem::frequencies(),
         ]);
     }
 
@@ -96,7 +96,7 @@ class TasksController extends Controller
     public function view(Task $task)
     {
         return view('totem::tasks.view', [
-            'task'  => $task,
+            'task' => $task,
         ]);
     }
 
@@ -113,10 +113,10 @@ class TasksController extends Controller
         });
 
         return view('totem::tasks.form', [
-            'task'          => $task,
-            'commands'      => $commands,
-            'timezones'     => timezone_identifiers_list(),
-            'frequencies'   => Totem::frequencies(),
+            'task' => $task,
+            'commands' => $commands,
+            'timezones' => timezone_identifiers_list(),
+            'frequencies' => Totem::frequencies(),
         ]);
     }
 
@@ -124,7 +124,7 @@ class TasksController extends Controller
      * Update the specified task in storage.
      *
      * @param  TaskRequest  $request
-     * @param $task
+     * @param  $task
      * @return RedirectResponse
      */
     public function update(TaskRequest $request, Task $task): RedirectResponse

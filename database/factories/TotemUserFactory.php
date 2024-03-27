@@ -15,9 +15,9 @@ class TotemUserFactory extends Factory
         static $password;
 
         return [
-            'name'           => $this->faker->name,
-            'email'          => $this->faker->unique()->safeEmail,
-            'password'       => $password ?: $password = bcrypt('secret'),
+            'name' => $this->faker->name,
+            'email' => $this->faker->unique()->safeEmail,
+            'password' => $password ?: $password = bcrypt('secret'),
             'remember_token' => Str::random(10),
         ];
     }

@@ -9,7 +9,7 @@ class Deleting extends Event
     /**
      * Deleting constructor.
      *
-     * @param $taskId
+     * @param  $taskId
      */
     public function __construct($taskId)
     {

@@ -12,7 +12,7 @@ class Executed extends BroadcastingEvent
      *
      * @param  Task  $task
      * @param  string|float|int  $started
-     * @param $output
+     * @param  $output
      */
     public function __construct(Task $task, $started, $output)
     {
@@ -21,8 +21,8 @@ class Executed extends BroadcastingEvent
         $time_elapsed_secs = microtime(true) - $started;
 
         $task->results()->create([
-            'duration'  => $time_elapsed_secs * 1000,
-            'result'    => $output,
+            'duration' => $time_elapsed_secs * 1000,
+            'result' => $output,
         ]);
 
         $task->notify(new TaskCompleted($output));

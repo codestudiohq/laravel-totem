@@ -42,6 +42,6 @@ class ExportTasksController extends Controller
             ->streamDownload(function () {
                 echo $this->tasks->findAll()->toJson();
             }, 'tasks.json',
-            $headers);
+                $headers);
     }
 }

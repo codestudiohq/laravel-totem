@@ -39,9 +39,9 @@ class ImportRequest extends FormRequest
     public function messages()
     {
         return [
-            'tasks.required'    => 'Please select a file to import',
-            'tasks.file'    => 'Please select a file to import',
-            'tasks.json_file'    => 'Please select a json file',
+            'tasks.required' => 'Please select a file to import',
+            'tasks.file' => 'Please select a file to import',
+            'tasks.json_file' => 'Please select a json file',
             'content' => 'File does not contain valid json',
         ];
     }

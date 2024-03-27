@@ -25,7 +25,7 @@ class ExecuteTasksController extends Controller
     /**
      * Execute a specific task.
      *
-     * @param $task
+     * @param  $task
      * @return \Illuminate\Http\Response
      */
     public function index($task)

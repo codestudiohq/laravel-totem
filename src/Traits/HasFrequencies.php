@@ -8,10 +8,11 @@ use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Arr;
-use function json_decode;
-use function request;
 use Studio\Totem\Frequency;
 use Studio\Totem\Task;
+
+use function json_decode;
+use function request;
 
 trait HasFrequencies
 {
